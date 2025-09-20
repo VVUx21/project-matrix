@@ -1,0 +1,11 @@
+.ReactCollapse--collapse {
+    transition: height 300ms;
+  }
+  .sub-bottom{
+    border-top:none;
+  }
+  .sub-top{
+    border-bottom:none;
+  }
+  
+ 

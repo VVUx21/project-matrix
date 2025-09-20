@@ -8,6 +8,15 @@ importers:
 
   .:
     dependencies:
+      appwrite:
+        specifier: ^20.0.0
+        version: 20.0.0
+      framer-motion:
+        specifier: ^12.23.16
+        version: 12.23.16(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      motion:
+        specifier: ^12.23.16
+        version: 12.23.16(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next:
         specifier: 15.5.3
         version: 15.5.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -17,6 +26,9 @@ importers:
       react-dom:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
+      react-hot-toast:
+        specifier: ^2.6.0
+        version: 2.6.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4
@@ -348,6 +360,9 @@ packages:
   '@types/react@19.1.13':
     resolution: {integrity: sha512-hHkbU/eoO3EG5/MZkuFSKmYqPbSVk5byPFa3e7y/8TybHiLMACgI8seVYlicwk7H5K/rI2px9xrQp/C+AUDTiQ==}
 
+  appwrite@20.0.0:
+    resolution: {integrity: sha512-1uUWLCHT2ByJORz5+NORNk74HW02csg8Jm6lUKUog2DU9WnepqzbLnlD7BC22+XVo5tFp29dreinJk/doVTeTw==}
+
   caniuse-lite@1.0.30001743:
     resolution: {integrity: sha512-e6Ojr7RV14Un7dz6ASD0aZDmQPT/A+eZU+nuTNfjqmRrmkmQlnTNWH0SKmqagx9PeW87UVqapSurtAXifmtdmw==}
 
@@ -368,6 +383,25 @@ packages:
   enhanced-resolve@5.18.3:
     resolution: {integrity: sha512-d4lC8xfavMeBjzGr2vECC3fsGXziXZQyJxD868h2M/mBI3PwAuODxAkLkq5HYuvrPYcUtiLzsTo8U3PgX3Ocww==}
     engines: {node: '>=10.13.0'}
+
+  framer-motion@12.23.16:
+    resolution: {integrity: sha512-N81A8hiHqVsexOzI3wzkibyLURW1nEJsZaRuctPhG4AdbbciYu+bKJq9I2lQFzAO4Bx3h4swI6pBbF/Hu7f7BA==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
+  goober@2.1.16:
+    resolution: {integrity: sha512-erjk19y1U33+XAMe1VTvIONHYoSqE4iS7BYUZfHaqeohLmnC0FdxEh7rQU+6MZ4OajItzjZFSRtVANrQwNq6/g==}
+    peerDependencies:
+      csstype: ^3.0.10
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
@@ -456,6 +490,26 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  motion-dom@12.23.12:
+    resolution: {integrity: sha512-RcR4fvMCTESQBD/uKQe49D5RUeDOokkGRmz4ceaJKDBgHYtZtntC/s2vLvY38gqGaytinij/yi3hMcWVcEF5Kw==}
+
+  motion-utils@12.23.6:
+    resolution: {integrity: sha512-eAWoPgr4eFEOFfg2WjIsMoqJTW6Z8MTUCgn/GZ3VRpClWBdnbjryiA3ZSNLyxCTmCQx4RmYX6jX1iWHbenUPNQ==}
+
+  motion@12.23.16:
+    resolution: {integrity: sha512-8vVuxZgcfGZm4kgSqFgGrhQ+6034y4UuEsqCX8s7UYeoQ+NO3R9LV5AyDlVr2Mb7xvS7ZM5s/XkTurWbWQ+UHA==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   nanoid@3.3.11:
     resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -502,6 +556,13 @@ packages:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
     peerDependencies:
       react: ^19.1.0
+
+  react-hot-toast@2.6.0:
+    resolution: {integrity: sha512-bH+2EBMZ4sdyou/DPrfgIouFpcRLCJ+HoCA32UoAYHn6T3Ur5yfcDCeSr5mwldl6pFOsiocmrXMuoCJ1vV8bWg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
 
   react@19.1.0:
     resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
@@ -797,6 +858,8 @@ snapshots:
     dependencies:
       csstype: 3.1.3
 
+  appwrite@20.0.0: {}
+
   caniuse-lite@1.0.30001743: {}
 
   chownr@3.0.0: {}
@@ -811,6 +874,19 @@ snapshots:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.2.3
+
+  framer-motion@12.23.16(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      motion-dom: 12.23.12
+      motion-utils: 12.23.6
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+
+  goober@2.1.16(csstype@3.1.3):
+    dependencies:
+      csstype: 3.1.3
 
   graceful-fs@4.2.11: {}
 
@@ -873,6 +949,20 @@ snapshots:
 
   mkdirp@3.0.1: {}
 
+  motion-dom@12.23.12:
+    dependencies:
+      motion-utils: 12.23.6
+
+  motion-utils@12.23.6: {}
+
+  motion@12.23.16(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      framer-motion: 12.23.16(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+
   nanoid@3.3.11: {}
 
   next@15.5.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
@@ -918,6 +1008,13 @@ snapshots:
     dependencies:
       react: 19.1.0
       scheduler: 0.26.0
+
+  react-hot-toast@2.6.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      csstype: 3.1.3
+      goober: 2.1.16(csstype@3.1.3)
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
 
   react@19.1.0: {}
 
