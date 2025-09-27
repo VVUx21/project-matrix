@@ -5,15 +5,19 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
-    "start": "next start"
+    "start": "next start",
+    "setup-db": "node setup-database.js"
   },
   "dependencies": {
     "appwrite": "^20.0.0",
     "framer-motion": "^12.23.16",
+    "lucide-react": "^0.544.0",
     "motion": "^12.23.16",
     "next": "15.5.3",
+    "node-appwrite": "^11.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-hook-form": "^7.63.0",
     "react-hot-toast": "^2.6.0"
   },
   "devDependencies": {
