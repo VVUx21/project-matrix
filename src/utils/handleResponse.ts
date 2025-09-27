@@ -1,7 +1,6 @@
-export function handleResponse(response: { status: string; data: any }): {
-  status: string;
-  data: any;
-} {
+export function handleResponse<T extends Response>(
+  response: T
+): { status: "success"; data: T } {
   return {
     status: "success",
     data: response,
