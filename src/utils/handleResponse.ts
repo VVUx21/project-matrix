@@ -1,4 +1,4 @@
-export function handleResponse(response: any) {
+export function handleResponse(response) {
   return {
     status: "success",
     data: response,
