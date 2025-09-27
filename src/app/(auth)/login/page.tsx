@@ -9,11 +9,25 @@ import Bats from "@/components/login/Bats";
 import { formFields } from "@/config/auth";
 import { useAuth } from "@/contexts/auth-context";
 
+interface Field {
+  name: string;
+  type: string;
+  placeholder: string;
+  required?: boolean;
+  showAlways?: boolean;
+  // add other properties if needed
+}
+interface FormData {
+  [key: string]: string;
+  email: string;
+  password: string;
+  name: string;
+}
 const LoginPage = () => {
   const { user, login, createAccount, error, loading } = useAuth();
   const router = useRouter();
   const [isLogin, setIsLogin] = useState(true);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     email: "",
     password: "",
     name: "",
@@ -25,7 +39,7 @@ const LoginPage = () => {
     }
   }, [user]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const { email, password, name } = formData;
@@ -42,14 +56,16 @@ const LoginPage = () => {
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const renderFormField = (field, index) => {
+  const renderFormField = (field: Field, index: number) => {
     if (!field.showAlways && isLogin) return null;
 
     return (
