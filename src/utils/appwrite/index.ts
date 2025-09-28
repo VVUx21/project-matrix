@@ -42,6 +42,7 @@ export async function getUser(userId: string) {
   try {
     const response = await getDocumentByQuery(USERS_COLLECTION_ID, [
       Query.equal("userId", userId),
+      Query.orderDesc("$createdAt"), // Most recent first
     ]);
 
     return handleResponse(response);
@@ -92,6 +93,7 @@ export async function getUserPaymentStatus(userId: string) {
     const response = await getDocumentByQuery(PAYMENTS_COLLECTION_ID!, [
       Query.equal("userId", userId),
       Query.equal("state", "COMPLETED"),
+      Query.orderDesc("$createdAt"), // Most recent payment first
     ]);
     return handleResponse(response);
   } catch (error) {
@@ -103,9 +105,11 @@ export async function getAllUsersAndPayments() {
   try {
     const users = await getDocumentByQuery(USERS_COLLECTION_ID, [
       Query.limit(2000),
+      Query.orderDesc("$createdAt"), // Most recent registrations first
     ]);
     const payments = await getDocumentByQuery(PAYMENTS_COLLECTION_ID, [
       Query.limit(2000),
+      Query.orderDesc("$createdAt"), // Most recent payments first
     ]);
 
     return handleResponse({

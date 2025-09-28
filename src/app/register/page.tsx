@@ -113,7 +113,7 @@ const Registration: React.FC = () => {
     }
 
     try {
-      userDetails.referralCode = userDetails.referralCode || "NU25";
+      userDetails.referralCode = userDetails.referralCode || "INNO25";
       const result = await registerUser(userDetails, user.id);
 
       if (result?.status === "error") {
@@ -178,7 +178,7 @@ const Registration: React.FC = () => {
           onClick={handleStartRePayment}
           className="flex items-center justify-center h-full font-Spirits w-fit px-5 py-3 text-xl rounded-lg bg-[#003955] text-white font-semibold transition-all "
         >
-          Complete Payment
+          Complete Payment {':)'}
         </button>
       );
     }
