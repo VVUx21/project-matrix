@@ -11,7 +11,7 @@ const REDIRECT_URL = process.env.PAYMENT_REDIRECT_URI;
 export async function POST(request: NextRequest) {
     const { name, mobileNumber, userId } = await request.json();
     const orderId = uuidv4();
-    const amount = 999;
+    const amount = 999; //hardcoded amt , can be changed later if needed...
 
     const paymentPayload = {
         merchantId: MERCHANT_ID,

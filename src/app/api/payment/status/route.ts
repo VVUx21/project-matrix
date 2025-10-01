@@ -46,7 +46,12 @@ export async function POST(request: NextRequest) {
         });
 
         if (dbUpdate?.status == "error") {
+            // added this condition, not chcked yet
             console.error("Error saving payment details to APPWRITE ", dbUpdate);
+            const failedUrl = new URL("/payment/failed", CLIENT_URL);
+            failedUrl.searchParams.set("details", "unableToSave");
+            failedUrl.searchParams.set("error", "true");
+            return NextResponse.redirect(failedUrl.toString(), { status: 303 });
         }
 
         // Handle success case

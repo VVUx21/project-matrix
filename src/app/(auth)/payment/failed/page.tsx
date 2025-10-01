@@ -23,20 +23,20 @@ function PaymentFailedContent() {
     }
 
     return (
-        <div className="bg-reg min-h-screen flex items-center justify-center">
-            <div className="flex flex-col items-center max-w-lg">
-                <h1 className="text-2xl font-bold font-Spirits">
+        <div className="bg-black min-h-screen flex items-center justify-center">
+            <div className="flex flex-col items-center max-w-lg text-white">
+                <h1 className="text-2xl font-bold">
                     Payment Failed
                 </h1>
                 {ERR_DETAILS.find((err) => err.id === details) && (
-                    <p className="text-xl font-Spirits text-center mt-4">
+                    <p className="text-xl text-center mt-4">
                         {ERR_DETAILS.find((err) => err.id === details)?.message}
                     </p>
                 )}
                 <Link
                     className="flex items-center px-5 py-3 text-white font-semibold 
             bg-[#003955]
-          rounded-lg shadow-md hover:shadow-lg transform transition-transform duration-200 hover:scale-105 font-Spirits mt-10"
+          rounded-lg shadow-md hover:shadow-lg transform transition-transform duration-200 hover:scale-105 mt-10"
                     href="/"
                 >
                     Go To Home
@@ -48,7 +48,7 @@ function PaymentFailedContent() {
 
 export default function Page() {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="text-3xl">Loading...</div>}>
             <PaymentFailedContent />
         </Suspense>
     );
