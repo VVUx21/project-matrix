@@ -8,16 +8,16 @@ const MERCHANT_ID = process.env.MERCHANT_ID;
 const MERCHANT_BASE_URL = process.env.MERCHANT_BASE_URL;
 const REDIRECT_URL = process.env.PAYMENT_REDIRECT_URI;
 
-// Validate required environment variables (skip in development if not set)
-if (!MERCHANT_KEY || !MERCHANT_ID || !MERCHANT_BASE_URL || !REDIRECT_URL) {
-    console.warn('⚠️ Payment environment variables not configured. Payment functionality will not work.');
-    // Only throw error in production
-    if (process.env.NODE_ENV === 'production') {
-        throw new Error('Missing required payment environment variables. Please check your .env.local file.');
-    }
-}
-
 export async function POST(request: NextRequest) {
+    // Validate required environment variables at runtime
+    if (!MERCHANT_KEY || !MERCHANT_ID || !MERCHANT_BASE_URL || !REDIRECT_URL) {
+        console.warn('⚠️ Payment environment variables not configured. Payment functionality will not work.');
+        return NextResponse.json(
+            { error: 'Payment service not configured. Please contact administrator.' },
+            { status: 503 }
+        );
+    }
+
     const { name, mobileNumber, userId } = await request.json();
     const orderId = uuidv4();
     const amount = 999; //hardcoded amt , can be changed later if needed...

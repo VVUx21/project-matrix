@@ -9,16 +9,16 @@ const MERCHANT_ID = process.env.MERCHANT_ID;
 const MERCHANT_STATUS_URL = process.env.MERCHANT_STATUS_URL;
 const CLIENT_URL = process.env.CLIENT_URL;
 
-// Validate required environment variables (skip in development if not set)
-if (!MERCHANT_KEY || !MERCHANT_ID || !MERCHANT_STATUS_URL || !CLIENT_URL) {
-    console.warn('⚠️ Payment environment variables not configured. Payment functionality will not work.');
-    // Only throw error in production
-    if (process.env.NODE_ENV === 'production') {
-        throw new Error('Missing required payment environment variables. Please check your .env.local file.');
-    }
-}
-
 export async function POST(request: NextRequest) {
+    // Validate required environment variables at runtime
+    if (!MERCHANT_KEY || !MERCHANT_ID || !MERCHANT_STATUS_URL || !CLIENT_URL) {
+        console.warn('⚠️ Payment environment variables not configured. Payment functionality will not work.');
+        return NextResponse.json(
+            { error: 'Payment service not configured. Please contact administrator.' },
+            { status: 503 }
+        );
+    }
+
     const { searchParams } = new URL(request.url);
     const merchantTransactionId = searchParams.get("id");
     const userId = searchParams.get("userId");
