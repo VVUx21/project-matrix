@@ -8,9 +8,13 @@ const MERCHANT_ID = process.env.MERCHANT_ID;
 const MERCHANT_BASE_URL = process.env.MERCHANT_BASE_URL;
 const REDIRECT_URL = process.env.PAYMENT_REDIRECT_URI;
 
-// Validate required environment variables
+// Validate required environment variables (skip in development if not set)
 if (!MERCHANT_KEY || !MERCHANT_ID || !MERCHANT_BASE_URL || !REDIRECT_URL) {
-    throw new Error('Missing required payment environment variables. Please check your .env.local file.');
+    console.warn('⚠️ Payment environment variables not configured. Payment functionality will not work.');
+    // Only throw error in production
+    if (process.env.NODE_ENV === 'production') {
+        throw new Error('Missing required payment environment variables. Please check your .env.local file.');
+    }
 }
 
 export async function POST(request: NextRequest) {
