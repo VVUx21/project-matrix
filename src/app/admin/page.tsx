@@ -2,6 +2,7 @@
 import { DataTable } from "@/components/DataTable/DataTable";
 import { useAuth } from "@/contexts/auth-context";
 import { RegistrationData } from "@/types/registration";
+import { AdminData, ApiResponse, PaymentDocument, PaymentMap, UserDocument } from "@/types/api";
 import { getAllUsersAndPayments } from "@/utils/appwrite";
 import { createColumnHelper } from "@tanstack/react-table";
 import { format } from "date-fns";
@@ -79,7 +80,7 @@ export default function Page() {
     ];
 
     async function getData() {
-        const users = await getAllUsersAndPayments();
+        const users: ApiResponse<AdminData> = await getAllUsersAndPayments();
         if (users?.status === "error") return;
         const { userWithPayment, userWithoutPayment } = processUsersData(
             users?.data
@@ -93,18 +94,20 @@ export default function Page() {
         getData();
     }, []);
 
-    function processUsersData(data) {
+    function processUsersData(data: AdminData | undefined) {
+        if (!data) return { userWithPayment: [], userWithoutPayment: [] };
+        
         const { users, payments } = data;
 
         const userWithPayment: RegistrationData[] = [];
         const userWithoutPayment: Partial<RegistrationData>[] = [];
 
-        const paymentsMap = payments.reduce((map, payment) => {
+        const paymentsMap: PaymentMap = payments.reduce((map: PaymentMap, payment: any) => {
             map[payment.userId] = payment;
             return map;
-        }, {});
+        }, {} as PaymentMap);
 
-        users.forEach((user, index) => {
+        users.forEach((user: any, index: number) => {
             const payment = paymentsMap[user.userId];
 
             if (payment) {
@@ -151,9 +154,9 @@ export default function Page() {
 
         currentData.forEach((row) => {
             const values = headers.map((header) => {
-                const value = row[header];
+                const value = (row as Record<string, unknown>)[header];
                 if (header === "date" && value) {
-                    return format(new Date(value), "MMM d, yyyy");
+                    return format(new Date(value as string), "MMM d, yyyy");
                 }
                 return value || "";
             });
@@ -210,14 +213,12 @@ export default function Page() {
                 </div>
                 <div className="p-1 md:p-6">
                     <DataTable
-                        // @ts-expect-error pata nahi
                         data={
                             showUnpaidUsers
-                                ? userWithoutPayment
+                                ? (userWithoutPayment as RegistrationData[])
                                 : userWithPayment
                         }
-                        // @ts-expect-error pata nahi
-                        columns={columns}
+                        columns={columns as any}
                     />
                 </div>
             </div>

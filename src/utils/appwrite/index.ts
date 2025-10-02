@@ -7,6 +7,7 @@ import {
   updateDocument,
 } from "@/lib/appwrite";
 import { PaymentDetails, UserInput } from "@/types/appwrite";
+import { AdminData, ApiResponse, DocumentListResponse } from "@/types/api";
 
 import { handleError } from "../handleError";
 import { handleResponse } from "../handleResponse";
@@ -38,14 +39,14 @@ export async function registerUser(userDetails: UserInput, userId: string) {
   }
 }
 
-export async function getUser(userId: string) {
+export async function getUser(userId: string): Promise<ApiResponse<DocumentListResponse>> {
   try {
     const response = await getDocumentByQuery(USERS_COLLECTION_ID, [
       Query.equal("userId", userId),
       Query.orderDesc("$createdAt"), // Most recent first
     ]);
 
-    return handleResponse(response);
+    return handleResponse(response as DocumentListResponse);
   } catch (error) {
     return handleError(error);
   }
@@ -88,20 +89,20 @@ export async function handleUserPayment(paymentDetails: PaymentDetails) {
   }
 }
 
-export async function getUserPaymentStatus(userId: string) {
+export async function getUserPaymentStatus(userId: string): Promise<ApiResponse<DocumentListResponse>> {
   try {
     const response = await getDocumentByQuery(PAYMENTS_COLLECTION_ID!, [
       Query.equal("userId", userId),
       Query.equal("state", "COMPLETED"),
       Query.orderDesc("$createdAt"), // Most recent payment first
     ]);
-    return handleResponse(response);
+    return handleResponse(response as DocumentListResponse);
   } catch (error) {
     return handleError(error);
   }
 }
 
-export async function getAllUsersAndPayments() {
+export async function getAllUsersAndPayments(): Promise<ApiResponse<AdminData>> {
   try {
     const users = await getDocumentByQuery(USERS_COLLECTION_ID, [
       Query.limit(2000),

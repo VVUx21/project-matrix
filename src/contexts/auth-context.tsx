@@ -59,7 +59,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
       await setUserFromAccount();
     } catch (err) {
       const message = handleError(err, "Failed to fetch user session.");
-      setError(message?.data || "");
+      setError(message?.message || "");
       setUser(null);
     } finally {
       setLoading(false);
@@ -74,7 +74,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
       setError("");
     } catch (err) {
       const message = handleError(err, "Invalid email or password.");
-      setError(message?.data || "");
+      setError(message?.message || "");
     } finally {
       setLoading(false);
     }
@@ -96,7 +96,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
         err,
         "Registration failed. Please check your details."
       );
-      setError(message?.data || "");
+      setError(message?.message || "");
       return false;
     } finally {
       setLoading(false);
@@ -111,7 +111,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
       return true;
     } catch (err) {
       const message = handleError(err, "Failed to log out.");
-      setError(message?.data || "");
+      setError(message?.message || "");
       return false;
     }
   };

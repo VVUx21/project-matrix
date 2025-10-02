@@ -6,6 +6,7 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 
 import { useAuth } from "@/contexts/auth-context";
+import { ApiResponse, DocumentListResponse } from "@/types/api";
 import { getUserPaymentStatus } from "@/utils/appwrite";
 
 export default function PaymentStatusPage() {
@@ -24,13 +25,14 @@ export default function PaymentStatusPage() {
             }
             setLoading(true);
             try {
-                const response = await getUserPaymentStatus(user.id);
+                const response = await getUserPaymentStatus(user.id) as ApiResponse<DocumentListResponse>;
 
                 if (response?.status === "error") {
                     throw new Error("Failed to fetch payment status");
                 }
 
-                const hasPaid = Boolean(response?.data?.documents?.length);
+                const documents = response?.data?.documents || [];
+                const hasPaid = Boolean(documents.length);
                 setPaymentStatus({
                     hasPaid,
                     loading: false,

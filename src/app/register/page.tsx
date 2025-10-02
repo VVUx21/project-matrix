@@ -9,6 +9,7 @@ import Loader from "@/components/loader/loader";
 import { formFields, notAllowedInstitutes } from "@/config/register";
 import { useAuth } from "@/contexts/auth-context";
 import { UserInput } from "@/types/appwrite";
+import { ApiResponse, DocumentListResponse } from "@/types/api";
 import { getUser, getUserPaymentStatus, registerUser } from "@/utils/appwrite";
 
 const Registration: React.FC = () => {
@@ -37,8 +38,8 @@ const Registration: React.FC = () => {
     const getUserStatus = async () => {
       try {
         const [userRegStatus, userPaymentStatus] = await Promise.all([
-          getUser(user.id),
-          getUserPaymentStatus(user.id),
+          getUser(user.id) as Promise<ApiResponse<DocumentListResponse>>,
+          getUserPaymentStatus(user.id) as Promise<ApiResponse<DocumentListResponse>>,
         ]);
 
         if (
@@ -48,10 +49,13 @@ const Registration: React.FC = () => {
           throw new Error("Failed to fetch user status");
         }
 
-        setExistingUser(userRegStatus?.data?.documents?.[0] || null);
+        const userDocuments = userRegStatus?.data?.documents || [];
+        const paymentDocuments = userPaymentStatus?.data?.documents || [];
+
+        setExistingUser((userDocuments[0] as unknown as UserInput) || null);
         setUserStatus({
-          isRegistered: userRegStatus?.data?.documents?.length > 0,
-          hasPaid: userPaymentStatus?.data?.documents?.length > 0,
+          isRegistered: userDocuments.length > 0,
+          hasPaid: paymentDocuments.length > 0,
         });
       } catch (error) {
         toast.error("Failed to fetch user status. Please try again later.");
@@ -117,7 +121,7 @@ const Registration: React.FC = () => {
       const result = await registerUser(userDetails, user.id);
 
       if (result?.status === "error") {
-        toast.error(result?.data || "Registration failed");
+        toast.error(String(result?.data) || "Registration failed");
         return;
       }
 
