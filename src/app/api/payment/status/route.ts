@@ -9,6 +9,11 @@ const MERCHANT_ID = process.env.MERCHANT_ID;
 const MERCHANT_STATUS_URL = process.env.MERCHANT_STATUS_URL;
 const CLIENT_URL = process.env.CLIENT_URL;
 
+// Validate required environment variables
+if (!MERCHANT_KEY || !MERCHANT_ID || !MERCHANT_STATUS_URL || !CLIENT_URL) {
+    throw new Error('Missing required payment environment variables. Please check your .env.local file.');
+}
+
 export async function POST(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const merchantTransactionId = searchParams.get("id");
