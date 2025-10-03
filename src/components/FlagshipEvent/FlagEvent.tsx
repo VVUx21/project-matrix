@@ -167,7 +167,7 @@ const FlagEvent = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h1
-            className="text-white  font-semibold uppercase text-[40px] md:text-[96px] leading-normal text-shadow-[0_0_10px_#D9D9D9] "
+            className="text-white  font-semibold uppercase text-[40px] md:text-[90px] leading-normal text-shadow-[0_0_10px_#D9D9D9] "
             whileHover={{
               scale: 1.05,
               textShadow: "0 0 20px #D9D9D9",
@@ -374,8 +374,8 @@ const FlagEvent = () => {
         </div>
       </div>
 
-      {/* Event Details Section */}
-      <div className=" relative overflow-hidden pt-2 pb-24">
+  {/* Event Details Section */}
+  <div className=" relative overflow-visible pt-2 pb-24">
         {/* Desktop Layout (1024px and above) - Full Description */}
         <div className="hidden lg:block">
           <div className="max-w-7xl mx-auto px-8 flex items-start gap-16">
@@ -658,14 +658,19 @@ const FlagEvent = () => {
           </div>
         </div>
 
-        <div className="absolute hidden lg:block lg:top-[250px] -left-10 w-[620px] opacity-40 h-[320px] z-0">
-          <Image
-            src={fish.src}
-            alt={fish.alt}
-            width={fish.width}
-            height={fish.height}
-            className="w-full h-full object-cover aspect-[623/362] mix-blend-lighten rounded-full"
-          />
+        <div className="absolute hidden lg:block lg:top-[30px] -left-10 w-[200px] h-[360px] z-0">
+          <motion.div
+            className="pointer-events-none hidden md:block select-none absolute left-[0vw] md:left-[2vw] lg:left-[1.5vw] bottom-0 z-20 w-[25vw] h-[55vh]"
+            animate={{ y: [0, -20, 0], rotate: [0, 2, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Image
+              src={fish.src}
+              alt={fish.alt}
+              width={fish.width}
+              height={fish.height}
+            />
+          </motion.div>
         </div>
         <div className="absolute top-1/2 right-1/3 w-4 h-4 bg-pink-400/20 rounded-full" />
       </div>
