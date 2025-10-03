@@ -171,7 +171,7 @@ const FlagEvent = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h1
-            className="text-white  font-semibold uppercase text-[40px] md:text-[90px] leading-normal text-shadow-[0_0_10px_#D9D9D9] "
+            className="text-white  font-semibold uppercase text-[35px] md:text-[90px] leading-normal text-shadow-[0_0_10px_#D9D9D9] "
             whileHover={{
               scale: 1.05,
               textShadow: "0 0 20px #D9D9D9",
@@ -378,11 +378,11 @@ const FlagEvent = () => {
         </div>
       </div>
 
-  {/* Event Details Section */}
-  <div className=" relative overflow-visible pt-2 pb-24">
+      {/* Event Details Section */}
+      <div className=" relative overflow-visible pt-2 pb-24">
         {/* Desktop Layout (1024px and above) - Full Description */}
         <div className="hidden lg:block">
-          <div className="max-w-7xl mx-auto px-8 flex items-start gap-16">
+          <div className="relative z-10 max-w-7xl mx-auto px-8 flex items-start gap-16">
             {/* Event Description */}
             <motion.div
               className="flex-1 "
@@ -473,7 +473,7 @@ const FlagEvent = () => {
 
         {/* Medium Layout (640px - 1024px) - Short Description in Row */}
         <div className="hidden sm:block lg:hidden">
-          <div className="max-w-6xl mx-auto px-6 flex items-start gap-8">
+          <div className="relative z-10 max-w-6xl mx-auto px-6 flex items-start gap-8">
             {/* Event Description */}
             <motion.div
               className="flex-1"
@@ -564,7 +564,7 @@ const FlagEvent = () => {
 
         {/* Mobile Layout (below 640px) - Column Layout */}
         <div className="sm:hidden">
-          <div className="max-w-7xl mx-auto px-8 flex flex-col items-center gap-8">
+          <div className="relative z-10 max-w-7xl mx-auto px-8 flex flex-col items-center gap-8">
             {/* Event Image First */}
             <motion.div
               className="flex-shrink-0"
@@ -662,17 +662,18 @@ const FlagEvent = () => {
           </div>
         </div>
 
-        <div className="absolute hidden lg:block lg:top-[30px] -left-10 w-[200px] h-[360px] z-0">
+        <div className="absolute top-[10px] sm:top-[20px] lg:top-[30px] left-0 sm:-left-6 lg:-left-10 w-[55vw] sm:w-[260px] lg:w-[200px] h-[35vh] sm:h-[340px] lg:h-[360px] z-0">
           <motion.div
-            className="pointer-events-none hidden md:block select-none absolute left-[0vw] md:left-[2vw] lg:left-[1.5vw] bottom-0 z-20 w-[25vw] h-[55vh]"
-            animate={{ y: [0, -20, 0], rotate: [0, 2, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="pointer-events-none select-none absolute left-[2vw] sm:left-[1vw] lg:left-[1.5vw] bottom-0 w-[60vw] sm:w-[40vw] lg:w-[25vw] h-[40vh] sm:h-[50vh] lg:h-[55vh]"
+            animate={{ y: [0, -30, 0], rotate: [0, 2, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
             <Image
               src={fish.src}
               alt={fish.alt}
               width={fish.width}
               height={fish.height}
+              className="w-full h-full object-contain"
             />
           </motion.div>
         </div>
