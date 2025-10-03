@@ -148,7 +148,7 @@ const MainEvent = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#4E00FB] to-[#020006]">
+    <div>
       <div className="  relative overflow-hidden">
         <div className="absolute -top-40 inset-0 z-0">
           <Image
