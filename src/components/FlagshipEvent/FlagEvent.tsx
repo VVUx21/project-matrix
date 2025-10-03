@@ -662,7 +662,7 @@ const FlagEvent = () => {
           </div>
         </div>
 
-        <div className="absolute top-[10px] sm:top-[20px] lg:top-[30px] left-0 sm:-left-6 lg:-left-10 w-[55vw] sm:w-[260px] lg:w-[200px] h-[35vh] sm:h-[340px] lg:h-[360px] z-0">
+        <div className="absolute top-[500px] sm:top-[20px] lg:top-[30px] left-0 sm:-left-6 lg:-left-10 w-[55vw] sm:w-[260px] lg:w-[200px] h-[35vh] sm:h-[340px] lg:h-[360px] z-0">
           <motion.div
             className="pointer-events-none select-none absolute left-[2vw] sm:left-[1vw] lg:left-[1.5vw] bottom-0 w-[60vw] sm:w-[40vw] lg:w-[25vw] h-[40vh] sm:h-[50vh] lg:h-[55vh]"
             animate={{ y: [0, -30, 0], rotate: [0, 2, 0] }}
