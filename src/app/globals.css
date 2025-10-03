@@ -120,3 +120,15 @@
   }
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-100px) rotate(0deg);
+  }
+}
+
+.jellyfish-bounce {
+  animation: bounce 10s ease-in-out infinite;
+}
