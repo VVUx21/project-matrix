@@ -40,17 +40,22 @@ export default function Footer() {
 
   return (
     <footer
-      className={`relative w-full text-white ${neue.className}`}
+      className={`relative w-full overflow-hidden text-white ${neue.className}`}
       style={{
-        background:
-          "linear-gradient(180deg, #6D2FF9 0%, #381880 41.35%, #020006 89.9%)",
         borderRadius: "50px 50px 0 0",
       }}
     >
-      <div className="w-full max-w-[1500px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-8 md:py-10 lg:py-12">
-        {/* Desktop View */}
+      <div className="absolute inset-0 bg-black -z-10 rounded-[50px_50px_0_0]" />
+      <div
+        className="absolute inset-0 -z-10 rounded-[50px_50px_0_0]"
+        style={{
+          background:
+            "linear-gradient(180deg, #6D2FF9 0%, #381880 41.35%, #020006 89.9%)",
+        }}
+      />
+
+      <div className="relative w-full max-w-[1500px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-8 md:py-10 lg:py-12">
         <div className="hidden md:grid md:grid-cols-4 gap-6 lg:gap-8 xl:gap-10">
-          {/* INNOVISION */}
           <div className="flex flex-col">
             <h2 className="text-base lg:text-lg xl:text-xl uppercase tracking-wide font-semibold mb-3 glow">
               INNOVISION
@@ -66,7 +71,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* QUICK LINKS */}
           <div className="flex flex-col">
             <h3 className="text-base lg:text-lg uppercase tracking-wide font-semibold mb-3 glow">
               QUICK LINKS
@@ -85,7 +89,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Logo */}
           <div className="flex justify-center items-start pt-4">
             <Image
               src="/logo.png"
@@ -97,7 +100,6 @@ export default function Footer() {
             />
           </div>
 
-          {/* CONTACT US */}
           <div className="flex flex-col items-end pr-4 lg:pr-6">
             <div className="text-right">
               <h3 className="text-base lg:text-lg uppercase tracking-wide font-semibold mb-3 glow">
@@ -124,9 +126,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Mobile View */}
         <div className="md:hidden space-y-6">
-          {/* INNOVISION */}
           <div className="text-center px-2">
             <h2 className="text-lg sm:text-xl uppercase tracking-wide font-semibold mb-3 glow">
               INNOVISION
@@ -142,7 +142,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Logo */}
           <div className="flex justify-center py-2">
             <Image
               src="/logo.png"
@@ -154,7 +153,6 @@ export default function Footer() {
             />
           </div>
 
-          {/* Links and Contact */}
           <div className="grid grid-cols-2 gap-6 sm:gap-8 px-4 sm:px-8">
             <div>
               <h3 className="text-sm sm:text-base uppercase tracking-wide font-semibold mb-3 glow">
@@ -187,7 +185,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Social Icons */}
           <div className="flex justify-center space-x-4 pt-2">
             {socialLinks.map((social, index) => (
               <Link
@@ -203,7 +200,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Credit */}
         <div className="text-center pt-6 mt-6 border-t border-purple-400/20">
           <p className="text-xs sm:text-sm text-gray-300">
             Made with 💙 by <span className="font-semibold glow-text">TEAM WEBWIZ</span>
