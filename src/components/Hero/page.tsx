@@ -98,7 +98,7 @@ const Page: React.FC = () => {
               animate="visible"
               variants={textVariants}
             >
-              <div className="text-[18px] sm:text-[22px] md:text-[19px] lg:text-[28px] leading-tight font-light">
+              <div className="text-[18px]  sm:text-[22px] md:text-[19px] lg:text-[28px] leading-tight font-light">
                 {textContent.heroTextLines[0]}
               </div>
               <div className="text-[20px] sm:text-[24px] md:text-[19px] lg:text-[30px] leading-tight font-bold mb-2">
@@ -113,7 +113,7 @@ const Page: React.FC = () => {
             </motion.div>
           </div>
 
-          <div className="min-sm:hidden absolute top-3 flex items-start w-full justify-center mt-12 z-30">
+          <div className="min-sm:hidden min-[375px]:scale-[1.1] min-[510px]:scale-[1.38] min-[510px]:top-1/12   min-[375px]:right-1/32 min-[400px]:scale-[1.2] min-[400px]:top-1/18 absolute top-3 flex items-start w-full justify-center mt-12 z-30">
             {/* Left Text */}
             <motion.div
               className="text-white mb-8"
@@ -122,7 +122,7 @@ const Page: React.FC = () => {
               animate="visible"
               variants={textVariants}
             >
-              <div className="text-[16px] relative -left-3 leading-tight font-light">
+              <div className="text-[16px]  relative -left-3 leading-tight font-light">
                 {textContent.heroTextLines[0]}
                 <span className="text-[17px] leading-tight font-bold">
                   {textContent.heroTextLines[1]}
@@ -305,9 +305,6 @@ const Page: React.FC = () => {
         </motion.div>
       </div>
 
-      <div className='min-h-screen bg-amber-300'>
-        hello 
-      </div>
     </div>
   );
 };
