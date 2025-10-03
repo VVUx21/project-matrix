@@ -1,19 +1,18 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { events } from "@/config/mainEvents/mainEvents";
 import { URL } from "@/config/mainEvents/mainEvents";
-import { a } from "framer-motion/client";
 
-const { background , arrowButton , fish} = URL
+const { background, arrowButton, fish } = URL;
 
 const MainEvent = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
- 
+
   const startAutoScroll = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
@@ -21,7 +20,7 @@ const MainEvent = () => {
         setDirection(1);
         setCurrentSlide((prev) => (prev + 1) % events.length);
       }
-    }, 3000);  
+    }, 3000);
   };
 
   const stopAutoScroll = () => {
@@ -31,13 +30,11 @@ const MainEvent = () => {
     }
   };
 
-   
   useEffect(() => {
     startAutoScroll();
     return () => stopAutoScroll();
   }, [isAutoScrollPaused]);
 
-  
   const handleMouseEnter = () => setIsAutoScrollPaused(true);
   const handleMouseLeave = () => setIsAutoScrollPaused(false);
 
@@ -45,7 +42,7 @@ const MainEvent = () => {
     stopAutoScroll();
     setDirection(1);
     setCurrentSlide((prev) => (prev + 1) % events.length);
-     
+
     setTimeout(() => startAutoScroll(), 1000);
   };
 
@@ -53,7 +50,7 @@ const MainEvent = () => {
     stopAutoScroll();
     setDirection(-1);
     setCurrentSlide((prev) => (prev - 1 + events.length) % events.length);
-     
+
     setTimeout(() => startAutoScroll(), 1000);
   };
 
@@ -62,7 +59,7 @@ const MainEvent = () => {
     stopAutoScroll();
     setDirection(index > currentSlide ? 1 : -1);
     setCurrentSlide(index);
-    
+
     setTimeout(() => startAutoScroll(), 1000);
   };
 
@@ -375,7 +372,6 @@ const MainEvent = () => {
             </div>
           </div>
         </div>
- 
       </div>
 
       {/* Event Details Section */}
