@@ -9,6 +9,7 @@
     "setup-db": "node setup-database.js"
   },
   "dependencies": {
+    "framer-motion": "^12.23.22",
     "@tanstack/react-table": "^8.21.3",
     "appwrite": "^20.0.0",
     "axios": "^1.12.2",
