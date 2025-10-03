@@ -125,15 +125,15 @@ export default function AboutUs() {
 
   return (
     <div className="relative w-full overflow-hidden bg-gradient-to-b from-black to-[#5000FF]">
-      <div className="z-20 text-center lg:pt-44 pt-24 md:text-8xl text-6xl font-metana font-bold text-white text-shadow-[#D9D9D9] text-shadow-md">
+      <div className="z-20 text-center lg:pt-44 pt-24 md:text-[80px] lg:text-[90px] text-6xl font-metana font-bold text-white text-shadow-[#D9D9D9] text-shadow-md">
         ABOUT US
       </div>
 
       <div className="absolute top-44 -rotate-134.71 z-0">
         <Image src={images.bubble} alt="Bubble" width={100} height={171} />
       </div>
-      <div className="absolute top-[89px] left-56">
-        <Image src={images.bubble2} alt="Bubble2" width={172} height={232} />
+      <div className="absolute top-[89px] left-56 z-0">
+        <Image src={images.bubble2} alt="Bubble2" width={172} height={232} className="z-0"/>
       </div>
 
       {dotsPositions.map((pos, i) => (
@@ -145,13 +145,13 @@ export default function AboutUs() {
       ))}
 
       <div className="flex flex-col">
-        <div className="absolute top-[436px] left-[-31px]">
-          <Image src={images.bubble2}  alt="Bubble3" width={172} height={232} />
+        <div className="absolute top-[436px] left-[-31px] z-0">
+          <Image src={images.bubble2}  alt="Bubble3" width={172} height={232} className="z-0"/>
         </div>
         <div className="mx-auto font-space font-bold md:text-[48px] text-3xl leading-[61px] text-center text-white pt-16 md:pt-10">
           NIT Rourkela
         </div>
-        <div className="flex flex-col items-center lg:px-24 md:px-16 px-5 md:py-7 py-5 gap-[34.51px] font-space font-normal md:text-3xl text-lg md:leading-[36px] text-center text-white">
+        <div className="flex flex-col items-center lg:px-24 md:px-16 px-5 md:py-7 py-5 gap-[34.51px] font-space font-normal md:text-[20px] lg:text-[28px] text-[12px] md:leading-[25px] lg:leading-[36px] text-center text-white">
           NIT Rourkela is one of the country's premier national-level
           institutions for technical education funded by the government of India
           and is known for its strong emphasis on engineering, basic sciences,
@@ -190,7 +190,7 @@ export default function AboutUs() {
             "
           />
 
-          <div className="relative lg:px-28 md:px-16 px-5 py-7 font-space font-normal md:text-3xl text-lg md:leading-[36px] text-center text-white z-10">
+          <div className="relative lg:px-28 md:px-16 px-5 py-7 font-space font-normal md:text-[20px] lg:text-[28px] text-[12px] md:leading-[36px] text-center text-white z-10">
             Innovision, NIT Rourkela's annual techno-management fest and one of
             the largest fests in Eastern India, is a highly anticipated event
             scheduled from 8th to 10th November 2024, which aims to captivate
