@@ -9,6 +9,7 @@
     "setup-db": "node setup-database.js"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.3.0",
     "@tanstack/react-table": "^8.21.3",
@@ -16,23 +17,40 @@
     "axios": "^1.12.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+=======
+    "framer-motion": "^12.23.22",
+    "@tanstack/react-table": "^8.21.3",
+    "appwrite": "^20.0.0",
+    "axios": "^1.12.2",
+>>>>>>> 08f48cc094de1aa63c182fe26493434eec52f63b
     "date-fns": "^4.1.0",
     "embla-carousel": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
+<<<<<<< HEAD
     "framer-motion": "^12.23.22",
     "lucide-react": "^0.544.0",
     "maath": "^0.10.8",
+=======
+    "framer-motion": "^12.23.16",
+    "lucide-react": "^0.544.0",
+    "motion": "^12.23.16",
+>>>>>>> 08f48cc094de1aa63c182fe26493434eec52f63b
     "next": "15.5.3",
     "node-appwrite": "^11.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+<<<<<<< HEAD
     "react-fast-marquee": "^1.6.5",
     "react-hook-form": "^7.63.0",
     "react-hot-toast": "^2.6.0",
     "styled-jsx": "^5.1.7",
     "tailwind-merge": "^3.3.1",
     "three": "^0.180.0",
+=======
+    "react-hook-form": "^7.63.0",
+    "react-hot-toast": "^2.6.0",
+>>>>>>> 08f48cc094de1aa63c182fe26493434eec52f63b
     "uuid": "^13.0.0"
   },
   "devDependencies": {

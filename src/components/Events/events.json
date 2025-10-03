@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Experience the Thrill of Creativity and Competition!  ",
+        "imageFront": "/Images/4.webp",
+        "imageHover": "/Images/war.jpg",
+        "imageBack": "/Images/4.webp",
+        "details": "Dive into a diverse range of events that challenge your skills, ignite your creativity, and bring out the best in you. From high-energy competitions to immersive workshops, NITRUTSAV offers something for everyone. Explore, engage, and excel!"
+    },
+    {
+        "id": 2,
+        "title": "Inspiring Minds, Shaping Futures!",
+        "imageFront": "/Images/2.webp",
+        "imageHover": "/Images/satun.jpg",
+        "imageBack": "/Images/2.webp",
+        "details": "Get ready to be enlightened by visionaries and pioneers from various fields. Our guest lectures bring you closer to the world of innovation, inspiration, and insight. Learn from the best and broaden your horizons at NITRUTSAV 2025."
+    },
+    {
+        "id": 3,
+        "title": "Unwind Under the Stars with Electrifying Performances! ",
+        "imageFront": "/Images/3.webp",
+        "imageHover": "/Images/devil.jpg",
+        "imageBack": "/Images/3.webp",
+        "details": "Celebrate the nights of NITRUTSAV with show-stopping performances, sensational music, and unforgettable moments. From renowned artists to vibrant cultural showcases, our Pronites promise a grand spectacle that will leave you mesmerized. "
+    }
+]
