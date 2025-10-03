@@ -150,14 +150,18 @@ const FlagEvent = () => {
   return (
     <div>
       <div className="  relative overflow-hidden">
-        <div className="absolute -top-40 inset-0 z-0">
+        <motion.div
+          className="absolute -top-40 inset-0 z-0"
+          animate={{ y: [0, -20, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        >
           <Image
             src={background.src}
             alt={background.alt}
             fill
             className="object-cover mix-blend-lighten"
           />
-        </div>
+        </motion.div>
 
         {/* Animated Title */}
         <motion.div
