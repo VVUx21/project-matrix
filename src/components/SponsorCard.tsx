@@ -9,7 +9,8 @@ const SponsorsImages = [
     { id: 2 ,name: "Rourkela Shines", logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425657/rourkela-shines_ysazes.svg" },
     { id: 3 ,name: "image 4", logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425801/image_4_w06l2o.svg" },
     { id: 4 ,name: "image 5", logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425926/image_5_ffwu3w.svg" },
-    { id: 5 ,name: "image 6", logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425922/image_6_hsyu3u.svg" },
+    { id: 5 ,name: "image 6", logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425922/image_6_hsyu3u.svg" },   
+    { id: 6 ,name: "accenture", logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759488708/accenture-logo_wz2xb9.svg" },
 
 ];
 
@@ -34,23 +35,22 @@ function InfiniteScrollAnimationPage() {
   );
 }
 
-function MobileSponsorGrid(){
-  return <>
-  <div className='flex flex-wrap justify-between'>
-  {SponsorsImages.map((sponsor) => (
-    <div key={sponsor.id}>
-      <Image
-        src={sponsor.logo}
-        alt={sponsor.name}
-        width={200}
-        height={140}
-        className="basis-1/2 w-[110px] h-[150px] md:w-[200px] md:h-[250px] xl:h-[275px] xl:w-[225px] object-contain"
-      />
+function MobileSponsorGrid() {
+  return (
+    <div className="grid grid-cols-2 gap-6 place-items-center max-w-md mx-auto">
+      {SponsorsImages.map((sponsor) => (
+        <div key={sponsor.id} className="flex justify-center">
+          <Image
+            src={sponsor.logo}
+            alt={sponsor.name}
+            width={150}
+            height={150}
+            className="w-[100px] h-[100px] md:w-[160px] md:h-[160px] xl:w-[200px] xl:h-[200px] object-contain"
+          />
+        </div>
+      ))}
     </div>
-  ))}
-  </div>
-
-  </>
+  );
 }
 
 export default function SponsorCard() {
@@ -77,9 +77,9 @@ export default function SponsorCard() {
       />
 
       <div className="relative z-10 flex flex-col justify-center items-center min-h-screen p-5 md:p-[20px]">
-        <div className="h-[75vh] md:h-[70vh] w-[90vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[60px] md:rounded-[95px] p-8 md:p-12 border border-white/20 flex flex-col ">
+        <div className="h-[75vh] md:h-[70vh] w-[90vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[60px] md:rounded-[95px] p-8 md:p-12 border border-white/20 flex flex-col justify-center">
           <h1 
-            className={`text-white text-4xl md:text-7xl xl:text-7xl 2xl:text-7xl font-bold tracking-wider mb-8 md:mb-12 lg:mb-16 flex justify-center`}
+            className={`text-white text-4xl md:text-7xl xl:text-7xl 2xl:text-7xl font-bold tracking-wider mb-20 md:mb-12 lg:mb-16 flex justify-center`}
             style={{
               textShadow: '0 0 20px rgba(255, 255, 255, 0.3)',
             }}

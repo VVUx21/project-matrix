@@ -27,9 +27,9 @@ const Statistics = () => {
 </div>
       {/* **************************** Jellyfish Decoration ************************** */}
       <div
-        className="absolute w-24 sm:32 lg:w-64 top-10 -right-8 sm:right-8 sm:top-38 md:top-38 md:right-6 lg:right-2 lg:top-40 z-1 sm:z-100 opacity-90"
+        className="absolute w-24 sm:32 lg:w-64 top-10 right-2 sm:right-8 sm:top-38 md:top-38 md:right-6 lg:right-2 lg:top-40 z-1 sm:z-100 opacity-90"
         style={{
-          animation: "float 6s ease-in-out infinite",
+          animation: "float 8s ease-in-out infinite",
         }}
       >
         <Image
@@ -48,7 +48,7 @@ const Statistics = () => {
       <div
         className="absolute w-24 sm:32 lg:w-64 top-10 left-2 sm:left-8 sm:top-38 md:top-38 md:left-6 lg:left-2 lg:top-40 z-1 sm:z-100 sm:hidden opacity-90"
         style={{
-          animation: "float 6s ease-in-out infinite",
+          animation: "floats 16s ease-in-out infinite",
         }}
       >
         <Image
@@ -442,7 +442,18 @@ const Statistics = () => {
         @keyframes float {
           0%,
           100% {
-            transform: translateY(0px);
+            transform: translateY(80px);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+      `}</style>
+      <style jsx>{`
+        @keyframes floats {
+          0%,
+          100% {
+            transform: translateY(20px);
           }
           50% {
             transform: translateY(-20px);
