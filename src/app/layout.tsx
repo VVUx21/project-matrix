@@ -29,7 +29,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden opacity-  antialiased`}
       >
-        <AuthProvider>{children}</AuthProvider>
+        {children}
       </body>
     </html>
   );
