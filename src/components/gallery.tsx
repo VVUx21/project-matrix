@@ -5,7 +5,7 @@ import images from "../config/Gallery/ImagesData";
 const ImageGallery = () => {
     return (
         <div
-            className="px-5 py-10 bg-[url('/GalleryImages/background.png')] bg-cover bg-center bg-no-repeat"
+            className="px-5 py-10 bg-[url('https://res.cloudinary.com/dpidvvdgr/image/upload/v1759524821/bg_101_wtnohx.png')] bg-cover bg-center bg-no-repeat min-h-screen"
         >
             <h1
   className="text-center text-4xl md:text-5xl lg:text-6xl mb-10 font-extrabold 

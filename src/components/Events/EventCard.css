@@ -1,0 +1,74 @@
+/* EventCard.css */
+.event-card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    border-radius: 15px; /* Curvy border */
+    overflow: hidden; /* To ensure images stay within the card bounds */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better look */
+    
+
+}
+.events-container{
+    background-color: #040D17;
+    padding-top: 10rem;
+}
+
+.event-card-inner {
+    width: 80%;
+    height: 96.2%;
+    transition: transform 0.2s;
+    transform-style: preserve-3d;
+    position: relative;
+    border: 0.5rem solid rgba(0, 0, 255, 0.1);
+}
+
+.event-card.flipped .event-card-inner {
+    transform: rotateY(180deg);
+}
+
+.event-card-front, .event-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.event-card-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #fff;
+    text-align: center;
+}
+
+.event-card-back {
+    transform: rotateY(180deg);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.event-card-image {
+    width: 100%;
+    height: 100%; /* Ensure the image covers the card container */
+    object-fit: contain;
+   
+}
+
+.event-card-title {
+    position: absolute;
+    padding: 10px;
+    color: #fff;
+    
+    
+}
+
+.event-card-details {
+    position: absolute;
+    padding: 20px;
+    
+}
