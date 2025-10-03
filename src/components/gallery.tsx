@@ -5,7 +5,7 @@ import images from "../config/Gallery/ImagesData";
 const ImageGallery = () => {
     return (
         <div
-            className="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759526058/WhatsApp_Image_2025-10-04_at_2.41.30_AM_nsrfmj.jpg')] bg-cover bg-center bg-no-repeat min-h-screen"
+            className="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759526058/WhatsApp_Image_2025-10-04_at_2.41.30_AM_nsrfmj.jpg')] bg-cover bg-center bg-no-repeat min-h-screen p my-16"
         >
             <h1
   className="text-center text-4xl md:text-5xl lg:text-6xl mb-10 font-extrabold 
@@ -18,7 +18,7 @@ const ImageGallery = () => {
 
 
 
-            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 w-full">
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 w-full ">
                 {images.map((image) => {
                     const isLCP = image.url === "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759426493/jellyfish_2_hp6tbc.svg";
                     return (
