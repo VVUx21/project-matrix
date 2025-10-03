@@ -1,6 +1,4 @@
 import { Variants } from 'framer-motion';
-
-// Animation variants - Optimized with willChange
 export const heroVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -46,7 +44,7 @@ export const numberVariants: Variants = {
   },
 };
 
-// Optimized float variants using transform instead of y
+
 export const optimizedFloatVariants: Variants = {
   animate: {
     transform: ['translateY(10px)', 'translateY(-600px)', 'translateY(10px)'],
@@ -59,7 +57,6 @@ export const optimizedFloatVariants: Variants = {
   },
 };
 
-// Keep original for backward compatibility
 export const floatVariants: Variants = {
   animate: {
     y: [10, -600, 10],
@@ -85,17 +82,16 @@ export const menuVariants: Variants = {
   },
 };
 
-// Navigation items
+ 
 export const navItems = ['Gallery', 'Events', 'Team', 'Merch', 'About Us'];
-
-// Image sources with optimized loading
+ 
 export const imageSources = {
-  logo: "logo.svg",
+  logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759517821/logo_jyvdcq.svg",
   title: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759204357/INNOFONT_uzycub.svg",
   hero: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759213204/Hero_isu2kn.svg",
   fishes: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759218425/fishes_zqtcvv.svg",
   jellyfish: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759215011/g15_v9xi5g.svg",
-  star: "/star.svg",
+  star: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759518518/star_wczwuo.svg",
   floatingFish: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759213058/g14_esjhpy.svg",
   bubble: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759327035/bubble_wvbvgh.svg"
 };
@@ -105,14 +101,14 @@ export const textContent = {
   number: "25",
   buttonText: "Brochure",
   heroTextLines: [
-    "Dive into the",
+    "Dive into the ",
     "Marine Matrix", 
-    "Where Oceans Meet",
+    "Where Oceans Meet ",
     "Innovation"
   ]
 };
 
-// LightRays configuration
+ 
 export const lightRaysConfig = {
   raysOrigin: "top-center" as const,
   raysColor: "#f6ea9d",
@@ -126,7 +122,7 @@ export const lightRaysConfig = {
   className: "custom-rays"
 };
 
-// Component styles - Centralized for better maintainability
+
 export const componentStyles = {
   navbar: "bg-[#b5a1e02f] w-[90%] max-w-[1200px] shadow-xl/30 h-[60px] md:h-[70px] flex justify-between items-center rounded-[62px] px-4 md:px-8 ring-1 ring-[#ffffff75]",
   mobileMenu: "md:hidden absolute top-[90px] left-1/2 -translate-x-1/2 w-[90%] max-w-[600px] bg-[#b5a1e015] backdrop-blur-md rounded-2xl overflow-hidden z-50 ring-1 ring-[#ffffff75]",
@@ -150,7 +146,7 @@ export const responsiveSizes = {
   floatingFish: "object-contain w-[60px] sm:w-[190px] md:w-[120px] lg:w-[160px] xl:w-[350px]"
 };
 
-// Bubble configurations for optimized rendering
+
 export const bubbleConfigs = [
   {
     className: "w-[100px] absolute top-3 left-6"
