@@ -20,7 +20,7 @@ const Nav: React.FC = () => {
   return (
     <>
       {/* Navigation Bar */}
-      <div className="z-60 w-full absolute">
+      <div className="z-100 w-full absolute">
         <div className="flex justify-center items-center pt-6 pb-4 md:pt-8 relative z-40">
           <motion.section
             className="bg-[#b5a1e02f] w-[90%] max-w-[1200px] shadow-xl/30 h-[60px] md:h-[70px] flex justify-between items-center rounded-[62px] px-4 md:px-8 ring-1 ring-[#ffffff75]"
@@ -84,12 +84,14 @@ const Nav: React.FC = () => {
         animate={isMenuOpen ? "open" : "closed"}
         variants={menuVariants}
       >
-        <div className="hidden md:flex justify-around items-center gap-8 flex-1 px-8">
+        {/* Changed from "hidden md:flex" to "flex flex-col" */}
+        <div className="flex flex-col items-center gap-6 py-6 px-4">
           {navItems.map((item) => (
             <Link
               key={item.path}
               href={item.path}
-              className="text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable"
+              onClick={toggleMenu}
+              className="text-lg text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable w-full text-center"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
               {item.label}

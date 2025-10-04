@@ -172,7 +172,7 @@ export default function BubbleCursor() {
             0 20px 65px rgba(80,160,255,0.3),
             0 8px 25px rgba(120,200,255,0.2)
           `,
-          backdropFilter: "blur(3px) saturate(1.15) brightness(1.05)",
+          backdropFilter: "blur(2px) saturate(1.5) brightness(1.2)",
           WebkitBackdropFilter: "blur(3px) saturate(1.15) brightness(1.05)",
           mixBlendMode: "screen",
         }}

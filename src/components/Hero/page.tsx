@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 
 import LightRays from "./LightRays";
-import FluidGlassCursor from "./FluidGlassCursor";
+
 import {
   titleVariants,
   buttonVariants,
@@ -28,11 +28,11 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative ">
       {/* Fluid Glass Cursor */}
       {/* <FluidGlassCursor /> */}
 
-      <div className="w-full relative sm:min-h-screen pt-[10vw] bg-gradient-to-b from-[#5000FF] to-[#000002] overflow-hidden">
+      <div className="w-full relative sm:min-h-screen pt-[25vw] md:pt-[10vw] bg-gradient-to-b from-[#5000FF] to-[#000002] overflow-hidden">
         {/* Light Rays Background */}
         <div
           style={{
@@ -147,6 +147,12 @@ const Hero: React.FC = () => {
                 height={600}
                 priority
                 className="object-contain w-full relative top-12 sm:max-md:w-full sm:-top-10/12 sm:w-[800px] max-md: md:w-[590px] xl:w-[900px] xl:-top-13.5 drop-shadow-2xl"
+                style={{
+                  maskImage:
+                    "linear-gradient(to bottom, black 60%, transparent 100%)",
+                  WebkitMaskImage:
+                    "linear-gradient(to bottom, black 60%, transparent 100%)",
+                }}
               />
               <motion.button
                 className="absolute -bottom-2 left-7/19 xl:bottom-2/12 xl:left-14/35 sm:bottom-4/12 sm:left-10/22 lg:left-13/40 px-6 sm:px-8 md:bottom-1/17 md:left-14/40 md:px-10 py-2 sm:py-3 md:py-4 rounded-xl md:rounded-2xl bg-[#24316990] text-white font-semibold text-base sm:text-xl md:text-2xl lg:text-3xl shadow-lg ring-1 ring-[#ffffff75] backdrop-blur-sm hover:bg-[#243169] cursor-pointer transition-all duration-300 z-30 hoverable"
