@@ -6,28 +6,35 @@ import LightRays from "./LightRays";
 
 const Statistics = () => {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-[#000000] to-[#5000FF] relative overflow-hidden flex items-center justify-center font- py-8 sm:py-12 px-4 sm:px-6">
+    <div className="min-h-screen pt-50 w-full bg-gradient-to-b from-[#000000] to-[#5000FF] relative overflow-hidden flex items-center justify-center py-8 sm:py-12 px-4 sm:px-6">
       <div className="absolute top-20 sm:top-32 left-4 sm:left-8 w-16 sm:w-24 h-16 sm:h-24 bg-purple-600/30 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 sm:bottom-32 left-8 sm:left-16 w-20 sm:w-32 h-20 sm:h-32 bg-blue-600/20 rounded-full blur-3xl"></div>
 
       {/* ********************Glowing Diagonal Lines on Left Side*********************** */}
-      <div className="absolute xl:-left-90 lg:-left-60 md:-left-30 sm:-left-1 sm:top-60 md:top-60 left-20 top-40 -rotate-90 brightness-150 saturate-200" style={{width: "100%", height: "800px",filter: "brightness(1.8) contrast(1.2) saturate(1.5)"}}>
-  <LightRays
-    raysOrigin="top-center"
-    raysColor="#FFFFFF"
-    raysSpeed={1.5}
-    lightSpread={0.8}
-    rayLength={1}
-    followMouse={true}
-    mouseInfluence={0.1}
-    noiseAmount={0.1}
-    distortion={0.05}
-    className="custom-rays "
-  />
-</div>
+      {/* <div
+        className="absolute xl:-left-90 lg:-left-60 md:-left-30 sm:-left-1 sm:top-60 md:top-60 left-20 top-40 -rotate-90 brightness-150 saturate-200"
+        style={{
+          width: "100%",
+          height: "800px",
+          filter: "brightness(1.8) contrast(1.2) saturate(1.5)",
+        }}
+      >
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#FFFFFF"
+          raysSpeed={1.5}
+          lightSpread={0.8}
+          rayLength={1}
+          followMouse={true}
+          mouseInfluence={0.1}
+          noiseAmount={0.1}
+          distortion={0.05}
+          className="custom-rays "
+        />
+      </div> */}
       {/* **************************** Jellyfish Decoration ************************** */}
       <div
-        className="absolute w-24 sm:32 lg:w-64 top-10 right-2 sm:right-8 sm:top-38 md:top-38 md:right-6 lg:right-2 lg:top-40 z-1 sm:z-100 opacity-90"
+        className="absolute w-24 sm:w-32 lg:w-64 top-10 right-2 sm:right-8 sm:top-38 md:top-38 md:right-6 lg:right-2 lg:top-40 z-10 sm:z-[100] opacity-90"
         style={{
           animation: "float 8s ease-in-out infinite",
         }}
@@ -46,7 +53,7 @@ const Statistics = () => {
 
       {/* **************************** sm: Big Bubble Decoration hidden************************** */}
       <div
-        className="absolute w-24 sm:32 lg:w-64 top-10 left-2 sm:left-8 sm:top-38 md:top-38 md:left-6 lg:left-2 lg:top-40 z-1 sm:z-100 sm:hidden opacity-90"
+        className="absolute w-24 sm:w-32 lg:w-64 top-10 left-2 sm:left-8 sm:top-38 md:top-38 md:left-6 lg:left-2 lg:top-40 z-10 sm:z-[100] sm:hidden opacity-90"
         style={{
           animation: "floats 16s ease-in-out infinite",
         }}
@@ -438,6 +445,7 @@ const Statistics = () => {
         </div>
       </div>
 
+      {/* FIXED: Combined both style blocks into one */}
       <style jsx>{`
         @keyframes float {
           0%,
@@ -448,8 +456,6 @@ const Statistics = () => {
             transform: translateY(-20px);
           }
         }
-      `}</style>
-      <style jsx>{`
         @keyframes floats {
           0%,
           100% {

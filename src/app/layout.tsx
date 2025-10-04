@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { neueMetana, neueMetanaSemi } from "@/fonts";
 import "./globals.css";
 import { AuthProvider } from "@/contexts/auth-context";
+import Nav from "@/components/Hero/Nav";
+import Footer from "@/components/Footer";
+import FluidGlass from "@/components/Hero/FluidGlassCursor";
 import { FloatingChatbot } from "@/components/Chatbot";
-
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,9 +32,14 @@ export default function RootLayout({
     <html lang="en">
       <body
         suppressHydrationWarning={true}
-        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden opacity-  antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${neueMetana.variable} ${neueMetanaSemi.variable} overflow-x-hidden antialiased`}
       >
+        <Nav />
         {children}
+        <div id="footer">
+          <Footer />
+        </div>
+        <FluidGlass />
         <FloatingChatbot />
       </body>
     </html>

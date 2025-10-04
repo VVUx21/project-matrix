@@ -1,12 +1,11 @@
+"use client";
 
-'use client';
-import '@fontsource/space-grotesk';
-import Image from 'next/image';
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import Nav from './Nav';  
-import LightRays from './LightRays';
-import FluidGlassCursor from './FluidGlassCursor';
+import Image from "next/image";
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+
+import LightRays from "./LightRays";
+
 import {
   titleVariants,
   buttonVariants,
@@ -16,42 +15,38 @@ import {
   heroVariants,
   imageSources,
   textContent,
-  lightRaysConfig
-} from './Heroconfig';
+  lightRaysConfig,
+} from "./Heroconfig";
 
-const Page: React.FC = () => {
- 
+const Hero: React.FC = () => {
   useEffect(() => {
-    document.body.style.cursor = 'none';
-    
+    document.body.style.cursor = "none";
+
     return () => {
-      document.body.style.cursor = 'auto';
+      document.body.style.cursor = "auto";
     };
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative ">
       {/* Fluid Glass Cursor */}
-      <FluidGlassCursor />
-      
-      <div className="w-full relative sm:min-h-screen bg-gradient-to-b from-[#5000FF] to-[#000002] overflow-hidden">
+      {/* <FluidGlassCursor /> */}
+
+      <div className="w-full relative sm:min-h-screen pt-[25vw] md:pt-[10vw] bg-gradient-to-b from-[#5000FF] to-[#000002] overflow-hidden">
         {/* Light Rays Background */}
         <div
           style={{
-            width: '100%',
-            height: '100%',
-            position: 'absolute',
+            width: "100%",
+            height: "100%",
+            position: "absolute",
             top: 0,
             left: 0,
             zIndex: 0,
-            pointerEvents: 'none',
+            pointerEvents: "none",
           }}
         >
           <LightRays {...lightRaysConfig} />
         </div>
-
-        {/* Navigation Component */}
-        <Nav />
 
         {/* Main Hero Section */}
         <div className="flex flex-col items-center justify-center relative z-30 mt-4 md:mt-8">
@@ -71,7 +66,7 @@ const Page: React.FC = () => {
               className="object-contain w-full max-w-[390px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1700px]"
             />
           </motion.div>
-          
+
           <motion.div
             className="text-[#9aa6e7c8] self-end md:self-auto absolute left-14/19 top-3/18 sm:max-md:top-2/22 sm:max-md:right-4/29 md:max-xl:top-3/19 md:max-lg:left-17/24 xl:left-15/19 sm:top-3/17 z-40"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
@@ -152,6 +147,12 @@ const Page: React.FC = () => {
                 height={600}
                 priority
                 className="object-contain w-full relative top-12 sm:max-md:w-full sm:-top-10/12 sm:w-[800px] max-md: md:w-[590px] xl:w-[900px] xl:-top-13.5 drop-shadow-2xl"
+                style={{
+                  maskImage:
+                    "linear-gradient(to bottom, black 60%, transparent 100%)",
+                  WebkitMaskImage:
+                    "linear-gradient(to bottom, black 60%, transparent 100%)",
+                }}
               />
               <motion.button
                 className="absolute -bottom-2 left-7/19 xl:bottom-2/12 xl:left-14/35 sm:bottom-4/12 sm:left-10/22 lg:left-13/40 px-6 sm:px-8 md:bottom-1/17 md:left-14/40 md:px-10 py-2 sm:py-3 md:py-4 rounded-xl md:rounded-2xl bg-[#24316990] text-white font-semibold text-base sm:text-xl md:text-2xl lg:text-3xl shadow-lg ring-1 ring-[#ffffff75] backdrop-blur-sm hover:bg-[#243169] cursor-pointer transition-all duration-300 z-30 hoverable"
@@ -304,10 +305,8 @@ const Page: React.FC = () => {
           />
         </motion.div>
       </div>
-
     </div>
   );
 };
 
-export default Page;
- 
+export default Hero;
