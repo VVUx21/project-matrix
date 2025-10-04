@@ -118,12 +118,6 @@ export const navItems = [
     class:
       "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
   },
-  {
-    label: "Login",
-    path: "/loginl",
-    class:
-      "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
-  },
 ] as const;
 
 export const imageSources = {

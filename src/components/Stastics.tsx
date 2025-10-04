@@ -6,7 +6,7 @@ import LightRays from "./LightRays";
 
 const Statistics = () => {
   return (
-    <div className="min-h-screen pt-50 w-full bg-gradient-to-b from-[#000000] to-[#5000FF] relative overflow-hidden flex items-center justify-center py-8 sm:py-12 px-4 sm:px-6">
+    <div className="min-h-screen w-full bg-gradient-to-b from-[#000000] to-[#5000FF] relative overflow-hidden flex items-center justify-center  px-4 sm:px-6">
       <div className="absolute top-20 sm:top-32 left-4 sm:left-8 w-16 sm:w-24 h-16 sm:h-24 bg-purple-600/30 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 sm:bottom-32 left-8 sm:left-16 w-20 sm:w-32 h-20 sm:h-32 bg-blue-600/20 rounded-full blur-3xl"></div>
 
