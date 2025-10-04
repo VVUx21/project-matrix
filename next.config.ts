@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "res.cloudinary.com",
-        pathname: "/dpidvvdgr/image/upload/**", // Allow all paths under this upload directory
+        pathname: "/**", // Allow all paths from Cloudinary
       },
       {
         protocol: "https",
