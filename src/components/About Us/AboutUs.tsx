@@ -197,7 +197,7 @@ export default function AboutUs() {
           <div className=" font-space font-bold lg:text-[48px] text-3xl md:text-4xl leading-[61px] text-white pt-14 md:pt-10 text-center">
             NIT Rourkela
           </div>
-          <div className="text-justify flex flex-col z-40 items-center md:py-7 py-5 font-space font-normal md:text-[20px] lg:text-[28px] text-[12px] md:leading-[25px] lg:leading-[36px] text-white ">
+          <div className="text-justify flex flex-col z-40 items-center md:py-7 py-5 font-normal lg:text-lg text-sm  md:leading-[25px] lg:leading-[36px] text-white ">
             NIT Rourkela is one of the country's premier national-level
             institutions for technical education funded by the government of
             India and is known for its strong emphasis on engineering, basic
@@ -219,8 +219,8 @@ export default function AboutUs() {
           <div className="font-space font-bold lg:text-5xl text-4xl leading-16 text-center text-white z-10 pt-10 sm:pt-14 md:pt-10">
             Innovision
           </div>
-          <div className="relative sm:pb-36 pb-32">
-            <div className=" relative md:py-7 py-5 font-space font-normal md:text-[20px] lg:text-[32px] text-[13px] sm:text-[13px] lg:leading-[36px] md:leading-[25px] leading-[18px] text-justify text-white z-40">
+          <div className="relative pb-10">
+            <div className=" relative md:py-7 py-5  font-normal md:text-base lg:text-lg text-sm  lg:leading-[36px] md:leading-[25px] leading-[18px] text-justify text-white z-40">
               Innovision, NIT Rourkela's annual techno-management fest and one
               of the largest fests in Eastern India, is a highly anticipated
               event scheduled from 8th to 10th November 2024, which aims to

@@ -4,7 +4,7 @@ import React from "react";
 import ImageGallery from "@/components/gallery";
 function page() {
   return (
-    <div className="min-h-screen pt-[10vw] md:pt-[5vw] bg-gradient-to-b from-[#4E00FB] to-[#020006]">
+    <div className="min-h-screen pt-[10vw] md:pt-[5vw]  bg-gradient-to-b from-[#4E00FB] to-[#020006]">
       <FlagEvent />
       <MainEvent />
       <div id="gallery">
