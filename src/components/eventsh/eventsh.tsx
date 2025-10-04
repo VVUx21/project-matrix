@@ -1,11 +1,32 @@
 'use client';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import type { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel';
 import ElectricBorder from './ElectricBorder';
 
+// Types
+interface EventCard {
+  id: number;
+  title: string;
+  subtitle: string;
+  image: string;
+}
+
+interface CardSize {
+  class: string;
+  borderRadius: string;
+}
+
+interface ContentSize {
+  title: string;
+  button: string;
+  buttonBorder: string;
+  buttonRounded: string;
+  padding: string;
+}
 
 // Sample event cards data - DYNAMIC: Can add/remove cards and code will adapt
-const eventCards = [
+const eventCards: EventCard[] = [
   { id: 1, title: "EVENT", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
   { id: 2, title: "EVENT", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
   { id: 3, title: "EVENT", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
@@ -13,34 +34,30 @@ const eventCards = [
   { id: 5, title: "EVENT", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
 ];
 
-
 // Debounce utility function
-const useDebounce = (value, delay) => {
-  const [debouncedValue, setDebouncedValue] = React.useState(value);
-
+const useDebounce = (value: number, delay: number): number => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedValue(value);
     }, delay);
 
-
     return () => {
       clearTimeout(handler);
     };
   }, [value, delay]);
 
-
   return debouncedValue;
 };
 
-
 // Arrow Components
-const PrevButton = ({ onClick, disabled }) => (
+const PrevButton: React.FC<{ onClick: () => void; disabled: boolean }> = ({ onClick, disabled }) => (
   <button
     className={`transition-all duration-300 ${disabled ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80'} bg-transparent border-none`}
     onClick={onClick}
     disabled={disabled}
+    aria-label="Previous slide"
   >
     <img 
       src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427302/carbon_next-filled_a3ah2k.svg" 
@@ -51,12 +68,12 @@ const PrevButton = ({ onClick, disabled }) => (
   </button>
 );
 
-
-const NextButton = ({ onClick, disabled }) => (
+const NextButton: React.FC<{ onClick: () => void; disabled: boolean }> = ({ onClick, disabled }) => (
   <button
     className={`transition-all duration-300 ${disabled ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80'} bg-transparent border-none`}
     onClick={onClick}
     disabled={disabled}
+    aria-label="Next slide"
   >
     <img 
       src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427302/carbon_next-filled_a3ah2k.svg" 
@@ -67,32 +84,27 @@ const NextButton = ({ onClick, disabled }) => (
   </button>
 );
 
-
-// FIXED: Card Component with slightly increased sizes for 550-560px range
-const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
+// Card Component
+const EventCard: React.FC<{ card: EventCard; isHighlighted: boolean; is3CardLayout: boolean }> = ({ card, isHighlighted, is3CardLayout }) => {
   const [isHydrated, setIsHydrated] = useState(false);
   const [viewport, setViewport] = useState(1024);
-
 
   useEffect(() => {
     setIsHydrated(true);
     setViewport(window.innerWidth);
-
 
     const handleResize = () => setViewport(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-
-  const getCardSize = () => {
+  const getCardSize = useCallback((): CardSize => {
     if (!isHydrated) {
       if (!is3CardLayout) {
         return { class: 'w-72 h-88 rounded-3xl', borderRadius: '1.5rem' };
       }
       return { class: 'w-80 h-[26rem] rounded-3xl', borderRadius: '1.5rem' };
     }
-
 
     if (!is3CardLayout) {
       if (viewport >= 500) {
@@ -104,10 +116,8 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
       } else if (viewport >= 360) {
         return { class: 'w-56 h-72 rounded-2xl', borderRadius: '1rem' };
       } else if (viewport >= 327) {
-        // FIXED: Reduced size for 327px+ to prevent overflow in single card layout
         return { class: 'w-50 h-64 rounded-2xl', borderRadius: '1rem' };
       } else if (viewport >= 320) {
-        // FIXED: Further reduced size for 320-327px range to fix overflow in single card layout
         return { class: 'w-48 h-60 rounded-2xl', borderRadius: '1rem' };
       } else {
         return { class: 'w-44 h-56 rounded-2xl', borderRadius: '1rem' };
@@ -137,22 +147,17 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
     } else if (viewport >= 580) {
       return { class: 'w-34 h-[11.5rem] rounded-2xl', borderRadius: '1rem' };
     } else if (viewport >= 560) {
-      // FIXED: Slightly increased size for 560px range
       return { class: 'w-34 h-[11.5rem] rounded-xl', borderRadius: '0.75rem' };
     } else if (viewport >= 555) {
-      // FIXED: New breakpoint - slightly larger for 555-560px
       return { class: 'w-32 h-[11rem] rounded-xl', borderRadius: '0.75rem' };
     } else if (viewport >= 550) {
-      // FIXED: Increased size for 550-555px range as shown in attachment
       return { class: 'w-32 h-[11rem] rounded-xl', borderRadius: '0.75rem' };
     } else {
-      // Fallback size for below 550px (single card layout)
       return { class: 'w-28 h-[9rem] rounded-xl', borderRadius: '0.75rem' };
     }
-  };
+  }, [isHydrated, is3CardLayout, viewport]);
 
-
-  const getContentSize = () => {
+  const getContentSize = useCallback((): ContentSize => {
     if (!isHydrated) {
       if (!is3CardLayout) {
         return {
@@ -171,7 +176,6 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
         padding: 'p-4'
       };
     }
-
 
     if (!is3CardLayout) {
       if (viewport >= 500) {
@@ -207,7 +211,6 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
           padding: 'p-2'
         };
       } else if (viewport >= 327) {
-        // FIXED: Adjusted content sizing for reduced card size in single card layout
         return {
           title: 'text-base font-bold',
           button: 'px-3 py-1 text-xs font-bold w-full',
@@ -216,7 +219,6 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
           padding: 'p-2'
         };
       } else if (viewport >= 320) {
-        // FIXED: Further adjusted content sizing for smaller cards in single card layout
         return {
           title: 'text-sm font-bold',
           button: 'px-2 py-0.5 text-xs font-bold w-full',
@@ -300,7 +302,6 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
         padding: 'p-2'
       };
     } else if (viewport >= 555) {
-      // FIXED: Improved content sizing for larger cards in 555-560px range
       return {
         title: 'text-sm font-bold',
         button: 'px-3 py-1.5 text-xs font-bold w-full',
@@ -309,7 +310,6 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
         padding: 'p-2'
       };
     } else if (viewport >= 550) {
-      // FIXED: Better content sizing for 550-555px range
       return {
         title: 'text-sm font-bold',
         button: 'px-3 py-1.5 text-xs font-bold w-full',
@@ -326,12 +326,10 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
         padding: 'p-1'
       };
     }
-  };
-
+  }, [isHydrated, is3CardLayout, viewport]);
 
   const cardSize = getCardSize();
   const contentSize = getContentSize();
-
 
   const cardContent = (
     <div
@@ -382,7 +380,6 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
     </div>
   );
 
-
   if (isHighlighted) {
     return (
       <div 
@@ -398,6 +395,7 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
           speed={1}
           chaos={0.2}
           thickness={2.5}
+          className=""
           style={{ 
             borderRadius: is3CardLayout ? (isHydrated ? (viewport >= 1024 ? 24 : 16) : 24) : 24,
             padding: '3px',
@@ -410,7 +408,6 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
     );
   }
 
-
   return (
     <div className="card-container relative transition-all duration-500 ease-out">
       {cardContent}
@@ -418,14 +415,13 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
   );
 };
 
-
-// All hooks remain the same (useAutoScroll, usePrevNextButtons, useResponsive)
-const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
-  const intervalRef = useRef(null);
-  const timeoutRef = useRef(null);
-  const [isScrolling, setIsScrolling] = React.useState(false);
-  const [currentDirection, setCurrentDirection] = React.useState('next');
-  const [isUserInteracting, setIsUserInteracting] = React.useState(false);
+// Auto-scroll hook
+const useAutoScroll = (emblaApi: EmblaCarouselType | undefined, is3CardLayout: boolean, totalCards: number) => {
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [isScrolling, setIsScrolling] = useState<boolean>(false);
+  const [currentDirection, setCurrentDirection] = useState<'next' | 'prev'>('next');
+  const [isUserInteracting, setIsUserInteracting] = useState<boolean>(false);
   
   const clearAllTimers = useCallback(() => {
     if (intervalRef.current) {
@@ -437,7 +433,6 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
       timeoutRef.current = null;
     }
   }, []);
-
 
   const getScrollBoundaries = useCallback(() => {
     if (!emblaApi || totalCards <= 0) return { minIndex: 0, maxIndex: 0 };
@@ -457,7 +452,6 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
       };
     }
   }, [emblaApi, is3CardLayout, totalCards]);
-
 
   const performAutoScroll = useCallback(() => {
     if (!emblaApi || isUserInteracting || isScrolling || totalCards <= 1) return;
@@ -490,7 +484,6 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
     }, 600);
   }, [emblaApi, currentDirection, isUserInteracting, isScrolling, getScrollBoundaries, totalCards]);
 
-
   const startAutoScroll = useCallback(() => {
     if (!emblaApi || isUserInteracting || totalCards <= 1) return;
     
@@ -508,11 +501,9 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
     }, 1000);
   }, [emblaApi, is3CardLayout, isUserInteracting, performAutoScroll, clearAllTimers, getScrollBoundaries, totalCards]);
 
-
   const stopAutoScroll = useCallback(() => {
     clearAllTimers();
   }, [clearAllTimers]);
-
 
   const handleUserInteraction = useCallback(() => {
     setIsUserInteracting(true);
@@ -523,7 +514,6 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
       setIsUserInteracting(false);
     }, 5000);
   }, [stopAutoScroll]);
-
 
   useEffect(() => {
     if (emblaApi && totalCards > 1) {
@@ -536,8 +526,7 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
         setCurrentDirection('prev');
       }
     }
-  }, [emblaApi, is3CardLayout, getScrollBoundaries, totalCards]);
-
+  }, [emblaApi, getScrollBoundaries, totalCards]);
 
   useEffect(() => {
     if (emblaApi && !isUserInteracting && totalCards > 1) {
@@ -549,50 +538,34 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
     };
   }, [emblaApi, startAutoScroll, clearAllTimers, isUserInteracting, totalCards]);
 
-
-  useEffect(() => {
-    if (!isUserInteracting && emblaApi && totalCards > 1) {
-      startAutoScroll();
-    }
-  }, [isUserInteracting, emblaApi, startAutoScroll, totalCards]);
-
-
   useEffect(() => {
     return () => {
       clearAllTimers();
     };
   }, [clearAllTimers]);
 
-
   return { handleUserInteraction };
 };
 
+const usePrevNextButtons = (emblaApi: EmblaCarouselType | undefined, handleUserInteraction: () => void) => {
+  const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
+  const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
 
-const usePrevNextButtons = (emblaApi, handleUserInteraction) => {
-  const [prevBtnDisabled, setPrevBtnDisabled] = React.useState(true);
-  const [nextBtnDisabled, setNextBtnDisabled] = React.useState(true);
-
-
-  const onSelect = useCallback((api) => {
-    if (!api) return;
+  const onSelect = useCallback((api: EmblaCarouselType) => {
     setPrevBtnDisabled(!api.canScrollPrev());
     setNextBtnDisabled(!api.canScrollNext());
   }, []);
-
 
   useEffect(() => {
     if (!emblaApi) return;
     
     onSelect(emblaApi);
-    emblaApi.on('reInit', onSelect);
-    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect).on('select', onSelect);
     
     return () => {
-      emblaApi.off('reInit', onSelect);
-      emblaApi.off('select', onSelect);
+      emblaApi.off('reInit', onSelect).off('select', onSelect);
     };
   }, [emblaApi, onSelect]);
-
 
   const onPrevButtonClick = useCallback(() => {
     if (emblaApi && !prevBtnDisabled) {
@@ -608,7 +581,6 @@ const usePrevNextButtons = (emblaApi, handleUserInteraction) => {
     }
   }, [emblaApi, nextBtnDisabled, handleUserInteraction]);
 
-
   return {
     prevBtnDisabled,
     nextBtnDisabled,
@@ -617,24 +589,20 @@ const usePrevNextButtons = (emblaApi, handleUserInteraction) => {
   };
 };
 
-
 const useResponsive = () => {
   const [isHydrated, setIsHydrated] = useState(false);
   const [viewport, setViewport] = useState(1024);
   const debouncedViewport = useDebounce(viewport, 150);
   const [is3CardLayout, setIs3CardLayout] = useState(true);
 
-
   useEffect(() => {
     setIsHydrated(true);
     setViewport(window.innerWidth);
-
 
     const handleResize = () => setViewport(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
 
   useEffect(() => {
     if (isHydrated) {
@@ -642,16 +610,13 @@ const useResponsive = () => {
     }
   }, [debouncedViewport, isHydrated]);
 
-
   return { is3CardLayout };
 };
-
 
 function EventsCarousel() {
   const { is3CardLayout } = useResponsive();
   
   const totalCards = eventCards.length;
-
 
   const [isHydrated, setIsHydrated] = useState(false);
   const [viewport, setViewport] = useState(1024);
@@ -661,25 +626,17 @@ function EventsCarousel() {
     setIsHydrated(true);
     setViewport(window.innerWidth);
 
-
     const handleResize = () => setViewport(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-
   const getStartIndex = useCallback(() => {
-    if (totalCards <= 1) return 0;
-    
-    if (is3CardLayout) {
-      return 0;
-    } else {
-      return 0;
-    }
-  }, [is3CardLayout, totalCards]);
+    return 0;
+  }, []);
 
-
-  const emblaOptions = React.useMemo(() => ({
+  // FIXED: Proper containScroll type
+  const emblaOptions: EmblaOptionsType = React.useMemo(() => ({
     align: 'center',
     loop: false,
     startIndex: getStartIndex(),
@@ -688,27 +645,21 @@ function EventsCarousel() {
     slidesToScroll: 1,
   }), [is3CardLayout, getStartIndex]);
 
-
   const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions);
-  const [selectedIndex, setSelectedIndex] = React.useState(getStartIndex());
-  const tweenNodes = useRef([]);
-
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const tweenNodes = useRef<(HTMLElement | null)[]>([]);
 
   const { handleUserInteraction } = useAutoScroll(emblaApi, is3CardLayout, totalCards);
   
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi, handleUserInteraction);
 
-
-  const setTweenNodes = useCallback((api) => {
+  const setTweenNodes = useCallback((api: EmblaCarouselType) => {
     tweenNodes.current = api.slideNodes().map((slideNode) => {
       return slideNode.querySelector('.card-container');
     });
   }, []);
 
-
-  const updateCenterCard = useCallback((api) => {
-    if (!api) return;
-    
+  const updateCenterCard = useCallback((api: EmblaCarouselType) => {
     if (!is3CardLayout) {
       const currentSnap = api.selectedScrollSnap();
       setSelectedIndex(currentSnap);
@@ -722,7 +673,7 @@ function EventsCarousel() {
       });
     } else {
       const slides = api.slideNodes();
-      const slidePositions = [];
+      const slidePositions: { index: number; distance: number }[] = [];
       
       slides.forEach((slide, index) => {
         const slideRect = slide.getBoundingClientRect();
@@ -758,18 +709,15 @@ function EventsCarousel() {
     }
   }, [is3CardLayout]);
 
-
-  const onSelect = useCallback((api) => {
+  const onSelect = useCallback((api: EmblaCarouselType) => {
     updateCenterCard(api);
   }, [updateCenterCard]);
 
-
-  const onScroll = useCallback((api) => {
+  const onScroll = useCallback((api: EmblaCarouselType) => {
     if (is3CardLayout) {
       updateCenterCard(api);
     }
   }, [updateCenterCard, is3CardLayout]);
-
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -780,12 +728,10 @@ function EventsCarousel() {
       updateCenterCard(emblaApi);
     }, 100);
 
-
     emblaApi
       .on('reInit', setTweenNodes)
       .on('select', onSelect)
       .on('scroll', onScroll);
-
 
     return () => {
       clearTimeout(timeoutId);
@@ -797,12 +743,10 @@ function EventsCarousel() {
     };
   }, [emblaApi, emblaOptions, setTweenNodes, onSelect, onScroll, updateCenterCard]);
 
-
-  const handleCarouselInteraction = useCallback((e) => {
+  const handleCarouselInteraction = useCallback((e: React.MouseEvent | React.TouchEvent | React.PointerEvent) => {
     e.preventDefault();
     handleUserInteraction();
   }, [handleUserInteraction]);
-
 
   const getBackgroundImage = () => {
     if (!isHydrated || debouncedViewport < 550) {
@@ -811,7 +755,6 @@ function EventsCarousel() {
       return "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759403614/WhatsApp_Image_2025-10-02_at_4.41.27_PM_bxem0e.jpg";
     }
   };
-
 
   const getContainerClass = () => {
     if (!is3CardLayout) {
@@ -826,12 +769,10 @@ function EventsCarousel() {
     return 'w-full max-w-7xl';
   };
 
-
   const getHeadingClass = () => {
     if (!isHydrated) {
       return 'text-6xl xl:text-7xl';
     }
-
 
     if (viewport >= 1000) {
       return 'text-6xl xl:text-7xl';
@@ -850,7 +791,6 @@ function EventsCarousel() {
     }
   };
 
-
   if (totalCards === 0) {
     return (
       <div className="relative min-h-screen bg-cover bg-center flex items-center justify-center">
@@ -858,7 +798,6 @@ function EventsCarousel() {
       </div>
     );
   }
-
 
   return (
     <div 
@@ -884,7 +823,6 @@ function EventsCarousel() {
         </h1>
       </div>
 
-
       <div className="relative flex items-center justify-center px-1 sm:px-2 overflow-x-hidden -mt-2 sm:-mt-3 lg:-mt-4">
         {totalCards > 1 && (
           <>
@@ -896,7 +834,6 @@ function EventsCarousel() {
             </div>
           </>
         )}
-
 
         <div 
           className={`${getContainerClass()} mx-4 sm:mx-6 md:mx-8 lg:mx-10 xl:mx-12 overflow-hidden`}
@@ -965,6 +902,5 @@ function EventsCarousel() {
     </div>
   );
 }
-
 
 export default EventsCarousel;
