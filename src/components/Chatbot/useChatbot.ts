@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react';
 import { Message, ChatResponse } from './types';
 
-const CHATBOT_API_URL = 'https://inno-bot.onrender.com/api/chat';
+const CHATBOT_API_URL = process.env.NEXT_PUBLIC_CHATBOT_API_URL!;
 
 export const useChatbot = () => {
   const [messages, setMessages] = useState<Message[]>([
