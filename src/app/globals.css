@@ -2,7 +2,9 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-:root { scrollbar-gutter: stable; }
+:root {
+  scrollbar-gutter: stable;
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -117,11 +119,22 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Use local Neue Metana as primary, fall back to Geist and system fonts */
+    font-family:
+      var(--font-neue-metana),
+      var(--font-neue-metana-semi),
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial;
   }
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
   50% {
@@ -131,4 +144,8 @@
 
 .jellyfish-bounce {
   animation: bounce 10s ease-in-out infinite;
+}
+
+body {
+  background-color: black;
 }

@@ -4,9 +4,9 @@ import React from "react";
 
 function page() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#4E00FB] to-[#020006]">
-      <FlagEvent/>
-      <MainEvent/>
+    <div className="min-h-screen pt-[5vw] bg-gradient-to-b from-[#4E00FB] to-[#020006]">
+      <FlagEvent />
+      <MainEvent />
     </div>
   );
 }

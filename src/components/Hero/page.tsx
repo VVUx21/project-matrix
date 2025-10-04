@@ -1,12 +1,11 @@
+"use client";
 
-'use client';
-import '@fontsource/space-grotesk';
-import Image from 'next/image';
-import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import Nav from './Nav';  
-import LightRays from './LightRays';
-import FluidGlassCursor from './FluidGlassCursor';
+import Image from "next/image";
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+
+import LightRays from "./LightRays";
+import FluidGlassCursor from "./FluidGlassCursor";
 import {
   titleVariants,
   buttonVariants,
@@ -16,16 +15,15 @@ import {
   heroVariants,
   imageSources,
   textContent,
-  lightRaysConfig
-} from './Heroconfig';
+  lightRaysConfig,
+} from "./Heroconfig";
 
-const Page: React.FC = () => {
- 
+const Hero: React.FC = () => {
   useEffect(() => {
-    document.body.style.cursor = 'none';
-    
+    document.body.style.cursor = "none";
+
     return () => {
-      document.body.style.cursor = 'auto';
+      document.body.style.cursor = "auto";
     };
   }, []);
 
@@ -33,25 +31,22 @@ const Page: React.FC = () => {
     <div className="relative">
       {/* Fluid Glass Cursor */}
       <FluidGlassCursor />
-      
-      <div className="w-full relative sm:min-h-screen bg-gradient-to-b from-[#5000FF] to-[#000002] overflow-hidden">
+
+      <div className="w-full relative sm:min-h-screen pt-[10vw] bg-gradient-to-b from-[#5000FF] to-[#000002] overflow-hidden">
         {/* Light Rays Background */}
         <div
           style={{
-            width: '100%',
-            height: '100%',
-            position: 'absolute',
+            width: "100%",
+            height: "100%",
+            position: "absolute",
             top: 0,
             left: 0,
             zIndex: 0,
-            pointerEvents: 'none',
+            pointerEvents: "none",
           }}
         >
           <LightRays {...lightRaysConfig} />
         </div>
-
-        {/* Navigation Component */}
-        <Nav />
 
         {/* Main Hero Section */}
         <div className="flex flex-col items-center justify-center relative z-30 mt-4 md:mt-8">
@@ -71,7 +66,7 @@ const Page: React.FC = () => {
               className="object-contain w-full max-w-[390px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1700px]"
             />
           </motion.div>
-          
+
           <motion.div
             className="text-[#9aa6e7c8] self-end md:self-auto absolute left-14/19 top-3/18 sm:max-md:top-2/22 sm:max-md:right-4/29 md:max-xl:top-3/19 md:max-lg:left-17/24 xl:left-15/19 sm:top-3/17 z-40"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
@@ -304,10 +299,8 @@ const Page: React.FC = () => {
           />
         </motion.div>
       </div>
-
     </div>
   );
 };
 
-export default Page;
- 
+export default Hero;

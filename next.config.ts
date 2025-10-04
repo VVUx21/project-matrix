@@ -9,8 +9,8 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "res.cloudinary.com",
-        pathname: "/dpidvvdgr/image/upload/**", // Allow all paths under this upload directory
       },
+
       {
         protocol: "https",
         hostname: "sacnitrkl.blr1.cdn.digitaloceanspaces.com",
@@ -20,11 +20,9 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
         pathname: "/",
-      }
+      },
     ],
   },
 };
 
 export default nextConfig;
-
-
