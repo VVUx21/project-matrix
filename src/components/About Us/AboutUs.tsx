@@ -130,7 +130,7 @@ export default function AboutUs() {
 
   return (
     <div className="relative w-full overflow-hidden bg-gradient-to-b from-black to-[#5000FF]">
-      <div className="relative z-20 text-center lg:pt-44 pt-24 md:text-[80px] lg:text-[90px] text-6xl font-metana font-bold text-white text-shadow-[#D9D9D9] text-shadow-md">
+      <div className="relative z-20 text-center md:text-[80px] lg:text-[90px] text-6xl font-metana font-bold text-white text-shadow-[#D9D9D9] text-shadow-md">
         ABOUT US
       </div>
 
