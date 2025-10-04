@@ -1,10 +1,32 @@
 'use client';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import type { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel';
 import ElectricBorder from './ElectricBorder';
 
+// Types
+interface EventCard {
+  id: number;
+  title: string;
+  subtitle: string;
+  image: string;
+}
+
+interface CardSize {
+  class: string;
+  borderRadius: string;
+}
+
+interface ContentSize {
+  title: string;
+  button: string;
+  buttonBorder: string;
+  buttonRounded: string;
+  padding: string;
+}
+
 // Sample event cards data - DYNAMIC: Can add/remove cards and code will adapt
-const eventCards = [
+const eventCards: EventCard[] = [
   { id: 1, title: "EVENT", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
   { id: 2, title: "EVENT", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
   { id: 3, title: "EVENT", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
@@ -13,8 +35,8 @@ const eventCards = [
 ];
 
 // Debounce utility function
-const useDebounce = (value, delay) => {
-  const [debouncedValue, setDebouncedValue] = React.useState(value);
+const useDebounce = (value: number, delay: number): number => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -30,11 +52,12 @@ const useDebounce = (value, delay) => {
 };
 
 // Arrow Components
-const PrevButton = ({ onClick, disabled }) => (
+const PrevButton: React.FC<{ onClick: () => void; disabled: boolean }> = ({ onClick, disabled }) => (
   <button
     className={`transition-all duration-300 ${disabled ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80'} bg-transparent border-none`}
     onClick={onClick}
     disabled={disabled}
+    aria-label="Previous slide"
   >
     <img 
       src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427302/carbon_next-filled_a3ah2k.svg" 
@@ -45,11 +68,12 @@ const PrevButton = ({ onClick, disabled }) => (
   </button>
 );
 
-const NextButton = ({ onClick, disabled }) => (
+const NextButton: React.FC<{ onClick: () => void; disabled: boolean }> = ({ onClick, disabled }) => (
   <button
     className={`transition-all duration-300 ${disabled ? 'opacity-40 cursor-not-allowed' : 'hover:opacity-80'} bg-transparent border-none`}
     onClick={onClick}
     disabled={disabled}
+    aria-label="Next slide"
   >
     <img 
       src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427302/carbon_next-filled_a3ah2k.svg" 
@@ -60,8 +84,8 @@ const NextButton = ({ onClick, disabled }) => (
   </button>
 );
 
-// Card Component remains the same
-const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
+// Card Component
+const EventCard: React.FC<{ card: EventCard; isHighlighted: boolean; is3CardLayout: boolean }> = ({ card, isHighlighted, is3CardLayout }) => {
   const [isHydrated, setIsHydrated] = useState(false);
   const [viewport, setViewport] = useState(1024);
 
@@ -74,7 +98,7 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const getCardSize = () => {
+  const getCardSize = useCallback((): CardSize => {
     if (!isHydrated) {
       if (!is3CardLayout) {
         return { class: 'w-72 h-88 rounded-3xl', borderRadius: '1.5rem' };
@@ -91,10 +115,12 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
         return { class: 'w-60 h-76 rounded-2xl', borderRadius: '1rem' };
       } else if (viewport >= 360) {
         return { class: 'w-56 h-72 rounded-2xl', borderRadius: '1rem' };
+      } else if (viewport >= 327) {
+        return { class: 'w-50 h-64 rounded-2xl', borderRadius: '1rem' };
       } else if (viewport >= 320) {
-        return { class: 'w-52 h-68 rounded-2xl', borderRadius: '1rem' };
+        return { class: 'w-48 h-60 rounded-2xl', borderRadius: '1rem' };
       } else {
-        return { class: 'w-48 h-64 rounded-2xl', borderRadius: '1rem' };
+        return { class: 'w-44 h-56 rounded-2xl', borderRadius: '1rem' };
       }
     }
     
@@ -110,20 +136,28 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
       return { class: 'w-52 h-[16rem] rounded-2xl', borderRadius: '1rem' };
     } else if (viewport >= 800) {
       return { class: 'w-48 h-[15rem] rounded-2xl', borderRadius: '1rem' };
-    } else if (viewport >= 725) {
+    } else if (viewport >= 750) {
       return { class: 'w-44 h-[14rem] rounded-2xl', borderRadius: '1rem' };
-    } else if (viewport >= 680) {
-      return { class: 'w-40 h-[12rem] rounded-2xl', borderRadius: '1rem' };
-    } else if (viewport >= 630) {
-      return { class: 'w-36 h-[11rem] rounded-2xl', borderRadius: '1rem' };
+    } else if (viewport >= 700) {
+      return { class: 'w-40 h-[13rem] rounded-2xl', borderRadius: '1rem' };
+    } else if (viewport >= 650) {
+      return { class: 'w-36 h-[12rem] rounded-2xl', borderRadius: '1rem' };
+    } else if (viewport >= 600) {
+      return { class: 'w-36 h-[12rem] rounded-2xl', borderRadius: '1rem' };
     } else if (viewport >= 580) {
-      return { class: 'w-32 h-[10rem] rounded-2xl', borderRadius: '1rem' };
+      return { class: 'w-34 h-[11.5rem] rounded-2xl', borderRadius: '1rem' };
+    } else if (viewport >= 560) {
+      return { class: 'w-34 h-[11.5rem] rounded-xl', borderRadius: '0.75rem' };
+    } else if (viewport >= 555) {
+      return { class: 'w-32 h-[11rem] rounded-xl', borderRadius: '0.75rem' };
+    } else if (viewport >= 550) {
+      return { class: 'w-32 h-[11rem] rounded-xl', borderRadius: '0.75rem' };
     } else {
-      return { class: 'w-30 h-[9rem] rounded-2xl', borderRadius: '1rem' };
+      return { class: 'w-28 h-[9rem] rounded-xl', borderRadius: '0.75rem' };
     }
-  };
+  }, [isHydrated, is3CardLayout, viewport]);
 
-  const getContentSize = () => {
+  const getContentSize = useCallback((): ContentSize => {
     if (!isHydrated) {
       if (!is3CardLayout) {
         return {
@@ -176,13 +210,21 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
           buttonRounded: 'rounded-lg',
           padding: 'p-2'
         };
-      } else if (viewport >= 320) {
+      } else if (viewport >= 327) {
         return {
           title: 'text-base font-bold',
           button: 'px-3 py-1 text-xs font-bold w-full',
           buttonBorder: 'border-2',
           buttonRounded: 'rounded-lg',
           padding: 'p-2'
+        };
+      } else if (viewport >= 320) {
+        return {
+          title: 'text-sm font-bold',
+          button: 'px-2 py-0.5 text-xs font-bold w-full',
+          buttonBorder: 'border-2',
+          buttonRounded: 'rounded-lg',
+          padding: 'p-1.5'
         };
       } else {
         return {
@@ -227,32 +269,64 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
         buttonRounded: 'rounded-lg',
         padding: 'p-3'
       };
-    } else if (viewport >= 835) {
+    } else if (viewport >= 800) {
       return {
         title: 'text-base font-bold',
-        button: 'px-4 py-1.5 text-xs font-bold w-full',
+        button: 'px-4 py-1.5 text-sm font-bold w-full',
         buttonBorder: 'border-2',
         buttonRounded: 'rounded-lg',
         padding: 'p-2'
       };
-    } else if (viewport >= 680) {
+    } else if (viewport >= 750) {
+      return {
+        title: 'text-base font-bold',
+        button: 'px-3 py-1.5 text-sm font-bold w-full',
+        buttonBorder: 'border-2',
+        buttonRounded: 'rounded-lg',
+        padding: 'p-2'
+      };
+    } else if (viewport >= 700) {
       return {
         title: 'text-sm font-bold',
         button: 'px-3 py-1 text-xs font-bold w-full',
         buttonBorder: 'border-2',
         buttonRounded: 'rounded-lg',
+        padding: 'p-2'
+      };
+    } else if (viewport >= 600) {
+      return {
+        title: 'text-sm font-bold',
+        button: 'px-3 py-1 text-xs font-bold w-full',
+        buttonBorder: 'border-2',
+        buttonRounded: 'rounded-md',
+        padding: 'p-2'
+      };
+    } else if (viewport >= 555) {
+      return {
+        title: 'text-sm font-bold',
+        button: 'px-3 py-1.5 text-xs font-bold w-full',
+        buttonBorder: 'border-2',
+        buttonRounded: 'rounded-md',
+        padding: 'p-2'
+      };
+    } else if (viewport >= 550) {
+      return {
+        title: 'text-sm font-bold',
+        button: 'px-3 py-1.5 text-xs font-bold w-full',
+        buttonBorder: 'border-2',
+        buttonRounded: 'rounded-md',
         padding: 'p-2'
       };
     } else {
       return {
-        title: 'text-sm font-bold',
-        button: 'px-3 py-1 text-xs font-bold w-full',
+        title: 'text-xs font-bold',
+        button: 'px-2 py-0.5 text-xs font-bold w-full',
         buttonBorder: 'border',
-        buttonRounded: 'rounded-lg',
+        buttonRounded: 'rounded-md',
         padding: 'p-1'
       };
     }
-  };
+  }, [isHydrated, is3CardLayout, viewport]);
 
   const cardSize = getCardSize();
   const contentSize = getContentSize();
@@ -321,6 +395,7 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
           speed={1}
           chaos={0.2}
           thickness={2.5}
+          className=""
           style={{ 
             borderRadius: is3CardLayout ? (isHydrated ? (viewport >= 1024 ? 24 : 16) : 24) : 24,
             padding: '3px',
@@ -340,13 +415,13 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
   );
 };
 
-// Auto-scroll hooks remain the same
-const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
-  const intervalRef = useRef(null);
-  const timeoutRef = useRef(null);
-  const [isScrolling, setIsScrolling] = React.useState(false);
-  const [currentDirection, setCurrentDirection] = React.useState('next');
-  const [isUserInteracting, setIsUserInteracting] = React.useState(false);
+// Auto-scroll hook
+const useAutoScroll = (emblaApi: EmblaCarouselType | undefined, is3CardLayout: boolean, totalCards: number) => {
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [isScrolling, setIsScrolling] = useState<boolean>(false);
+  const [currentDirection, setCurrentDirection] = useState<'next' | 'prev'>('next');
+  const [isUserInteracting, setIsUserInteracting] = useState<boolean>(false);
   
   const clearAllTimers = useCallback(() => {
     if (intervalRef.current) {
@@ -359,7 +434,6 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
     }
   }, []);
 
-  // FIXED: Updated scroll boundaries for left-start positioning
   const getScrollBoundaries = useCallback(() => {
     if (!emblaApi || totalCards <= 0) return { minIndex: 0, maxIndex: 0 };
     
@@ -367,10 +441,9 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
       if (totalCards < 3) {
         return { minIndex: 0, maxIndex: Math.max(0, totalCards - 1) };
       }
-      // FIXED: Start from 0 (left-aligned) and go to totalCards - 1
       return {
-        minIndex: 0, // Start from leftmost position 
-        maxIndex: totalCards - 1 // Go to rightmost position
+        minIndex: 0,
+        maxIndex: totalCards - 1
       };
     } else {
       return {
@@ -453,7 +526,7 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
         setCurrentDirection('prev');
       }
     }
-  }, [emblaApi, is3CardLayout, getScrollBoundaries, totalCards]);
+  }, [emblaApi, getScrollBoundaries, totalCards]);
 
   useEffect(() => {
     if (emblaApi && !isUserInteracting && totalCards > 1) {
@@ -466,12 +539,6 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
   }, [emblaApi, startAutoScroll, clearAllTimers, isUserInteracting, totalCards]);
 
   useEffect(() => {
-    if (!isUserInteracting && emblaApi && totalCards > 1) {
-      startAutoScroll();
-    }
-  }, [isUserInteracting, emblaApi, startAutoScroll, totalCards]);
-
-  useEffect(() => {
     return () => {
       clearAllTimers();
     };
@@ -480,12 +547,11 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
   return { handleUserInteraction };
 };
 
-const usePrevNextButtons = (emblaApi, handleUserInteraction) => {
-  const [prevBtnDisabled, setPrevBtnDisabled] = React.useState(true);
-  const [nextBtnDisabled, setNextBtnDisabled] = React.useState(true);
+const usePrevNextButtons = (emblaApi: EmblaCarouselType | undefined, handleUserInteraction: () => void) => {
+  const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
+  const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
 
-  const onSelect = useCallback((api) => {
-    if (!api) return;
+  const onSelect = useCallback((api: EmblaCarouselType) => {
     setPrevBtnDisabled(!api.canScrollPrev());
     setNextBtnDisabled(!api.canScrollNext());
   }, []);
@@ -494,12 +560,10 @@ const usePrevNextButtons = (emblaApi, handleUserInteraction) => {
     if (!emblaApi) return;
     
     onSelect(emblaApi);
-    emblaApi.on('reInit', onSelect);
-    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect).on('select', onSelect);
     
     return () => {
-      emblaApi.off('reInit', onSelect);
-      emblaApi.off('select', onSelect);
+      emblaApi.off('reInit', onSelect).off('select', onSelect);
     };
   }, [emblaApi, onSelect]);
 
@@ -567,21 +631,13 @@ function EventsCarousel() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // FIXED: Start from position 0 but highlight center card (index 1 for 3-card layout)
   const getStartIndex = useCallback(() => {
-    if (totalCards <= 1) return 0;
-    
-    if (is3CardLayout) {
-      // Start from leftmost position (0) so first card is on left
-      return 0;
-    } else {
-      return 0;
-    }
-  }, [is3CardLayout, totalCards]);
+    return 0;
+  }, []);
 
-  // FIXED: Use center alignment to show 3 cards properly
-  const emblaOptions = React.useMemo(() => ({
-    align: 'center', // FIXED: Back to center alignment for proper 3-card display
+  // FIXED: Proper containScroll type
+  const emblaOptions: EmblaOptionsType = React.useMemo(() => ({
+    align: 'center',
     loop: false,
     startIndex: getStartIndex(),
     skipSnaps: false,
@@ -590,23 +646,20 @@ function EventsCarousel() {
   }), [is3CardLayout, getStartIndex]);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(emblaOptions);
-  const [selectedIndex, setSelectedIndex] = React.useState(getStartIndex());
-  const tweenNodes = useRef([]);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const tweenNodes = useRef<(HTMLElement | null)[]>([]);
 
   const { handleUserInteraction } = useAutoScroll(emblaApi, is3CardLayout, totalCards);
   
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi, handleUserInteraction);
 
-  const setTweenNodes = useCallback((api) => {
+  const setTweenNodes = useCallback((api: EmblaCarouselType) => {
     tweenNodes.current = api.slideNodes().map((slideNode) => {
       return slideNode.querySelector('.card-container');
     });
   }, []);
 
-  // FIXED: Restore original center card highlighting logic
-  const updateCenterCard = useCallback((api) => {
-    if (!api) return;
-    
+  const updateCenterCard = useCallback((api: EmblaCarouselType) => {
     if (!is3CardLayout) {
       const currentSnap = api.selectedScrollSnap();
       setSelectedIndex(currentSnap);
@@ -619,9 +672,8 @@ function EventsCarousel() {
         }
       });
     } else {
-      // FIXED: Restore original center detection logic
       const slides = api.slideNodes();
-      const slidePositions = [];
+      const slidePositions: { index: number; distance: number }[] = [];
       
       slides.forEach((slide, index) => {
         const slideRect = slide.getBoundingClientRect();
@@ -657,11 +709,11 @@ function EventsCarousel() {
     }
   }, [is3CardLayout]);
 
-  const onSelect = useCallback((api) => {
+  const onSelect = useCallback((api: EmblaCarouselType) => {
     updateCenterCard(api);
   }, [updateCenterCard]);
 
-  const onScroll = useCallback((api) => {
+  const onScroll = useCallback((api: EmblaCarouselType) => {
     if (is3CardLayout) {
       updateCenterCard(api);
     }
@@ -691,7 +743,7 @@ function EventsCarousel() {
     };
   }, [emblaApi, emblaOptions, setTweenNodes, onSelect, onScroll, updateCenterCard]);
 
-  const handleCarouselInteraction = useCallback((e) => {
+  const handleCarouselInteraction = useCallback((e: React.MouseEvent | React.TouchEvent | React.PointerEvent) => {
     e.preventDefault();
     handleUserInteraction();
   }, [handleUserInteraction]);
@@ -786,7 +838,19 @@ function EventsCarousel() {
         <div 
           className={`${getContainerClass()} mx-4 sm:mx-6 md:mx-8 lg:mx-10 xl:mx-12 overflow-hidden`}
           style={{ 
-            padding: is3CardLayout ? '15px 15px 40px 15px' : '80px 20px',
+            padding: (() => {
+              if (is3CardLayout) {
+                if (viewport < 600) {
+                  return '12px 10px 40px 10px';
+                } else if (viewport < 800) {
+                  return '15px 12px 40px 12px';
+                } else {
+                  return '15px 15px 40px 15px';
+                }
+              } else {
+                return '80px 20px';
+              }
+            })(),
             height: is3CardLayout 
               ? 'clamp(34rem, 10vw + 36rem, 58rem)'
               : 'clamp(36rem, 6vw + 38rem, 46rem)', 
@@ -809,7 +873,15 @@ function EventsCarousel() {
                 key={card.id}
                 className={`slide-wrapper flex-shrink-0 flex justify-center items-center ${
                   is3CardLayout 
-                    ? 'w-1/3 px-1 md:px-2 lg:px-3 xl:px-4'
+                    ? (() => {
+                        if (viewport < 600) {
+                          return 'w-1/3 px-1';
+                        } else if (viewport < 800) {
+                          return 'w-1/3 px-1';
+                        } else {
+                          return 'w-1/3 px-1 md:px-2 lg:px-3 xl:px-4';
+                        }
+                      })()
                     : 'w-full px-0'
                 }`}
                 style={{ 
