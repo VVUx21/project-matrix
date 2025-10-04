@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
             initial="hidden"
             animate="visible"
             variants={titleVariants}
-            className="w-full px-4 flex justify-center"
+            className="w-full  flex justify-center px-[6vw]"
           >
             <Image
               src={imageSources.title}
@@ -63,12 +63,12 @@ const Hero: React.FC = () => {
               width={1200}
               height={100}
               priority
-              className="object-contain w-full max-w-[390px] sm:max-w-[500px] md:max-w-[700px] lg:max-w-[900px] xl:max-w-[1700px]"
+              className="object-contain w-full"
             />
           </motion.div>
 
           <motion.div
-            className="text-[#9aa6e7c8] self-end md:self-auto absolute left-14/19 top-3/18 sm:max-md:top-2/22 sm:max-md:right-4/29 md:max-xl:top-3/19 md:max-lg:left-17/24 xl:left-15/19 sm:top-3/17 z-40"
+            className="text-[#9aa6e7c8] self-end md:self-auto absolute left-14/19 top-3/18 sm:max-md:top-2/22 sm:max-md:right-4/29 md:max-xl:top-3/19 md:max-lg:left-17/24 xl:left-14/19 sm:top-3/17 z-40"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             initial="hidden"
             animate="visible"

@@ -31,19 +31,18 @@ export default function BubbleCursor() {
       ease: "power2.out",
     });
 
-    // Track velocity for trail spawning
     let prevX = window.innerWidth / 2;
     let prevY = window.innerHeight / 2;
     let velocityX = 0;
     let velocityY = 0;
 
     let lastSpawn = 0;
-    const spawnInterval = 55;
-    const bubbleRadius = 80; // half of bubble size (140px / 2)
+    const spawnInterval = 50;
+    const bubbleRadius = 85;
 
     const spawnTrailBubble = (x: number, y: number) => {
       const trail = document.createElement("div");
-      const size = 10 + Math.random() * 18;
+      const size = 12 + Math.random() * 20;
 
       trail.style.cssText = `
         position: fixed;
@@ -55,26 +54,31 @@ export default function BubbleCursor() {
         margin-top: -${size / 2}px;
         border-radius: 50%;
         pointer-events: none;
-        background: radial-gradient(circle at 35% 30%, 
-          rgba(255,255,255,0.85) 0%,
-          rgba(220,240,255,0.5) 45%,
-          rgba(150,200,255,0.25) 70%,
-          rgba(120,180,255,0.1));
+        background: 
+          radial-gradient(circle at 30% 25%, 
+            rgba(255,255,255,0.95) 0%,
+            rgba(255,255,255,0.7) 15%,
+            rgba(240,250,255,0.4) 35%,
+            rgba(200,230,255,0.2) 55%,
+            rgba(150,200,255,0.1) 75%,
+            transparent 90%);
         box-shadow: 
-          inset 0 -3px 10px rgba(0,0,0,0.12),
-          inset 0 3px 8px rgba(255,255,255,0.3),
-          0 5px 20px rgba(100,180,255,0.25);
+          inset -2px -4px 8px rgba(0,0,0,0.15),
+          inset 2px 4px 10px rgba(255,255,255,0.5),
+          inset 0 -1px 3px rgba(100,150,200,0.3),
+          0 4px 15px rgba(120,180,255,0.35),
+          0 2px 8px rgba(150,200,255,0.25);
         mix-blend-mode: screen;
       `;
 
       trailContainer.appendChild(trail);
 
       gsap.to(trail, {
-        y: -60 - Math.random() * 50,
-        x: (Math.random() - 0.5) * 35,
+        y: -70 - Math.random() * 60,
+        x: (Math.random() - 0.5) * 40,
         opacity: 0,
-        scale: 0.2,
-        duration: 0.9 + Math.random() * 0.5,
+        scale: 0.15,
+        duration: 1 + Math.random() * 0.6,
         ease: "power2.out",
         onComplete: () => trail.remove(),
       });
@@ -87,21 +91,17 @@ export default function BubbleCursor() {
       xTo(currentX);
       yTo(currentY);
 
-      // Calculate velocity (direction of movement)
       velocityX = currentX - prevX;
       velocityY = currentY - prevY;
       const speed = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
 
-      // Spawn trail at the back edge of the bubble (opposite of movement direction)
       const now = performance.now();
       if (now - lastSpawn > spawnInterval && speed > 0.5) {
         lastSpawn = now;
 
-        // Normalize velocity to get direction
         const dirX = velocityX / (speed || 1);
         const dirY = velocityY / (speed || 1);
 
-        // Spawn at opposite direction from movement, at bubble edge
         const trailX = prevX - dirX * bubbleRadius;
         const trailY = prevY - dirY * bubbleRadius;
 
@@ -138,43 +138,56 @@ export default function BubbleCursor() {
           position: "fixed",
           left: 0,
           top: 0,
-          width: "140px",
-          height: "140px",
+          width: "160px",
+          height: "160px",
           pointerEvents: "none",
           zIndex: 9999,
           opacity: 0,
           borderRadius: "50%",
           background: `
-            radial-gradient(ellipse 45% 40% at 32% 25%, 
+            radial-gradient(ellipse 40% 35% at 28% 20%, 
               rgba(255,255,255,1) 0%,
-              rgba(255,255,255,0.8) 35%,
-              rgba(255,255,255,0.1) 65%,
-              transparent 80%),
-            radial-gradient(ellipse 28% 24% at 22% 38%,
+              rgba(255,255,255,0.95) 20%,
+              rgba(255,255,255,0.4) 45%,
+              transparent 70%),
+            radial-gradient(ellipse 25% 20% at 25% 30%,
+              rgba(255,255,255,0.85) 0%,
+              rgba(255,255,255,0.4) 40%,
+              transparent 75%),
+            radial-gradient(circle at 22% 18%,
               rgba(255,255,255,0.6) 0%,
-              rgba(255,255,255,0.2) 60%,
-              transparent 80%),
-            radial-gradient(circle at 75% 72%,
-              rgba(255,160,80,0.22) 0%,
-              rgba(255,240,140,0.16) 12%,
-              rgba(140,210,255,0.2) 28%,
-              transparent 38%),
-            radial-gradient(ellipse 130% 130% at 50% 58%,
-              rgba(35,60,130,0.2) 0%,
-              rgba(45,80,160,0.2) 40%,
-              rgba(25,45,100,0.2) 70%,
-              rgba(15,25,60,0.12) 100%)
+              transparent 40%),
+            radial-gradient(ellipse 15% 12% at 40% 25%,
+              rgba(255,255,255,0.5) 0%,
+              transparent 60%),
+            radial-gradient(circle at 70% 70%,
+              rgba(255,200,150,0.15) 0%,
+              rgba(255,230,180,0.12) 15%,
+              rgba(180,220,255,0.18) 30%,
+              transparent 45%),
+            radial-gradient(ellipse 140% 140% at 50% 60%,
+              rgba(40,80,150,0.25) 0%,
+              rgba(50,100,180,0.28) 35%,
+              rgba(35,65,130,0.3) 65%,
+              rgba(20,40,90,0.2) 100%)
           `,
           boxShadow: `
-            inset 0 -28px 55px rgba(0,0,0,0.22),
-            inset 0 18px 35px rgba(255,255,255,0.15),
-            inset 0 0 0 1px rgba(255,255,255,0.12),
-            0 20px 65px rgba(80,160,255,0.3),
-            0 8px 25px rgba(120,200,255,0.2)
+            inset 0 -35px 60px rgba(0,0,0,0.28),
+            inset 0 -15px 25px rgba(0,0,0,0.15),
+            inset 0 20px 40px rgba(255,255,255,0.25),
+            inset 0 5px 15px rgba(255,255,255,0.4),
+            inset -3px 0 8px rgba(100,150,200,0.2),
+            inset 0 0 0 1px rgba(255,255,255,0.15),
+            0 25px 70px rgba(100,170,255,0.4),
+            0 12px 30px rgba(130,200,255,0.3),
+            0 5px 15px rgba(150,210,255,0.25)
           `,
-          backdropFilter: "blur(2px) saturate(1.5) brightness(1.2)",
-          WebkitBackdropFilter: "blur(3px) saturate(1.15) brightness(1.05)",
+          backdropFilter:
+            "blur(2px) saturate(1.6) brightness(1.25) contrast(1.1) sepia(0.7)",
+          WebkitBackdropFilter:
+            "blur(2px) saturate(1.6) brightness(1.25) contrast(1.1) sepia(0.7)",
           mixBlendMode: "screen",
+          filter: "contrast(1.05) brightness(1.1)",
         }}
       />
     </>

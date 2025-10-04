@@ -30,7 +30,7 @@ export default function Footer() {
 
   return (
     <footer
-      className={`relative w-full overflow-hidden ${neue.className}`}
+      className={`relative w-full  overflow-hidden ${neue.className}`}
       style={{
         background:
           "linear-gradient(180deg, #6D2FF9 0%, #381880 41.35%, #020006 89.9%)",
@@ -129,7 +129,7 @@ export default function Footer() {
         </div>
 
         {/* Desktop Layout - Exact match to image */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block ">
           {/* Single Grid: 3 Columns - Title/Description | Quick Links + Logos | Contact Us */}
           <div className="grid grid-cols-[2fr_1.5fr_1.5fr_1.5fr] gap-8 lg:gap-12">
             {/* Column 1: INNOVISION Title and Description */}
@@ -181,7 +181,7 @@ export default function Footer() {
             </div>
 
             {/* Column 3: Contact Us */}
-            <div className="text-right">
+            <div className="text-left">
               <h3 className="text-xl lg:text-2xl uppercase font-bold mb-6">
                 Contact Us
               </h3>
