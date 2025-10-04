@@ -6,7 +6,7 @@ import LightRays from "./LightRays";
 
 const Statistics = () => {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-[#000000] to-[#5000FF] relative overflow-hidden flex items-center justify-center py-8 sm:py-12 px-4 sm:px-6">
+    <div className="min-h-screen w-full bg-gradient-to-b from-[#000000] to-[#5000FF] relative overflow-hidden flex items-center justify-center font- py-8 sm:py-12 px-4 sm:px-6">
       <div className="absolute top-20 sm:top-32 left-4 sm:left-8 w-16 sm:w-24 h-16 sm:h-24 bg-purple-600/30 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 sm:bottom-32 left-8 sm:left-16 w-20 sm:w-32 h-20 sm:h-32 bg-blue-600/20 rounded-full blur-3xl"></div>
 
@@ -34,7 +34,7 @@ const Statistics = () => {
       </div>
       {/* **************************** Jellyfish Decoration ************************** */}
       <div
-        className="absolute w-24 sm:w-32 lg:w-64 top-10 right-2 sm:right-8 sm:top-38 md:top-38 md:right-6 lg:right-2 lg:top-40 z-10 sm:z-[100] opacity-90"
+        className="absolute w-24 sm:32 lg:w-64 top-10 right-2 sm:right-8 sm:top-38 md:top-38 md:right-6 lg:right-2 lg:top-40 z-1 sm:z-100 opacity-90"
         style={{
           animation: "float 8s ease-in-out infinite",
         }}
@@ -53,7 +53,7 @@ const Statistics = () => {
 
       {/* **************************** sm: Big Bubble Decoration hidden************************** */}
       <div
-        className="absolute w-24 sm:w-32 lg:w-64 top-10 left-2 sm:left-8 sm:top-38 md:top-38 md:left-6 lg:left-2 lg:top-40 z-10 sm:z-[100] sm:hidden opacity-90"
+        className="absolute w-24 sm:32 lg:w-64 top-10 left-2 sm:left-8 sm:top-38 md:top-38 md:left-6 lg:left-2 lg:top-40 z-1 sm:z-100 sm:hidden opacity-90"
         style={{
           animation: "floats 16s ease-in-out infinite",
         }}
@@ -445,7 +445,6 @@ const Statistics = () => {
         </div>
       </div>
 
-      {/* FIXED: Combined both style blocks into one */}
       <style jsx>{`
         @keyframes float {
           0%,
@@ -456,6 +455,7 @@ const Statistics = () => {
             transform: translateY(-20px);
           }
         }
+
         @keyframes floats {
           0%,
           100% {

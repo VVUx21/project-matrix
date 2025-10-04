@@ -82,11 +82,48 @@ export const menuVariants: Variants = {
 };
 
 export const navItems = [
-  { label: "About Us", path: "/#about-us" },
-  { label: "Events", path: "/event" },
-  { label: "Sponsers", path: "/#sponsers" },
-  { label: "Gallery", path: "/event#gallery" },
-  { label: "Contact us", path: "/#footer" },
+  {
+    label: "About Us",
+    path: "/#about-us",
+    class:
+      "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
+  },
+  {
+    label: "Events",
+    path: "/event",
+    class:
+      "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
+  },
+  {
+    label: "Sponsers",
+    path: "/#sponsers",
+    class:
+      "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
+  },
+  {
+    label: "Gallery",
+    path: "/event#gallery",
+    class:
+      "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
+  },
+  {
+    label: "Contact us",
+    path: "/#footer",
+    class:
+      "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
+  },
+  {
+    label: "Register",
+    path: "/signinl",
+    class:
+      "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
+  },
+  {
+    label: "Login",
+    path: "/loginl",
+    class:
+      "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
+  },
 ] as const;
 
 export const imageSources = {
