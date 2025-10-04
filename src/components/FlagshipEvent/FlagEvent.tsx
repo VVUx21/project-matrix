@@ -171,7 +171,7 @@ const FlagEvent = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h1
-            className="text-white  font-semibold uppercase text-[35px] md:text-[90px] leading-normal text-shadow-[0_0_10px_#D9D9D9] "
+            className="text-white  font-semibold uppercase text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9] "
             whileHover={{
               scale: 1.05,
               textShadow: "0 0 20px #D9D9D9",

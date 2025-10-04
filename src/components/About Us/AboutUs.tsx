@@ -6,7 +6,11 @@ type PositionedImageProps = {
   className?: string;
 };
 
-const PositionedImage: React.FC<PositionedImageProps> = ({ src, alt, className }) => (
+const PositionedImage: React.FC<PositionedImageProps> = ({
+  src,
+  alt,
+  className,
+}) => (
   <div className={className}>
     <Image src={src} alt={alt} fill className="object-contain" />
   </div>
@@ -14,14 +18,17 @@ const PositionedImage: React.FC<PositionedImageProps> = ({ src, alt, className }
 
 export default function AboutUs() {
   const images = {
-    bubble: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759433551/bubblee_jgojlh.svg",
-    bubble2: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759462227/bublee2_bqclcc.svg",
+    bubble:
+      "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759433551/bubblee_jgojlh.svg",
+    bubble2:
+      "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759462227/bublee2_bqclcc.svg",
     dots: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759462232/dot_iunuhu.svg",
-    dots2: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759462230/dottt2_wq3igi.svg",
+    dots2:
+      "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759462230/dottt2_wq3igi.svg",
     fish: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759488567/fish_2_bgvurv.svg",
-    jellyfish: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759426493/jellyfish_2_hp6tbc.svg",
+    jellyfish:
+      "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759426493/jellyfish_2_hp6tbc.svg",
   };
-
 
   const dotsPositions = [
     {
@@ -121,7 +128,6 @@ export default function AboutUs() {
     },
   ];
 
-
   return (
     <div className="relative w-full overflow-hidden bg-gradient-to-b from-black to-[#5000FF]">
       <div className="relative z-20 text-center lg:pt-44 pt-24 md:text-[80px] lg:text-[90px] text-6xl font-metana font-bold text-white text-shadow-[#D9D9D9] text-shadow-md">
@@ -132,71 +138,98 @@ export default function AboutUs() {
         <Image src={images.bubble} alt="Bubble" width={100} height={171} />
       </div>
       <div className="absolute top-[89px] left-56 z-0">
-        <Image src={images.bubble2} alt="Bubble2" width={172} height={232} className="z-0"/>
+        <Image
+          src={images.bubble2}
+          alt="Bubble2"
+          width={172}
+          height={232}
+          className="z-0"
+        />
       </div>
 
       {dotsPositions.map((pos, i) => (
-        <PositionedImage key={`dots-${i}`} src={images.dots} alt="Dots" className={`${pos.className} w-96 h-40`} />
+        <PositionedImage
+          key={`dots-${i}`}
+          src={images.dots}
+          alt="Dots"
+          className={`${pos.className} w-96 h-40`}
+        />
       ))}
 
       {dots2Positions.map((pos, i) => (
-        <PositionedImage key={`dots2-${i}`} src={images.dots2} alt="Dots2" className={`${pos.className} w-36 h-24`} />
+        <PositionedImage
+          key={`dots2-${i}`}
+          src={images.dots2}
+          alt="Dots2"
+          className={`${pos.className} w-36 h-24`}
+        />
       ))}
 
-      <div className="flex flex-col">
-        <div className="absolute top-[436px] left-[-31px] z-0">
-          <Image src={images.bubble2}  alt="Bubble3" width={172} height={232} className="z-0"/>
-        </div>
-        <div className="mx-auto font-space font-bold md:text-[48px] text-3xl leading-[61px] text-center text-white pt-14 md:pt-10">
-          NIT Rourkela
-        </div>
-        <div className=" flex flex-col z-40 items-center lg:px-24 md:px-16 px-5 sm:px-9 md:py-7 py-5 gap-[34.51px] font-space font-normal md:text-[20px] lg:text-[28px] text-[12px] md:leading-[25px] lg:leading-[36px] text-center text-white">
-          NIT Rourkela is one of the country's premier national-level
-          institutions for technical education funded by the government of India
-          and is known for its strong emphasis on engineering, basic sciences,
-          and technology. Ranked 19th overall in engineering and 3rd among the
-          National Institutes of Technology in the 2024 NIRF Rankings, NITR has
-          earned a reputation for academic excellence. The institute supports a
-          robust educational environment with 390 faculty members and a student
-          population 8,000, housed on the largest campus among all NITs. NIT
-          Rourkela is passionately committed to making our country a world
-          leader in technology and science and teaching this commitment to all
-          its students. The institute's graduates have consistently excelled in
-          professional fields domestically and internationally through inclusive
-          initiatives and a standardised education policy.
-        </div>
+      <div className="absolute top-[436px] left-[-31px] z-0">
+        <Image
+          src={images.bubble2}
+          alt="Bubble3"
+          width={172}
+          height={232}
+          className="z-0"
+        />
       </div>
 
-      <div>
-        <div className="mx-auto font-space font-bold md:text-5xl text-4xl leading-16 text-center text-white z-10 pt-10 sm:pt-14 md:pt-10">
-          Innovision
-        </div>
-        <div className="relative sm:pb-36 pb-32">
-          <div className="absolute bottom-0 lg:left-[-175px] rotate-[3.87deg] z-0 opacity-45 left-[-299px] h-[475px] md:height-[570px]">
-            <Image src={images.fish}  alt="Fish" width={570} height={570} />
-          </div>
-          <Image
-            src={images.jellyfish} 
-            alt="Jellyfish"
-            width={262}
-            height={399}
-            priority
-            className="
-              hidden sm:block
-              pointer-events-none select-none absolute bottom-0 z-0
-              jellyfish-bounce drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]
-              w-[262px] h-auto left-[70vw] sm:h-[250px] md:h-[399px]
-            "
-          />
+      <div className="absolute bottom-0 lg:left-[-175px] rotate-[3.87deg] z-0 opacity-45 left-[-299px] h-[475px] md:height-[570px]">
+        <Image src={images.fish} alt="Fish" width={570} height={570} />
+      </div>
+      <Image
+        src={images.jellyfish}
+        alt="Jellyfish"
+        width={262}
+        height={399}
+        priority
+        className="
+          hidden sm:block
+          pointer-events-none select-none absolute bottom-0 z-0
+          jellyfish-bounce drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]
+          w-[262px] h-auto left-[70vw] sm:h-[250px] md:h-[399px]
+        "
+      />
 
-          <div className="relative lg:px-28 md:px-16 px-5 sm:px-9 md:py-7 py-5 font-space font-normal md:text-[20px] lg:text-[28px] text-[13px] sm:text-[13px] lg:leading-[36px] md:leading-[25px] leading-[18px] text-center text-white z-10">
-            Innovision, NIT Rourkela's annual techno-management fest and one of
-            the largest fests in Eastern India, is a highly anticipated event
-            scheduled from 8th to 10th November 2024, which aims to captivate
-            and engage science and technology enthusiasts throughout India. Join
-            Innovision as we connect with the brightest minds in technology and
-            innovation and spark creativity and collaboration, solving critical
-            challenges facing our society, environment, and world today.
+      <div className="flex justify-evenly gap-8 lg:gap-12 px-10 sm:px-14 md:px-12">
+        <div className="hidden sm:flex flex-col text-center max-w-[45%] ">
+          <div className=" font-space font-bold lg:text-[48px] text-3xl md:text-4xl leading-[61px] text-white pt-14 md:pt-10 text-center">
+            NIT Rourkela
+          </div>
+          <div className="text-justify flex flex-col z-40 items-center md:py-7 py-5 font-space font-normal md:text-[20px] lg:text-[28px] text-[12px] md:leading-[25px] lg:leading-[36px] text-white ">
+            NIT Rourkela is one of the country's premier national-level
+            institutions for technical education funded by the government of
+            India and is known for its strong emphasis on engineering, basic
+            sciences, and technology. Ranked 19th overall in engineering and 3rd
+            among the National Institutes of Technology in the 2024 NIRF
+            Rankings, NITR has earned a reputation for academic excellence. The
+            institute supports a robust educational environment with 390 faculty
+            members and a student population 8,000, housed on the largest campus
+            among all NITs. NIT Rourkela is passionately committed to making our
+            country a world leader in technology and science and teaching this
+            commitment to all its students. The institute's graduates have
+            consistently excelled in professional fields domestically and
+            internationally through inclusive initiatives and a standardised
+            education policy.
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:max-w-[45%]">
+          <div className="font-space font-bold lg:text-5xl text-4xl leading-16 text-center text-white z-10 pt-10 sm:pt-14 md:pt-10">
+            Innovision
+          </div>
+          <div className="relative sm:pb-36 pb-32">
+            <div className=" relative md:py-7 py-5 font-space font-normal md:text-[20px] lg:text-[32px] text-[13px] sm:text-[13px] lg:leading-[36px] md:leading-[25px] leading-[18px] text-justify text-white z-40">
+              Innovision, NIT Rourkela's annual techno-management fest and one
+              of the largest fests in Eastern India, is a highly anticipated
+              event scheduled from 8th to 10th November 2024, which aims to
+              captivate and engage science and technology enthusiasts throughout
+              India. Join Innovision as we connect with the brightest minds in
+              technology and innovation and spark creativity and collaboration,
+              solving critical challenges facing our society, environment, and
+              world today.
+            </div>
           </div>
         </div>
       </div>
