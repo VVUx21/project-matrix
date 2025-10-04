@@ -82,8 +82,11 @@ export const menuVariants: Variants = {
 };
 
 export const navItems = [
+  { label: "About Us", path: "/#about-us" },
   { label: "Events", path: "/event" },
-  { label: "About Us", path: "#about-us" },
+  { label: "Sponsers", path: "/#sponsers" },
+  { label: "Gallery", path: "/event#gallery" },
+  { label: "Contact us", path: "/#footer" },
 ] as const;
 
 export const imageSources = {

@@ -5,6 +5,7 @@ import "./globals.css";
 import { AuthProvider } from "@/contexts/auth-context";
 import Nav from "@/components/Hero/Nav";
 import Footer from "@/components/Footer";
+import FluidGlass from "@/components/Hero/FluidGlassCursor";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -33,7 +34,10 @@ export default function RootLayout({
       >
         <Nav />
         {children}
-        <Footer />
+        <div id="footer">
+          <Footer />
+        </div>
+        <FluidGlass />
       </body>
     </html>
   );

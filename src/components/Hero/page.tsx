@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
   return (
     <div className="relative">
       {/* Fluid Glass Cursor */}
-      <FluidGlassCursor />
+      {/* <FluidGlassCursor /> */}
 
       <div className="w-full relative sm:min-h-screen pt-[10vw] bg-gradient-to-b from-[#5000FF] to-[#000002] overflow-hidden">
         {/* Light Rays Background */}

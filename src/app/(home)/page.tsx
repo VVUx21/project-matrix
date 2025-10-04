@@ -4,7 +4,6 @@ import AboutUs from "@/components/About Us/AboutUs";
 import EventsCarousel from "@/components/eventsh/eventsh";
 import Statistics from "@/components/Stastics";
 import SponsorCard from "@/components/SponsorCard";
-
 function Home() {
   return (
     <div>
@@ -14,7 +13,9 @@ function Home() {
       </div>
       <EventsCarousel />
       <Statistics />
-      <SponsorCard />
+      <div id="sponsers">
+        <SponsorCard />
+      </div>
     </div>
   );
 }
