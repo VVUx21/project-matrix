@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import ElectricBorder from './ElectricBorder';
 
@@ -10,9 +10,6 @@ const eventCards = [
   { id: 3, title: "EVENT", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
   { id: 4, title: "EVENT", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
   { id: 5, title: "EVENT", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
-  // Add more cards here and everything will work automatically
-  // { id: 6, title: "EVENT", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
-  // { id: 7, title: "EVENT", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
 ];
 
 // Debounce utility function
@@ -63,17 +60,28 @@ const NextButton = ({ onClick, disabled }) => (
   </button>
 );
 
-// Card Component with fixed consistent sizing
+// Card Component remains the same
 const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
-  const [viewport, setViewport] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
-  
-  React.useEffect(() => {
+  const [isHydrated, setIsHydrated] = useState(false);
+  const [viewport, setViewport] = useState(1024);
+
+  useEffect(() => {
+    setIsHydrated(true);
+    setViewport(window.innerWidth);
+
     const handleResize = () => setViewport(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const getCardSize = () => {
+    if (!isHydrated) {
+      if (!is3CardLayout) {
+        return { class: 'w-72 h-88 rounded-3xl', borderRadius: '1.5rem' };
+      }
+      return { class: 'w-80 h-[26rem] rounded-3xl', borderRadius: '1.5rem' };
+    }
+
     if (!is3CardLayout) {
       if (viewport >= 500) {
         return { class: 'w-72 h-88 rounded-3xl', borderRadius: '1.5rem' };
@@ -90,28 +98,51 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
       }
     }
     
-    if (viewport >= 1200) {
-      return { class: 'w-64 h-80 rounded-3xl', borderRadius: '1.5rem' };
+    if (viewport >= 1400) {
+      return { class: 'w-80 h-[26rem] rounded-3xl', borderRadius: '1.5rem' };
+    } else if (viewport >= 1200) {
+      return { class: 'w-76 h-[24rem] rounded-3xl', borderRadius: '1.5rem' };
     } else if (viewport >= 1024) {
-      return { class: 'w-56 h-72 rounded-3xl', borderRadius: '1.5rem' };
+      return { class: 'w-72 h-[22rem] rounded-3xl', borderRadius: '1.5rem' };
     } else if (viewport >= 900) {
-      return { class: 'w-48 h-64 rounded-2xl', borderRadius: '1rem' };
+      return { class: 'w-60 h-[19rem] rounded-2xl', borderRadius: '1rem' };
+    } else if (viewport >= 835) {
+      return { class: 'w-52 h-[16rem] rounded-2xl', borderRadius: '1rem' };
     } else if (viewport >= 800) {
-      return { class: 'w-44 h-60 rounded-2xl', borderRadius: '1rem' };
+      return { class: 'w-48 h-[15rem] rounded-2xl', borderRadius: '1rem' };
     } else if (viewport >= 725) {
-      return { class: 'w-40 h-56 rounded-2xl', borderRadius: '1rem' };
+      return { class: 'w-44 h-[14rem] rounded-2xl', borderRadius: '1rem' };
     } else if (viewport >= 680) {
-      return { class: 'w-36 h-52 rounded-2xl', borderRadius: '1rem' };
+      return { class: 'w-40 h-[12rem] rounded-2xl', borderRadius: '1rem' };
     } else if (viewport >= 630) {
-      return { class: 'w-32 h-48 rounded-2xl', borderRadius: '1rem' };
+      return { class: 'w-36 h-[11rem] rounded-2xl', borderRadius: '1rem' };
     } else if (viewport >= 580) {
-      return { class: 'w-30 h-44 rounded-2xl', borderRadius: '1rem' };
+      return { class: 'w-32 h-[10rem] rounded-2xl', borderRadius: '1rem' };
     } else {
-      return { class: 'w-28 h-40 rounded-2xl', borderRadius: '1rem' };
+      return { class: 'w-30 h-[9rem] rounded-2xl', borderRadius: '1rem' };
     }
   };
 
   const getContentSize = () => {
+    if (!isHydrated) {
+      if (!is3CardLayout) {
+        return {
+          title: 'text-3xl font-bold',
+          button: 'px-8 py-2 text-lg font-bold w-full',
+          buttonBorder: 'border-2',
+          buttonRounded: 'rounded-lg',
+          padding: 'p-4'
+        };
+      }
+      return {
+        title: 'text-2xl font-bold',
+        button: 'px-6 py-2.5 text-base font-bold w-full',
+        buttonBorder: 'border-2',
+        buttonRounded: 'rounded-lg',
+        padding: 'p-4'
+      };
+    }
+
     if (!is3CardLayout) {
       if (viewport >= 500) {
         return {
@@ -164,26 +195,58 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
       }
     }
     
-    if (viewport >= 1024) {
+    if (viewport >= 1400) {
       return {
-        title: 'text-lg lg:text-xl font-bold',
-        button: 'px-4 py-1.5 text-xs lg:px-5 lg:py-2 lg:text-sm font-bold w-full',
+        title: 'text-3xl font-bold',
+        button: 'px-8 py-3 text-lg font-bold w-full',
         buttonBorder: 'border-2',
         buttonRounded: 'rounded-lg',
-        padding: 'p-2 lg:p-3'
+        padding: 'p-5'
+      };
+    } else if (viewport >= 1200) {
+      return {
+        title: 'text-2xl font-bold',
+        button: 'px-7 py-2.5 text-base font-bold w-full',
+        buttonBorder: 'border-2',
+        buttonRounded: 'rounded-lg',
+        padding: 'p-4'
+      };
+    } else if (viewport >= 1024) {
+      return {
+        title: 'text-xl font-bold',
+        button: 'px-6 py-2.5 text-base font-bold w-full',
+        buttonBorder: 'border-2',
+        buttonRounded: 'rounded-lg',
+        padding: 'p-4'
+      };
+    } else if (viewport >= 900) {
+      return {
+        title: 'text-lg font-bold',
+        button: 'px-5 py-2 text-sm font-bold w-full',
+        buttonBorder: 'border-2',
+        buttonRounded: 'rounded-lg',
+        padding: 'p-3'
+      };
+    } else if (viewport >= 835) {
+      return {
+        title: 'text-base font-bold',
+        button: 'px-4 py-1.5 text-xs font-bold w-full',
+        buttonBorder: 'border-2',
+        buttonRounded: 'rounded-lg',
+        padding: 'p-2'
       };
     } else if (viewport >= 680) {
       return {
-        title: 'text-sm md:text-base font-bold',
-        button: 'px-3 py-1 text-xs md:px-4 md:py-1.5 md:text-xs font-bold w-full',
-        buttonBorder: 'border md:border-2',
+        title: 'text-sm font-bold',
+        button: 'px-3 py-1 text-xs font-bold w-full',
+        buttonBorder: 'border-2',
         buttonRounded: 'rounded-lg',
-        padding: 'p-1.5 md:p-2'
+        padding: 'p-2'
       };
     } else {
       return {
         title: 'text-sm font-bold',
-        button: 'px-3 py-0.5 text-xs font-bold w-full',
+        button: 'px-3 py-1 text-xs font-bold w-full',
         buttonBorder: 'border',
         buttonRounded: 'rounded-lg',
         padding: 'p-1'
@@ -210,13 +273,13 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
           </h3>
         </div>
         
-        <div className="flex-1 flex items-center justify-center px-1 py-1" style={{ minHeight: '60%' }}>
+        <div className="flex-1 flex items-center justify-center px-1 py-2" style={{ minHeight: '65%' }}>
           <div 
             className="relative w-full max-w-full overflow-hidden"
             style={{ 
               aspectRatio: '4/3',
               borderRadius: cardSize.borderRadius,
-              maxHeight: '85%'
+              maxHeight: '80%'
             }}
           >
             <img 
@@ -259,7 +322,7 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
           chaos={0.2}
           thickness={2.5}
           style={{ 
-            borderRadius: is3CardLayout ? (viewport >= 1024 ? 24 : 16) : 24,
+            borderRadius: is3CardLayout ? (isHydrated ? (viewport >= 1024 ? 24 : 16) : 24) : 24,
             padding: '3px',
             background: 'transparent'
           }}
@@ -277,7 +340,7 @@ const EventCard = ({ card, isHighlighted, is3CardLayout }) => {
   );
 };
 
-// FIXED: Fully dynamic auto-scroll that works with any number of cards
+// Auto-scroll hooks remain the same
 const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
   const intervalRef = useRef(null);
   const timeoutRef = useRef(null);
@@ -296,26 +359,20 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
     }
   }, []);
 
-  // FIXED: Dynamic boundary calculation based on actual card count
+  // FIXED: Updated scroll boundaries for left-start positioning
   const getScrollBoundaries = useCallback(() => {
     if (!emblaApi || totalCards <= 0) return { minIndex: 0, maxIndex: 0 };
     
     if (is3CardLayout) {
-      // For 3-card layout: need at least 3 cards to work properly
       if (totalCards < 3) {
-        // If less than 3 cards, treat as single card layout
         return { minIndex: 0, maxIndex: Math.max(0, totalCards - 1) };
       }
-      
-      // For 3-card layout with 3+ cards:
-      // - First highlightable position: index 1 (2nd card becomes center)
-      // - Last highlightable position: index (totalCards - 2) (2nd to last card becomes center)
+      // FIXED: Start from 0 (left-aligned) and go to totalCards - 1
       return {
-        minIndex: 1,
-        maxIndex: totalCards - 2
+        minIndex: 0, // Start from leftmost position 
+        maxIndex: totalCards - 1 // Go to rightmost position
       };
     } else {
-      // For single card layout: can highlight all cards
       return {
         minIndex: 0,
         maxIndex: Math.max(0, totalCards - 1)
@@ -329,7 +386,6 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
     const currentIndex = emblaApi.selectedScrollSnap();
     const { minIndex, maxIndex } = getScrollBoundaries();
     
-    // If min and max are the same, no scrolling needed
     if (minIndex >= maxIndex) return;
     
     setIsScrolling(true);
@@ -338,7 +394,6 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
       if (currentIndex < maxIndex) {
         emblaApi.scrollNext();
       } else {
-        // Reached rightmost boundary, change direction
         setCurrentDirection('prev');
         emblaApi.scrollPrev();
       }
@@ -346,13 +401,11 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
       if (currentIndex > minIndex) {
         emblaApi.scrollPrev();
       } else {
-        // Reached leftmost boundary, change direction
         setCurrentDirection('next');
         emblaApi.scrollNext();
       }
     }
     
-    // Reset scrolling flag after animation completes
     setTimeout(() => {
       setIsScrolling(false);
     }, 600);
@@ -363,12 +416,10 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
     
     const { minIndex, maxIndex } = getScrollBoundaries();
     
-    // Don't start auto-scroll if there's only one valid position
     if (minIndex >= maxIndex) return;
     
     clearAllTimers();
     
-    // Initial delay before starting
     timeoutRef.current = setTimeout(() => {
       if (!isUserInteracting) {
         const scrollInterval = is3CardLayout ? 3000 : 4000;
@@ -385,30 +436,25 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
     setIsUserInteracting(true);
     stopAutoScroll();
     
-    // Clear the user interaction flag and restart after 5 seconds
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       setIsUserInteracting(false);
     }, 5000);
   }, [stopAutoScroll]);
 
-  // FIXED: Reset direction when layout changes or card count changes
   useEffect(() => {
     if (emblaApi && totalCards > 1) {
       const currentIndex = emblaApi.selectedScrollSnap();
       const { minIndex, maxIndex } = getScrollBoundaries();
       
-      // Set initial direction based on current position
       if (currentIndex <= minIndex) {
         setCurrentDirection('next');
       } else if (currentIndex >= maxIndex) {
         setCurrentDirection('prev');
       }
-      // If in middle, keep current direction
     }
   }, [emblaApi, is3CardLayout, getScrollBoundaries, totalCards]);
 
-  // Start auto-scroll when component mounts or dependencies change
   useEffect(() => {
     if (emblaApi && !isUserInteracting && totalCards > 1) {
       startAutoScroll();
@@ -419,14 +465,12 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
     };
   }, [emblaApi, startAutoScroll, clearAllTimers, isUserInteracting, totalCards]);
 
-  // Restart auto-scroll when user interaction ends
   useEffect(() => {
     if (!isUserInteracting && emblaApi && totalCards > 1) {
       startAutoScroll();
     }
   }, [isUserInteracting, emblaApi, startAutoScroll, totalCards]);
 
-  // Cleanup on unmount
   useEffect(() => {
     return () => {
       clearAllTimers();
@@ -436,7 +480,6 @@ const useAutoScroll = (emblaApi, is3CardLayout, totalCards) => {
   return { handleUserInteraction };
 };
 
-// Navigation hooks with auto-scroll integration
 const usePrevNextButtons = (emblaApi, handleUserInteraction) => {
   const [prevBtnDisabled, setPrevBtnDisabled] = React.useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = React.useState(true);
@@ -482,21 +525,26 @@ const usePrevNextButtons = (emblaApi, handleUserInteraction) => {
   };
 };
 
-// Responsive breakpoint hook with debouncing
 const useResponsive = () => {
-  const [viewport, setViewport] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+  const [isHydrated, setIsHydrated] = useState(false);
+  const [viewport, setViewport] = useState(1024);
   const debouncedViewport = useDebounce(viewport, 150);
-  const [is3CardLayout, setIs3CardLayout] = React.useState(true);
+  const [is3CardLayout, setIs3CardLayout] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    setIsHydrated(true);
+    setViewport(window.innerWidth);
+
     const handleResize = () => setViewport(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  React.useEffect(() => {
-    setIs3CardLayout(debouncedViewport >= 550);
-  }, [debouncedViewport]);
+  useEffect(() => {
+    if (isHydrated) {
+      setIs3CardLayout(debouncedViewport >= 550);
+    }
+  }, [debouncedViewport, isHydrated]);
 
   return { is3CardLayout };
 };
@@ -504,35 +552,36 @@ const useResponsive = () => {
 function EventsCarousel() {
   const { is3CardLayout } = useResponsive();
   
-  // FIXED: Dynamic center index calculation based on actual card count
   const totalCards = eventCards.length;
-  const centerIndex = Math.floor(totalCards / 2);
 
-  // Debounced viewport for background changes
-  const [viewport, setViewport] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+  const [isHydrated, setIsHydrated] = useState(false);
+  const [viewport, setViewport] = useState(1024);
   const debouncedViewport = useDebounce(viewport, 200);
   
-  React.useEffect(() => {
+  useEffect(() => {
+    setIsHydrated(true);
+    setViewport(window.innerWidth);
+
     const handleResize = () => setViewport(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // FIXED: Dynamic startIndex that works with any number of cards
+  // FIXED: Start from position 0 but highlight center card (index 1 for 3-card layout)
   const getStartIndex = useCallback(() => {
     if (totalCards <= 1) return 0;
     
     if (is3CardLayout) {
-      // For 3-card layout, start at center if possible, otherwise start at beginning
-      return totalCards >= 3 ? centerIndex : 0;
+      // Start from leftmost position (0) so first card is on left
+      return 0;
     } else {
-      // For single card layout, always start at beginning
       return 0;
     }
-  }, [is3CardLayout, centerIndex, totalCards]);
+  }, [is3CardLayout, totalCards]);
 
+  // FIXED: Use center alignment to show 3 cards properly
   const emblaOptions = React.useMemo(() => ({
-    align: 'center',
+    align: 'center', // FIXED: Back to center alignment for proper 3-card display
     loop: false,
     startIndex: getStartIndex(),
     skipSnaps: false,
@@ -544,7 +593,6 @@ function EventsCarousel() {
   const [selectedIndex, setSelectedIndex] = React.useState(getStartIndex());
   const tweenNodes = useRef([]);
 
-  // FIXED: Pass totalCards to auto-scroll hook
   const { handleUserInteraction } = useAutoScroll(emblaApi, is3CardLayout, totalCards);
   
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi, handleUserInteraction);
@@ -555,6 +603,7 @@ function EventsCarousel() {
     });
   }, []);
 
+  // FIXED: Restore original center card highlighting logic
   const updateCenterCard = useCallback((api) => {
     if (!api) return;
     
@@ -570,6 +619,7 @@ function EventsCarousel() {
         }
       });
     } else {
+      // FIXED: Restore original center detection logic
       const slides = api.slideNodes();
       const slidePositions = [];
       
@@ -592,11 +642,11 @@ function EventsCarousel() {
           tweenNode.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
           
           if (index === centerSlide.index) {
-            tweenNode.style.transform = 'scale(1.15)';
+            tweenNode.style.transform = 'scale(1.08)';
             tweenNode.style.opacity = '1';
             tweenNode.style.zIndex = '10';
           } else {
-            tweenNode.style.transform = 'scale(0.88)';
+            tweenNode.style.transform = 'scale(0.92)';
             tweenNode.style.opacity = '1';
             tweenNode.style.zIndex = '1';
           }
@@ -641,14 +691,13 @@ function EventsCarousel() {
     };
   }, [emblaApi, emblaOptions, setTweenNodes, onSelect, onScroll, updateCenterCard]);
 
-  // Handle user interactions to pause auto-scroll
   const handleCarouselInteraction = useCallback((e) => {
     e.preventDefault();
     handleUserInteraction();
   }, [handleUserInteraction]);
 
   const getBackgroundImage = () => {
-    if (debouncedViewport < 550) {
+    if (!isHydrated || debouncedViewport < 550) {
       return "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759465218/WhatsApp_Image_2025-10-03_at_9.46.15_AM_mz72hx.jpg";
     } else {
       return "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759403614/WhatsApp_Image_2025-10-02_at_4.41.27_PM_bxem0e.jpg";
@@ -657,7 +706,7 @@ function EventsCarousel() {
 
   const getContainerClass = () => {
     if (!is3CardLayout) {
-      if (viewport >= 500) {
+      if (!isHydrated || viewport >= 500) {
         return 'w-full max-w-md';
       } else if (viewport >= 450) {
         return 'w-full max-w-sm';
@@ -665,10 +714,14 @@ function EventsCarousel() {
         return 'w-full max-w-xs';
       }
     }
-    return 'w-full max-w-4xl';
+    return 'w-full max-w-7xl';
   };
 
   const getHeadingClass = () => {
+    if (!isHydrated) {
+      return 'text-6xl xl:text-7xl';
+    }
+
     if (viewport >= 1000) {
       return 'text-6xl xl:text-7xl';
     } else if (viewport >= 768) {
@@ -686,7 +739,6 @@ function EventsCarousel() {
     }
   };
 
-  // FIXED: Handle edge case where there are no cards
   if (totalCards === 0) {
     return (
       <div className="relative min-h-screen bg-cover bg-center flex items-center justify-center">
@@ -697,12 +749,21 @@ function EventsCarousel() {
 
   return (
     <div 
-      className="relative min-h-screen bg-cover bg-center transition-all duration-500 overflow-x-hidden"
-      style={{ backgroundImage: `url('${getBackgroundImage()}')` }}
+      className="relative transition-all duration-500 overflow-x-hidden"
+      style={{
+        backgroundImage: `url('${getBackgroundImage()}')`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: isHydrated && debouncedViewport >= 550 && is3CardLayout 
+          ? 'center 5%'
+          : 'center center',
+        minHeight: '100vh',
+        height: 'auto'
+      }}
     >
       <div className={`${
         is3CardLayout 
-          ? 'pt-4 pb-2 sm:pt-6 sm:pb-3 lg:pt-8 lg:pb-4'
+          ? 'pt-6 pb-2 sm:pt-8 sm:pb-3 lg:pt-10 lg:pb-4'
           : 'pt-6 pb-4 sm:pt-8 sm:pb-6 lg:pt-12 lg:pb-8'
       }`}>
         <h1 className={`text-white text-center tracking-wider [text-shadow:_0_0_10px_#D9D9D9] font-bold ${getHeadingClass()}`}>
@@ -710,8 +771,7 @@ function EventsCarousel() {
         </h1>
       </div>
 
-      <div className="relative flex items-center justify-center px-1 sm:px-2 overflow-x-hidden">
-        {/* FIXED: Only show navigation arrows if there are multiple scrollable positions */}
+      <div className="relative flex items-center justify-center px-1 sm:px-2 overflow-x-hidden -mt-2 sm:-mt-3 lg:-mt-4">
         {totalCards > 1 && (
           <>
             <div className="absolute left-0 sm:left-1 md:left-2 lg:left-4 xl:left-8 2xl:left-16 z-20 top-1/2 transform -translate-y-1/2">
@@ -724,13 +784,13 @@ function EventsCarousel() {
         )}
 
         <div 
-          className={`${getContainerClass()} mx-4 sm:mx-6 md:mx-8 lg:mx-10 overflow-hidden`}
+          className={`${getContainerClass()} mx-4 sm:mx-6 md:mx-8 lg:mx-10 xl:mx-12 overflow-hidden`}
           style={{ 
-            padding: is3CardLayout ? '20px 15px 60px 15px' : '80px 20px',
+            padding: is3CardLayout ? '15px 15px 40px 15px' : '80px 20px',
             height: is3CardLayout 
-              ? 'clamp(28rem, 8vw + 30rem, 46rem)'
+              ? 'clamp(34rem, 10vw + 36rem, 58rem)'
               : 'clamp(36rem, 6vw + 38rem, 46rem)', 
-            minHeight: is3CardLayout ? '28rem' : '36rem'
+            minHeight: is3CardLayout ? '34rem' : '36rem'
           }}
           ref={emblaRef}
           onMouseDown={handleCarouselInteraction}
@@ -749,7 +809,7 @@ function EventsCarousel() {
                 key={card.id}
                 className={`slide-wrapper flex-shrink-0 flex justify-center items-center ${
                   is3CardLayout 
-                    ? 'w-1/3 px-0.5 md:px-1 lg:px-2'
+                    ? 'w-1/3 px-1 md:px-2 lg:px-3 xl:px-4'
                     : 'w-full px-0'
                 }`}
                 style={{ 
