@@ -39,7 +39,9 @@ export default function RootLayout({
         <div id="footer">
           <Footer />
         </div>
-        <FluidGlass />
+        <div className="hidden lg:block">
+          <FluidGlass />
+        </div>
         <FloatingChatbot />
       </body>
     </html>

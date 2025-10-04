@@ -39,7 +39,7 @@ export default function Footer() {
     >
       <div className="w-full max-w-[1512px] mx-auto px-6 sm:px-10 py-12 text-white">
         {/* Mobile Layout */}
-        <div className="md:hidden flex flex-col items-center text-center">
+        <div className="lg:hidden flex flex-col items-center text-center">
           {/* Title and Description */}
           <h2 className="text-3xl uppercase font-bold mb-4">INNOVISION</h2>
           <p className="text-sm leading-relaxed text-gray-200 mb-8 max-w-sm">
@@ -81,14 +81,12 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-
             {/* Contact Us */}
             <div className="text-left">
               <h3 className="text-lg uppercase font-bold mb-4">Contact Us</h3>
               <div className="text-sm space-y-2 text-gray-200">
                 <p>
-                  <span className="font-semibold uppercase">Name:</span>{" "}
-                  987654321
+                  <span className="font-semibold uppercase">Ph:</span> 987654321
                 </p>
                 <p>innonitr@gmail.com</p>
               </div>
@@ -131,15 +129,15 @@ export default function Footer() {
         </div>
 
         {/* Desktop Layout - Exact match to image */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           {/* Single Grid: 3 Columns - Title/Description | Quick Links + Logos | Contact Us */}
-          <div className="grid grid-cols-[2fr_1.5fr_1.5fr] gap-8 lg:gap-12">
+          <div className="grid grid-cols-[2fr_1.5fr_1.5fr_1.5fr] gap-8 lg:gap-12">
             {/* Column 1: INNOVISION Title and Description */}
             <div>
-              <h2 className="text-3xl lg:text-4xl xl:text-5xl uppercase font-bold mb-6">
+              <h2 className="text-2xl lg:text-3xl xl:text-4xl uppercase font-bold mb-6">
                 INNOVISION
               </h2>
-              <p className="text-sm lg:text-base leading-relaxed text-gray-200">
+              <p className="text-sm lg:text-sm leading-relaxed text-gray-200">
                 Innovision 2025, the largest techno-cultural fest of Eastern
                 India organized by NIT Rourkela, is a celebration where
                 technology, creativity, and culture converge. With the theme
@@ -169,18 +167,17 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
-
-              {/* Three Logos in a row - positioned at bottom */}
-              <div className="flex justify-start items-center gap-4 mt-auto pt-8">
-                {logos.map((logo, index) => (
-                  <img
-                    key={index}
-                    src={logo}
-                    alt={`Logo ${index + 1}`}
-                    className="w-16 lg:w-28 xl:w-30 h-auto object-contain"
-                  />
-                ))}
-              </div>
+            </div>
+            {/* Three Logos in a row - positioned at bottom */}
+            <div className="flex items-start pt-[4vw] -mx-[9vw] gap-4">
+              {logos.map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo}
+                  alt={`Logo ${index + 1}`}
+                  className="w-[9vw] h-auto object-contain"
+                />
+              ))}
             </div>
 
             {/* Column 3: Contact Us */}
@@ -188,10 +185,9 @@ export default function Footer() {
               <h3 className="text-xl lg:text-2xl uppercase font-bold mb-6">
                 Contact Us
               </h3>
-              <div className="text-base lg:text-lg space-y-3 text-gray-200 mb-8">
+              <div className="text-sm lg:text-base space-y-3 text-gray-200 mb-8">
                 <p>
-                  <span className="font-semibold uppercase">Name:</span>{" "}
-                  987654321
+                  <span className="font-semibold uppercase">Ph:</span> 987654321
                 </p>
                 <p>innonitr@gmail.com</p>
               </div>
@@ -203,7 +199,7 @@ export default function Footer() {
                 </Link>
 
                 <Link href="#" target="_blank" aria-label="Facebook">
-                  <div className="w-11 h-11 lg:w-12 lg:h-12 bg-white rounded-full flex items-center justify-center transform hover:scale-110 transition duration-200">
+                  <div className="w-9 h-9 lg:w-10 lg:h-10 bg-white rounded-full flex items-center justify-center transform hover:scale-110 transition duration-200">
                     <FaFacebookF className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
                   </div>
                 </Link>
@@ -220,7 +216,7 @@ export default function Footer() {
           </div>
 
           {/* Footer Bottom Text - Full Width Center */}
-          <div className="text-center pt-10 mt-16">
+          <div className="text-center pt-4 ">
             <p className="text-base lg:text-lg text-gray-300">
               Made with ❤️ by Team{" "}
               <span className="font-bold text-white">{"</WEBWIZ>"}</span>
