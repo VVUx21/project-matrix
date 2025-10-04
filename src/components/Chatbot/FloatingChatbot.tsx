@@ -43,28 +43,23 @@ const FloatingChatbot: React.FC = () => {
     <>
       {/* Floating Chat Button - only show when closed */}
       {!isOpen && (
-        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+        <div className="fixed bottom-4 right-0 sm:bottom-6 sm:right-0 z-50">
           <button
             onClick={toggleChatbot}
-            className="px-2 py-2 sm:px-4 sm:py-2 transition-all duration-300 transform hover:scale-110 focus:outline-none shadow-[0_0_25px_10px_rgba(125,249,255,0.15)] hover:shadow-[0_0_30px_15px_rgba(125,249,255,0.25)]"
+            className="transition-all duration-300 transform hover:scale-110 focus:outline-none"
             style={{
-              borderRadius: '16px 16px 0 16px',
-              border: '1.5px solid #7DF9FF',
-              background: '#CB00F0',
-              fontFamily: 'Space Grotesk, sans-serif',
-              color: '#7DF9FF',
-              fontWeight: '600'
+              background: 'transparent',
+              border: 'none'
             }}
             aria-label="Open chatbot"
           >
-            <span 
-              className="whitespace-nowrap text-sm sm:text-base md:text-lg lg:text-2xl"
-              style={{ 
-                fontWeight: '700'
-              }}
-            >
-              Ask me anything
-            </span>
+            <Image
+              src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759598866/97ff7523ac99f4c7117ad5fd536cda35481d72bf_aknu17.png"
+              alt="Ask me anything"
+              width={180}
+              height={60}
+              className="object-contain w-28 h-14 sm:w-32 sm:h-16 md:w-36 md:h-18 lg:w-40 lg:h-20"
+            />
           </button>
         </div>
       )}
