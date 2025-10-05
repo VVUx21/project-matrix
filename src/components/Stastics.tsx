@@ -74,7 +74,7 @@ const Statistics = () => {
 
       <div className="relative z-10 w-full lg:max-w-4xl md:max-w-3xl mx-auto">
         <h1
-          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold py-10 text-white text-center mb-8 sm:mb-10 md:mb-12 tracking-[0.3em] sm:tracking-[0.4em]"
+          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold md:py-10 text-white text-center mb-8 sm:mb-10 md:mb-12 tracking-[0.3em] sm:tracking-[0.4em]"
           style={{
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
             fontFamily: "Neue Metana",
