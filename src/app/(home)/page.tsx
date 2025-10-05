@@ -7,7 +7,7 @@ import SponsorCard from "@/components/SponsorCard";
 function Home() {
   return (
     <div>
-      <Hero />;
+      <Hero />
       <div id="about-us">
         <AboutUs />
       </div>
