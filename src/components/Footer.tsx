@@ -2,6 +2,7 @@
 import localFont from "next/font/local";
 import Link from "next/link";
 import { FaYoutube, FaFacebookF, FaInstagram } from "react-icons/fa";
+import Image from "next/image";
 
 const neue = localFont({
   src: "../fonts/neuemetananext-semibold.otf",
@@ -30,7 +31,7 @@ export default function Footer() {
 
   return (
     <footer
-      className={`relative w-full  overflow-hidden ${neue.className}`}
+      className={`relative w-full -top-[3vw] overflow-hidden ${neue.className}`}
       style={{
         background:
           "linear-gradient(180deg, #6D2FF9 0%, #381880 41.35%, #020006 89.9%)",
@@ -54,11 +55,13 @@ export default function Footer() {
           {/* Logos */}
           <div className="flex justify-center items-center gap-4 mb-10">
             {logos.map((logo, index) => (
-              <img
+              <Image
                 key={index}
                 src={logo}
                 alt={`Logo ${index + 1}`}
                 className="w-16 h-auto object-contain"
+                width={0}
+                height={0}
               />
             ))}
           </div>
@@ -115,10 +118,12 @@ export default function Footer() {
           </div>
 
           {/* Slashed Logo */}
-          <img
+          <Image
             src={slashedLogo}
             alt="Slashed Logo"
             className="w-20 mb-6 opacity-90"
+            width={0}
+            height={0}
           />
 
           {/* Footer Text */}
@@ -171,11 +176,13 @@ export default function Footer() {
             {/* Three Logos in a row - positioned at bottom */}
             <div className="flex items-start pt-[4vw] -mx-[9vw] gap-4">
               {logos.map((logo, index) => (
-                <img
+                <Image
                   key={index}
                   src={logo}
                   alt={`Logo ${index + 1}`}
                   className="w-[9vw] h-auto object-contain"
+                  width={0}
+                  height={0}
                 />
               ))}
             </div>
@@ -193,7 +200,7 @@ export default function Footer() {
               </div>
 
               {/* Social Icons */}
-              <div className="flex justify-end space-x-6 mt-6">
+              <div className="flex justify-start space-x-6 mt-6">
                 <Link href="#" target="_blank" aria-label="YouTube">
                   <FaYoutube className="w-9 h-9 lg:w-10 lg:h-10 text-white hover:text-red-600 transform hover:scale-110 transition duration-200" />
                 </Link>
@@ -216,7 +223,7 @@ export default function Footer() {
           </div>
 
           {/* Footer Bottom Text - Full Width Center */}
-          <div className="text-center pt-4 ">
+          <div className="text-center pt-6 ">
             <p className="text-base lg:text-lg text-gray-300">
               Made with ❤️ by Team{" "}
               <span className="font-bold text-white">{"</WEBWIZ>"}</span>
@@ -226,10 +233,12 @@ export default function Footer() {
       </div>
 
       {/* Slashed Logo - Bottom Right Corner (Absolute Position) */}
-      <img
+      <Image
         src={slashedLogo}
         alt="Slashed Logo"
         className="hidden md:block absolute bottom-6 right-8 lg:bottom-8 lg:right-12 w-20 lg:w-24 xl:w-28 opacity-90"
+        width={0}
+        height={0}
       />
     </footer>
   );
