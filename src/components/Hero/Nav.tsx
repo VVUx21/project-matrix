@@ -30,10 +30,12 @@ const Nav: React.FC = () => {
           >
             {/* Logo */}
             <Link href="/" className="hoverable">
-              <img
+              <Image
                 src={imageSources.logo}
                 alt="logo"
                 className="hover:scale-110 rounded-full transition-transform duration-300 w-10 h-10 md:w-12 md:h-12"
+                width={0}
+                height={0}
               />
             </Link>
 
