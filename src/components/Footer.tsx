@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import Link from "next/link";
 import { FaYoutube, FaFacebookF, FaInstagram } from "react-icons/fa";
 import Image from "next/image";
+
 const neue = localFont({
   src: "../fonts/neuemetananext-semibold.otf",
   variable: "--font-neue",
@@ -222,7 +223,7 @@ export default function Footer() {
           </div>
 
           {/* Footer Bottom Text - Full Width Center */}
-          <div className="text-center pt-4 ">
+          <div className="text-center pt-6 ">
             <p className="text-base lg:text-lg text-gray-300">
               Made with ❤️ by Team{" "}
               <span className="font-bold text-white">{"</WEBWIZ>"}</span>
