@@ -50,6 +50,6 @@ export const events: Event[] = [
 
 export const URL = {
   background: { src: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427318/background_eu1okb.png", alt: "background", width: 1920, height: 1080 },
-  fish: { src: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427260/fish_1_s7donf.svg", alt: "fish", width: 300, height: 300 },
+  fish: { src: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427260/fish_1_s7donf.svg", alt: "fish", width: 3000, height: 3000 },
   arrowButton: { src: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427302/carbon_next-filled_a3ah2k.svg", alt: "arrowButton", width: 50, height: 50 },
 };
