@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { events, URL } from "@/config/DtsEvent/DtsEvent";
+import { neue, spaceGrotesk } from "@/fonts";
 
 const { background, arrowButton, fish } = URL;
 
@@ -159,23 +160,23 @@ const DtsEvents = () => {
         </div>
 
         {/* Animated Title */}
-       <motion.div
-                 className="my-16 flex justify-center items-center"
-                 initial={{ opacity: 0, y: -50 }}
-                 animate={{ opacity: 1, y: 0 }}
-                 transition={{ duration: 0.8, ease: "easeOut" }}
-               >
-                 <motion.h1
-                   className="text-white px-5 font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9] "
-                   whileHover={{
-                     scale: 1.05,
-                     textShadow: "0 0 20px #D9D9D9",
-                     transition: { duration: 0.3 },
-                   }}
-                 >
-                   SHOWS AT DTS
-                 </motion.h1>
-               </motion.div>
+        <motion.div
+          className="my-16 flex justify-center items-center"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.h1
+            className={`text-white px-5 ${neue.className} font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9] `}
+            whileHover={{
+              scale: 1.05,
+              textShadow: "0 0 20px #D9D9D9",
+              transition: { duration: 0.3 },
+            }}
+          >
+            SHOWS AT DTS
+          </motion.h1>
+        </motion.div>
 
         {/* Carousel Container */}
         <div className="relative px-4 mb-10 lg:mb-20">
@@ -220,7 +221,7 @@ const DtsEvents = () => {
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.2 }}
                     >
-                      <h3 className="text-white text-4xl font-bold tracking-wider">
+                      <h3 className={`text-white text-4xl ${neue.className} font-bold tracking-wider`}>
                         {slide.name}
                       </h3>
                     </motion.div>
@@ -243,7 +244,7 @@ const DtsEvents = () => {
                       transition={{ delay: 0.3 }}
                     >
                       <motion.button
-                        className=" rounded-[15px] border-[3.75px] text-white text-2xl font-semibold border-white bg-[#5000FF] px-16 py-3"
+                        className={`rounded-[15px] border-[3.75px] ${spaceGrotesk.className} text-white text-2xl font-semibold border-white bg-[#5000FF] px-16 py-3`}
                         whileHover={{
                           scale: 1.05,
                           boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
@@ -275,13 +276,15 @@ const DtsEvents = () => {
             </button>
           </div>
 
-          {/* Mobile/Tablet Layout - Arrows below cards */}
+          {/* Mobile/Tablet Layout - Touch/Swipe enabled */}
           <div className="xl:hidden">
             {/* Three Cards Container */}
             <div
-              className="flex items-center justify-center gap-4 max-w-7xl mx-auto mb-8"
+              className="flex items-center justify-center gap-4 max-w-7xl mx-auto mb-8 touch-pan-x"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onTouchStart={handleMouseEnter}
+              onTouchEnd={handleMouseLeave}
             >
               {getVisibleSlides().map((slide, index) => (
                 <motion.div
@@ -295,6 +298,19 @@ const DtsEvents = () => {
                   onClick={() =>
                     !slide.isCenter && goToSlide(slide.originalIndex)
                   }
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  onDragEnd={(event, info) => {
+                    if (slide.isCenter) {
+                      const threshold = 50;
+                      if (info.offset.x > threshold) {
+                        prevSlide();
+                      } else if (info.offset.x < -threshold) {
+                        nextSlide();
+                      }
+                    }
+                  }}
                   layout
                 >
                   {/* Event Card */}
@@ -305,7 +321,7 @@ const DtsEvents = () => {
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.2 }}
                     >
-                      <h3 className="text-white text-4xl font-bold tracking-wider">
+                      <h3 className={`text-white ${neue.className} text-4xl font-bold tracking-wider`}>
                         {slide.name}
                       </h3>
                     </motion.div>
@@ -328,7 +344,7 @@ const DtsEvents = () => {
                       transition={{ delay: 0.3 }}
                     >
                       <motion.button
-                        className=" rounded-[15px] border-[3.75px] text-white text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3"
+                        className={`rounded-[15px] border-[3.75px] ${spaceGrotesk.className} text-white text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3`}
                         whileHover={{
                           scale: 1.05,
                           boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
@@ -346,28 +362,6 @@ const DtsEvents = () => {
                   </motion.div>
                 </motion.div>
               ))}
-            </div>
-
-            {/* Arrow buttons below cards */}
-            <div className="flex mt-10 justify-center items-center gap-12">
-              <button onClick={prevSlide}>
-                <Image
-                  src={arrowButton.src}
-                  alt={arrowButton.alt}
-                  width={0}
-                  height={0}
-                  className="w-16 h-16 rotate-180"
-                />
-              </button>
-              <button onClick={nextSlide}>
-                <Image
-                  src={arrowButton.src}
-                  alt={arrowButton.alt}
-                  width={0}
-                  height={0}
-                  className="w-16 h-16"
-                />
-              </button>
             </div>
           </div>
         </div>
@@ -387,7 +381,7 @@ const DtsEvents = () => {
               viewport={{ once: true }}
             >
               <motion.h2
-                className="text-white text-center text-6xl font-bold uppercase mb-8 tracking-wider"
+                className={`text-white text-center ${neue.className} text-6xl font-bold uppercase mb-8 tracking-wider`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -397,7 +391,7 @@ const DtsEvents = () => {
               </motion.h2>
 
               <motion.p
-                className="text-white/90 text-justify text-lg leading-relaxed max-w-4xl"
+                className={`text-white/90 ${spaceGrotesk.className} text-justify text-lg leading-relaxed max-w-4xl`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -423,8 +417,8 @@ const DtsEvents = () => {
                     transition: { type: "spring", stiffness: 400, damping: 25 },
                   }}
                 >
-                  <h3 className="text-white text-4xl font-bold tracking-wider">
-                  {events[currentSlide].title}
+                  <h3 className={`text-white ${neue.className} text-4xl font-bold tracking-wider`}>
+                    {events[currentSlide].title}
                   </h3>
                 </motion.div>
 
@@ -446,7 +440,7 @@ const DtsEvents = () => {
                   transition={{ delay: 0.3 }}
                 >
                   <motion.button
-                    className="rounded-[15px] border-[3.75px] text-white text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3"
+                    className={`rounded-[15px] border-[3.75px] text-white ${spaceGrotesk.className} text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3`}
                     whileHover={{
                       scale: 1.05,
                       boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
@@ -478,7 +472,7 @@ const DtsEvents = () => {
               viewport={{ once: true }}
             >
               <motion.h2
-                className="text-white text-center text-4xl font-bold uppercase mb-6 tracking-wider"
+                className={`text-white text-center ${neue.className} text-4xl font-bold uppercase mb-6 tracking-wider`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -488,7 +482,7 @@ const DtsEvents = () => {
               </motion.h2>
 
               <motion.p
-                className="text-white/90 text-justify text-base leading-relaxed"
+                className={`text-white/90 text-justify ${spaceGrotesk.className} text-base leading-relaxed`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -514,8 +508,8 @@ const DtsEvents = () => {
                     transition: { type: "spring", stiffness: 400, damping: 25 },
                   }}
                 >
-                  <h3 className="text-white text-3xl font-bold tracking-wider">
-                     {events[currentSlide].title}
+                  <h3 className={`text-white text-3xl ${neue.className} font-bold tracking-wider`}>
+                    {events[currentSlide].title}
                   </h3>
                 </motion.div>
 
@@ -537,7 +531,7 @@ const DtsEvents = () => {
                   transition={{ delay: 0.3 }}
                 >
                   <motion.button
-                    className="rounded-[15px] border-[3.75px] text-white text-xl font-semibold border-white bg-[#5000FF] px-8 py-2"
+                    className={`rounded-[15px] border-[3.75px] ${spaceGrotesk.className} text-white text-xl font-semibold border-white bg-[#5000FF] px-8 py-2`}
                     whileHover={{
                       scale: 1.05,
                       boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
@@ -576,7 +570,7 @@ const DtsEvents = () => {
                     transition: { type: "spring", stiffness: 400, damping: 25 },
                   }}
                 >
-                  <h3 className="text-white text-3xl font-bold tracking-wider">
+                  <h3 className={`text-white text-3xl ${neue.className} font-bold tracking-wider`}>
                     {events[currentSlide].title}
                   </h3>
                 </motion.div>
@@ -599,7 +593,7 @@ const DtsEvents = () => {
                   transition={{ delay: 0.3 }}
                 >
                   <motion.button
-                    className="rounded-[15px] border-[3.75px] text-white text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3"
+                    className={`rounded-[15px] border-[3.75px] ${spaceGrotesk.className} text-white text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3`}
                     whileHover={{
                       scale: 1.05,
                       boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
@@ -626,7 +620,7 @@ const DtsEvents = () => {
               viewport={{ once: true }}
             >
               <motion.h2
-                className="text-white text-center text-4xl md:text-6xl font-bold uppercase tracking-wider"
+                className={`text-white text-center ${neue.className} text-4xl md:text-6xl font-bold uppercase tracking-wider`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -645,7 +639,7 @@ const DtsEvents = () => {
               viewport={{ once: true }}
             >
               <motion.p
-                className="text-white/90 text-center text-lg leading-relaxed max-w-4xl mx-auto"
+                className={`text-white/90 text-center ${spaceGrotesk.className} text-lg leading-relaxed max-w-4xl mx-auto`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}

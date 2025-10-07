@@ -1,15 +1,12 @@
 "use client";
 import Image from "next/image";
 import images from "../config/Gallery/ImagesData";
+import { neue } from "@/fonts";
 
 const ImageGallery = () => {
   return (
     <div className="p-8 bg-cover bg-center bg-no-repeat min-h-screen p my-16">
-      <h1
-        className="text-center text-4xl md:text-5xl lg:text-6xl mb-10 font-extrabold 
-             text-white tracking-wide 
-             [text-shadow:_0_0_6px_rgba(255,255,255,0.6),_0_0_12px_rgba(255,255,255,0.4)]"
-      >
+      <h1 className={`text-white px-5 font-semibold text-center ${neue.className} uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9]`}>
         Gallery
       </h1>
 

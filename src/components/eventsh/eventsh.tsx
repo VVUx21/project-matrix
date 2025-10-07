@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useRef, useState, memo, useMemo } from "
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import Image from "next/image";
 import ElectricBorder from "./ElectricBorder";
+import { neue } from "@/fonts";
 
 // Types
 interface EventCard {
@@ -502,7 +503,7 @@ function EventsCarousel() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h1
-              className={`text-white text-center tracking-wider [text-shadow:_0_0_10px_#D9D9D9] font-bold ${headingSize}`}
+              className={`text-white text-center ${neue.className} tracking-wider [text-shadow:_0_0_10px_#D9D9D9] font-bold ${headingSize}`}
               whileHover={{
                 scale: 1.05,
                 textShadow: "0 0 20px #D9D9D9",
@@ -513,7 +514,7 @@ function EventsCarousel() {
             </motion.h1>
           </motion.div>
 
-          <div className="relative px-1 sm:px-2 mt-2 sm:mt-4 lg:mt-6 pb-8 lg:pb-16">
+          <div className={`relative px-1 ${neue.className} sm:px-2 mt-2 sm:mt-4 lg:mt-6 pb-8 lg:pb-16`}>
             {showArrows && is3CardLayout && (
               <div className="flex items-center justify-center">
                 <div className="absolute left-0 lg:left-4 xl:left-8 2xl:left-16 z-30">

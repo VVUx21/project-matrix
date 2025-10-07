@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   heroVariants,
-  menuVariants,
+  menuVariants, 
   navItems,
   imageSources,
 } from "./Heroconfig";
@@ -22,7 +22,7 @@ const Nav: React.FC = () => {
   return (
     <>
       {/* Navigation Bar */}
-      <div className="z-100 w-full absolute">
+      <div className="z-100 w-full fixed">
         <div className="flex justify-center items-center pt-6 pb-4 md:pt-8 relative z-40">
           <motion.section
             className="bg-[#b5a1e02f] w-[90%] max-w-[1200px] shadow-xl/30 h-[60px] md:h-[70px] flex justify-between items-center rounded-[62px] px-4 md:px-8 ring-1 ring-[#ffffff75]"
