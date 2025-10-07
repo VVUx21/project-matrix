@@ -398,7 +398,7 @@ const FlagEvent = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                {events[currentSlide].title}
+                {events[currentSlide].name}
               </motion.h2>
 
               <motion.p
@@ -429,7 +429,7 @@ const FlagEvent = () => {
                   }}
                 >
                   <h3 className="text-white text-4xl font-bold tracking-wider">
-                    EVENT
+                    {events[currentSlide].name}
                   </h3>
                 </motion.div>
 
@@ -489,7 +489,7 @@ const FlagEvent = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                {events[currentSlide].title}
+                {events[currentSlide].name}
               </motion.h2>
 
               <motion.p
@@ -520,7 +520,7 @@ const FlagEvent = () => {
                   }}
                 >
                   <h3 className="text-white text-3xl font-bold tracking-wider">
-                    EVENT
+                    {events[currentSlide].name}
                   </h3>
                 </motion.div>
 
@@ -553,7 +553,7 @@ const FlagEvent = () => {
                       },
                     }}
                     whileTap={{ scale: 0.95 }}
-                  >
+                  > 
                     EXPLORE
                   </motion.button>
                 </motion.div>
@@ -637,7 +637,7 @@ const FlagEvent = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                {events[currentSlide].title}
+                {events[currentSlide].name}
               </motion.h2>
             </motion.div>
 
