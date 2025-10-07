@@ -34,7 +34,7 @@ const Statistics = () => {
       </div> */}
       {/* **************************** Jellyfish Decoration ************************** */}
       <div
-        className="absolute w-24 sm:w-32 lg:w-64 top-10 right-2 sm:right-8 sm:top-38 md:top-38 md:right-6 lg:right-2 lg:top-40 z-10 sm:z-[100] opacity-90"
+        className="hidden absolute w-24 sm:w-32 lg:w-64 top-10 right-2 sm:right-8 sm:top-38 md:top-38 md:right-6 lg:right-2 lg:top-40 z-10 sm:z-[100] opacity-90"
         style={{
           animation: "float 8s ease-in-out infinite",
         }}

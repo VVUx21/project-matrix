@@ -101,6 +101,12 @@ export const navItems = [
       "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
   },
   {
+    label: "Merch",
+    path: "/merch",
+    class:
+      "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
+  },
+  {
     label: "Gallery",
     path: "/event#gallery",
     class:
@@ -118,12 +124,7 @@ export const navItems = [
     class:
       "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
   },
-  {
-    label: "Merch",
-    path: "/merch",
-    class:
-      "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
-  },
+  
 ] as const;
 
 export const imageSources = {
