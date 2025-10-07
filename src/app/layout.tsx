@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import FluidGlass from "@/components/Hero/FluidGlassCursor";
 import { FloatingChatbot } from "@/components/Chatbot";
 import { Toaster } from "react-hot-toast";
+import SiteLoader from "@/components/loader/SiteLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${neueMetana.variable} ${neueMetanaSemi.variable} overflow-x-hidden antialiased`}
       >
         <AuthProvider>
+          <SiteLoader />
+
           <Nav />
           <Toaster position="top-right" />
           {children}
