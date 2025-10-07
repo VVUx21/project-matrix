@@ -1,10 +1,17 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
 import Loader from "@/components/loader/loader";
+import LightRays from "@/components/Hero/LightRays";
+import {
+  imageSources,
+  lightRaysConfig,
+  floatVariants,
+} from "@/components/Hero/Heroconfig";
 import { formFields } from "@/config/auth";
 import { useAuth } from "@/contexts/auth-context";
 
@@ -57,7 +64,73 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-[calc(120svh-7vw)] flex items-center justify-center md:px-4 bg-reg relative">
+    <div className="min-h-screen md:min-h-[calc(120svh-7vw)] flex items-center justify-center md:px-4 relative overflow-hidden bg-gradient-to-b from-[#5000FF] to-[#000002]">
+      {/* Light Rays Background */}
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: 0,
+          pointerEvents: "none",
+        }}
+      >
+        <LightRays {...lightRaysConfig} />
+      </div>
+
+      {/* Decorative elements (reuse hero assets) */}
+      <div className="absolute top-[0.2svh] right-[0.5svh] z-10 opacity-70">
+        <Image
+          src={imageSources.fishes}
+          alt="fishes"
+          width={320}
+          height={120}
+          className="object-contain w-[180px] sm:w-[260px] md:w-[320px]"
+          priority
+        />
+      </div>
+      <div className="absolute bottom-[1.5svh]  md:top-[20svh] left-[2.5svh] z-10 opacity-80">
+        <Image
+          src={imageSources.jellyfish}
+          alt="jellyfish"
+          width={160}
+          height={160}
+          className="object-contain w-[90px] sm:w-[120px] md:w-[160px]"
+          priority
+        />
+      </div>
+
+      {/* Floating bubbles */}
+      <motion.div
+        className="absolute bottom-0 left-1/4 transform -translate-x-1/2 z-0 opacity-60"
+        variants={floatVariants}
+        animate="animate"
+      >
+        <Image
+          src={imageSources.bubble}
+          alt="bubble"
+          width={400}
+          height={200}
+          className="object-contain w-[220px] sm:w-[300px] md:w-[400px]"
+          priority
+        />
+      </motion.div>
+      <motion.div
+        className="absolute bottom-2 left-3/4 transform -translate-x-1/2 z-0 opacity-50"
+        variants={floatVariants}
+        animate="animate"
+      >
+        <Image
+          src={imageSources.bubble}
+          alt="bubble"
+          width={500}
+          height={200}
+          className="object-contain w-[260px] sm:w-[360px] md:w-[500px]"
+          priority
+        />
+      </motion.div>
       <AnimatePresence mode="wait">
         <motion.div
           className="w-full max-w-2xl sm:mt-[10svh] sm:mb-[5svh] md:mt-[20svh] md:mb-[10svh] md:px-8 px-3"
@@ -68,7 +141,7 @@ const LoginPage = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="relative overflow-hidden rounded-xl px-6 py-10 md:px-12 md:py-14 backdrop-blur-md bg-white/5 border border-white/10 shadow-2xl "
+            className="relative overflow-hidden rounded-xl px-6 py-10 md:px-12 md:py-14 backdrop-blur-md bg-white/5 border border-white/10 shadow-2xl z-20"
           >
             <h1 className="text-4xl md:text-5xl font-bold text-center mb-10 text-white/95 font-Cattedrale">
               {isLogin ? "Login User" : "Create Account"}
@@ -123,12 +196,12 @@ const LoginPage = () => {
                 </motion.div>
               ))}
               <button
-                className={`w-full mt-2 py-3 rounded-md bg-black/70 text-white font-semibold tracking-wide transition-opacity ${
+                className={`w-full mt-2 py-3 rounded-md bg-[#5100ffa4] hover:bg-[#5100ff63] text-white font-semibold tracking-wide transition-opacity ${
                   loading ? "opacity-70" : "opacity-100"
                 }`}
                 disabled={loading}
               >
-                {loading ? <Loader /> : isLogin ? "Sign In" : "Create Account"}
+                {loading ? <Loader /> : isLogin ? "Log In" : "Sign Up"}
               </button>
 
               <div className="text-center text-white/70">
