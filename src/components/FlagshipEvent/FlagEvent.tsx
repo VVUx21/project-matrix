@@ -280,13 +280,15 @@ const FlagEvent = () => {
             </button>
           </div>
 
-          {/* Mobile/Tablet Layout - Arrows below cards */}
+          {/* Mobile/Tablet Layout - Touch/Swipe enabled */}
           <div className="xl:hidden">
             {/* Three Cards Container */}
             <div
-              className="flex items-center justify-center gap-4 max-w-7xl mx-auto mb-8"
+              className="flex items-center justify-center gap-4 max-w-7xl mx-auto mb-8 touch-pan-x"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onTouchStart={handleMouseEnter}
+              onTouchEnd={handleMouseLeave}
             >
               {getVisibleSlides().map((slide, index) => (
                 <motion.div
@@ -300,6 +302,19 @@ const FlagEvent = () => {
                   onClick={() =>
                     !slide.isCenter && goToSlide(slide.originalIndex)
                   }
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  onDragEnd={(event, info) => {
+                    if (slide.isCenter) {
+                      const threshold = 50;
+                      if (info.offset.x > threshold) {
+                        prevSlide();
+                      } else if (info.offset.x < -threshold) {
+                        nextSlide();
+                      }
+                    }
+                  }}
                   layout
                 >
                   {/* Event Card */}
@@ -351,28 +366,6 @@ const FlagEvent = () => {
                   </motion.div>
                 </motion.div>
               ))}
-            </div>
-
-            {/* Arrow buttons below cards */}
-            <div className="flex mt-10 justify-center items-center gap-12">
-              <button onClick={prevSlide}>
-                <Image
-                  src={arrowButton.src}
-                  alt={arrowButton.alt}
-                  width={0}
-                  height={0}
-                  className="w-16 h-16 rotate-180"
-                />
-              </button>
-              <button onClick={nextSlide}>
-                <Image
-                  src={arrowButton.src}
-                  alt={arrowButton.alt}
-                  width={0}
-                  height={0}
-                  className="w-16 h-16"
-                />
-              </button>
             </div>
           </div>
         </div>

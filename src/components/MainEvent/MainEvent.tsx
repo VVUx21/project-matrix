@@ -276,13 +276,15 @@ const MainEvent = () => {
             </button>
           </div>
 
-          {/* Mobile/Tablet Layout - Arrows below cards */}
+          {/* Mobile/Tablet Layout - Touch/Swipe enabled */}
           <div className="xl:hidden">
             {/* Three Cards Container */}
             <div
-              className="flex items-center justify-center gap-4 max-w-7xl mx-auto mb-8"
+              className="flex items-center justify-center gap-4 max-w-7xl mx-auto mb-8 touch-pan-x"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onTouchStart={handleMouseEnter}
+              onTouchEnd={handleMouseLeave}
             >
               {getVisibleSlides().map((slide, index) => (
                 <motion.div
@@ -296,6 +298,19 @@ const MainEvent = () => {
                   onClick={() =>
                     !slide.isCenter && goToSlide(slide.originalIndex)
                   }
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  onDragEnd={(event, info) => {
+                    if (slide.isCenter) {
+                      const threshold = 50;
+                      if (info.offset.x > threshold) {
+                        prevSlide();
+                      } else if (info.offset.x < -threshold) {
+                        nextSlide();
+                      }
+                    }
+                  }}
                   layout
                 >
                   {/* Event Card */}
@@ -348,40 +363,18 @@ const MainEvent = () => {
                 </motion.div>
               ))}
             </div>
-
-            {/* Arrow buttons below cards */}
-            <div className="flex mt-10 justify-center items-center gap-12">
-              <button onClick={prevSlide}>
-                <Image
-                  src={arrowButton.src}
-                  alt={arrowButton.alt}
-                  width={0}
-                  height={0}
-                  className="w-16 h-16 rotate-180"
-                />
-              </button>
-              <button onClick={nextSlide}>
-                <Image
-                  src={arrowButton.src}
-                  alt={arrowButton.alt}
-                  width={0}
-                  height={0}
-                  className="w-16 h-16"
-                />
-              </button>
-            </div>
           </div>
         </div>
       </div>
 
       {/* Event Details Section */}
-      <div className=" relative overflow-hidden pt-2 pb-24">
+      <div className="  relative overflow-hidden pt-2 pb-24">
         {/* Desktop Layout (1024px and above) - Full Description */}
         <div className="hidden lg:block">
           <div className="max-w-7xl mx-auto px-8 flex items-start gap-16">
             {/* Event Description */}
             <motion.div
-              className="flex-1 "
+              className="flex-1 z-10 "
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -658,7 +651,7 @@ const MainEvent = () => {
           </div>
         </div>
 
-        <div className="absolute hidden lg:block lg:top-[250px] -left-10 w-[620px] opacity-90 h-[320px] z-0">
+        <div className="absolute hidden lg:block lg:top-[250px] -left-10 w-[620px] opacity-60 h-[320px] z-0">
           <Image
             src={fish.src}
             alt={fish.alt}
