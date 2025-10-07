@@ -159,23 +159,23 @@ const GuestLec = () => {
         </div>
 
         {/* Animated Title */}
-       <motion.div
-                 className="my-16 flex justify-center items-center"
-                 initial={{ opacity: 0, y: -50 }}
-                 animate={{ opacity: 1, y: 0 }}
-                 transition={{ duration: 0.8, ease: "easeOut" }}
-               >
-                 <motion.h1
-                   className="text-white px-5 font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9]  "
-                   whileHover={{
-                     scale: 1.05,
-                     textShadow: "0 0 20px #D9D9D9",
-                     transition: { duration: 0.3 },
-                   }}
-                 >
-                   GUEST LECTURES
-                 </motion.h1>
-               </motion.div>
+        <motion.div
+          className="my-16 flex justify-center items-center"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.h1
+            className="text-white px-5 font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9]  "
+            whileHover={{
+              scale: 1.05,
+              textShadow: "0 0 20px #D9D9D9",
+              transition: { duration: 0.3 },
+            }}
+          >
+            GUEST LECTURES
+          </motion.h1>
+        </motion.div>
 
         {/* Carousel Container */}
         <div className="relative px-4 mb-10 lg:mb-20">
@@ -275,13 +275,15 @@ const GuestLec = () => {
             </button>
           </div>
 
-          {/* Mobile/Tablet Layout - Arrows below cards */}
+          {/* Mobile/Tablet Layout - Touch/Swipe enabled */}
           <div className="xl:hidden">
             {/* Three Cards Container */}
             <div
-              className="flex items-center justify-center gap-4 max-w-7xl mx-auto mb-8"
+              className="flex items-center justify-center gap-4 max-w-7xl mx-auto mb-8 touch-pan-x"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              onTouchStart={handleMouseEnter}
+              onTouchEnd={handleMouseLeave}
             >
               {getVisibleSlides().map((slide, index) => (
                 <motion.div
@@ -295,6 +297,19 @@ const GuestLec = () => {
                   onClick={() =>
                     !slide.isCenter && goToSlide(slide.originalIndex)
                   }
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  onDragEnd={(event, info) => {
+                    if (slide.isCenter) {
+                      const threshold = 50;
+                      if (info.offset.x > threshold) {
+                        prevSlide();
+                      } else if (info.offset.x < -threshold) {
+                        nextSlide();
+                      }
+                    }
+                  }}
                   layout
                 >
                   {/* Event Card */}
@@ -347,28 +362,6 @@ const GuestLec = () => {
                 </motion.div>
               ))}
             </div>
-
-            {/* Arrow buttons below cards */}
-            <div className="flex mt-10 justify-center items-center gap-12">
-              <button onClick={prevSlide}>
-                <Image
-                  src={arrowButton.src}
-                  alt={arrowButton.alt}
-                  width={0}
-                  height={0}
-                  className="w-16 h-16 rotate-180"
-                />
-              </button>
-              <button onClick={nextSlide}>
-                <Image
-                  src={arrowButton.src}
-                  alt={arrowButton.alt}
-                  width={0}
-                  height={0}
-                  className="w-16 h-16"
-                />
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -380,7 +373,7 @@ const GuestLec = () => {
           <div className="max-w-7xl mx-auto px-8 flex items-start gap-16">
             {/* Event Description */}
             <motion.div
-              className="flex-1 "
+              className="flex-1 z-10 "
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -424,7 +417,7 @@ const GuestLec = () => {
                   }}
                 >
                   <h3 className="text-white text-4xl font-bold tracking-wider">
-                  {events[currentSlide].title}
+                    {events[currentSlide].title}
                   </h3>
                 </motion.div>
 
@@ -515,7 +508,7 @@ const GuestLec = () => {
                   }}
                 >
                   <h3 className="text-white text-3xl font-bold tracking-wider">
-                     {events[currentSlide].title}
+                    {events[currentSlide].title}
                   </h3>
                 </motion.div>
 
@@ -657,7 +650,7 @@ const GuestLec = () => {
           </div>
         </div>
 
-        <div className="absolute hidden lg:block lg:top-[250px] -left-10 w-[620px] opacity-70 h-[320px] z-0">
+        <div className="absolute hidden lg:block lg:top-[250px] -left-10 w-[620px] opacity-50 h-[320px] z-0">
           <Image
             src={fish.src}
             alt={fish.alt}

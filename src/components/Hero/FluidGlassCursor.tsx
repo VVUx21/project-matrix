@@ -1,4 +1,3 @@
-// app/components/BubbleCursor.tsx
 "use client";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -35,7 +34,6 @@ export default function BubbleCursor() {
     let prevY = window.innerHeight / 2;
     let velocityX = 0;
     let velocityY = 0;
-
     let lastSpawn = 0;
     const spawnInterval = 50;
     const bubbleRadius = 85;
@@ -84,6 +82,7 @@ export default function BubbleCursor() {
       });
     };
 
+    // Move + trail logic
     const handleMouseMove = (e: MouseEvent) => {
       const currentX = e.clientX;
       const currentY = e.clientY;
@@ -101,7 +100,6 @@ export default function BubbleCursor() {
 
         const dirX = velocityX / (speed || 1);
         const dirY = velocityY / (speed || 1);
-
         const trailX = prevX - dirX * bubbleRadius;
         const trailY = prevY - dirY * bubbleRadius;
 
@@ -110,6 +108,27 @@ export default function BubbleCursor() {
 
       prevX = currentX;
       prevY = currentY;
+
+      const target = e.target as HTMLElement;
+      if (
+        target.closest(
+          "a, button, input, textarea, select, [role='button'], [data-bubble-hide]"
+        )
+      ) {
+        gsap.to(bubble, {
+          opacity: 0,
+          scale: 0.4,
+          duration: 1,
+          ease: "power2.out",
+        });
+      } else {
+        gsap.to(bubble, {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power2.out",
+        });
+      }
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -131,15 +150,14 @@ export default function BubbleCursor() {
           zIndex: 9998,
         }}
       />
-
       <div
         ref={bubbleRef}
         style={{
           position: "fixed",
           left: 0,
           top: 0,
-          width: "160px",
-          height: "160px",
+          width: "60px",
+          height: "60px",
           pointerEvents: "none",
           zIndex: 9999,
           opacity: 0,
