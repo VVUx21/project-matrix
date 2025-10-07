@@ -226,7 +226,7 @@ const DtsEvents = () => {
                     </motion.div>
 
                     {/* Event Image */}
-                    <div className="w-full h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                    <div className="w-full h-[360px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
                       <Image
                         src={slide.image}
                         alt={slide.name}
@@ -290,7 +290,7 @@ const DtsEvents = () => {
                     </motion.div>
 
                     {/* Event Image */}
-                    <div className="w-full h-[250px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                    <div className="w-full h-[360px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
                       <Image
                         src={slide.image}
                         alt={slide.name}
@@ -387,7 +387,7 @@ const DtsEvents = () => {
                 </motion.div>
 
                 {/* Event Image */}
-                <div className="w-full h-[250px] sm:h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                <div className="w-full h-[250px] sm:h-[280px] lg:h-[350px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
                   <Image
                     src={events[currentSlide].image}
                     alt={events[currentSlide].name}
@@ -510,7 +510,7 @@ const DtsEvents = () => {
 
                 
               </div>
-            </motion.div>
+            </motion.div> 
 
             {/* Event Title Second */}
             <motion.div

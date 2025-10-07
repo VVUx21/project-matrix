@@ -227,7 +227,7 @@ const FunEvents = () => {
                     </motion.div>
 
                     {/* Event Image */}
-                    <div className="w-full h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                    <div className="w-full h-[360px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
                       <Image
                         src={slide.image}
                         alt={slide.name}
@@ -305,7 +305,7 @@ const FunEvents = () => {
                     </motion.div>
 
                     {/* Event Image */}
-                    <div className="w-full h-[250px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                    <div className="w-full h-[360px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
                       <Image
                         src={slide.image}
                         alt={slide.name}
@@ -379,7 +379,7 @@ const FunEvents = () => {
                 </motion.div>
 
                 {/* Event Image */}
-                <div className="w-full h-[250px] sm:h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                <div className="w-full h-[250px] sm:h-[280px] lg:h-[350px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
                   <Image
                     src={events[currentSlide].image}
                     alt={events[currentSlide].name}
@@ -538,7 +538,7 @@ const FunEvents = () => {
                 {events[currentSlide].description}
               </motion.p>
             </motion.div>
-          </div>
+          </div> 
         </div>
 
         <div className="absolute hidden lg:block lg:top-[250px] -left-10 w-[620px] opacity-90 h-[320px] z-0">

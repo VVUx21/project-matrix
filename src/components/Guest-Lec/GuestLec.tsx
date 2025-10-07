@@ -226,7 +226,7 @@ const GuestLec = () => {
                     </motion.div>
 
                     {/* Event Image */}
-                    <div className="w-full h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                    <div className="w-full h-[360px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
                       <Image
                         src={slide.image}
                         alt={slide.name}
@@ -305,7 +305,7 @@ const GuestLec = () => {
                     </motion.div>
 
                     {/* Event Image */}
-                    <div className="w-full h-[250px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                    <div className="w-full h-[360px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
                       <Image
                         src={slide.image}
                         alt={slide.name}
@@ -380,7 +380,7 @@ const GuestLec = () => {
                 </motion.div>
 
                 {/* Event Image */}
-                <div className="w-full h-[250px] sm:h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                <div className="w-full h-[250px] sm:h-[280px] lg:h-[350px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
                   <Image
                     src={events[currentSlide].image}
                     alt={events[currentSlide].name}
@@ -508,7 +508,7 @@ const GuestLec = () => {
             {/* Event Title Second */}
             <motion.div
               className="w-full text-center"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 30 }} 
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}

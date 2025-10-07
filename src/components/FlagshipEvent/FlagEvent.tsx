@@ -5,7 +5,7 @@ import Image from "next/image";
 import { events } from "@/config/flagEvents/flagEvents";
 import { URL } from "@/config/flagEvents/flagEvents";
 
-const { background, arrowButton, fish } = URL;
+const { background, arrowButton, fish } = URL; 
  
 const FlagEvent = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -231,7 +231,7 @@ const FlagEvent = () => {
                     </motion.div>
 
                     {/* Event Image */}
-                    <div className="w-full h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                    <div className="w-full h-[360px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
                       <Image
                         src={slide.image}
                         alt={slide.name}
@@ -310,7 +310,7 @@ const FlagEvent = () => {
                     </motion.div>
 
                     {/* Event Image */}
-                    <div className="w-full h-[250px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                    <div className="w-full h-[360px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
                       <Image
                         src={slide.image}
                         alt={slide.name}
@@ -385,7 +385,7 @@ const FlagEvent = () => {
                 </motion.div>
 
                 {/* Event Image */}
-                <div className="w-full h-[250px] sm:h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                <div className="w-full h-[300px] sm:h-[300px] lg:h-[350px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
                   <Image
                     src={events[currentSlide].image}
                     alt={events[currentSlide].name}
