@@ -76,7 +76,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="hover:text-purple-300 transition-colors duration-200"
+                      className="hover:text-purple-300 transition-all duration-200 hover:scale-110 transform inline-block"
                     >
                       {link.name}
                     </Link>
@@ -164,7 +164,7 @@ export default function Footer() {
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className="hover:text-purple-300 transition-colors duration-200"
+                        className="hover:text-purple-300 transition-all duration-200 hover:scale-110 transform inline-block"
                       >
                         {link.name}
                       </Link>
