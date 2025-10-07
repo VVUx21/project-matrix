@@ -36,3 +36,10 @@ export const neueMetanaSemi = localFont({
   variable: "--font-neue-metana-semi",
   display: "swap",
 });
+
+export const neue = localFont({
+  src: "../fonts/neuemetananext-semibold.otf",
+  variable: "--font-neue",
+  weight: "400",
+  style: "normal",
+});
