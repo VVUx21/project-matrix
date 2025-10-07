@@ -458,7 +458,7 @@ const Statistics = () => {
             {Stats.map((college, index) => (
               <div
                 key={college.rank}
-                className={`flex items-center gap-3 sm:gap-6 md:gap-8 lg:gap-12 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4 md:py-4 bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 cursor-pointer hover:scale-[1.03] hover:z-10 relative rounded-lg sm:rounded-xl md:rounded-xl my-1.5 max-w-4xl mx-auto`}
+                className={`flex items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4 md:py-4 bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 cursor-pointer hover:scale-[1.03] hover:z-10 relative rounded-lg sm:rounded-xl md:rounded-xl my-1.5 max-w-4xl mx-auto`}
               >
                 <span className="text-white text-lg sm:text-xl md:text-2xl lg:text-2xl font-bold w-10 sm:w-14 md:w-16 lg:w-20 text-center flex-shrink-0">
                   {college.rank}
@@ -466,6 +466,14 @@ const Statistics = () => {
                 <span className="text-white text-sm sm:text-base md:text-base lg:text-lg font-normal flex-1 text-left leading-tight sm:leading-normal">
                   {college.name}
                 </span>
+                <div className="flex-shrink-0 w-12  h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 relative">
+                  <Image
+                    src={college.img}
+                    alt={college.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
             ))}
           </div>
