@@ -82,8 +82,8 @@ export default function SponsorCard() {
         <h1 
             className={`text-white text-4xl ${neue.className} md:text-7xl xl:text-7xl 2xl:text-7xl font-bold mb-12 mt-12 md:mb-12 lg:mb-16 flex justify-center`}
             style={{
-              textShadow: '0 0 20px rgba(255, 255, 255, 0.3)',
-            }}
+            textShadow: "0 0 30px rgba(255,255,255,0.7)",
+          }}
           >
             SPONSORS
           </h1>

@@ -504,11 +504,9 @@ function EventsCarousel() {
           >
             <motion.h1
               className={`text-white text-center ${neue.className} tracking-wider [text-shadow:_0_0_10px_#D9D9D9] font-bold ${headingSize}`}
-              whileHover={{
-                scale: 1.05,
-                textShadow: "0 0 20px #D9D9D9",
-                transition: { duration: 0.3 },
-              }}
+              style={{
+            textShadow: "0 0 30px rgba(255,255,255,0.7)",
+          }}
             >
               EVENTS
             </motion.h1>
