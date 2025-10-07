@@ -237,28 +237,6 @@ const FunEvents = () => {
                       />
                     </div>
 
-                    {/* Explore Button */}
-                    <motion.div
-                      className="text-center mt-10 "
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      <motion.button
-                        className=" rounded-[15px] border-[3.75px] text-white text-2xl font-semibold border-white bg-[#5000FF] px-16 py-3"
-                        whileHover={{
-                          scale: 1.05,
-                          boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
-                          transition: {
-                            type: "spring" as const,
-                            stiffness: 400,
-                            damping: 25,
-                          },
-                        }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        EXPLORE
-                      </motion.button>
-                    </motion.div>
                   </motion.div>
                 </motion.div>
               ))}
@@ -337,28 +315,6 @@ const FunEvents = () => {
                       />
                     </div>
 
-                    {/* Explore Button */}
-                    <motion.div
-                      className="text-center mt-10 "
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      <motion.button
-                        className=" rounded-[15px] border-[3.75px] text-white text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3"
-                        whileHover={{
-                          scale: 1.05,
-                          boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
-                          transition: {
-                            type: "spring" as const,
-                            stiffness: 400,
-                            damping: 25,
-                          },
-                        }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        EXPLORE
-                      </motion.button>
-                    </motion.div>
                   </motion.div>
                 </motion.div>
               ))}
@@ -433,28 +389,6 @@ const FunEvents = () => {
                   />
                 </div>
 
-                {/* Explore Button */}
-                <motion.div
-                  className="text-center mt-10"
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <motion.button
-                    className="rounded-[15px] border-[3.75px] text-white text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3"
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
-                      transition: {
-                        type: "spring" as const,
-                        stiffness: 400,
-                        damping: 25,
-                      },
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    EXPLORE
-                  </motion.button>
-                </motion.div>
               </div>
             </motion.div>
           </div>
@@ -524,28 +458,6 @@ const FunEvents = () => {
                   />
                 </div>
 
-                {/* Explore Button */}
-                <motion.div
-                  className="text-center mt-6"
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <motion.button
-                    className="rounded-[15px] border-[3.75px] text-white text-xl font-semibold border-white bg-[#5000FF] px-8 py-2"
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
-                      transition: {
-                        type: "spring" as const,
-                        stiffness: 400,
-                        damping: 25,
-                      },
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    EXPLORE
-                  </motion.button>
-                </motion.div>
               </div>
             </motion.div>
           </div>
@@ -586,28 +498,6 @@ const FunEvents = () => {
                   />
                 </div>
 
-                {/* Explore Button */}
-                <motion.div
-                  className="text-center mt-10"
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <motion.button
-                    className="rounded-[15px] border-[3.75px] text-white text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3"
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
-                      transition: {
-                        type: "spring" as const,
-                        stiffness: 400,
-                        damping: 25,
-                      },
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    EXPLORE
-                  </motion.button>
-                </motion.div>
               </div>
             </motion.div>
 
@@ -642,7 +532,7 @@ const FunEvents = () => {
                 className="text-white/90 text-center text-lg leading-relaxed max-w-4xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.6, delay: 0.4 }} 
                 viewport={{ once: true }}
               >
                 {events[currentSlide].description}
