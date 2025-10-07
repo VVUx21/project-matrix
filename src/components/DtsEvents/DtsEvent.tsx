@@ -380,7 +380,7 @@ const DtsEvents = () => {
           <div className="max-w-7xl mx-auto px-8 flex items-start gap-16">
             {/* Event Description */}
             <motion.div
-              className="flex-1 "
+              className="flex-1 z-10 "
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -657,7 +657,7 @@ const DtsEvents = () => {
           </div>
         </div>
 
-        <div className="absolute hidden lg:block lg:top-[250px] -left-10 w-[620px] opacity-70 h-[320px] z-0">
+        <div className="absolute hidden lg:block lg:top-[250px] -left-10 w-[620px] opacity-90 h-[320px] z-0">
           <Image
             src={fish.src}
             alt={fish.alt}
