@@ -119,15 +119,6 @@ const ComingSoon: React.FC = () => {
             </div>
 
             {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5, duration: 0.8 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-[#9aa6e7] font-light max-w-2xl mx-auto"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              We're working hard to bring you something amazing. Stay tuned!
-            </motion.p>
           </motion.div>
         </div>
 

@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { redirect } from "next/navigation";
 import Bats from "@/components/login/Bats";
-import Loader from "@/components/loader/loader";
+import Loader from "@/components/loader/SiteLoad";
 import { formFields, notAllowedInstitutes } from "@/config/register";
 import { useAuth } from "@/contexts/auth-context";
 import { UserInput } from "@/types/appwrite";
@@ -39,7 +39,9 @@ const Registration: React.FC = () => {
       try {
         const [userRegStatus, userPaymentStatus] = await Promise.all([
           getUser(user.id) as Promise<ApiResponse<DocumentListResponse>>,
-          getUserPaymentStatus(user.id) as Promise<ApiResponse<DocumentListResponse>>,
+          getUserPaymentStatus(user.id) as Promise<
+            ApiResponse<DocumentListResponse>
+          >,
         ]);
 
         if (
@@ -182,7 +184,7 @@ const Registration: React.FC = () => {
           onClick={handleStartRePayment}
           className="flex items-center justify-center h-full font-Spirits w-fit px-5 py-3 text-xl rounded-lg bg-[#003955] text-white font-semibold transition-all "
         >
-          Complete Payment {':)'}
+          Complete Payment {":)"}
         </button>
       );
     }

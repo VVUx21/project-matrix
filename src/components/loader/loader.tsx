@@ -11,7 +11,7 @@ export default function Loader() {
         repeat: Infinity,
         ease: "linear",
       }}
-      className="w-6 h-6 border-2 border-white border-t-transparent rounded-full"
+      className="w-6 h-6 border-2 border-white border-t-transparent rounded-full mx-auto"
     />
   );
 }

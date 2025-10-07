@@ -13,11 +13,11 @@ const neue = localFont({
 
 export default function Footer() {
   const quickLinks = [
-    { name: "Gallery", href: "/gallery" },
-    { name: "Team", href: "/team" },
-    { name: "Merch", href: "/merch" },
-    { name: "About us", href: "/aboutus" },
-    { name: "Events", href: "/events" },
+    { name: "Gallery", href: "/event#gallery" },
+    { name: "Register", href: "/signl" },
+    { name: "sponsers", href: "#sponsers" },
+    { name: "About us", href: "#about-us" },
+    { name: "Events", href: "/event" },
   ];
 
   const logos = [
@@ -87,7 +87,7 @@ export default function Footer() {
             {/* Contact Us */}
             <div className="text-left">
               <h3 className="text-lg uppercase font-bold mb-4">Contact Us</h3>
-              <div className="text-sm space-y-2 text-gray-200">
+              <div className="text-[3vw] space-y-2 text-gray-200">
                 <p>
                   <span className="font-semibold uppercase">Ph:</span> 987654321
                 </p>

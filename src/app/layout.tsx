@@ -7,6 +7,7 @@ import Nav from "@/components/Hero/Nav";
 import Footer from "@/components/Footer";
 import FluidGlass from "@/components/Hero/FluidGlassCursor";
 import { FloatingChatbot } from "@/components/Chatbot";
+import SiteLoader from "@/components/loader/SiteLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} ${neueMetana.variable} ${neueMetanaSemi.variable} overflow-x-hidden antialiased`}
       >
+        <SiteLoader />
         <Nav />
         {children}
         <div id="footer">
