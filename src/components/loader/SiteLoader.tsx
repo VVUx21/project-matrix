@@ -62,7 +62,7 @@ export default function SiteLoader(): React.ReactElement | null {
     return () => clearInterval(interval);
   }, [isLoading]);
 
-  // Handle loading and audio - UNMUTED from start
+  // Handle loading with minimum 5 second display time
   useEffect(() => {
     const playAudio = async () => {
       if (audioRef.current) {
@@ -104,14 +104,46 @@ export default function SiteLoader(): React.ReactElement | null {
       document.addEventListener(event, enableAudio, { once: true });
     });
 
-    const onLoad = () => setIsLoading(false);
-    window.addEventListener("load", onLoad);
+    // Track when page is actually loaded
+    let pageLoaded = false;
+    const startTime = Date.now();
+    const minDisplayTime = 5000; // 5 seconds minimum
 
-    const timeout = setTimeout(() => setIsLoading(false), 5000);
+    const checkAndHideLoader = () => {
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = minDisplayTime - elapsedTime;
+
+      if (pageLoaded && remainingTime <= 0) {
+        // Page loaded and minimum time elapsed
+        setIsLoading(false);
+      } else if (pageLoaded && remainingTime > 0) {
+        // Page loaded but need to wait for minimum time
+        setTimeout(() => setIsLoading(false), remainingTime);
+      }
+    };
+
+    const onLoad = () => {
+      pageLoaded = true;
+      checkAndHideLoader();
+    };
+
+    // Listen for page load
+    if (document.readyState === "complete") {
+      // Page already loaded
+      pageLoaded = true;
+      checkAndHideLoader();
+    } else {
+      window.addEventListener("load", onLoad);
+    }
+
+    // Absolute maximum timeout (in case page never fully loads)
+    const maxTimeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 10000); // 10 seconds max
 
     return () => {
       window.removeEventListener("load", onLoad);
-      clearTimeout(timeout);
+      clearTimeout(maxTimeout);
       events.forEach((event) => {
         document.removeEventListener(event, enableAudio);
       });
