@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { redirect } from "next/navigation";
-import Bats from "@/components/login/Bats";
-import Loader from "@/components/loader/SiteLoad";
+// import Bats from "@/components/login/Bats";
+import Loader from "@/components/loader/loader";
 import { formFields, notAllowedInstitutes } from "@/config/register";
 import { useAuth } from "@/contexts/auth-context";
 import { UserInput } from "@/types/appwrite";
@@ -127,7 +127,10 @@ const Registration: React.FC = () => {
         return;
       }
 
-      await initiatePayment(userDetails.name, userDetails.phoneNumber, user.id);
+      // Mark as registered and show the Continue Payment button instead of redirecting immediately
+      setExistingUser(userDetails);
+      setUserStatus({ isRegistered: true, hasPaid: false });
+      toast.success("Registration successful. Continue to payment when ready.");
     } catch (error) {
       toast.error(
         error instanceof Error ? error.message : "Registration failed"
@@ -237,7 +240,7 @@ const Registration: React.FC = () => {
         Registerations have been close.
         <br /> See you all next year.
       </h1> */}
-      <Bats />
+      {/* <Bats /> */}
 
       {renderContent()}
     </div>
