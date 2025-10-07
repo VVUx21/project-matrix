@@ -131,7 +131,7 @@ export const imageSources = {
     "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759215011/g15_v9xi5g.svg",
   star: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759518518/star_wczwuo.svg",
   floatingFish:
-    "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759213058/g14_esjhpy.svg",
+    "https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png",
   bubble:
     "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759327035/bubble_wvbvgh.svg",
 };

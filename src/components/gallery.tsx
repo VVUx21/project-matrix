@@ -17,7 +17,7 @@ const ImageGallery = () => {
         {images.map((image) => {
           const isLCP =
             image.url ===
-            "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759426493/jellyfish_2_hp6tbc.svg";
+            "https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png";
           return (
             <Image
               key={image.id}

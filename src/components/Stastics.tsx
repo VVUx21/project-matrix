@@ -40,7 +40,7 @@ const Statistics = () => {
         }}
       >
         <Image
-          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759201597/0418a084b19cddeee7926e6da8e6f759fe1954bd_xgxomh.png"
+          src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png"
           alt="Jellyfish decoration"
           width={100}
           height={100}
