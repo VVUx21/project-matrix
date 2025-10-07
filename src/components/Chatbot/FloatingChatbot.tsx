@@ -12,6 +12,22 @@ const FloatingChatbot: React.FC = () => {
   const { messages, isLoading, sendMessage } = useChatbot();
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  const formatMessage = (text: string): string => {
+    // Convert **text** to bold
+    let formatted = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // Convert URLs to clickable links
+    formatted = formatted.replace(
+      /(https?:\/\/[^\s]+)/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline break-all">$1</a>'
+    );
+    
+    // Convert line breaks to <br> tags
+    formatted = formatted.replace(/\n/g, '<br>');
+    
+    return formatted;
+  };
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -43,22 +59,26 @@ const FloatingChatbot: React.FC = () => {
     <>
       {/* Floating Chat Button - only show when closed */}
       {!isOpen && (
-        <div className="fixed bottom-4 right-0 sm:bottom-6 sm:right-0 z-50">
+        <div className="fixed bottom-0 -right-16 sm:bottom-2 sm:-right-14 z-50">
           <button
             onClick={toggleChatbot}
             className="transition-all duration-300 transform hover:scale-110 focus:outline-none"
             style={{
               background: 'transparent',
-              border: 'none'
+              border: 'none',
+              boxShadow: 'none',
+              outline: 'none',
+              padding: 0,
+              margin: 0
             }}
             aria-label="Open chatbot"
           >
             <Image
-              src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759598866/97ff7523ac99f4c7117ad5fd536cda35481d72bf_aknu17.png"
+              src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759774983/Group_1430102937_xx44xp.svg"
               alt="Ask me anything"
-              width={180}
-              height={60}
-              className="object-contain w-28 h-14 sm:w-32 sm:h-16 md:w-36 md:h-18 lg:w-40 lg:h-20"
+              width={360}
+              height={160}
+              className="object-contain w-52 h-26 sm:w-56 sm:h-28 md:w-60 md:h-30 lg:w-64 lg:h-32"
             />
           </button>
         </div>
@@ -114,7 +134,7 @@ const FloatingChatbot: React.FC = () => {
                     color: message.sender === 'user' ? 'white' : 'black'
                   }}
                 >
-                  <p className="text-xs sm:text-sm">{message.text}</p>
+                  <div className="text-xs sm:text-sm" dangerouslySetInnerHTML={{ __html: formatMessage(message.text) }} />
                 </div>
               </div>
             ))}
@@ -168,7 +188,7 @@ const FloatingChatbot: React.FC = () => {
                 <Send 
                   className="w-3.5 h-3.5 sm:w-4 sm:h-4 transform rotate-45" 
                   style={{
-                    color: !inputMessage.trim() || isLoading ? '#9CA3AF' : '#7DF9FF'
+                    color: !inputMessage.trim() || isLoading ? '#A855F7' : '#CB00F0'
                   }}
                 />
               </button>

@@ -102,16 +102,16 @@ export default function SponsorCard() {
       </div>
 
       <Image
-        src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759424462/jellyfish_kbfysz.svg"
+        src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png"
         alt=""
-        width={280}
-        height={280}
+        width={400}
+        height={400}
         priority
 className="pointer-events-none hidden md:block select-none absolute
            left-[0vw] md:left-[2vw] lg:left-[1.5vw]
            bottom-0 z-20 
-           w-[25vw] h-[70vh]
-           jellyfish-bounce  brightness-150"
+           w-[15vw] md:w-[18vw] h-auto max-h-[50vh]
+           jellyfish-bounce opacity-60 object-contain"
       />
       
     </div>

@@ -28,7 +28,7 @@ export default function AboutUs() {
       "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759462230/dottt2_wq3igi.svg",
     fish: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759488567/fish_2_bgvurv.svg",
     jellyfish:
-      "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759426493/jellyfish_2_hp6tbc.svg",
+      "https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png",
   };
 
   const dotsPositions = [
@@ -180,18 +180,20 @@ export default function AboutUs() {
         <Image src={images.fish} alt="Fish" width={570} height={570} />
       </div>
       <Image
-        src={images.jellyfish}
-        alt="Jellyfish"
-        width={262}
-        height={399}
-        priority
-        className="
-          hidden sm:block
-          pointer-events-none select-none absolute bottom-0 z-0
-          jellyfish-bounce drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]
-          w-[262px] h-auto left-[70vw] sm:h-[250px] md:h-[399px]
-        "
-      />
+  src={images.jellyfish}
+  alt="Jellyfish"
+  width={400}
+  height={400}
+  priority
+  className="
+    hidden sm:block
+    pointer-events-none select-none absolute bottom-0 z-0
+    jellyfish-bounce drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]
+    w-[200px] sm:w-[250px] md:w-[300px] h-auto left-[70vw] object-contain
+    opacity-60
+  "
+/>
+
 
       <div className="flex justify-evenly gap-8 lg:gap-12 px-10 sm:px-14 md:px-12">
         <div className={`hidden sm:flex flex-col ${spaceGrotesk.className} text-center max-w-[45%]`}>

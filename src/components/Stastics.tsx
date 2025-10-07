@@ -41,7 +41,7 @@ const Statistics = () => {
         }}
       >
         <Image
-          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759201597/0418a084b19cddeee7926e6da8e6f759fe1954bd_xgxomh.png"
+          src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png"
           alt="Jellyfish decoration"
           width={100}
           height={100}
@@ -107,6 +107,15 @@ const Statistics = () => {
           alt="Bubble"
           width={100}
           height={100}
+          className="w-24 h-auto absolute -bottom-12 right-40 md:right-60 lg:right-60 xl:right-90"
+          style={{ zIndex: -1 }}
+        />
+
+        <Image
+          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759294714/Group_1430102915_z4o1zo.svg"
+          alt="Bubble"
+          width={100}
+          height={100}
           className="w-24 h-auto absolute animate-pulse ease-in-out top-32 -right-42"
           style={{ zIndex: -1 }}
         />
@@ -140,7 +149,7 @@ const Statistics = () => {
 
         {/* **************************** Bubble ***************************** */}
 
-        <Image
+        {/* <Image
           src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759372599/5cb55b5b31ebe6a1bac584eee2bd2ea931542f41_1_sjhwcj.png"
           alt="small bubble"
           width={100}
@@ -208,15 +217,6 @@ const Statistics = () => {
           alt="small bubble"
           width={100}
           height={100}
-          className="w-4 h-auto absolute bottom-22 -left-60"
-          style={{ zIndex: -1, transform: "rotate(-30deg)" }}
-        />
-
-        <Image
-          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759372622/166c056d68a5e5238b2cb27d6a5b30a1_1_1_k49waw.png"
-          alt="small bubble"
-          width={100}
-          height={100}
           className="w-2 h-auto absolute top-142 -left-30"
           style={{ zIndex: -1, transform: "rotate(-30deg)" }}
         />
@@ -264,7 +264,7 @@ const Statistics = () => {
           height={100}
           className="w-36 h-auto absolute top-48 -left-46"
           style={{ zIndex: -1 }}
-        />
+        /> */}
         {/************************* Small Dots *************************/}
 
         <Image
@@ -273,33 +273,6 @@ const Statistics = () => {
           width={100}
           height={100}
           className="w-36 h-auto absolute bottom-32 -right-46"
-          style={{ zIndex: -1 }}
-        />
-
-        <Image
-          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759377595/Group_1430102912_ghdnoy.svg"
-          alt="small dots"
-          width={100}
-          height={100}
-          className="w-36 h-auto absolute bottom-32 -left-76"
-          style={{ zIndex: -1 }}
-        />
-
-        <Image
-          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759377595/Group_1430102912_ghdnoy.svg"
-          alt="small dots"
-          width={100}
-          height={100}
-          className="w-52 h-auto absolute top-92 -left-76"
-          style={{ zIndex: -1 }}
-        />
-
-        <Image
-          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759377595/Group_1430102912_ghdnoy.svg"
-          alt="small dots"
-          width={100}
-          height={100}
-          className="w-42 h-auto absolute top-12 -left-76"
           style={{ zIndex: -1 }}
         />
 
@@ -326,7 +299,7 @@ const Statistics = () => {
           alt="small dots"
           width={100}
           height={100}
-          className="w-42 sm:w-64 h-auto absolute top-2 right-12"
+          className="w-64 h-auto absolute top-2 right-12"
           style={{ zIndex: -1 }}
         />
 

@@ -100,7 +100,7 @@ export const URL = {
     height: 1080,
   }, 
   fish: {
-    src: "https://res.cloudinary.com/dsjxx976j/image/upload/v1759502707/e7973683a4d33b06edfda825f2f86913_1_bwxhjt.png", 
+    src: "https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png", 
     alt: "fish",
     width: 200,
     height: 200,
