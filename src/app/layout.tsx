@@ -7,6 +7,7 @@ import Nav from "@/components/Hero/Nav";
 import Footer from "@/components/Footer";
 import FluidGlass from "@/components/Hero/FluidGlassCursor";
 import { FloatingChatbot } from "@/components/Chatbot";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,15 +35,18 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} ${neueMetana.variable} ${neueMetanaSemi.variable} overflow-x-hidden antialiased`}
       >
-        <Nav />
-        {children}
-        <div id="footer">
-          <Footer />
-        </div>
-        <div className="hidden lg:block">
-          <FluidGlass />
-        </div>
-        <FloatingChatbot />
+        <AuthProvider>
+          <Nav />
+          <Toaster position="top-right" />
+          {children}
+          <div id="footer">
+            <Footer />
+          </div>
+          <div className="hidden lg:block">
+            <FluidGlass />
+          </div>
+          <FloatingChatbot />
+        </AuthProvider>
       </body>
     </html>
   );

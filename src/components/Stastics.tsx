@@ -3,6 +3,7 @@ import React from "react";
 import { Stats } from "@/config";
 import Image from "next/image";
 import LightRays from "./LightRays";
+import { neue } from "@/fonts";
 
 const Statistics = () => {
   return (
@@ -74,10 +75,9 @@ const Statistics = () => {
 
       <div className="relative z-10 w-full lg:max-w-4xl md:max-w-3xl mx-auto">
         <h1
-          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold md:py-10 text-white text-center mb-8 sm:mb-10 md:mb-12 tracking-[0.3em] sm:tracking-[0.4em]"
+          className={`text-4xl ${neue.className} sm:text-4xl md:text-7xl lg:text-7xl font-bold  text-white text-center mb-12 mt-12 md:mb-12 lg:mb-16 `}
           style={{
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
-            fontFamily: "Neue Metana",
           }}
         >
           STATISTICS
@@ -99,15 +99,6 @@ const Statistics = () => {
           width={100}
           height={100}
           className="w-24 h-auto absolute top-32 -left-18"
-          style={{ zIndex: -1 }}
-        />
-
-        <Image
-          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759294714/Group_1430102915_z4o1zo.svg"
-          alt="Bubble"
-          width={100}
-          height={100}
-          className="w-24 h-auto absolute -bottom-12 right-40 md:right-60 lg:right-60 xl:right-90"
           style={{ zIndex: -1 }}
         />
 
@@ -217,6 +208,15 @@ const Statistics = () => {
           alt="small bubble"
           width={100}
           height={100}
+          className="w-4 h-auto absolute bottom-22 -left-60"
+          style={{ zIndex: -1, transform: "rotate(-30deg)" }}
+        />
+
+        <Image
+          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759372622/166c056d68a5e5238b2cb27d6a5b30a1_1_1_k49waw.png"
+          alt="small bubble"
+          width={100}
+          height={100}
           className="w-2 h-auto absolute top-142 -left-30"
           style={{ zIndex: -1, transform: "rotate(-30deg)" }}
         />
@@ -281,6 +281,33 @@ const Statistics = () => {
           alt="small dots"
           width={100}
           height={100}
+          className="w-36 h-auto absolute bottom-32 -left-76"
+          style={{ zIndex: -1 }}
+        />
+
+        <Image
+          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759377595/Group_1430102912_ghdnoy.svg"
+          alt="small dots"
+          width={100}
+          height={100}
+          className="w-52 h-auto absolute top-92 -left-76"
+          style={{ zIndex: -1 }}
+        />
+
+        <Image
+          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759377595/Group_1430102912_ghdnoy.svg"
+          alt="small dots"
+          width={100}
+          height={100}
+          className="w-42 h-auto absolute top-12 -left-76"
+          style={{ zIndex: -1 }}
+        />
+
+        <Image
+          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759377595/Group_1430102912_ghdnoy.svg"
+          alt="small dots"
+          width={100}
+          height={100}
           className="w-36 h-auto absolute top-12 -right-46"
           style={{ zIndex: -1 }}
         />
@@ -299,7 +326,7 @@ const Statistics = () => {
           alt="small dots"
           width={100}
           height={100}
-          className="w-64 h-auto absolute top-2 right-12"
+          className="w-42 sm:w-64 h-auto absolute top-2 right-12"
           style={{ zIndex: -1 }}
         />
 
