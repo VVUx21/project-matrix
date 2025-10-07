@@ -1,3 +1,4 @@
+import { neue, spaceGrotesk } from "@/fonts";
 import Image from "next/image";
 
 type PositionedImageProps = {
@@ -130,7 +131,7 @@ export default function AboutUs() {
 
   return (
     <div className="relative w-full overflow-hidden bg-gradient-to-b from-black to-[#5000FF] py-[4vw] sm:py-0">
-      <div className="relative z-20 text-center md:text-[80px] lg:text-[90px] text-6xl font-metana font-bold text-white text-shadow-[#D9D9D9] text-shadow-md">
+      <div className={`relative z-20 ${neue.className} text-center md:text-[80px] lg:text-[90px] text-6xl font-metana font-bold text-white text-shadow-[#D9D9D9] text-shadow-md`}>
         ABOUT US
       </div>
 
@@ -193,7 +194,7 @@ export default function AboutUs() {
       />
 
       <div className="flex justify-evenly gap-8 lg:gap-12 px-10 sm:px-14 md:px-12">
-        <div className="hidden sm:flex flex-col text-center max-w-[45%] ">
+        <div className={`hidden sm:flex flex-col ${spaceGrotesk.className} text-center max-w-[45%]`}>
           <div className=" font-space font-bold lg:text-[48px] text-3xl md:text-4xl leading-[61px] text-white pt-14 md:pt-10 text-center">
             NIT Rourkela
           </div>
@@ -215,7 +216,7 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <div className="flex flex-col sm:max-w-[45%]">
+        <div className={`flex flex-col ${spaceGrotesk.className} sm:max-w-[45%]`}>
           <div className="font-space font-bold lg:text-5xl text-4xl leading-16 text-center text-white z-10 pt-10 sm:pt-14 md:pt-10">
             Innovision
           </div>
