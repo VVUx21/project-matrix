@@ -14,11 +14,11 @@ const neue = localFont({
 
 export default function Footer() {
   const quickLinks = [
-    { name: "Gallery", href: "/gallery" },
-    { name: "Team", href: "/team" },
-    { name: "Merch", href: "/merch" },
-    { name: "About us", href: "/aboutus" },
-    { name: "Events", href: "/events" },
+    { name: "Gallery", href: "/event#gallery" },
+    { name: "Register", href: "/signl" },
+    { name: "sponsers", href: "#sponsers" },
+    { name: "About us", href: "#about-us" },
+    { name: "Events", href: "/event" },
   ];
 
   const logos = [
@@ -44,7 +44,9 @@ export default function Footer() {
         <div className="lg:hidden flex flex-col items-center text-center">
           {/* Title and Description */}
           <h2 className="text-3xl uppercase font-bold mb-4">INNOVISION</h2>
-          <p className={`text-lg leading-relaxed ${spaceGrotesk.className} text-gray-200 mb-8 max-w-sm`}>
+          <p
+            className={`text-lg leading-relaxed ${spaceGrotesk.className} text-gray-200 mb-8 max-w-sm`}
+          >
             Innovision 2025, the largest techno-cultural fest of Eastern India
             organized by NIT Rourkela, is a celebration where technology,
             creativity, and culture converge. With the theme "Dive into the
@@ -72,7 +74,9 @@ export default function Footer() {
             {/* Quick Links */}
             <div className="text-left">
               <h3 className="text-lg uppercase font-bold mb-4">Quick Links</h3>
-              <ul className={`space-y-2 text-sm ${spaceGrotesk.className} font-mono`}>
+              <ul
+                className={`space-y-2 text-sm ${spaceGrotesk.className} font-mono`}
+              >
                 {quickLinks.map((link) => (
                   <li key={link.name}>
                     <Link
@@ -88,7 +92,9 @@ export default function Footer() {
             {/* Contact Us */}
             <div className="text-left">
               <h3 className="text-lg uppercase font-bold mb-4">Contact Us</h3>
-              <div className={`text-sm space-y-2 ${spaceGrotesk.className} text-gray-200`}>
+              <div
+                className={`text-sm space-y-2 ${spaceGrotesk.className} text-gray-200`}
+              >
                 <p>
                   <span className="font-semibold uppercase">Ph:</span> 987654321
                 </p>
@@ -140,10 +146,14 @@ export default function Footer() {
           <div className="grid grid-cols-[2fr_1.5fr_1.5fr_1.5fr] gap-8 lg:gap-12">
             {/* Column 1: INNOVISION Title and Description */}
             <div>
-              <h2 className={`text-2xl lg:text-3xl xl:text-4xl ${neue.className} uppercase font-bold mb-4`}>
+              <h2
+                className={`text-2xl lg:text-3xl xl:text-4xl ${neue.className} uppercase font-bold mb-4`}
+              >
                 INNOVISION
               </h2>
-              <p className={`text-md lg:text-lg leading-relaxed ${spaceGrotesk.className} text-gray-200`}>
+              <p
+                className={`text-md lg:text-lg leading-relaxed ${spaceGrotesk.className} text-gray-200`}
+              >
                 Innovision 2025, the largest techno-cultural fest of Eastern
                 India organized by NIT Rourkela, is a celebration where
                 technology, creativity, and culture converge. With the theme
@@ -160,7 +170,9 @@ export default function Footer() {
                 <h3 className="text-xl lg:text-2xl uppercase font-bold mb-6">
                   Quick Links
                 </h3>
-                <ul className={`space-y-3 text-base ${spaceGrotesk.className} lg:text-lg font-mono`}>
+                <ul
+                  className={`space-y-3 text-base ${spaceGrotesk.className} lg:text-lg font-mono`}
+                >
                   {quickLinks.map((link) => (
                     <li key={link.name}>
                       <Link
@@ -193,7 +205,9 @@ export default function Footer() {
               <h3 className="text-xl lg:text-2xl uppercase font-bold mb-6">
                 Contact Us
               </h3>
-              <div className={`text-sm lg:text-base space-y-3 ${spaceGrotesk.className} text-gray-200 mb-8`}>
+              <div
+                className={`text-sm lg:text-base space-y-3 ${spaceGrotesk.className} text-gray-200 mb-8`}
+              >
                 <p>
                   <span className="font-semibold uppercase">Ph:</span> 987654321
                 </p>
