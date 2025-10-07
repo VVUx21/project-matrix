@@ -101,6 +101,12 @@ export const navItems = [
       "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
   },
   {
+    label: "Merch",
+    path: "/merch",
+    class:
+      "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
+  },
+  {
     label: "Gallery",
     path: "/event#gallery",
     class:
@@ -118,10 +124,11 @@ export const navItems = [
     class:
       "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
   },
+  
 ] as const;
 
 export const imageSources = {
-  logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759517821/logo_jyvdcq.svg",
+  logo: "https://res.cloudinary.com/dbdkg7fik/image/upload/v1759865146/Innovision_Logo_1_has1rf.svg",
   title:
     "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759204357/INNOFONT_uzycub.svg",
   hero: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759213204/Hero_isu2kn.svg",
@@ -131,7 +138,7 @@ export const imageSources = {
     "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759215011/g15_v9xi5g.svg",
   star: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759518518/star_wczwuo.svg",
   floatingFish:
-    "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759213058/g14_esjhpy.svg",
+    "https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png",
   bubble:
     "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759327035/bubble_wvbvgh.svg",
 };

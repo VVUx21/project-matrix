@@ -35,13 +35,13 @@ const Statistics = () => {
       </div> */}
       {/* **************************** Jellyfish Decoration ************************** */}
       <div
-        className="absolute w-24 sm:w-32 lg:w-64 top-10 right-2 sm:right-8 sm:top-38 md:top-38 md:right-6 lg:right-2 lg:top-40 z-10 sm:z-[100] opacity-90"
+        className="hidden absolute w-24 sm:w-32 lg:w-64 top-10 right-2 sm:right-8 sm:top-38 md:top-38 md:right-6 lg:right-2 lg:top-40 z-10 sm:z-[100] opacity-90"
         style={{
           animation: "float 8s ease-in-out infinite",
         }}
       >
         <Image
-          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759201597/0418a084b19cddeee7926e6da8e6f759fe1954bd_xgxomh.png"
+          src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png"
           alt="Jellyfish decoration"
           width={100}
           height={100}
@@ -140,7 +140,7 @@ const Statistics = () => {
 
         {/* **************************** Bubble ***************************** */}
 
-        <Image
+        {/* <Image
           src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759372599/5cb55b5b31ebe6a1bac584eee2bd2ea931542f41_1_sjhwcj.png"
           alt="small bubble"
           width={100}
@@ -264,7 +264,7 @@ const Statistics = () => {
           height={100}
           className="w-36 h-auto absolute top-48 -left-46"
           style={{ zIndex: -1 }}
-        />
+        /> */}
         {/************************* Small Dots *************************/}
 
         <Image

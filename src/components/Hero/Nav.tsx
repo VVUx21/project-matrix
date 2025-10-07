@@ -50,8 +50,8 @@ const Nav: React.FC = () => {
                 return (
                 <Link
                   key={item.path}
-                  href={href}
-                  className="text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable"
+                  href={item.path}
+                  className="text-lg lg:text-xl text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-110 hoverable"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                   {label}
@@ -104,7 +104,7 @@ const Nav: React.FC = () => {
               key={item.path}
               href={href}
               onClick={toggleMenu}
-              className="text-lg text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable w-full text-center"
+              className="text-lg text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-110 hoverable w-full text-center"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
               {label}

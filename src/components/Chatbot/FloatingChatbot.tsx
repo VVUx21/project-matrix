@@ -12,6 +12,22 @@ const FloatingChatbot: React.FC = () => {
   const { messages, isLoading, sendMessage } = useChatbot();
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  const formatMessage = (text: string): string => {
+    // Convert **text** to bold
+    let formatted = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // Convert URLs to clickable links
+    formatted = formatted.replace(
+      /(https?:\/\/[^\s]+)/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline break-all">$1</a>'
+    );
+    
+    // Convert line breaks to <br> tags
+    formatted = formatted.replace(/\n/g, '<br>');
+    
+    return formatted;
+  };
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -118,7 +134,7 @@ const FloatingChatbot: React.FC = () => {
                     color: message.sender === 'user' ? 'white' : 'black'
                   }}
                 >
-                  <p className="text-xs sm:text-sm">{message.text}</p>
+                  <div className="text-xs sm:text-sm" dangerouslySetInnerHTML={{ __html: formatMessage(message.text) }} />
                 </div>
               </div>
             ))}
