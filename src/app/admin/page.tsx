@@ -61,8 +61,8 @@ export default function Page() {
                               className={`px-2 py-1 rounded-full text-xs font-medium ${
                                   info.getValue() === "completed"
                                       ? "bg-[#acffff] text-[#003955]"
-                                      : info.getValue() === "pending"
-                                      ? "bg-[#003955] text-[#acffff]"
+                                      : info.getValue() === "failed"
+                                      ? "bg-[#ff0000] text-[#ffffff]"
                                       : "bg-[#06111d] text-[#acffff]"
                               }`}
                           >

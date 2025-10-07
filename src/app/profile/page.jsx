@@ -3,10 +3,19 @@ import React, { useEffect, useState } from "react";
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 import { getUserPaymentStatus } from "@/utils/appwrite";
 
 import { useAuth } from "../../contexts/auth-context";
+
+// Small presentational component for labelled rows
+const InfoRow = ({ label, children }) => (
+  <div className="flex items-start gap-3">
+    <span className="font-extrabold tracking-wide min-w-[90px]">{label}:</span>
+    <span className="text-white/90">{children}</span>
+  </div>
+);
 
 const Profile = () => {
   const { user, logout, loading } = useAuth();
@@ -20,31 +29,34 @@ const Profile = () => {
     router.push("/login");
   };
 
-  async function hasUserPaid() {
-    try {
-      const response = await getUserPaymentStatus(user.id);
-      if (response?.status === "error") {
-        toast.error("Something went wrong. Please try again later.");
-        console.error(response.message);
-        setError(true);
-        return false;
-      }
-      const hasPaid = Boolean(response?.data?.documents?.length);
-      return hasPaid;
-    } catch (error) {
-      console.error(error);
-      setError(true);
-    } finally {
-      setProfileLoading(false);
-    }
-  }
-
   useEffect(() => {
-    if (user) {
-      hasUserPaid().then((res) => {
-        setHasPaid(res);
-      });
-    }
+    if (!user?.id) return;
+
+    let mounted = true;
+    setProfileLoading(true);
+
+    (async () => {
+      try {
+        const response = await getUserPaymentStatus(user.id);
+        if (response?.status === "error") {
+          toast.error("Something went wrong. Please try again later.");
+          console.error(response.message);
+          setError(true);
+          return;
+        }
+        const paid = Boolean(response?.data?.documents?.length);
+        if (mounted) setHasPaid(paid);
+      } catch (err) {
+        console.error(err);
+        setError(true);
+      } finally {
+        if (mounted) setProfileLoading(false);
+      }
+    })();
+
+    return () => {
+      mounted = false;
+    };
   }, [user]);
 
   if (loading || profileLoading) {
@@ -105,59 +117,38 @@ const Profile = () => {
   return (
     <>
       {/* <Navbar /> */}
-      <div className="min-h-screen bg-reg font-Spirits grid place-items-center">
-        <div className=" px-4 py-8">
-          <div className="max-w-5xl mx-auto rounded-lg overflow-hidden">
+      <div className="min-h-[calc(120svh-7vw)] bg-reg font-Spirits grid place-items-center pb-[6vw]">
+        <div className="px-4 py-8 w-full mt-[10svh]">
+          <div className="max-w-4xl mx-auto">
             <div className="p-6">
-              <h1 className="capitalize text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#457787] text-center mb-8">
-                Welcome, {user.name}! 🧙‍♂️
+              <h1 className="text-center mb-8 text-white font-Cattedrale text-4xl md:text-5xl lg:text-6xl drop-shadow">
+                Welcome, {user.name} !
               </h1>
 
-              <div className="rounded-lg p-6 space-y-4">
-                <div className="flex flex-col md:flex-row md:items-center gap-2">
-                  <span className="font-semibold text-[#457787] min-w-[100px]">
-                    Name:
-                  </span>
-                  <span className="flex-1 capitalize">{user.name}</span>
-                </div>
-                <div className="flex flex-col md:flex-row md:items-center gap-2">
-                  <span className="font-semibold text-[#457787] min-w-[100px]">
-                    Email:
-                  </span>
-                  <span className="flex-1">{user.email}</span>
-                </div>
-                <div className="flex flex-col md:flex-row md:items-center gap-2">
-                  <span className="font-semibold text-[#457787] min-w-[100px]">
-                    Status:
-                  </span>
+              <div className="mx-auto w-full max-w-2xl space-y-4 text-white">
+                <InfoRow label="Name"><span className="capitalize">{user.name}</span></InfoRow>
+                <InfoRow label="Email">{user.email}</InfoRow>
+                <InfoRow label="Status">
                   {hasPaid ? (
-                    <span className="flex-1 flex items-center gap-2">
-                      Registered for the fest!
-                    </span>
+                    <span>Registered for the fest</span>
                   ) : (
-                    <Link href="/register">
-                      <p className="flex-1 flex items-center gap-2 underline">
-                        Complete payment to register for the fest!
-                      </p>
+                    <Link href="/register" className="underline">
+                      Complete payment to register for INNO
                     </Link>
                   )}
-                </div>
+                </InfoRow>
               </div>
 
-              <div className="flex justify-center mt-8 gap-5">
+              <div className="flex justify-center mt-8 gap-6">
                 <Link
                   href={"/"}
-                  className="px-8 py-3 bg-[#071228] text-white rounded-lg hover:bg-[#071248] 
-                                         transform hover:scale-105 transition-all duration-200 
-                                         shadow-md hover:shadow-lg"
+                  className="px-6 py-2 rounded-full bg-[#071228]/90 text-white uppercase tracking-wider shadow-lg ring-1 ring-white/20 hover:bg-[#071228] transition-colors"
                 >
                   Home
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="px-8 py-3 bg-[#071228] text-white rounded-lg hover:bg-[#071248] 
-                                         transform hover:scale-105 transition-all duration-200 
-                                         shadow-md hover:shadow-lg"
+                  className="px-6 py-2 rounded-full bg-[#071228]/90 text-white uppercase tracking-wider shadow-lg ring-1 ring-white/20 hover:bg-[#071228] transition-colors"
                 >
                   Logout
                 </button>
