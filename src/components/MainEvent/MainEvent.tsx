@@ -167,7 +167,7 @@ const MainEvent = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h1
-            className="text-white  font-semibold uppercase text-[40px] md:text-[96px] leading-normal text-shadow-[0_0_10px_#D9D9D9] "
+            className="text-white px-5 font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9] "
             whileHover={{
               scale: 1.05,
               textShadow: "0 0 20px #D9D9D9",
@@ -425,7 +425,7 @@ const MainEvent = () => {
                   }}
                 >
                   <h3 className="text-white text-4xl font-bold tracking-wider">
-                    EVENT
+                    {events[currentSlide].title}
                   </h3>
                 </motion.div>
 
@@ -658,7 +658,7 @@ const MainEvent = () => {
           </div>
         </div>
 
-        <div className="absolute hidden lg:block lg:top-[250px] -left-10 w-[620px] opacity-40 h-[320px] z-0">
+        <div className="absolute hidden lg:block lg:top-[250px] -left-10 w-[620px] opacity-90 h-[320px] z-0">
           <Image
             src={fish.src}
             alt={fish.alt}
