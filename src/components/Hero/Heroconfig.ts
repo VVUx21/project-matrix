@@ -118,10 +118,16 @@ export const navItems = [
     class:
       "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
   },
+  {
+    label: "Merch",
+    path: "/merch",
+    class:
+      "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
+  },
 ] as const;
 
 export const imageSources = {
-  logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759517821/logo_jyvdcq.svg",
+  logo: "https://res.cloudinary.com/dbdkg7fik/image/upload/v1759865146/Innovision_Logo_1_has1rf.svg",
   title:
     "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759204357/INNOFONT_uzycub.svg",
   hero: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759213204/Hero_isu2kn.svg",

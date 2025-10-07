@@ -149,7 +149,7 @@ const Statistics = () => {
 
         {/* **************************** Bubble ***************************** */}
 
-        <Image
+        {/* <Image
           src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759372599/5cb55b5b31ebe6a1bac584eee2bd2ea931542f41_1_sjhwcj.png"
           alt="small bubble"
           width={100}
@@ -264,7 +264,7 @@ const Statistics = () => {
           height={100}
           className="w-36 h-auto absolute top-48 -left-46"
           style={{ zIndex: -1 }}
-        />
+        /> */}
         {/************************* Small Dots *************************/}
 
         <Image
