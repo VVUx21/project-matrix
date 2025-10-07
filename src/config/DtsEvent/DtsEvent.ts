@@ -3,45 +3,45 @@ import { Event } from "@/types/events";
 export const events: Event[] = [
   {
     id: 1,
-    name: "EVENT",
+    name: "Showdown",
     image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png",
-    title: "EVENT 1",
+    title: "Showdown",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus. Phasellus lorem ipsum in vehicula consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis nulla leo consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper. Sed elit mauris phasellus lorem ipsum dolor sit. Mauris tristique massa molestie metus lorem ipsum consectetur. Vestibulum lorem dolor sed purus faucibus mauris erat sed non. Phasellus justo mauris lorem ipsum dolor consectetur.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
   },
   {
     id: 2,
-    name: "EVENT",
+    name: "Trancenation",
     image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png",
-    title: "EVENT 2",
+    title: "Trancenation",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus. Phasellus lorem ipsum in vehicula consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis nulla leo consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper. Sed elit mauris phasellus lorem ipsum dolor sit. Mauris tristique massa molestie metus lorem ipsum consectetur. Vestibulum lorem dolor sed purus faucibus mauris erat sed non. Phasellus justo mauris lorem ipsum dolor consectetur.",
     shortDescription: "Lorem ipsum dolor sit amet,  adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
   },
   {
     id: 3,
-    name: "EVENT",
+    name: "Euphony Live",
     image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png",
-    title: "EVENT 3",
+    title: "Euphony Live",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus. Phasellus lorem ipsum in vehicula consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis nulla leo consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper. Sed elit mauris phasellus lorem ipsum dolor sit. Mauris tristique massa molestie metus lorem ipsum consectetur. Vestibulum lorem dolor sed purus faucibus mauris erat sed non. Phasellus justo mauris lorem ipsum dolor consectetur.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
   },
   {
     id: 4,
-    name: "EVENT",
+    name: "Showcase",
     image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png",
-    title: "EVENT 4",
+    title: "Showcase",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus. Phasellus lorem ipsum in vehicula consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis nulla leo consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper. Sed elit mauris phasellus lorem ipsum dolor sit. Mauris tristique massa molestie metus lorem ipsum consectetur. Vestibulum lorem dolor sed purus faucibus mauris erat sed non. Phasellus justo mauris lorem ipsum dolor consectetur.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
   },
   {
     id: 5,
-    name: "EVENT",
+    name: "The Heartbeats Concert 2.0",
     image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png",
-    title: "EVENT 5",
+    title: "The Heartbeats Concert 2.0",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus. Phasellus lorem ipsum in vehicula consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis nulla leo consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper. Sed elit mauris phasellus lorem ipsum dolor sit. Mauris tristique massa molestie metus lorem ipsum consectetur. Vestibulum lorem dolor sed purus faucibus mauris erat sed non. Phasellus justo mauris lorem ipsum dolor consectetur.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
