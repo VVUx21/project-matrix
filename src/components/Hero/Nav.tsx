@@ -9,9 +9,11 @@ import {
   navItems,
   imageSources,
 } from "./Heroconfig";
+import { useAuth } from "@/contexts/auth-context";
 
 const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useAuth();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -41,16 +43,21 @@ const Nav: React.FC = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex justify-around items-center gap-8 flex-1 px-8">
-              {navItems.map((item) => (
+              {navItems.map((item) => {
+                const isRegister = item.label === "Register";
+                const href = user && isRegister ? "/profile" : item.path;
+                const label = user && isRegister ? "My Profile" : item.label;
+                return (
                 <Link
                   key={item.path}
-                  href={item.path}
+                  href={href}
                   className="text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
-                  {item.label}
+                  {label}
                 </Link>
-              ))}
+                );
+              })}
             </div>
 
             {/* Hamburger Menu for Mobile */}
@@ -88,17 +95,22 @@ const Nav: React.FC = () => {
       >
         {/* Changed from "hidden md:flex" to "flex flex-col" */}
         <div className="flex flex-col items-center gap-6 py-6 px-4">
-          {navItems.map((item) => (
+          {navItems.map((item) => {
+            const isRegister = item.label === "Register";
+            const href = user && isRegister ? "/profile" : item.path;
+            const label = user && isRegister ? "My Profile" : item.label;
+            return (
             <Link
               key={item.path}
-              href={item.path}
+              href={href}
               onClick={toggleMenu}
               className="text-lg text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable w-full text-center"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              {item.label}
+              {label}
             </Link>
-          ))}
+            );
+          })}
         </div>
       </motion.div>
     </>
