@@ -357,31 +357,33 @@ const FlagEvent = () => {
 
             {/* Event Image */}
             <motion.div
-              className="flex-shrink-0"
+              className="flex-shrink-0 flex flex-col items-center gap-4"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] flex flex-col px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
-                <motion.div
-                  className="text-center mb-3"
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { type: "spring", stiffness: 400, damping: 25 },
-                  }}
-                >
-                  <h3 className="text-white text-4xl font-bold tracking-wider leading-tight break-words">
-                    {events[currentSlide].name}
-                  </h3>
-                </motion.div>
+              {/* External title box for details (desktop) */}
+              <motion.div
+                className="w-[260px] sm:w-[300px] md:w-[340px] px-4 py-3 rounded-2xl bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_50%,rgba(125,249,255,0.35)_100%)] backdrop-blur-sm border border-white/15 shadow-[0_0_14px_rgba(125,249,255,0.28)]"
+                initial={{ opacity: 0, y: -12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-center text-white text-2xl sm:text-3xl font-bold tracking-wide leading-snug break-words">
+                  {events[currentSlide].name}
+                </h3>
+              </motion.div>
+              {/* Image card (image only) */}
+              <div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] flex flex-col px-4 pt-4 pb-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
                 <div className="flex-1 w-full min-h-0">
-                  <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden flex items-center justify-center">
                     <Image
                       src={events[currentSlide].image}
                       alt={events[currentSlide].name}
                       fill
-                      className="object-cover rounded-xl"
+                      className="object-cover rounded-3xl"
                     />
                   </div>
                 </div>
@@ -424,31 +426,31 @@ const FlagEvent = () => {
 
             {/* Event Image */}
             <motion.div
-              className="flex-shrink-0"
+              className="flex-shrink-0 flex flex-col items-center gap-4"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="w-[280px] h-[400px] flex flex-col px-6 py-5 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
-                <motion.div
-                  className="text-center mb-3"
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { type: "spring", stiffness: 400, damping: 25 },
-                  }}
-                >
-                  <h3 className="text-white text-3xl font-bold tracking-wider leading-tight break-words">
-                    {events[currentSlide].name}
-                  </h3>
-                </motion.div>
+              <motion.div
+                className="w-[240px] sm:w-[260px] md:w-[280px] px-4 py-3 rounded-2xl bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_50%,rgba(125,249,255,0.35)_100%)] backdrop-blur-sm border border-white/15 shadow-[0_0_12px_rgba(125,249,255,0.25)]"
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-center text-white text-xl sm:text-2xl font-bold tracking-wide leading-snug break-words">
+                  {events[currentSlide].name}
+                </h3>
+              </motion.div>
+              <div className="w-[280px] h-[400px] flex flex-col px-4 pt-4 pb-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
                 <div className="flex-1 w-full min-h-0">
-                  <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
+                  <div className="relative w-full h-full rounded-3xl overflow-hidden flex items-center justify-center">
                     <Image
                       src={events[currentSlide].image}
                       alt={events[currentSlide].name}
                       fill
-                      className="object-cover rounded-xl"
+                      className="object-cover rounded-3xl"
                     />
                   </div>
                 </div>
@@ -456,82 +458,81 @@ const FlagEvent = () => {
             </motion.div>
           </div>
         </div>
-
-        {/* Mobile Layout (below 640px) - Column Layout */}
-        <div className="sm:hidden">
-          <div className="relative z-10 max-w-7xl mx-auto px-8 flex flex-col items-center gap-8">
-            {/* Event Image First */}
-            <motion.div
-              className="flex-shrink-0"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] flex flex-col px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
+          {/* Mobile Layout (below 640px) - Column Layout */}
+          <div className="sm:hidden">
+            <div className="relative z-10 max-w-7xl mx-auto px-8 flex flex-col items-center gap-8">
+              {/* Image with external title box */}
+              <motion.div
+                className="flex-shrink-0 flex flex-col items-center gap-4"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
                 <motion.div
-                  className="text-center mb-3"
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { type: "spring", stiffness: 400, damping: 25 },
-                  }}
+                  className="w-[240px] sm:w-[280px] px-4 py-3 rounded-2xl bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_50%,rgba(125,249,255,0.35)_100%)] backdrop-blur-sm border border-white/15 shadow-[0_0_12px_rgba(125,249,255,0.25)]"
+                  initial={{ opacity: 0, y: -10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.15 }}
+                  viewport={{ once: true }}
                 >
-                  <h3 className="text-white text-4xl font-bold tracking-wider leading-tight break-words">
+                  <h3 className="text-center text-white text-xl sm:text-2xl font-bold tracking-wide leading-snug break-words">
                     {events[currentSlide].name}
                   </h3>
                 </motion.div>
-                <div className="flex-1 w-full min-h-0">
-                  <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
-                    <Image
-                      src={events[currentSlide].image}
-                      alt={events[currentSlide].name}
-                      fill
-                      className="object-cover rounded-xl"
-                    />
+                <div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] flex flex-col px-4 pt-4 pb-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
+                  <div className="flex-1 w-full min-h-0">
+                    <div className="relative w-full h-full rounded-3xl overflow-hidden flex items-center justify-center">
+                      <Image
+                        src={events[currentSlide].image}
+                        alt={events[currentSlide].name}
+                        fill
+                        className="object-cover rounded-3xl"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
 
-            {/* Event Title Second */}
-            <motion.div
-              className="w-full text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <motion.h2
-                className="text-white text-center text-4xl md:text-6xl font-bold uppercase tracking-wider"
-                initial={{ opacity: 0, y: 20 }}
+              {/* Big Title */}
+              <motion.div
+                className="w-full text-center"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                {events[currentSlide].name}
-              </motion.h2>
-            </motion.div>
+                <motion.h2
+                  className="text-white text-center text-4xl md:text-6xl font-bold uppercase tracking-wider"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  {events[currentSlide].name}
+                </motion.h2>
+              </motion.div>
 
-            {/* Event Description Third */}
-            <motion.div
-              className="w-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <motion.p
-                className="text-white/90 text-center text-lg leading-relaxed max-w-4xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
+              {/* Description */}
+              <motion.div
+                className="w-full"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                {events[currentSlide].description}
-              </motion.p>
-            </motion.div>
+                <motion.p
+                  className="text-white/90 text-center text-lg leading-relaxed max-w-4xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  {events[currentSlide].description}
+                </motion.p>
+              </motion.div>
+            </div>
           </div>
-        </div>
 
         <div className="absolute top-[500px] sm:top-[20px] lg:top-[30px] left-0 sm:-left-6 lg:-left-10 w-[55vw] sm:w-[260px] lg:w-[200px] h-[35vh] sm:h-[340px] lg:h-[360px] z-0">
           <motion.div
