@@ -217,31 +217,28 @@ const FlagEvent = () => {
                   }
                   layout
                 >
-                  {/* Event Card */}
-                  <motion.div className=" h-[500px] w-[350px] px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
+                  {/* Event Card (flex layout to prevent overflow) */}
+                  <motion.div className="h-[500px] w-[350px] flex flex-col px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
                     <motion.div
-                      className="text-center mb-4"
+                      className="text-center mb-3"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.2 }}
                     >
-                      <h3 className="text-white text-4xl font-bold tracking-wider">
+                      <h3 className="text-white text-4xl font-bold tracking-wider leading-tight break-words">
                         {slide.name}
                       </h3>
                     </motion.div>
-
-                    {/* Event Image */}
-                    <div className="w-full h-[360px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
-                      <Image
-                        src={slide.image}
-                        alt={slide.name}
-                        width={300}
-                        height={320}
-                        className="w-full h-full object-cover rounded-xl"
-                      />
+                    <div className="flex-1 w-full min-h-0">
+                      <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
+                        <Image
+                          src={slide.image}
+                          alt={slide.name}
+                          fill
+                          className="object-cover rounded-xl"
+                        />
+                      </div>
                     </div>
-
-                    
                   </motion.div>
                 </motion.div>
               ))}
@@ -296,31 +293,28 @@ const FlagEvent = () => {
                   }}
                   layout
                 >
-                  {/* Event Card */}
-                  <motion.div className=" w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
+                  {/* Event Card (mobile/tablet flex layout) */}
+                  <motion.div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] flex flex-col px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
                     <motion.div
-                      className="text-center mb-4"
+                      className="text-center mb-3"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.2 }}
                     >
-                      <h3 className="text-white text-4xl font-bold tracking-wider">
+                      <h3 className="text-white text-4xl font-bold tracking-wider leading-tight break-words">
                         {slide.name}
                       </h3>
                     </motion.div>
-
-                    {/* Event Image */}
-                    <div className="w-full h-[360px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
-                      <Image
-                        src={slide.image}
-                        alt={slide.name}
-                        width={300}
-                        height={320}
-                        className="w-full h-full object-cover rounded-xl"
-                      />
+                    <div className="flex-1 w-full min-h-0">
+                      <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
+                        <Image
+                          src={slide.image}
+                          alt={slide.name}
+                          fill
+                          className="object-cover rounded-xl"
+                        />
+                      </div>
                     </div>
-
-                    
                   </motion.div>
                 </motion.div>
               ))}
@@ -371,31 +365,28 @@ const FlagEvent = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
+              <div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] flex flex-col px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
                 <motion.div
-                  className="text-center mb-4"
+                  className="text-center mb-3"
                   whileHover={{
                     scale: 1.05,
                     transition: { type: "spring", stiffness: 400, damping: 25 },
                   }}
                 >
-                  <h3 className="text-white text-4xl font-bold tracking-wider">
+                  <h3 className="text-white text-4xl font-bold tracking-wider leading-tight break-words">
                     {events[currentSlide].name}
                   </h3>
                 </motion.div>
-
-                {/* Event Image */}
-                <div className="w-full h-[300px] sm:h-[300px] lg:h-[350px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
-                  <Image
-                    src={events[currentSlide].image}
-                    alt={events[currentSlide].name}
-                    width={300}
-                    height={320}
-                    className="w-full h-full object-cover rounded-xl"
-                  />
+                <div className="flex-1 w-full min-h-0">
+                  <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
+                    <Image
+                      src={events[currentSlide].image}
+                      alt={events[currentSlide].name}
+                      fill
+                      className="object-cover rounded-xl"
+                    />
+                  </div>
                 </div>
-
-                
               </div>
             </motion.div>
           </div>
@@ -441,7 +432,7 @@ const FlagEvent = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="w-[280px] h-[400px] px-6 py-5 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
+              <div className="w-[280px] h-[400px] flex flex-col px-6 py-5 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
                 <motion.div
                   className="text-center mb-3"
                   whileHover={{
@@ -449,23 +440,20 @@ const FlagEvent = () => {
                     transition: { type: "spring", stiffness: 400, damping: 25 },
                   }}
                 >
-                  <h3 className="text-white text-3xl font-bold tracking-wider">
+                  <h3 className="text-white text-3xl font-bold tracking-wider leading-tight break-words">
                     {events[currentSlide].name}
                   </h3>
                 </motion.div>
-
-                {/* Event Image */}
-                <div className="w-full h-[220px] mx-auto mb-4 rounded-xl overflow-hidden flex items-center justify-center">
-                  <Image
-                    src={events[currentSlide].image}
-                    alt={events[currentSlide].name}
-                    width={250}
-                    height={220}
-                    className="w-full h-full object-cover rounded-xl"
-                  />
+                <div className="flex-1 w-full min-h-0">
+                  <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
+                    <Image
+                      src={events[currentSlide].image}
+                      alt={events[currentSlide].name}
+                      fill
+                      className="object-cover rounded-xl"
+                    />
+                  </div>
                 </div>
-
-                
               </div>
             </motion.div>
           </div>
@@ -482,31 +470,28 @@ const FlagEvent = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
+              <div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] flex flex-col px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
                 <motion.div
-                  className="text-center mb-4"
+                  className="text-center mb-3"
                   whileHover={{
                     scale: 1.05,
                     transition: { type: "spring", stiffness: 400, damping: 25 },
                   }}
                 >
-                  <h3 className="text-white text-4xl font-bold tracking-wider">
-                    EVENT
+                  <h3 className="text-white text-4xl font-bold tracking-wider leading-tight break-words">
+                    {events[currentSlide].name}
                   </h3>
                 </motion.div>
-
-                {/* Event Image */}
-                <div className="w-full h-[250px] sm:h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
-                  <Image
-                    src={events[currentSlide].image}
-                    alt={events[currentSlide].name}
-                    width={300}
-                    height={320}
-                    className="w-full h-full object-cover rounded-xl"
-                  />
+                <div className="flex-1 w-full min-h-0">
+                  <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
+                    <Image
+                      src={events[currentSlide].image}
+                      alt={events[currentSlide].name}
+                      fill
+                      className="object-cover rounded-xl"
+                    />
+                  </div>
                 </div>
-
-                
               </div>
             </motion.div>
 
