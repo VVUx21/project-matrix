@@ -64,7 +64,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen md:min-h-[calc(120svh-7vw)] flex items-center justify-center md:px-4 relative overflow-hidden bg-gradient-to-b from-[#5000FF] to-[#000002]">
+    <div className="min-h-screen font-space md:min-h-[calc(120svh-7vw)] flex items-center justify-center md:px-4 relative overflow-hidden bg-gradient-to-b from-[#5000FF] to-[#000002]">
       {/* Light Rays Background */}
       <div
         style={{
@@ -211,7 +211,7 @@ const LoginPage = () => {
                     <button
                       type="button"
                       onClick={() => setIsLogin(false)}
-                      className="text-white hover:underline font-medium"
+                      className="text-white hover:underline font-space font-medium"
                       disabled={loading}
                     >
                       Don’t have an account ? Sign up
