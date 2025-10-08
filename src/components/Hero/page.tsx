@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
           </motion.div>
 
           <motion.div
-            className="text-[#9aa6e7c8] self-end md:self-auto absolute left-14/19 top-3/18 sm:max-md:top-2/22 sm:max-md:right-4/29 md:max-xl:top-3/19 md:max-lg:left-17/24 xl:left-14/19 sm:top-3/17 z-40"
+            className="text-[#9aa6e7c8] self-end md:self-auto absolute left-14/19 top-3/16 sm:max-md:top-2/22 sm:max-md:right-4/29 md:max-xl:top-3/19 md:max-lg:left-17/24 xl:left-14/19 sm:top-3/17 z-40"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             initial="hidden"
             animate="visible"
@@ -111,7 +111,7 @@ const Hero: React.FC = () => {
           <div className="min-sm:hidden min-[375px]:scale-[1.1] min-[510px]:scale-[1.38] min-[510px]:top-1/12   min-[375px]:right-1/32 min-[400px]:scale-[1.2] min-[400px]:top-1/18 absolute top-3 flex items-start w-full justify-center mt-12 z-30">
             {/* Left Text */}
             <motion.div
-              className="text-white mb-8"
+              className="text-white mb-8 mt-2"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               initial="hidden"
               animate="visible"
@@ -133,12 +133,12 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Hero Image and Brochure Button Container */}
-          <div className="relative w-full h-full my-7 py-12 flex flex-col items-center mt-[-40px] sm:mt-[-100px] md:mt-[-190px] lg:mt-[-244px] xl:mt-[-260px]">
+          <div className="relative w-full h-full my-7 py-12 flex flex-col items-center mt-[10px] sm:mt-[-100px] md:mt-[-190px] lg:mt-[-244px] xl:mt-[-260px]">
             <motion.div
               initial="hidden"
               animate="visible"
               variants={heroVariants}
-              className="xl:-top-27.5 sm:-top-0 relative h-full z-20"
+              className="xl:-top-27.5 lg:top-27 sm:-top-0 relative h-full z-20"
             >
               <Image
                 src={imageSources.hero}
@@ -146,7 +146,7 @@ const Hero: React.FC = () => {
                 width={600}
                 height={600}
                 priority
-                className="object-contain w-full relative top-12 sm:max-md:w-full sm:-top-10/12 sm:w-[800px] max-md: md:w-[590px] xl:w-[900px] xl:-top-13.5 drop-shadow-2xl"
+                className="object-contain w-full relative top-12 sm:max-md:w-full sm:-top-12 sm:w-[800px] max-md: md:w-[590px] lg:-top-8 xl:w-[900px] xl:top-2 drop-shadow-2xl"
                 style={{
                   maskImage:
                     "linear-gradient(to bottom, black 60%, transparent 100%)",
@@ -155,7 +155,7 @@ const Hero: React.FC = () => {
                 }}
               />
               <motion.button
-                className="absolute -bottom-2 left-7/19 xl:bottom-2/12 xl:left-14/35 sm:bottom-4/12 sm:left-10/22 lg:left-13/40 px-6 sm:px-8 md:bottom-1/17 md:left-14/40 md:px-10 py-2 sm:py-3 md:py-4 rounded-xl md:rounded-2xl bg-[#24316990] text-white font-semibold text-base sm:text-xl md:text-2xl lg:text-3xl shadow-lg ring-1 ring-[#ffffff75] backdrop-blur-sm hover:bg-[#243169] cursor-pointer transition-all duration-300 z-30 hoverable"
+                className="absolute -bottom-2 left-7/19 xl:bottom-2/12 xl:left-14/35 sm:bottom-4/12 sm:left-9/22 lg:bottom-24 lg:left-13/40 px-6 sm:px-8 md:bottom-1/17 md:left-14/40 md:px-10 py-2 sm:py-3 md:py-4 rounded-xl md:rounded-2xl bg-[#24316990] text-white font-semibold text-base sm:text-xl md:text-2xl lg:text-3xl shadow-lg ring-1 ring-[#ffffff75] backdrop-blur-sm hover:bg-[#243169] cursor-pointer transition-all duration-300 z-30 hoverable"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 initial="hidden"
                 animate="visible"

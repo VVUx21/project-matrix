@@ -222,7 +222,7 @@ export default function Footer() {
 
                 <Link href="#" target="_blank" aria-label="Facebook">
                   <div className="w-9 h-9 lg:w-10 lg:h-10 bg-white rounded-full flex items-center justify-center transform hover:scale-110 transition duration-200">
-                    <FaFacebookF className="w-5 h-5 lg:w-6 lg:h-6 text-blue-600" />
+                    <FaFacebookF className="w-5 h-5 lg:w-6 lg:h-6 text-[#36207d] hover:text-blue-600" />
                   </div>
                 </Link>
 
