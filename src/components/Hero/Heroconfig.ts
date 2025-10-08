@@ -108,7 +108,7 @@ export const navItems = [
   },
   {
     label: "Gallery",
-    path: "/gallery",
+    path: "/event#gallery",
     class:
       "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
   },
