@@ -206,36 +206,35 @@ const FlagEvent = () => {
               {getVisibleSlides().map((slide, index) => (
                 <motion.div
                   key={`${slide.id}-${slide.originalIndex}`}
-                  className={`relative cursor-pointer ${slide.isCenter ? "z-20" : "z-10"}`}
+                  className={`relative cursor-pointer flex flex-col items-center ${slide.isCenter ? "z-20" : "z-10"}`}
                   variants={slide.isCenter ? cardVariants : sideCardVariants}
                   initial={slide.isCenter ? "enter" : "initial"}
                   animate={slide.isCenter ? "center" : "animate"}
                   exit={slide.isCenter ? "exit" : undefined}
                   custom={direction}
-                  onClick={() =>
-                    !slide.isCenter && goToSlide(slide.originalIndex)
-                  }
+                  onClick={() => !slide.isCenter && goToSlide(slide.originalIndex)}
                   layout
                 >
-                  {/* Event Card (flex layout to prevent overflow) */}
-                  <motion.div className="h-[500px] w-[350px] flex flex-col px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
-                    <motion.div
-                      className="text-center mb-3"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      <h3 className="text-white text-4xl font-bold tracking-wider leading-tight break-words">
-                        {slide.name}
-                      </h3>
-                    </motion.div>
+                  {/* Title Box outside card */}
+                  <motion.div
+                    className="w-[350px] mb-4 px-5 py-3 rounded-2xl shadow-sm backdrop-blur-sm bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_60%,rgba(125,249,255,0.35)_100%)] border border-white/15"
+                    initial={{ opacity: 0, y: -15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 }}
+                  >
+                    <h3 className="text-white text-2xl sm:text-3xl font-bold tracking-wide leading-tight break-words text-center">
+                      {slide.name}
+                    </h3>
+                  </motion.div>
+                  {/* Event Card (image only now) */}
+                  <motion.div className="h-[500px] w-[350px] flex flex-col px-4 pt-4 pb-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
                     <div className="flex-1 w-full min-h-0">
-                      <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
+                      <div className="relative w-full h-full rounded-3xl overflow-hidden flex items-center justify-center">
                         <Image
                           src={slide.image}
                           alt={slide.name}
                           fill
-                          className="object-cover rounded-xl"
+                          className="object-cover rounded-3xl"
                         />
                       </div>
                     </div>
@@ -269,15 +268,13 @@ const FlagEvent = () => {
               {getVisibleSlides().map((slide, index) => (
                 <motion.div
                   key={`${slide.id}-${slide.originalIndex}`}
-                  className={`relative cursor-pointer ${slide.isCenter ? "z-20" : "z-10"}`}
+                  className={`relative cursor-pointer flex flex-col items-center ${slide.isCenter ? "z-20" : "z-10"}`}
                   variants={slide.isCenter ? cardVariants : sideCardVariants}
                   initial={slide.isCenter ? "enter" : "initial"}
                   animate={slide.isCenter ? "center" : "animate"}
                   exit={slide.isCenter ? "exit" : undefined}
                   custom={direction}
-                  onClick={() =>
-                    !slide.isCenter && goToSlide(slide.originalIndex)
-                  }
+                  onClick={() => !slide.isCenter && goToSlide(slide.originalIndex)}
                   drag="x"
                   dragConstraints={{ left: 0, right: 0 }}
                   dragElastic={0.2}
@@ -293,25 +290,26 @@ const FlagEvent = () => {
                   }}
                   layout
                 >
-                  {/* Event Card (mobile/tablet flex layout) */}
-                  <motion.div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] flex flex-col px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
-                    <motion.div
-                      className="text-center mb-3"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      <h3 className="text-white text-4xl font-bold tracking-wider leading-tight break-words">
-                        {slide.name}
-                      </h3>
-                    </motion.div>
+                  {/* Title Box outside card (mobile/tablet) */}
+                  <motion.div
+                    className="w-[298px] sm:w-[350px] mb-3 px-4 py-2 rounded-2xl shadow-sm backdrop-blur-sm bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_60%,rgba(125,249,255,0.35)_100%)] border border-white/15"
+                    initial={{ opacity: 0, y: -12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 }}
+                  >
+                    <h3 className="text-white text-2xl font-bold tracking-wide leading-tight break-words text-center">
+                      {slide.name}
+                    </h3>
+                  </motion.div>
+                  {/* Event Card (image only) */}
+                  <motion.div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] flex flex-col px-4 pt-4 pb-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
                     <div className="flex-1 w-full min-h-0">
-                      <div className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center">
+                      <div className="relative w-full h-full rounded-3xl overflow-hidden flex items-center justify-center">
                         <Image
                           src={slide.image}
                           alt={slide.name}
                           fill
-                          className="object-cover rounded-xl"
+                          className="object-cover rounded-3xl"
                         />
                       </div>
                     </div>
