@@ -32,20 +32,20 @@ export default function Footer() {
 
   return (
     <footer
-      className={`relative w-full -top-[3vw] overflow-hidden ${neue.className}`}
+      className={`relative w-full -top-[1vw] overflow-hidden ${neue.className}`}
       style={{
         background:
           "linear-gradient(180deg, #6D2FF9 0%, #381880 41.35%, #020006 89.9%)",
         borderRadius: "50px 50px 0 0",
       }}
     >
-      <div className="w-full max-w-[1512px] mx-auto px-6 sm:px-10 py-12 text-white">
+      <div className="w-full max-w-[1512px] mx-auto px-6 sm:px-10 py-4 lg:py-2 lg:pt-8 pb-0 text-white">
         {/* Mobile Layout */}
         <div className="lg:hidden flex flex-col items-center text-center">
           {/* Title and Description */}
           <h2 className="text-3xl uppercase font-bold mb-4">INNOVISION</h2>
           <p
-            className={`text-lg leading-relaxed ${spaceGrotesk.className} text-gray-200 mb-8 max-w-sm`}
+            className={`text-sm leading-relaxed ${spaceGrotesk.className} text-gray-200 mb-6 max-w-sm`}
           >
             Innovision 2025, the largest techno-cultural fest of Eastern India
             organized by NIT Rourkela, is a celebration where technology,
@@ -72,7 +72,7 @@ export default function Footer() {
           {/* Two Column Section */}
           <div className="grid grid-cols-2 gap-8 w-full max-w-md mb-10">
             {/* Quick Links */}
-            <div className="text-left">
+            <div className="text-center">
               <h3 className="text-lg uppercase font-bold mb-4">Quick Links</h3>
               <ul
                 className={`space-y-2 text-sm ${spaceGrotesk.className} font-mono`}
@@ -90,19 +90,19 @@ export default function Footer() {
               </ul>
             </div>
             {/* Contact Us */}
-            <div className="text-left">
+            <div className="text-center">
               <h3 className="text-lg uppercase font-bold mb-4">Contact Us</h3>
               <div
                 className={`text-sm space-y-2 ${spaceGrotesk.className} text-gray-200`}
               >
                 <p>
-                  <span className="font-semibold uppercase">Ph:</span> 987654321
+                  <span className="font-semibold uppercase">NAME:</span> 987654321
                 </p>
                 <p>innonitr@gmail.com</p>
               </div>
 
               {/* Social Icons */}
-              <div className="flex space-x-4 mt-6">
+              <div className="flex justify-center space-x-4 mt-6">
                 <Link href="#" target="_blank" aria-label="YouTube">
                   <FaYoutube className="w-7 h-7 text-white hover:text-red-600 transform hover:scale-110 transition duration-200" />
                 </Link>
@@ -128,31 +128,31 @@ export default function Footer() {
           <Image
             src={slashedLogo}
             alt="Slashed Logo"
-            className="w-20 mb-6 opacity-90"
+            className="w-20 mb-4 opacity-90"
             width={0}
             height={0}
           />
 
           {/* Footer Text */}
-          <p className="text-sm text-gray-300">
+          <p className="text-sm text-gray-300 mb-0 pb-0 leading-none">
             Made with ❤️ by Team{" "}
             <span className="font-bold text-white">{"</WEBWIZ>"}</span>
           </p>
         </div>
 
-        {/* Desktop Layout - Exact match to image */}
-        <div className="hidden lg:block ">
+        {/* Desktop Layout - Center Aligned */}
+        <div className="hidden lg:block text-center">
           {/* Single Grid: 3 Columns - Title/Description | Quick Links + Logos | Contact Us */}
-          <div className="grid grid-cols-[2fr_1.5fr_1.5fr_1.5fr] gap-8 lg:gap-12">
+          <div className="grid grid-cols-[2fr_1.5fr_2.5fr_1.5fr] gap-6 lg:gap-8 text-center">
             {/* Column 1: INNOVISION Title and Description */}
-            <div>
+            <div className="text-left">
               <h2
                 className={`text-2xl lg:text-3xl xl:text-4xl ${neue.className} uppercase font-bold mb-4`}
               >
                 INNOVISION
               </h2>
               <p
-                className={`text-md lg:text-lg leading-relaxed ${spaceGrotesk.className} text-gray-200`}
+                className={`text-sm lg:text-base leading-snug ${spaceGrotesk.className} text-gray-200`}
               >
                 Innovision 2025, the largest techno-cultural fest of Eastern
                 India organized by NIT Rourkela, is a celebration where
@@ -165,7 +165,7 @@ export default function Footer() {
             </div>
 
             {/* Column 2: Quick Links + Logos Below */}
-            <div className="flex flex-col">
+            <div className="flex flex-col text-center">
               <div className="mb-auto">
                 <h3 className="text-xl lg:text-2xl uppercase font-bold mb-6">
                   Quick Links
@@ -187,7 +187,7 @@ export default function Footer() {
               </div>
             </div>
             {/* Three Logos in a row - positioned at bottom */}
-            <div className="flex items-start pt-[4vw] -mx-[9vw] gap-4">
+            <div className="flex items-start justify-center pt-[4vw] -mx-[9vw] gap-4">
               {logos.map((logo, index) => (
                 <Image
                   key={index}
@@ -201,7 +201,7 @@ export default function Footer() {
             </div>
 
             {/* Column 3: Contact Us */}
-            <div className="text-left">
+            <div className="text-center">
               <h3 className="text-xl lg:text-2xl uppercase font-bold mb-6">
                 Contact Us
               </h3>
@@ -209,13 +209,13 @@ export default function Footer() {
                 className={`text-sm lg:text-base space-y-3 ${spaceGrotesk.className} text-gray-200 mb-8`}
               >
                 <p>
-                  <span className="font-semibold uppercase">Ph:</span> 987654321
+                  <span className="font-semibold uppercase">NAME:</span> 987654321
                 </p>
                 <p>innonitr@gmail.com</p>
               </div>
 
               {/* Social Icons */}
-              <div className="flex justify-start space-x-6 mt-6">
+              <div className="flex justify-center space-x-6 mt-6">
                 <Link href="#" target="_blank" aria-label="YouTube">
                   <FaYoutube className="w-9 h-9 lg:w-10 lg:h-10 text-white hover:text-red-600 transform hover:scale-110 transition duration-200" />
                 </Link>
@@ -238,8 +238,8 @@ export default function Footer() {
           </div>
 
           {/* Footer Bottom Text - Full Width Center */}
-          <div className="text-center pt-6 ">
-            <p className="text-base lg:text-lg text-gray-300">
+          <div className="text-center pt-0">
+            <p className="text-sm lg:text-base text-gray-300 mb-0 pb-0 leading-none">
               Made with ❤️ by Team{" "}
               <span className="font-bold text-white">{"</WEBWIZ>"}</span>
             </p>
@@ -251,7 +251,7 @@ export default function Footer() {
       <Image
         src={slashedLogo}
         alt="Slashed Logo"
-        className="hidden md:block absolute bottom-6 right-8 lg:bottom-8 lg:right-12 w-20 lg:w-24 xl:w-28 opacity-90"
+        className="hidden lg:block absolute bottom-0 right-4 lg:-bottom-1 lg:right-6 w-16 lg:w-20 xl:w-24 opacity-90"
         width={0}
         height={0}
       />
