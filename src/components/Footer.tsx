@@ -32,7 +32,7 @@ export default function Footer() {
 
   return (
     <footer
-      className={`relative w-full -top-[1vw] overflow-hidden ${neue.className}`}
+      className={`relative w-full overflow-hidden ${neue.className}`}
       style={{
         background:
           "linear-gradient(180deg, #6D2FF9 0%, #381880 41.35%, #020006 89.9%)",
@@ -134,7 +134,7 @@ export default function Footer() {
           />
 
           {/* Footer Text */}
-          <p className="text-sm text-gray-300 mb-0 pb-0 leading-none">
+          <p className="text-sm text-gray-300 mb-0 py-3 leading-none">
             Made with ❤️ by Team{" "}
             <span className="font-bold text-white">{"</WEBWIZ>"}</span>
           </p>
@@ -238,8 +238,8 @@ export default function Footer() {
           </div>
 
           {/* Footer Bottom Text - Full Width Center */}
-          <div className="text-center pt-0">
-            <p className="text-sm lg:text-base text-gray-300 mb-0 pb-0 leading-none">
+          <div className="text-center pt-10 pb-2">
+            <p className="text-sm lg:text-base text-gray-300 mb-0 leading-none">
               Made with ❤️ by Team{" "}
               <span className="font-bold text-white">{"</WEBWIZ>"}</span>
             </p>
