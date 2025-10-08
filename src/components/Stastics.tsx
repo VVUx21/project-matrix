@@ -3,6 +3,7 @@ import React from "react";
 import { Stats } from "@/config";
 import Image from "next/image";
 import LightRays from "./LightRays";
+import { neue } from "@/fonts";
 
 const Statistics = () => {
   return (
@@ -40,7 +41,7 @@ const Statistics = () => {
         }}
       >
         <Image
-          src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759201597/0418a084b19cddeee7926e6da8e6f759fe1954bd_xgxomh.png"
+          src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png"
           alt="Jellyfish decoration"
           width={100}
           height={100}
@@ -74,10 +75,9 @@ const Statistics = () => {
 
       <div className="relative z-10 w-full lg:max-w-4xl md:max-w-3xl mx-auto">
         <h1
-          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold md:py-10 text-white text-center mb-8 sm:mb-10 md:mb-12 tracking-[0.3em] sm:tracking-[0.4em]"
+          className={`text-4xl ${neue.className} sm:text-4xl md:text-7xl lg:text-7xl font-bold  text-white text-center mb-12 mt-12 md:mb-12 lg:mb-16 `}
           style={{
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
-            fontFamily: "Neue Metana",
           }}
         >
           STATISTICS
@@ -149,7 +149,7 @@ const Statistics = () => {
 
         {/* **************************** Bubble ***************************** */}
 
-        <Image
+        {/* <Image
           src="https://res.cloudinary.com/dhkfjehat/image/upload/v1759372599/5cb55b5b31ebe6a1bac584eee2bd2ea931542f41_1_sjhwcj.png"
           alt="small bubble"
           width={100}
@@ -264,7 +264,7 @@ const Statistics = () => {
           height={100}
           className="w-36 h-auto absolute top-48 -left-46"
           style={{ zIndex: -1 }}
-        />
+        /> */}
         {/************************* Small Dots *************************/}
 
         <Image
@@ -431,7 +431,7 @@ const Statistics = () => {
             {Stats.map((college, index) => (
               <div
                 key={college.rank}
-                className={`flex items-center gap-3 sm:gap-6 md:gap-8 lg:gap-12 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4 md:py-4 bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 cursor-pointer hover:scale-[1.03] hover:z-10 relative rounded-lg sm:rounded-xl md:rounded-xl my-1.5 max-w-4xl mx-auto`}
+                className={`flex items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4 md:py-4 bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 cursor-pointer hover:scale-[1.03] hover:z-10 relative rounded-lg sm:rounded-xl md:rounded-xl my-1.5 max-w-4xl mx-auto`}
               >
                 <span className="text-white text-lg sm:text-xl md:text-2xl lg:text-2xl font-bold w-10 sm:w-14 md:w-16 lg:w-20 text-center flex-shrink-0">
                   {college.rank}
@@ -439,6 +439,14 @@ const Statistics = () => {
                 <span className="text-white text-sm sm:text-base md:text-base lg:text-lg font-normal flex-1 text-left leading-tight sm:leading-normal">
                   {college.name}
                 </span>
+                <div className="flex-shrink-0 w-12  h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 relative">
+                  <Image
+                    src={college.img}
+                    alt={college.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
             ))}
           </div>

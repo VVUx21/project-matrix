@@ -131,6 +131,7 @@
     @apply bg-background text-foreground;
     /* Use local Neue Metana as primary, fall back to Geist and system fonts */
     font-family:
+      var(--font-space-grotesk),
       var(--font-neue-metana),
       var(--font-neue-metana-semi),
       system-ui,
@@ -157,7 +158,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #0f0031;
 }
 /* Add to globals.css */
 .bubble-cursor {

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { events } from "@/config/FunEvents/FunEvent";
 import { URL } from "@/config/FunEvents/FunEvent";
+import { neue, spaceGrotesk } from "@/fonts";
 
 const { background, arrowButton, fish } = URL;
 
@@ -167,7 +168,7 @@ const FunEvents = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h1
-            className="text-white px-5 font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9] "
+            className={`text-white px-5 font-semibold ${neue.className} text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9] `}
             whileHover={{
               scale: 1.05,
               textShadow: "0 0 20px #D9D9D9",
@@ -325,7 +326,7 @@ const FunEvents = () => {
               viewport={{ once: true }}
             >
               <motion.h2
-                className="text-white text-center text-6xl font-bold uppercase mb-8 tracking-wider"
+                className={`text-white text-center ${neue.className} text-6xl font-bold uppercase mb-8 tracking-wider`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -335,7 +336,7 @@ const FunEvents = () => {
               </motion.h2>
 
               <motion.p
-                className="text-white/90 text-justify text-lg leading-relaxed max-w-4xl"
+                className={`text-white/90 ${spaceGrotesk.className} text-justify text-lg leading-relaxed max-w-4xl`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -392,7 +393,7 @@ const FunEvents = () => {
               viewport={{ once: true }}
             >
               <motion.h2
-                className="text-white text-center text-4xl font-bold uppercase mb-6 tracking-wider"
+                className={`text-white text-center ${neue.className} text-4xl font-bold uppercase mb-6 tracking-wider`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -402,7 +403,7 @@ const FunEvents = () => {
               </motion.h2>
 
               <motion.p
-                className="text-white/90 text-justify text-base leading-relaxed"
+                className={`text-white/90 text-justify ${spaceGrotesk.className} text-base leading-relaxed`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -488,7 +489,7 @@ const FunEvents = () => {
               viewport={{ once: true }}
             >
               <motion.h2
-                className="text-white text-center text-4xl md:text-6xl font-bold uppercase tracking-wider"
+                className={`text-white text-center ${neue.className} text-4xl md:text-6xl font-bold uppercase tracking-wider`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -507,7 +508,7 @@ const FunEvents = () => {
               viewport={{ once: true }}
             >
               <motion.p
-                className="text-white/90 text-center text-lg leading-relaxed max-w-4xl mx-auto"
+                className={`text-white/90 text-center ${spaceGrotesk.className} text-lg leading-relaxed max-w-4xl mx-auto`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }} 

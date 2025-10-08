@@ -3,6 +3,7 @@ import React from 'react';
 import Image from "next/image";
 import localfont from "next/font/local";
 import Marquee from 'react-fast-marquee';
+import { neue } from '@/fonts';
 
 const SponsorsImages = [
     { id: 0 , name: "Adobe", logo:"https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425650/adobe-logo_1_tmplew.svg"},
@@ -55,7 +56,7 @@ function MobileSponsorGrid() {
 
 export default function SponsorCard() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden">
+    <div className="relative min-h-screen w-full mb-10 overflow-hidden">
             <style dangerouslySetInnerHTML={{__html: `
         @keyframes bounce {
           0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -77,15 +78,17 @@ export default function SponsorCard() {
       />
 
       <div className="relative z-10 flex flex-col justify-center items-center min-h-screen p-5 md:p-[20px]">
-        <div className="h-[75vh] md:h-[70vh] w-[90vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[60px] md:rounded-[95px] p-8 md:p-12 border border-white/20 flex flex-col justify-center">
-          <h1 
-            className={`text-white text-4xl md:text-7xl xl:text-7xl 2xl:text-7xl font-bold tracking-wider mb-20 md:mb-12 lg:mb-16 flex justify-center`}
+
+        <h1 
+            className={`text-white text-4xl ${neue.className} md:text-7xl xl:text-7xl 2xl:text-7xl font-bold mb-12 mt-12 md:mb-12 lg:mb-16 flex justify-center`}
             style={{
-              textShadow: '0 0 20px rgba(255, 255, 255, 0.3)',
-            }}
+            textShadow: "0 0 30px rgba(255,255,255,0.7)",
+          }}
           >
             SPONSORS
           </h1>
+        <div className="h-[75vh] md:h-[70vh] w-[90vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[60px] md:rounded-[95px] p-8 md:p-12 border border-white/20 flex flex-col justify-center">
+          
           <div className=' xl:p-2 2xl:p-4'>
           <div className='hidden md:block'>
           <InfiniteScrollAnimationPage/>
@@ -99,16 +102,16 @@ export default function SponsorCard() {
       </div>
 
       <Image
-        src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759424462/jellyfish_kbfysz.svg"
+        src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png"
         alt=""
-        width={280}
-        height={280}
+        width={400}
+        height={400}
         priority
 className="pointer-events-none hidden md:block select-none absolute
            left-[0vw] md:left-[2vw] lg:left-[1.5vw]
            bottom-0 z-20 
-           w-[25vw] h-[70vh]
-           jellyfish-bounce  brightness-150"
+           w-[15vw] md:w-[18vw] h-auto max-h-[50vh]
+           jellyfish-bounce opacity-60 object-contain"
       />
       
     </div>

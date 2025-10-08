@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { redirect } from "next/navigation";
-import Bats from "@/components/login/Bats";
+// import Bats from "@/components/login/Bats";
 import Loader from "@/components/loader/loader";
 import { formFields, notAllowedInstitutes } from "@/config/register";
 import { useAuth } from "@/contexts/auth-context";
@@ -39,7 +39,9 @@ const Registration: React.FC = () => {
       try {
         const [userRegStatus, userPaymentStatus] = await Promise.all([
           getUser(user.id) as Promise<ApiResponse<DocumentListResponse>>,
-          getUserPaymentStatus(user.id) as Promise<ApiResponse<DocumentListResponse>>,
+          getUserPaymentStatus(user.id) as Promise<
+            ApiResponse<DocumentListResponse>
+          >,
         ]);
 
         if (
@@ -125,7 +127,10 @@ const Registration: React.FC = () => {
         return;
       }
 
-      await initiatePayment(userDetails.name, userDetails.phoneNumber, user.id);
+      // Mark as registered and show the Continue Payment button instead of redirecting immediately
+      setExistingUser(userDetails);
+      setUserStatus({ isRegistered: true, hasPaid: false });
+      toast.success("Registration successful. Continue to payment when ready.");
     } catch (error) {
       toast.error(
         error instanceof Error ? error.message : "Registration failed"
@@ -182,7 +187,7 @@ const Registration: React.FC = () => {
           onClick={handleStartRePayment}
           className="flex items-center justify-center h-full font-Spirits w-fit px-5 py-3 text-xl rounded-lg bg-[#003955] text-white font-semibold transition-all "
         >
-          Complete Payment {':)'}
+          Complete Payment {":)"}
         </button>
       );
     }
@@ -230,12 +235,12 @@ const Registration: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center md:px-4 bg-reg relative">
+    <div className="min-h-screen md:min-h-[calc(120svh-7vw)] flex flex-col items-center justify-center md:px-4 bg-reg relative">
       {/* <h1 className="text-2xl md:text-4xl font-bold text-center mb-8 text-[#003955] font-Cattedrale">
         Registerations have been close.
         <br /> See you all next year.
       </h1> */}
-      <Bats />
+      {/* <Bats /> */}
 
       {renderContent()}
     </div>
