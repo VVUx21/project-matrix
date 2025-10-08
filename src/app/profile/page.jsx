@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -194,7 +194,7 @@ const Profile = () => {
   return (
     <ProfilePageLayout>
       {/* Responsive profile card container */}
-      <div className="p-6 sm:p-8 w-11/12 max-w-xl mx-auto rounded-xl bg-white/5 border border-white/10 shadow-2xl backdrop-blur-md">
+      <div className="p-6 sm:p-8 w-11/12 max-w-xl mx-auto rounded-xl font-space bg-white/5 border border-white/10 shadow-2xl backdrop-blur-md">
         <h1 className="text-center mb-6 sm:mb-8 text-white font-Cattedrale text-3xl sm:text-4xl md:text-5xl drop-shadow">
           Welcome, {user.name} !
         </h1>
@@ -204,7 +204,7 @@ const Profile = () => {
             <span className="capitalize break-words">{user.name}</span>
           </InfoRow>
           <InfoRow label="Email">
-            <span className="break-all">{user.email}</span>
+            <span className="break-words ">{user.email}</span>
           </InfoRow>
           <InfoRow label="Status">
             {hasPaid ? (
