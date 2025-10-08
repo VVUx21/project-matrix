@@ -132,7 +132,10 @@ export default function AboutUs() {
   return (
     <div className="relative w-full overflow-hidden bg-gradient-to-b from-black to-[#5000FF] py-[4vw] sm:py-0">
       <div
-        className={`relative z-20 ${neue.className} text-center md:text-[80px] lg:text-[90px] text-6xl font-metana font-bold text-white text-shadow-[#D9D9D9] text-shadow-md`}
+        className={`relative pt-4 z-20 ${neue.className} text-center md:text-[80px] lg:text-[90px] text-6xl font-metana font-bold text-white [text-shadow:_0_0_20px_#D9D9D9] text-shadow-md`}
+        style={{
+          textShadow: "0 0 30px rgba(255,255,255,0.7)",
+        }}
       >
         ABOUT US
       </div>
