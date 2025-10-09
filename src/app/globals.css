@@ -213,7 +213,8 @@ input,
 textarea,
 select,
 button,
-a {
+a,
+#chatbot {
   cursor: pointer !important;
 }
 .neon-heading {
@@ -223,4 +224,3 @@ a {
     0 0 40px rgba(163, 210, 255, 0.6),
     0 0 80px rgba(163, 210, 255, 0.3);
 }
-

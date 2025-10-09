@@ -206,7 +206,7 @@ export default function SiteLoader(): React.ReactElement | null {
         {/* Logo */}
         <div className="mb-8 animate-float">
           <Image
-            src="/logo.jpg"
+            src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759864879/84804cac10b34f19c1c99da62ccd3a3f768bae20_1_qdrrgu.png"
             alt="Logo"
             width={120}
             height={120}
