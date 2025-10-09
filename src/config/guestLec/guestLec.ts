@@ -1,7 +1,7 @@
 import { Event } from "@/types/events";
 
 export const events: Event[] = [
-    {
+    { 
         id: 1,
         name: "LECTURE",
         image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png",

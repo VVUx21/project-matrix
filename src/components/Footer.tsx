@@ -15,10 +15,11 @@ const neue = localFont({
 export default function Footer() {
   const quickLinks = [
     { name: "Gallery", href: "/event#gallery" },
-    { name: "Register", href: "/signl" },
+    { name: "Register", href: "/signinl" },
     { name: "sponsers", href: "#sponsers" },
     { name: "About us", href: "#about-us" },
     { name: "Events", href: "/event" },
+    { name: "Merch", href: "/merch" },
   ];
 
   const logos = [

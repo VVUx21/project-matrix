@@ -119,7 +119,7 @@ export const events: Event[] = [
         shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
     },
     {
-        id: 15,
+        id: 15, 
         name: "BOX CRICKET",
         image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png",
         title: "BOX CRICKET",
