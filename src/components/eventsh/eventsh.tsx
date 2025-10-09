@@ -23,7 +23,7 @@ const ICON_FILTER =
 const BG_GRADIENT =
   "linear-gradient(155deg, rgba(125, 249, 255, 0.50) 3.49%, rgba(98, 42, 227, 0.50) 49.68%, rgba(125, 249, 255, 0.50) 98.24%)";
 
-// Variants (from both components, tuned)
+// Variants
 const cardVariants = {
   enter: (direction: number) => ({
     x: direction > 0 ? 300 : -300,
@@ -52,7 +52,6 @@ const cardVariants = {
   }),
 };
 
-// Faster single-card animation
 const singleCardVariants = {
   enter: (direction: number) => ({
     x: direction > 0 ? 350 : -350,
@@ -185,16 +184,17 @@ const TitleBox: React.FC<{ text: string; widthClass: string }> = ({ text, widthC
   </motion.div>
 );
 
+// Card body with single-card static border and no inner padding
 const CardBody: React.FC<{
   img: string;
   sizeClass: string;
   isCenter: boolean;
   isMounted: boolean;
-}> = ({ img, sizeClass, isCenter, isMounted }) => {
+  isSingleCard: boolean;
+}> = ({ img, sizeClass, isCenter, isMounted, isSingleCard }) => {
   const content = (
     <div
-      // was: `${sizeClass} flex flex-col px-4 pt-4 pb-6 rounded-[44.402px]`
-      className={`${sizeClass} flex flex-col p-1 sm:p-2 rounded-[44.402px]`}
+      className={`${sizeClass} flex flex-col p-0 rounded-[44.402px]`}
       style={{
         background: BG_GRADIENT,
         backdropFilter: "blur(4px)",
@@ -202,13 +202,16 @@ const CardBody: React.FC<{
       }}
     >
       <div className="flex-1 w-full min-h-0">
-        <div className="relative w-full h-full rounded-3xl overflow-hidden flex items-center justify-center">
+        <div className="relative w-full h-full rounded-[44.402px] overflow-hidden flex items-center justify-center">
           <Image
             src={img}
             alt="event"
             fill
-            className="object-cover rounded-3xl"
+            sizes="(max-width: 640px) 298px, (max-width: 768px) 350px, 350px"
+            decoding="async"
+            loading={isCenter ? "eager" : "lazy"}
             priority={isCenter}
+            className="object-cover rounded-[44.402px]"
           />
         </div>
       </div>
@@ -216,6 +219,17 @@ const CardBody: React.FC<{
   );
 
   if (!isCenter) return content;
+
+  if (isSingleCard) {
+    return (
+      <div
+        className="rounded-[44.402px] border-[3px] border-[#7DF9FF] shadow-[0_0_14px_rgba(125,249,255,0.28)] overflow-hidden"
+        style={{ background: "transparent" }}
+      >
+        {content}
+      </div>
+    );
+  }
 
   return isMounted ? (
     <ElectricBorder
@@ -235,7 +249,7 @@ const CardBody: React.FC<{
   );
 };
 
-// Explore button variants and component
+// Explore button
 const buttonVariants = {
   initial: { scale: 1 },
   hover: {
@@ -248,39 +262,16 @@ const buttonVariants = {
   },
 };
 
-// const ExploreButton: React.FC<{ widthClass: string; onClick: () => void }> = memo(
-//   ({ widthClass, onClick }) => (
-//     <motion.button
-//       variants={buttonVariants}
-//       initial="initial"
-//       whileHover="hover"
-//       whileTap="tap"
-//       onClick={onClick}
-//       className={`${widthClass} mt-3 sm:mt-4 px-5 py-3 rounded-2xl backdrop-blur-sm border border-white/15 bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_60%,rgba(125,249,255,0.35)_100%)] text-white font-semibold tracking-wide uppercase flex items-center justify-center gap-3 shadow-[0_0_14px_rgba(125,249,255,0.28)]`}
-//     >
-//       <span>Explore</span>
-//       <div className="relative w-5 h-5">
-//         <Image
-//           src={arrowButton.src}
-//           alt={arrowButton.alt ?? "Open"}
-//           fill
-//           sizes="20px"
-//           style={{ filter: ICON_FILTER }}
-//           priority
-//         />
-//       </div>
-//     </motion.button>
-//   )
-// );
-// ExploreButton.displayName = "ExploreButton";
-
 const ExploreButton: React.FC<{
   widthClass: string;
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void; // <-- typed event
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }> = memo(({ widthClass, onClick }) => (
   <motion.button
-    /* ...existing variants/attrs... */
-    onClick={onClick} // unchanged usage
+    variants={buttonVariants}
+    initial="initial"
+    whileHover="hover"
+    whileTap="tap"
+    onClick={onClick}
     className={`${widthClass} mt-3 sm:mt-4 px-5 py-3 rounded-2xl backdrop-blur-sm border border-white/15 bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_60%,rgba(125,249,255,0.35)_100%)] text-white font-semibold tracking-wide uppercase flex items-center justify-center gap-3 shadow-[0_0_14px_rgba(125,249,255,0.28)]`}
   >
     <span>Explore</span>
@@ -297,6 +288,7 @@ const ExploreButton: React.FC<{
   </motion.button>
 ));
 ExploreButton.displayName = "ExploreButton";
+
 const EventCardComponent: React.FC<{
   slide: Slide;
   onClick?: () => void;
@@ -339,23 +331,15 @@ const EventCardComponent: React.FC<{
           sizeClass={sizeClass}
           isCenter={true}
           isMounted={isMounted}
+          isSingleCard={!is3CardLayout}
         />
-        {/* <ExploreButton
-          widthClass={widthClass}
-          onClick={(e => {
-            // stop bubbling to avoid triggering goToSlide
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (e as any).stopPropagation?.();
-            onExplore?.(slide);
-          }) as unknown as () => void}
-        /> */}
         <ExploreButton
           widthClass={widthClass}
-          onClick={(e: React.MouseEvent<HTMLButtonElement>) => { // <-- typed here
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
             e.stopPropagation();
             onExplore?.(slide);
-      }}
-      />
+          }}
+        />
       </motion.div>
     );
   }
@@ -372,7 +356,13 @@ const EventCardComponent: React.FC<{
       style={{ willChange: "transform", transform: "translateZ(0)" }}
     >
       <TitleBox text={slide.name} widthClass={widthClass} />
-      <CardBody img={slide.image} sizeClass={sizeClass} isCenter={false} isMounted={isMounted} />
+      <CardBody
+        img={slide.image}
+        sizeClass={sizeClass}
+        isCenter={false}
+        isMounted={isMounted}
+        isSingleCard={!is3CardLayout}
+      />
     </motion.div>
   );
 };
@@ -535,7 +525,7 @@ export default function EventsCarousel() {
     return slides;
   }, [currentSlide, is3CardLayout, totalCards]);
 
-  // Preserve original background images and behavior
+  // Background images + heading sizing
   const bgImage = useMemo(
     () =>
       isClient && viewport >= 550
