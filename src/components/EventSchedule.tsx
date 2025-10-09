@@ -1,36 +1,36 @@
-'use client';
-import Image from 'next/image';
-import LightRays from './LightRays';
-import { useState } from 'react';
+"use client";
+import Image from "next/image";
+import LightRays from "./LightRays";
+import { useState } from "react";
 
-type DayKey = 'day1' | 'day2' | 'day3';
+type DayKey = "day1" | "day2" | "day3";
 
 const DATA: Record<DayKey, { time: string; title: string }[]> = {
   day1: [
-    { time: 'TIME', title: 'EVENT 1' },
-    { time: 'TIME', title: 'EVENT 2' },
-    { time: 'TIME', title: 'EVENT 3' },
-    { time: 'TIME', title: 'EVENT 4' },
-    { time: 'TIME', title: 'EVENT 5' },
+    { time: "TIME", title: "EVENT 1" },
+    { time: "TIME", title: "EVENT 2" },
+    { time: "TIME", title: "EVENT 3" },
+    { time: "TIME", title: "EVENT 4" },
+    { time: "TIME", title: "EVENT 5" },
   ],
   day2: [
-    { time: 'TIME', title: 'EVENT 6' },
-    { time: 'TIME', title: 'EVENT 7' },
-    { time: 'TIME', title: 'EVENT 8' },
-    { time: 'TIME', title: 'EVENT 9' },
-    { time: 'TIME', title: 'EVENT 10' },
+    { time: "TIME", title: "EVENT 6" },
+    { time: "TIME", title: "EVENT 7" },
+    { time: "TIME", title: "EVENT 8" },
+    { time: "TIME", title: "EVENT 9" },
+    { time: "TIME", title: "EVENT 10" },
   ],
   day3: [
-    { time: 'TIME', title: 'EVENT 11' },
-    { time: 'TIME', title: 'EVENT 12' },
-    { time: 'TIME', title: 'EVENT 13' },
-    { time: 'TIME', title: 'EVENT 14' },
-    { time: 'TIME', title: 'EVENT 15' },
+    { time: "TIME", title: "EVENT 11" },
+    { time: "TIME", title: "EVENT 12" },
+    { time: "TIME", title: "EVENT 13" },
+    { time: "TIME", title: "EVENT 14" },
+    { time: "TIME", title: "EVENT 15" },
   ],
 };
 
 export default function EventSchedule() {
-  const [day, setDay] = useState<DayKey>('day1');
+  const [day, setDay] = useState<DayKey>("day1");
 
   return (
     <div
@@ -88,7 +88,7 @@ export default function EventSchedule() {
         fill
         priority
         className="absolute inset-0 -z-10 object-cover object-top pointer-events-none select-none"
-        style={{ objectPosition: 'center top' }}
+        style={{ objectPosition: "center top" }}
       />
 
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -112,7 +112,7 @@ export default function EventSchedule() {
         width={500}
         height={500}
         priority
-className="
+        className="
 pointer-events-none select-none absolute right-[15vw] bottom-[2vh] z-20  
  md:w-[25vw] lg:w-[25vw] xl:w-[30vw] max-w-[300px] h-auto object-contain jellyfish-bounce 
 max-[768px]:hidden
@@ -126,7 +126,6 @@ max-[768px]:hidden
           max-w-[950px] min-[2560px]:max-w-[1100px] min-[3840px]:max-w-[1300px]
         "
       >
-
         <h2
           className="
             text-center uppercase font-bold neon-heading
@@ -158,11 +157,13 @@ max-[768px]:hidden
               flex items-center justify-between gap-1 sm:gap-2
             "
           >
-            {([
-              ['day1', 'DAY-1'],
-              ['day2', 'DAY-2'],
-              ['day3', 'DAY-3'],
-            ] as const).map(([key, label]) => {
+            {(
+              [
+                ["day1", "DAY-1"],
+                ["day2", "DAY-2"],
+                ["day3", "DAY-3"],
+              ] as const
+            ).map(([key, label]) => {
               const active = day === (key as DayKey);
               return (
                 <button
@@ -177,8 +178,8 @@ max-[768px]:hidden
                     transition-all duration-200
                     ${
                       active
-                        ? 'text-cyan-200 bg-cyan-500/10 ring-1 ring-cyan-400/50 shadow-[0_0_18px_rgba(6,182,212,0.35)]'
-                        : 'text-cyan-300/70 hover:text-cyan-200 hover:bg-white/5'
+                        ? "text-cyan-200 bg-cyan-500/10 ring-1 ring-cyan-400/50 shadow-[0_0_18px_rgba(6,182,212,0.35)]"
+                        : "text-cyan-300/70 hover:text-cyan-200 hover:bg-white/5"
                     }
                   `}
                 >
