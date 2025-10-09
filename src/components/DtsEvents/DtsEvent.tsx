@@ -160,23 +160,23 @@ const DtsEvents = () => {
         </div>
 
         {/* Animated Title */}
-        <motion.div
-          className="my-16 flex justify-center items-center"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <motion.h1
-            className={`text-white px-5 ${neue.className} font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9] `}
-            whileHover={{
-              scale: 1.05,
-              textShadow: "0 0 20px #D9D9D9",
-              transition: { duration: 0.3 },
-            }}
-          >
-            SHOWS AT DTS
-          </motion.h1>
-        </motion.div>
+       <motion.div
+                 className="my-16 flex justify-center items-center"
+                 initial={{ opacity: 0, y: -50 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.8, ease: "easeOut" }}
+               >
+                 <motion.h1
+                   className="text-white px-5 font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9] "
+                   whileHover={{
+                     scale: 1.05,
+                     textShadow: "0 0 20px #D9D9D9",
+                     transition: { duration: 0.3 },
+                   }}
+                 >
+                   SHOWS AT DTS
+                 </motion.h1>
+               </motion.div>
 
         {/* Carousel Container */}
         <div className="relative px-4 mb-10 lg:mb-20">
@@ -202,63 +202,35 @@ const DtsEvents = () => {
               {getVisibleSlides().map((slide, index) => (
                 <motion.div
                   key={`${slide.id}-${slide.originalIndex}`}
-                  className={`relative cursor-pointer ${slide.isCenter ? "z-20" : "z-10"}`}
+                  className={`relative cursor-pointer flex flex-col items-center ${slide.isCenter ? "z-20" : "z-10"}`}
                   variants={slide.isCenter ? cardVariants : sideCardVariants}
                   initial={slide.isCenter ? "enter" : "initial"}
                   animate={slide.isCenter ? "center" : "animate"}
                   exit={slide.isCenter ? "exit" : undefined}
                   custom={direction}
-                  onClick={() =>
-                    !slide.isCenter && goToSlide(slide.originalIndex)
-                  }
+                  onClick={() => !slide.isCenter && goToSlide(slide.originalIndex)}
                   layout
                 >
-                  {/* Event Card */}
-                  <motion.div className=" h-[500px] w-[350px] px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
-                    <motion.div
-                      className="text-center mb-4"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      <h3 className={`text-white text-4xl ${neue.className} font-bold tracking-wider`}>
-                        {slide.name}
-                      </h3>
-                    </motion.div>
-
-                    {/* Event Image */}
-                    <div className="w-full h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                  <motion.div
+                    className="w-[350px] mb-4 px-5 py-3 rounded-2xl shadow-sm backdrop-blur-sm bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_60%,rgba(125,249,255,0.35)_100%)] border border-white/15"
+                    initial={{ opacity: 0, y: -15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 }}
+                  >
+                    <h3 className="text-white text-2xl sm:text-3xl font-bold tracking-wide leading-tight break-words text-center">
+                      {slide.name}
+                    </h3>
+                  </motion.div>
+                  {/* Image Card */}
+                  <motion.div className="h-[500px] w-[350px] px-4 pt-4 pb-6 rounded-[44.402px] flex flex-col bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
+                    <div className="relative flex-1 w-full rounded-3xl overflow-hidden">
                       <Image
                         src={slide.image}
                         alt={slide.name}
-                        width={300}
-                        height={320}
-                        className="w-full h-full object-cover rounded-xl"
+                        fill
+                        className="object-cover rounded-3xl"
                       />
                     </div>
-
-                    {/* Explore Button */}
-                    <motion.div
-                      className="text-center mt-10 "
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      <motion.button
-                        className={`rounded-[15px] border-[3.75px] ${spaceGrotesk.className} text-white text-2xl font-semibold border-white bg-[#5000FF] px-16 py-3`}
-                        whileHover={{
-                          scale: 1.05,
-                          boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
-                          transition: {
-                            type: "spring" as const,
-                            stiffness: 400,
-                            damping: 25,
-                          },
-                        }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        EXPLORE
-                      </motion.button>
-                    </motion.div>
                   </motion.div>
                 </motion.div>
               ))}
@@ -276,92 +248,71 @@ const DtsEvents = () => {
             </button>
           </div>
 
-          {/* Mobile/Tablet Layout - Touch/Swipe enabled */}
+          {/* Mobile/Tablet Layout - Arrows below cards */}
           <div className="xl:hidden">
             {/* Three Cards Container */}
             <div
-              className="flex items-center justify-center gap-4 max-w-7xl mx-auto mb-8 touch-pan-x"
+              className="flex items-center justify-center gap-4 max-w-7xl mx-auto mb-8"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              onTouchStart={handleMouseEnter}
-              onTouchEnd={handleMouseLeave}
             >
               {getVisibleSlides().map((slide, index) => (
                 <motion.div
                   key={`${slide.id}-${slide.originalIndex}`}
-                  className={`relative cursor-pointer ${slide.isCenter ? "z-20" : "z-10"}`}
+                  className={`relative cursor-pointer flex flex-col items-center ${slide.isCenter ? "z-20" : "z-10"}`}
                   variants={slide.isCenter ? cardVariants : sideCardVariants}
                   initial={slide.isCenter ? "enter" : "initial"}
                   animate={slide.isCenter ? "center" : "animate"}
                   exit={slide.isCenter ? "exit" : undefined}
                   custom={direction}
-                  onClick={() =>
-                    !slide.isCenter && goToSlide(slide.originalIndex)
-                  }
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  dragElastic={0.2}
-                  onDragEnd={(event, info) => {
-                    if (slide.isCenter) {
-                      const threshold = 50;
-                      if (info.offset.x > threshold) {
-                        prevSlide();
-                      } else if (info.offset.x < -threshold) {
-                        nextSlide();
-                      }
-                    }
-                  }}
+                  onClick={() => !slide.isCenter && goToSlide(slide.originalIndex)}
                   layout
                 >
-                  {/* Event Card */}
-                  <motion.div className=" w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
-                    <motion.div
-                      className="text-center mb-4"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      <h3 className={`text-white ${neue.className} text-4xl font-bold tracking-wider`}>
-                        {slide.name}
-                      </h3>
-                    </motion.div>
-
-                    {/* Event Image */}
-                    <div className="w-full h-[250px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+                  <motion.div
+                    className="w-[298px] sm:w-[350px] mb-3 px-4 py-2 rounded-2xl shadow-sm backdrop-blur-sm bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_60%,rgba(125,249,255,0.35)_100%)] border border-white/15"
+                    initial={{ opacity: 0, y: -12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 }}
+                  >
+                    <h3 className="text-white text-2xl font-bold tracking-wide leading-tight break-words text-center">
+                      {slide.name}
+                    </h3>
+                  </motion.div>
+                  {/* Image Card */}
+                  <motion.div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] px-4 pt-4 pb-6 rounded-[44.402px] flex flex-col bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
+                    <div className="relative flex-1 w-full rounded-3xl overflow-hidden">
                       <Image
                         src={slide.image}
                         alt={slide.name}
-                        width={300}
-                        height={320}
-                        className="w-full h-full object-cover rounded-xl"
+                        fill
+                        className="object-cover rounded-3xl"
                       />
                     </div>
-
-                    {/* Explore Button */}
-                    <motion.div
-                      className="text-center mt-10 "
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      <motion.button
-                        className={`rounded-[15px] border-[3.75px] ${spaceGrotesk.className} text-white text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3`}
-                        whileHover={{
-                          scale: 1.05,
-                          boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
-                          transition: {
-                            type: "spring" as const,
-                            stiffness: 400,
-                            damping: 25,
-                          },
-                        }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        EXPLORE
-                      </motion.button>
-                    </motion.div>
                   </motion.div>
                 </motion.div>
               ))}
+            </div>
+
+            {/* Arrow buttons below cards */}
+            <div className="flex mt-10 justify-center items-center gap-12">
+              <button onClick={prevSlide}>
+                <Image
+                  src={arrowButton.src}
+                  alt={arrowButton.alt}
+                  width={0}
+                  height={0}
+                  className="w-16 h-16 rotate-180"
+                />
+              </button>
+              <button onClick={nextSlide}>
+                <Image
+                  src={arrowButton.src}
+                  alt={arrowButton.alt}
+                  width={0}
+                  height={0}
+                  className="w-16 h-16"
+                />
+              </button>
             </div>
           </div>
         </div>
@@ -374,7 +325,7 @@ const DtsEvents = () => {
           <div className="max-w-7xl mx-auto px-8 flex items-start gap-16">
             {/* Event Description */}
             <motion.div
-              className="flex-1 z-10 "
+              className="flex-1 "
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -401,60 +352,35 @@ const DtsEvents = () => {
               </motion.p>
             </motion.div>
 
-            {/* Event Image */}
+            {/* Event Image + External Title Box */}
             <motion.div
-              className="flex-shrink-0"
+              className="flex-shrink-0 flex flex-col items-center gap-4"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
-                <motion.div
-                  className="text-center mb-4"
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { type: "spring", stiffness: 400, damping: 25 },
-                  }}
-                >
-                  <h3 className={`text-white ${neue.className} text-4xl font-bold tracking-wider`}>
-                    {events[currentSlide].title}
-                  </h3>
-                </motion.div>
-
-                {/* Event Image */}
-                <div className="w-full h-[250px] sm:h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+              <motion.div
+                className="w-[260px] sm:w-[300px] md:w-[340px] px-4 py-3 sm:py-4 rounded-2xl bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_50%,rgba(125,249,255,0.35)_100%)] backdrop-blur-sm border border-white/15 shadow-[0_0_15px_rgba(125,249,255,0.3)]"
+                initial={{ opacity: 0, y: -12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-center text-white text-2xl sm:text-3xl font-bold tracking-wide leading-snug break-words">
+                  {events[currentSlide].title}
+                </h3>
+              </motion.div>
+              <div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] px-4 pt-4 pb-6 rounded-[44.402px] flex flex-col bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
+                <div className="relative flex-1 w-full rounded-3xl overflow-hidden">
                   <Image
                     src={events[currentSlide].image}
                     alt={events[currentSlide].name}
-                    width={300}
-                    height={320}
-                    className="w-full h-full object-cover rounded-xl"
+                    fill
+                    className="object-cover rounded-3xl"
+                    sizes="(max-width: 1280px) 350px, 350px"
                   />
                 </div>
-
-                {/* Explore Button */}
-                <motion.div
-                  className="text-center mt-10"
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <motion.button
-                    className={`rounded-[15px] border-[3.75px] text-white ${spaceGrotesk.className} text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3`}
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
-                      transition: {
-                        type: "spring" as const,
-                        stiffness: 400,
-                        damping: 25,
-                      },
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    EXPLORE
-                  </motion.button>
-                </motion.div>
               </div>
             </motion.div>
           </div>
@@ -492,60 +418,35 @@ const DtsEvents = () => {
               </motion.p>
             </motion.div>
 
-            {/* Event Image */}
+            {/* Event Image + External Title Box */}
             <motion.div
-              className="flex-shrink-0"
+              className="flex-shrink-0 flex flex-col items-center gap-4"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="w-[280px] h-[400px] px-6 py-5 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
-                <motion.div
-                  className="text-center mb-3"
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { type: "spring", stiffness: 400, damping: 25 },
-                  }}
-                >
-                  <h3 className={`text-white text-3xl ${neue.className} font-bold tracking-wider`}>
-                    {events[currentSlide].title}
-                  </h3>
-                </motion.div>
-
-                {/* Event Image */}
-                <div className="w-full h-[220px] mx-auto mb-4 rounded-xl overflow-hidden flex items-center justify-center">
+              <motion.div
+                className="w-[220px] sm:w-[240px] md:w-[260px] px-4 py-3 rounded-2xl bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_50%,rgba(125,249,255,0.35)_100%)] backdrop-blur-sm border border-white/15 shadow-[0_0_12px_rgba(125,249,255,0.25)]"
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-center text-white text-xl sm:text-2xl font-bold tracking-wide leading-snug break-words">
+                  {events[currentSlide].title}
+                </h3>
+              </motion.div>
+              <div className="w-[280px] h-[400px] px-4 pt-4 pb-6 rounded-[44.402px] flex flex-col bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
+                <div className="relative flex-1 w-full rounded-3xl overflow-hidden">
                   <Image
                     src={events[currentSlide].image}
                     alt={events[currentSlide].name}
-                    width={250}
-                    height={220}
-                    className="w-full h-full object-cover rounded-xl"
+                    fill
+                    className="object-cover rounded-3xl"
+                    sizes="(max-width: 1024px) 280px, 280px"
                   />
                 </div>
-
-                {/* Explore Button */}
-                <motion.div
-                  className="text-center mt-6"
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <motion.button
-                    className={`rounded-[15px] border-[3.75px] ${spaceGrotesk.className} text-white text-xl font-semibold border-white bg-[#5000FF] px-8 py-2`}
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
-                      transition: {
-                        type: "spring" as const,
-                        stiffness: 400,
-                        damping: 25,
-                      },
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    EXPLORE
-                  </motion.button>
-                </motion.div>
               </div>
             </motion.div>
           </div>
@@ -553,89 +454,45 @@ const DtsEvents = () => {
 
         {/* Mobile Layout (below 640px) - Column Layout */}
         <div className="sm:hidden">
-          <div className="max-w-7xl mx-auto px-8 flex flex-col items-center gap-8">
-            {/* Event Image First */}
+          <div className="max-w-7xl mx-auto px-8 flex flex-col items-center gap-10">
+            {/* Title + Image Card */}
             <motion.div
-              className="flex-shrink-0"
+              className="flex flex-col items-center gap-4"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] px-8 py-6 rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
-                <motion.div
-                  className="text-center mb-4"
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { type: "spring", stiffness: 400, damping: 25 },
-                  }}
-                >
-                  <h3 className={`text-white text-3xl ${neue.className} font-bold tracking-wider`}>
-                    {events[currentSlide].title}
-                  </h3>
-                </motion.div>
-
-                {/* Event Image */}
-                <div className="w-full h-[250px] sm:h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
+              <motion.div
+                className="w-[230px] sm:w-[260px] px-4 py-3 rounded-2xl bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_50%,rgba(125,249,255,0.35)_100%)] backdrop-blur-sm border border-white/15 shadow-[0_0_12px_rgba(125,249,255,0.25)]"
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-center text-white text-2xl font-bold tracking-wide leading-snug break-words">
+                  {events[currentSlide].title}
+                </h3>
+              </motion.div>
+              <div className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] px-4 pt-4 pb-6 rounded-[44.402px] flex flex-col bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]">
+                <div className="relative flex-1 w-full rounded-3xl overflow-hidden">
                   <Image
                     src={events[currentSlide].image}
                     alt={events[currentSlide].name}
-                    width={300}
-                    height={320}
-                    className="w-full h-full object-cover rounded-xl"
+                    fill
+                    className="object-cover rounded-3xl"
+                    sizes="(max-width: 640px) 298px, 350px"
                   />
                 </div>
-
-                {/* Explore Button */}
-                <motion.div
-                  className="text-center mt-10"
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <motion.button
-                    className={`rounded-[15px] border-[3.75px] ${spaceGrotesk.className} text-white text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3`}
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
-                      transition: {
-                        type: "spring" as const,
-                        stiffness: 400,
-                        damping: 25,
-                      },
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    EXPLORE
-                  </motion.button>
-                </motion.div>
               </div>
             </motion.div>
 
-            {/* Event Title Second */}
-            <motion.div
-              className="w-full text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <motion.h2
-                className={`text-white text-center ${neue.className} text-4xl md:text-6xl font-bold uppercase tracking-wider`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                {events[currentSlide].title}
-              </motion.h2>
-            </motion.div>
-
-            {/* Event Description Third */}
+            {/* Event Description */}
             <motion.div
               className="w-full"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
               <motion.p
@@ -651,7 +508,7 @@ const DtsEvents = () => {
           </div>
         </div>
 
-        <div className="absolute hidden lg:block lg:top-[250px] -left-10 w-[620px] opacity-90 h-[320px] z-0">
+        <div className="absolute hidden lg:block lg:top-[250px] -left-10 w-[620px] opacity-70 h-[320px] z-0">
           <Image
             src={fish.src}
             alt={fish.alt}

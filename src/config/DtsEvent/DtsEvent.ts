@@ -10,7 +10,7 @@ export const events: Event[] = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus. Phasellus lorem ipsum in vehicula consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis nulla leo consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper. Sed elit mauris phasellus lorem ipsum dolor sit. Mauris tristique massa molestie metus lorem ipsum consectetur. Vestibulum lorem dolor sed purus faucibus mauris erat sed non. Phasellus justo mauris lorem ipsum dolor consectetur.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
   },
-  {
+  { 
     id: 2,
     name: "Trancenation",
     image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png",
