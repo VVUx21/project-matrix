@@ -1,33 +1,29 @@
 "use client";
-import React, { useCallback, useEffect, useRef, useState, memo, useMemo } from "react";
+
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  memo,
+  useMemo,
+} from "react";
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import ElectricBorder from "./ElectricBorder";
+import { events } from "@/config/flagEvents/flagEvents";
+import { URL } from "@/config/flagEvents/flagEvents";
 
-// Types
-interface EventCard {
-  id: number;
-  title: string;
-  subtitle: string;
-  image: string;
-}
+const { arrowButton } = URL;
 
-// Sample event cards data
-const eventCards: EventCard[] = [
-  { id: 1, title: "EVENT 1", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
-  { id: 2, title: "EVENT 2", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
-  { id: 3, title: "EVENT 3", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
-  { id: 4, title: "EVENT 4", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
-  { id: 5, title: "EVENT 5", subtitle: "EXPLORE", image: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427315/lady_zao5wl.png" },
-];
-
-// Constants
 const ICON_FILTER =
   "brightness(0) saturate(100%) invert(70%) sepia(96%) saturate(1808%) hue-rotate(160deg) brightness(104%) contrast(101%)";
+
 const BG_GRADIENT =
   "linear-gradient(155deg, rgba(125, 249, 255, 0.50) 3.49%, rgba(98, 42, 227, 0.50) 49.68%, rgba(125, 249, 255, 0.50) 98.24%)";
 
-// Variants
+// Variants (from both components, tuned)
 const cardVariants = {
   enter: (direction: number) => ({
     x: direction > 0 ? 300 : -300,
@@ -56,10 +52,10 @@ const cardVariants = {
   }),
 };
 
-// Clean, direction-aware single card animation
+// Faster single-card animation
 const singleCardVariants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? 350 : -350,   // NEXT enters from right, PREV from left
+    x: direction > 0 ? 350 : -350,
     opacity: 0,
     scale: 0.9,
   }),
@@ -68,19 +64,19 @@ const singleCardVariants = {
     opacity: 1,
     scale: 1,
     transition: {
-      x: { type: "spring" as const, stiffness: 260, damping: 28 },
-      opacity: { duration: 0.3 },
-      scale: { type: "spring" as const, stiffness: 320, damping: 24 },
+      x: { type: "spring" as const, stiffness: 360, damping: 24 },
+      opacity: { duration: 0.18 },
+      scale: { type: "spring" as const, stiffness: 380, damping: 22 },
     },
   },
   exit: (direction: number) => ({
-    x: direction > 0 ? -350 : 350,   // NEXT exits left, PREV exits right
+    x: direction > 0 ? -350 : 350,
     opacity: 0,
     scale: 0.9,
     transition: {
-      x: { type: "spring" as const, stiffness: 260, damping: 28 },
-      opacity: { duration: 0.25 },
-      scale: { duration: 0.25 },
+      x: { type: "spring" as const, stiffness: 360, damping: 24 },
+      opacity: { duration: 0.14 },
+      scale: { duration: 0.16 },
     },
   }),
 };
@@ -99,13 +95,17 @@ const sideCardVariants = {
   },
 };
 
-// Arrows
+// Arrow buttons
 const PrevButton = memo<{ onClick: () => void }>(({ onClick }) => (
-  <button className="transition-opacity duration-300 bg-transparent border-none hover:opacity-80" onClick={onClick} aria-label="Previous slide">
+  <button
+    className="transition-opacity duration-300 bg-transparent border-none hover:opacity-80"
+    onClick={onClick}
+    aria-label="Previous slide"
+  >
     <div className="relative w-10 h-10 xl:w-12 xl:h-12 transform scale-x-[-1]">
       <Image
-        src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427302/carbon_next-filled_a3ah2k.svg"
-        alt="Previous"
+        src={arrowButton.src}
+        alt={arrowButton.alt ?? "Prev"}
         fill
         sizes="(max-width: 1280px) 40px, 48px"
         style={{ filter: ICON_FILTER }}
@@ -117,11 +117,15 @@ const PrevButton = memo<{ onClick: () => void }>(({ onClick }) => (
 PrevButton.displayName = "PrevButton";
 
 const NextButton = memo<{ onClick: () => void }>(({ onClick }) => (
-  <button className="transition-opacity duration-300 bg-transparent border-none hover:opacity-80" onClick={onClick} aria-label="Next slide">
+  <button
+    className="transition-opacity duration-300 bg-transparent border-none hover:opacity-80"
+    onClick={onClick}
+    aria-label="Next slide"
+  >
     <div className="relative w-10 h-10 xl:w-12 xl:h-12">
       <Image
-        src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427302/carbon_next-filled_a3ah2k.svg"
-        alt="Next"
+        src={arrowButton.src}
+        alt={arrowButton.alt ?? "Next"}
         fill
         sizes="(max-width: 1280px) 40px, 48px"
         style={{ filter: ICON_FILTER }}
@@ -132,135 +136,7 @@ const NextButton = memo<{ onClick: () => void }>(({ onClick }) => (
 ));
 NextButton.displayName = "NextButton";
 
-// Card
-const EventCardComponent: React.FC<{
-  card: EventCard;
-  isCenter: boolean;
-  onClick?: () => void;
-  is3CardLayout: boolean;
-  isMounted: boolean;
-  useSingleCardVariant?: boolean;
-  direction?: number; // NEW
-}> = ({
-  card,
-  isCenter,
-  onClick,
-  is3CardLayout,
-  isMounted,
-  useSingleCardVariant = false,
-  direction = 0, // NEW
-}) => {
-  const cardContent = useMemo(
-    () => (
-      <div
-        className="h-[460px] w-[298px] sm:h-[500px] sm:w-[350px] lg:h-[500px] lg:w-[350px] px-8 py-6 rounded-[44.402px]"
-        style={{
-          background: BG_GRADIENT,
-          backdropFilter: "blur(4px)",
-          transform: "translateZ(0)",
-          willChange: isCenter ? "transform" : "auto",
-        }}
-      >
-        <motion.div className="text-center mb-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
-          <h3 className="text-white text-4xl font-bold tracking-wider">{card.title}</h3>
-        </motion.div>
-
-        <div className="w-full h-[250px] sm:h-[280px] mx-auto mb-6 rounded-xl overflow-hidden flex items-center justify-center">
-          <Image
-            src={card.image}
-            alt={card.title}
-            width={300}
-            height={320}
-            className="w-full h-full object-cover rounded-xl"
-            loading={isCenter ? "eager" : "lazy"}
-            quality={isCenter ? 85 : 75}
-            priority={isCenter}
-          />
-        </div>
-
-        <motion.div className="text-center mt-10" animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-          <motion.button
-            className="rounded-[15px] border-[3.75px] text-white text-2xl font-semibold border-white bg-[#5000FF] px-10 sm:px-16 py-3"
-            whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)", transition: { type: "spring", stiffness: 400, damping: 25 } }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {card.subtitle}
-          </motion.button>
-        </motion.div>
-      </div>
-    ),
-    [card.title, card.subtitle, card.image, isCenter]
-  );
-
-  if (isCenter) {
-    return (
-      <motion.div
-        className="relative cursor-pointer z-20"
-        variants={useSingleCardVariant ? singleCardVariants : cardVariants}
-        initial="enter"
-        animate="center"
-        exit="exit"
-        custom={direction} // NEW: pass direction into variants
-        onClick={onClick}
-        layout={!useSingleCardVariant}
-        style={{ willChange: "transform", transform: "translateZ(0)" }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: "-3px",
-            borderRadius: "44.402px",
-            background: is3CardLayout
-              ? "radial-gradient(circle, rgba(125, 249, 255, 0.4) 0%, transparent 70%)"
-              : "radial-gradient(circle, rgba(125, 249, 255, 0.5) 0%, transparent 70%)",
-            filter: "blur(20px)",
-            zIndex: -1,
-            pointerEvents: "none",
-            willChange: "opacity",
-            transform: "translateZ(0)",
-          }}
-        />
-
-        {isMounted ? (
-          <ElectricBorder color="#7DF9FF" speed={1} chaos={0.2} thickness={2.5} className="" style={{ borderRadius: 44.402, padding: "3px", background: "transparent" }}>
-            {cardContent}
-          </ElectricBorder>
-        ) : (
-          <div style={{ borderRadius: 44.402, padding: "3px", background: "transparent" }}>{cardContent}</div>
-        )}
-      </motion.div>
-    );
-  }
-
-  return (
-    <motion.div
-      className="relative cursor-pointer z-10"
-      variants={sideCardVariants}
-      initial="initial"
-      animate="animate"
-      whileHover="hover"
-      onClick={onClick}
-      layout
-      style={{ willChange: "transform", transform: "translateZ(0)" }}
-    >
-      {cardContent}
-    </motion.div>
-  );
-};
-
-const EventCard = memo(
-  EventCardComponent,
-  (prev, next) =>
-    prev.card.id === next.card.id &&
-    prev.isCenter === next.isCenter &&
-    prev.is3CardLayout === next.is3CardLayout &&
-    prev.isMounted === next.isMounted &&
-    prev.useSingleCardVariant === next.useSingleCardVariant &&
-    (prev.direction ?? 0) === (next.direction ?? 0) // NEW: include direction to avoid blocking updates
-);
-EventCard.displayName = "EventCard";
-
-// Viewport hook
+// Viewport hook with debounced resize
 const useViewport = () => {
   const [viewport, setViewport] = useState<number>(1024);
   const [isClient, setIsClient] = useState<boolean>(false);
@@ -286,15 +162,248 @@ const useViewport = () => {
   return { viewport, isClient, is3CardLayout };
 };
 
-function EventsCarousel() {
+// Card
+type Slide = {
+  id: number | string;
+  name: string;
+  image: string;
+  originalIndex: number;
+  position: number;
+  isCenter: boolean;
+};
+
+const TitleBox: React.FC<{ text: string; widthClass: string }> = ({ text, widthClass }) => (
+  <motion.div
+    className={`${widthClass} px-5 py-3 mb-4 rounded-2xl shadow-sm backdrop-blur-sm bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_60%,rgba(125,249,255,0.35)_100%)] border border-white/15`}
+    initial={{ opacity: 0, y: -15 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.15 }}
+  >
+    <h3 className="text-white text-2xl sm:text-3xl font-bold tracking-wide leading-tight break-words text-center">
+      {text}
+    </h3>
+  </motion.div>
+);
+
+const CardBody: React.FC<{
+  img: string;
+  sizeClass: string;
+  isCenter: boolean;
+  isMounted: boolean;
+}> = ({ img, sizeClass, isCenter, isMounted }) => {
+  const content = (
+    <div
+      // was: `${sizeClass} flex flex-col px-4 pt-4 pb-6 rounded-[44.402px]`
+      className={`${sizeClass} flex flex-col p-1 sm:p-2 rounded-[44.402px]`}
+      style={{
+        background: BG_GRADIENT,
+        backdropFilter: "blur(4px)",
+        transform: "translateZ(0)",
+      }}
+    >
+      <div className="flex-1 w-full min-h-0">
+        <div className="relative w-full h-full rounded-3xl overflow-hidden flex items-center justify-center">
+          <Image
+            src={img}
+            alt="event"
+            fill
+            className="object-cover rounded-3xl"
+            priority={isCenter}
+          />
+        </div>
+      </div>
+    </div>
+  );
+
+  if (!isCenter) return content;
+
+  return isMounted ? (
+    <ElectricBorder
+      color="#7DF9FF"
+      speed={1}
+      chaos={0.2}
+      thickness={2.5}
+      className=""
+      style={{ borderRadius: 44.402, padding: "3px", background: "transparent" }}
+    >
+      {content}
+    </ElectricBorder>
+  ) : (
+    <div style={{ borderRadius: 44.402, padding: "3px", background: "transparent" }}>
+      {content}
+    </div>
+  );
+};
+
+// Explore button variants and component
+const buttonVariants = {
+  initial: { scale: 1 },
+  hover: {
+    scale: 1.05,
+    transition: { type: "spring" as const, stiffness: 400, damping: 10 },
+  },
+  tap: {
+    scale: 0.97,
+    transition: { type: "spring" as const, stiffness: 400, damping: 10 },
+  },
+};
+
+// const ExploreButton: React.FC<{ widthClass: string; onClick: () => void }> = memo(
+//   ({ widthClass, onClick }) => (
+//     <motion.button
+//       variants={buttonVariants}
+//       initial="initial"
+//       whileHover="hover"
+//       whileTap="tap"
+//       onClick={onClick}
+//       className={`${widthClass} mt-3 sm:mt-4 px-5 py-3 rounded-2xl backdrop-blur-sm border border-white/15 bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_60%,rgba(125,249,255,0.35)_100%)] text-white font-semibold tracking-wide uppercase flex items-center justify-center gap-3 shadow-[0_0_14px_rgba(125,249,255,0.28)]`}
+//     >
+//       <span>Explore</span>
+//       <div className="relative w-5 h-5">
+//         <Image
+//           src={arrowButton.src}
+//           alt={arrowButton.alt ?? "Open"}
+//           fill
+//           sizes="20px"
+//           style={{ filter: ICON_FILTER }}
+//           priority
+//         />
+//       </div>
+//     </motion.button>
+//   )
+// );
+// ExploreButton.displayName = "ExploreButton";
+
+const ExploreButton: React.FC<{
+  widthClass: string;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void; // <-- typed event
+}> = memo(({ widthClass, onClick }) => (
+  <motion.button
+    /* ...existing variants/attrs... */
+    onClick={onClick} // unchanged usage
+    className={`${widthClass} mt-3 sm:mt-4 px-5 py-3 rounded-2xl backdrop-blur-sm border border-white/15 bg-[linear-gradient(135deg,rgba(125,249,255,0.35)_0%,rgba(98,42,227,0.35)_60%,rgba(125,249,255,0.35)_100%)] text-white font-semibold tracking-wide uppercase flex items-center justify-center gap-3 shadow-[0_0_14px_rgba(125,249,255,0.28)]`}
+  >
+    <span>Explore</span>
+    <div className="relative w-5 h-5">
+      <Image
+        src={arrowButton.src}
+        alt={arrowButton.alt ?? "Open"}
+        fill
+        sizes="20px"
+        style={{ filter: ICON_FILTER }}
+        priority
+      />
+    </div>
+  </motion.button>
+));
+ExploreButton.displayName = "ExploreButton";
+const EventCardComponent: React.FC<{
+  slide: Slide;
+  onClick?: () => void;
+  is3CardLayout: boolean;
+  isMounted: boolean;
+  useSingleCardVariant?: boolean;
+  direction?: number;
+  onExplore?: (slide: Slide) => void;
+}> = ({
+  slide,
+  onClick,
+  is3CardLayout,
+  isMounted,
+  useSingleCardVariant = false,
+  direction = 0,
+  onExplore,
+}) => {
+  const sizeClass = is3CardLayout
+    ? "h-[500px] w-[350px]"
+    : "h-[460px] w-[298px] sm:h-[500px] sm:w-[350px]";
+
+  const widthClass = is3CardLayout ? "w-[350px]" : "w-[298px] sm:w-[350px]";
+
+  if (slide.isCenter) {
+    return (
+      <motion.div
+        className="relative cursor-pointer z-20 flex flex-col items-center"
+        variants={useSingleCardVariant ? singleCardVariants : cardVariants}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        custom={direction}
+        onClick={onClick}
+        layout={!useSingleCardVariant}
+        style={{ willChange: "transform", transform: "translateZ(0)" }}
+      >
+        <TitleBox text={slide.name} widthClass={widthClass} />
+        <CardBody
+          img={slide.image}
+          sizeClass={sizeClass}
+          isCenter={true}
+          isMounted={isMounted}
+        />
+        {/* <ExploreButton
+          widthClass={widthClass}
+          onClick={(e => {
+            // stop bubbling to avoid triggering goToSlide
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (e as any).stopPropagation?.();
+            onExplore?.(slide);
+          }) as unknown as () => void}
+        /> */}
+        <ExploreButton
+          widthClass={widthClass}
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => { // <-- typed here
+            e.stopPropagation();
+            onExplore?.(slide);
+      }}
+      />
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      className="relative cursor-pointer z-10 flex flex-col items-center"
+      variants={sideCardVariants}
+      initial="initial"
+      animate="animate"
+      whileHover="hover"
+      onClick={onClick}
+      layout
+      style={{ willChange: "transform", transform: "translateZ(0)" }}
+    >
+      <TitleBox text={slide.name} widthClass={widthClass} />
+      <CardBody img={slide.image} sizeClass={sizeClass} isCenter={false} isMounted={isMounted} />
+    </motion.div>
+  );
+};
+
+const EventCard = memo(
+  EventCardComponent,
+  (prev, next) =>
+    prev.slide.id === next.slide.id &&
+    prev.slide.isCenter === next.slide.isCenter &&
+    prev.is3CardLayout === next.is3CardLayout &&
+    prev.isMounted === next.isMounted &&
+    prev.useSingleCardVariant === next.useSingleCardVariant &&
+    (prev.direction ?? 0) === (next.direction ?? 0)
+);
+EventCard.displayName = "EventCard";
+
+// Component
+export default function EventsCarousel() {
+  const router = useRouter();
   const { viewport, isClient, is3CardLayout } = useViewport();
-  const totalCards = eventCards.length;
+  const totalCards = events.length;
 
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [direction, setDirection] = useState<number>(0);
   const [isAutoScrollPaused, setIsAutoScrollPaused] = useState<boolean>(false);
+
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const hasAutoStartedRef = useRef<boolean>(false);
+  const pauseLockUntilRef = useRef<number>(0);
 
   useEffect(() => setIsMounted(true), []);
 
@@ -313,13 +422,50 @@ function EventsCarousel() {
     }
   }, []);
 
+  // Start autoplay after first paint and client ready
   useEffect(() => {
+    if (!isClient) return;
+    if (hasAutoStartedRef.current) return;
+
+    pauseLockUntilRef.current = performance.now() + 600;
+
+    rafRef.current = requestAnimationFrame(() => {
+      hasAutoStartedRef.current = true;
+      if (!isAutoScrollPaused && !document.hidden) {
+        startAutoScroll();
+      }
+    });
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [isClient, isAutoScrollPaused, startAutoScroll]);
+
+  // Pause/resume
+  useEffect(() => {
+    if (!hasAutoStartedRef.current) return;
     if (!isAutoScrollPaused) startAutoScroll();
     else stopAutoScroll();
     return () => stopAutoScroll();
   }, [isAutoScrollPaused, startAutoScroll, stopAutoScroll]);
 
-  const handleMouseEnter = useCallback(() => setIsAutoScrollPaused(true), []);
+  // Pause when tab hidden
+  useEffect(() => {
+    const onVis = () => {
+      if (document.hidden) {
+        stopAutoScroll();
+      } else if (!isAutoScrollPaused && hasAutoStartedRef.current) {
+        startAutoScroll();
+      }
+    };
+    document.addEventListener("visibilitychange", onVis as EventListener, { passive: true } as AddEventListenerOptions);
+    return () => document.removeEventListener("visibilitychange", onVis as EventListener);
+  }, [isAutoScrollPaused, startAutoScroll, stopAutoScroll]);
+
+  const handleMouseEnter = useCallback(() => {
+    if (performance.now() < pauseLockUntilRef.current) return;
+    setIsAutoScrollPaused(true);
+  }, []);
   const handleMouseLeave = useCallback(() => setIsAutoScrollPaused(false), []);
 
   const nextSlide = useCallback(() => {
@@ -341,20 +487,17 @@ function EventsCarousel() {
     [currentSlide]
   );
 
-  // Drag/swipe
   const handleDragEnd = useCallback(
-    (_event: any, info: { offset: { x: number }; velocity: { x: number } }) => {
+    (_event: unknown, info: { offset: { x: number }; velocity: { x: number } }) => {
       const { offset, velocity } = info;
       const offsetThreshold = 50;
       const velocityThreshold = 300;
 
       if (Math.abs(offset.x) > offsetThreshold || Math.abs(velocity.x) > velocityThreshold) {
         if (offset.x < -offsetThreshold || velocity.x < -velocityThreshold) {
-          // Swipe RIGHT->LEFT => NEXT
           setDirection(1);
           setCurrentSlide((prev) => (prev + 1) % totalCards);
         } else if (offset.x > offsetThreshold || velocity.x > velocityThreshold) {
-          // Swipe LEFT->RIGHT => PREVIOUS
           setDirection(-1);
           setCurrentSlide((prev) => (prev - 1 + totalCards) % totalCards);
         }
@@ -363,25 +506,36 @@ function EventsCarousel() {
     [totalCards]
   );
 
-  const visibleSlides = useMemo(() => {
+  const visibleSlides: Slide[] = useMemo(() => {
     if (!is3CardLayout) {
       return [
         {
-          ...eventCards[currentSlide],
+          id: events[currentSlide].id ?? currentSlide,
+          name: events[currentSlide].name,
+          image: events[currentSlide].image,
           originalIndex: currentSlide,
           position: 0,
           isCenter: true,
         },
       ];
     }
-    const slides = [];
+    const slides: Slide[] = [];
     for (let i = -1; i <= 1; i++) {
       const index = (currentSlide + i + totalCards) % totalCards;
-      slides.push({ ...eventCards[index], originalIndex: index, position: i, isCenter: i === 0 });
+      const ev = events[index];
+      slides.push({
+        id: ev.id ?? index,
+        name: ev.name,
+        image: ev.image,
+        originalIndex: index,
+        position: i,
+        isCenter: i === 0,
+      });
     }
     return slides;
   }, [currentSlide, is3CardLayout, totalCards]);
 
+  // Preserve original background images and behavior
   const bgImage = useMemo(
     () =>
       isClient && viewport >= 550
@@ -410,6 +564,14 @@ function EventsCarousel() {
 
   const showArrows = useMemo(() => isClient && viewport >= 1024, [viewport, isClient]);
 
+  const handleExploreClick = useCallback(
+    (slide: Slide) => {
+      const id = String(slide.id ?? slide.originalIndex);
+      router.push(`/event?event=${encodeURIComponent(id)}#flagship-events`);
+    },
+    [router]
+  );
+
   if (totalCards === 0) {
     return (
       <div className="relative min-h-screen bg-cover bg-center flex items-center justify-center">
@@ -432,36 +594,41 @@ function EventsCarousel() {
       >
         <div className="relative w-full">
           <motion.div
-            className={`${is3CardLayout ? "pt-4 pb-6 sm:pt-8 sm:pb-8 lg:pt-10 lg:pb-10" : "pt-4 pb-6 sm:pt-8 sm:pb-8 lg:pt-10 lg:pb-10"}`}
+            className="pt-4 pb-6 sm:pt-8 sm:pb-8 lg:pt-10 lg:pb-10"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.h1 className={`text-white text-center tracking-wider [text-shadow:_0_0_10px_#D9D9D9] font-bold ${headingSize}`}>
+            <motion.h1
+              className={`text-white text-center tracking-wider [text-shadow:_0_0_10px_#D9D9D9] font-bold ${headingSize}`}
+            >
               EVENTS
             </motion.h1>
           </motion.div>
 
           <div className="relative px-1 sm:px-2 mt-2 sm:mt-4 lg:mt-6 pb-8 lg:pb-16">
-            {/* Desktop with arrows */}
             {showArrows && is3CardLayout && (
               <div className="flex items-center justify-center">
                 <div className="absolute left-0 lg:left-4 xl:left-8 2xl:left-16 z-30">
                   <PrevButton onClick={prevSlide} />
                 </div>
 
-                <div className="flex items-center justify-center gap-4 xl:gap-8 max-w-7xl mx-auto py-8" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                <div
+                  className="flex items-center justify-center gap-4 xl:gap-8 max-w-7xl mx-auto py-8"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <AnimatePresence initial={false} custom={direction} mode="sync">
                     {visibleSlides.map((slide) => (
                       <EventCard
                         key={`${slide.id}-${slide.originalIndex}`}
-                        card={slide}
-                        isCenter={slide.isCenter}
+                        slide={slide}
                         is3CardLayout={is3CardLayout}
                         isMounted={isMounted}
-                        onClick={() => !slide.isCenter && goToSlide((slide as any).originalIndex)}
+                        onClick={() => !slide.isCenter && goToSlide(slide.originalIndex)}
                         useSingleCardVariant={false}
-                        direction={direction} // pass for center card variants too
+                        direction={direction}
+                        onExplore={handleExploreClick}
                       />
                     ))}
                   </AnimatePresence>
@@ -473,7 +640,6 @@ function EventsCarousel() {
               </div>
             )}
 
-            {/* Tablet/Mobile 3-card swipe */}
             {!showArrows && is3CardLayout && (
               <motion.div
                 drag="x"
@@ -491,13 +657,13 @@ function EventsCarousel() {
                     {visibleSlides.map((slide) => (
                       <EventCard
                         key={`${slide.id}-${slide.originalIndex}`}
-                        card={slide}
-                        isCenter={slide.isCenter}
+                        slide={slide}
                         is3CardLayout={is3CardLayout}
                         isMounted={isMounted}
-                        onClick={() => !slide.isCenter && goToSlide((slide as any).originalIndex)}
+                        onClick={() => !slide.isCenter && goToSlide(slide.originalIndex)}
                         useSingleCardVariant={false}
                         direction={direction}
+                        onExplore={handleExploreClick}
                       />
                     ))}
                   </AnimatePresence>
@@ -505,13 +671,12 @@ function EventsCarousel() {
               </motion.div>
             )}
 
-            {/* Single card with fixed R→L swipe */}
             {!is3CardLayout && (
               <motion.div
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.3}
-                dragMomentum={false} // important for consistent swipe -> slide behavior
+                dragMomentum={false}
                 onDragEnd={handleDragEnd}
                 className="cursor-grab active:cursor-grabbing"
                 onMouseEnter={handleMouseEnter}
@@ -519,16 +684,26 @@ function EventsCarousel() {
                 onTouchStart={handleMouseEnter}
                 onTouchEnd={handleMouseLeave}
               >
-                <div className="relative flex justify-center items-center max-w-md mx-auto mb-8 py-8" style={{ minHeight: "540px" }}>
+                <div
+                  className="relative flex justify-center items-center max-w-md mx-auto mb-8 py-8"
+                  style={{ minHeight: "540px" }}
+                >
                   <AnimatePresence initial={false} custom={direction} mode="wait">
                     <EventCard
-                      key={`${currentSlide}-${direction}`} // key by slide + direction
-                      card={eventCards[currentSlide]}
-                      isCenter={true}
+                      key={`${currentSlide}-${direction}`}
+                      slide={{
+                        id: events[currentSlide].id ?? currentSlide,
+                        name: events[currentSlide].name,
+                        image: events[currentSlide].image,
+                        originalIndex: currentSlide,
+                        position: 0,
+                        isCenter: true,
+                      }}
                       is3CardLayout={is3CardLayout}
                       isMounted={isMounted}
                       useSingleCardVariant={true}
-                      direction={direction} // pass custom to variants
+                      direction={direction}
+                      onExplore={handleExploreClick}
                     />
                   </AnimatePresence>
                 </div>
@@ -540,5 +715,3 @@ function EventsCarousel() {
     </MotionConfig>
   );
 }
-
-export default EventsCarousel;
