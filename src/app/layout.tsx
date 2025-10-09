@@ -42,7 +42,7 @@ export default function RootLayout({
             <SiteLoader />
           </ClientOnly>
 
-          <Nav />
+    
           <Toaster position="top-right" />
           {children}
           <div id="footer">
@@ -51,7 +51,6 @@ export default function RootLayout({
           <div className="hidden lg:block">
             <FluidGlass />
           </div>
-
           <FloatingChatbot />
         </AuthProvider>
       </body>
