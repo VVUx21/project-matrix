@@ -4,19 +4,19 @@ export const Stats = [
     img: "https://res.cloudinary.com/dhkfjehat/image/upload/v1759878635/iitm-removebg-preview_wgtjpo.png"
   },
   { rank: 2,
-    name: "Indian Institute Of Technology, Delhi",
-    img: "https://res.cloudinary.com/dhkfjehat/image/upload/v1759878256/872-8726402_automation-lab-department-of-mechanical-engineering-iit-delhi-removebg-preview_hcxz0i.png"
-  },
-  { rank: 3,
-    name: "Indian Institute Of Technology, Bombay",
-    img: "https://res.cloudinary.com/dhkfjehat/image/upload/v1759876622/Indian_Institute_of_Technology_Bombay_Logo.svg_hxtgrw.png"
-  },
-  { rank: 4,
-    name: "Indian Institute Of Technology, Kanpur",
-    img: "https://res.cloudinary.com/dhkfjehat/image/upload/v1759879126/iitk-logo-removebg-preview_tviyvo.png"
-  },
-  { rank: 5,
     name: "Indian Institute Of Technology, Kharagpur",
     img: "https://res.cloudinary.com/dhkfjehat/image/upload/v1759878978/images-removebg-preview_gww9i8.png"
+  },
+  { rank: 3,
+    name: "National Institute Of Technology, Trichy",
+    img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760034445/nit_tri_ijolfa.png"
+  },
+  { rank: 4,
+    name: "Jadavpur University",
+    img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760034054/univ-logo_white_q3a2j9.webp"
+  },
+  { rank: 5,
+    name: "National Institute Of Technology, Durgapur",
+    img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760034293/durga_nllqsn.png"
   },
 ];
