@@ -5,88 +5,109 @@ import localfont from "next/font/local";
 import Marquee from "react-fast-marquee";
 import { neue } from "@/fonts";
 
-const SponsorsImages = [
+// Main Sponsors
+const MainSponsors = [
   {
     id: 0,
     name: "Adobe",
     logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425650/adobe-logo_1_tmplew.svg",
   },
   {
-    id: 2,
+    id: 1,
     name: "Rourkela Shines",
     logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425657/rourkela-shines_ysazes.svg",
   },
   {
+    id: 2,
+    name: "Odisha Gov",
+    logo: "https://res.cloudinary.com/dhkfjehat/image/upload/v1760037805/odisha-gov-light_vkyu4b.png",
+  },
+  {
     id: 3,
-    name: "image 4",
-    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425801/image_4_w06l2o.svg",
-  },
-  {
-    id: 4,
-    name: "image 5",
-    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425926/image_5_ffwu3w.svg",
-  },
-  {
-    id: 5,
-    name: "image 6",
-    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425922/image_6_hsyu3u.svg",
-  },
-  {
-    id: 6,
-    name: "accenture",
+    name: "Accenture",
     logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759488708/accenture-logo_wz2xb9.svg",
   },
 ];
 
-function InfiniteScrollAnimationPage() {
+// Food Sponsors
+const FoodSponsors = [
+  {
+    id: 0,
+    name: "image 5",
+    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425926/image_5_ffwu3w.svg",
+  },
+  {
+    id: 1,
+    name: "image 6",
+    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425922/image_6_hsyu3u.svg",
+  },
+  {
+    id: 2,
+    name: "Adobe",
+    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425650/adobe-logo_1_tmplew.svg",
+  },
+];
+
+// Media Sponsors
+const MediaSponsors = [
+  {
+    id: 0,
+    name: "Rourkela Shines",
+    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425657/rourkela-shines_ysazes.svg",
+  },
+  {
+    id: 1,
+    name: "Accenture",
+    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759488708/accenture-logo_wz2xb9.svg",
+  },
+  {
+    id: 2,
+    name: "Odisha Gov",
+    logo: "https://res.cloudinary.com/dhkfjehat/image/upload/v1760037805/odisha-gov-light_vkyu4b.png",
+  },
+];
+
+// Reusable marquee component for desktop
+function SponsorMarquee({ sponsors }: { sponsors: typeof MainSponsors }) {
   return (
-    <div className="relative w-full overflow-hidden top-8 md:top-0">
-      <Marquee speed={35} gradient={false} autoFill>
-        {SponsorsImages.map((sponsor) => (
-          <div key={sponsor.id} className="p-0 m-0 flex-shrink-0 gap-5">
-            <Image
-              src={sponsor.logo}
-              alt={sponsor.name}
-              width={200}
-              height={140}
-              className="w-[150px] h-[200px] md:w-[200px] md:h-[250px] xl:h-[275px] xl:w-[225px] 2xl:h-[300px] 2xl:w-[250px] mx-2 object-contain"
-            />
-          </div>
-        ))}
-      </Marquee>
-    </div>
+    <Marquee speed={35} gradient={false} autoFill>
+      {sponsors.map((sponsor) => (
+        <div key={sponsor.id} className="p-0 m-0 flex-shrink-0 gap-5">
+          <Image
+            src={sponsor.logo}
+            alt={sponsor.name}
+            width={200}
+            height={140}
+            className="w-[80px] h-[100px] sm:w-[20px] md:w-[80px] lg:w-[100px] md:h-[250px] xl:h-[275px] xl:w-[100px] 2xl:h-[300px] 2xl:w-[250px] sm:4 md:mx-6 lg:mx-8 object-contain"
+          />
+        </div>
+      ))}
+    </Marquee>
   );
 }
 
-function MobileSponsorGrid() {
+// Reusable marquee component for mobile
+function MobileSponsorMarquee({ sponsors }: { sponsors: typeof MainSponsors }) {
   return (
-    <div className="relative w-full overflow-hidden top-0 md:top-0">
-      <Marquee speed={35} gradient={false} autoFill>
-        {SponsorsImages.map((sponsor) => (
-          <div key={sponsor.id} className="p-0 m-0 flex-shrink-0 gap-5">
-            <Image
-              src={sponsor.logo}
-              alt={sponsor.name}
-              width={200}
-              height={140}
-              className="w-[150px] h-[200px] md:w-[200px] md:h-[250px] xl:h-[275px] xl:w-[225px] 2xl:h-[300px] 2xl:w-[250px] mx-2 object-contain"
-            />
-          </div>
-        ))}
-      </Marquee>
-    </div>
+    <Marquee speed={35} gradient={false} autoFill>
+      {sponsors.map((sponsor) => (
+        <div key={sponsor.id} className="p-0 m-0 flex-shrink-0 gap-5">
+          <Image
+            src={sponsor.logo}
+            alt={sponsor.name}
+            width={200}
+            height={140}
+            className="w-[100px] h-[60px] md:w-[200px] md:h-[250px] xl:h-[275px] xl:w-[225px] 2xl:h-[300px] 2xl:w-[250px] mx-2 object-contain"
+          />
+        </div>
+      ))}
+    </Marquee>
   );
 }
 
 export default function SponsorCard() {
   return (
-    <div
-      style={{
-        background:
-          "linear-gradient(180deg, #000 0%, #5000FF 53.85%, #000 98.56%",
-      }}
-      className="relative min-h-screen w-full overflow-hidden"
-    >
+    <div className="relative min-h-screen w-full overflow-hidden">
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -119,13 +140,57 @@ export default function SponsorCard() {
         >
           SPONSORS
         </h1>
-        <div className="h-[45vh] sm:h-[52vh] md:h-[54vh] lg:h-[50vh] w-[90vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[60px] md:rounded-[95px] p-8 md:p-8 border border-white/20 flex flex-col justify-center">
+
+        {/* **************************** Main Sponsors ********************************* */}
+        <div className="h-[12vh] sm:h-[14vh] md:h-[16vh] lg:h-[18vh] xl:h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-8 md:p-8 border my-4 border-white/20 flex flex-col justify-center">
           <div className=" xl:p-2 2xl:p-4">
             <div className="hidden md:block">
-              <InfiniteScrollAnimationPage />
+              <SponsorMarquee sponsors={MainSponsors} />
             </div>
             <div className="md:hidden">
-              <MobileSponsorGrid />
+              <MobileSponsorMarquee sponsors={MainSponsors} />
+            </div>
+          </div>
+        </div>
+
+        {/* **************************** Food Sponsors ********************************* */}
+        <div
+          className={` ${neue.className} text-white rounded-[60px] md:rounded-[95px] p-3 md:p-4 flex flex-col justify-center`}
+          style={{
+            textShadow: "0 0 30px rgba(255,255,255,0.7)",
+          }}
+        >
+          FOOD SPONSORS
+        </div>
+
+        <div className="h-[12vh] sm:h-[14vh] md:h-[16vh] lg:h-[18vh] xl:h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-8 md:p-8 border my-4 border-white/20 flex flex-col justify-center">
+          <div className=" xl:p-2 2xl:p-4">
+            <div className="hidden md:block">
+              <SponsorMarquee sponsors={FoodSponsors} />
+            </div>
+            <div className="md:hidden">
+              <MobileSponsorMarquee sponsors={FoodSponsors} />
+            </div>
+          </div>
+        </div>
+
+        {/* **************************** Media Sponsors ********************************* */}
+        <div
+          className={`${neue.className} text-white  p-3 md:p-4 flex flex-col justify-center`}
+          style={{
+            textShadow: "0 0 30px rgba(255,255,255,0.7)",
+          }}
+        >
+          MEDIA SPONSORS
+        </div>
+
+        <div className="h-[12vh] sm:h-[14vh] md:h-[16vh] lg:h-[18vh] xl:h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-8 md:p-8 border my-4 border-white/20 flex flex-col justify-center">
+          <div className=" xl:p-2 2xl:p-4">
+            <div className="hidden md:block">
+              <SponsorMarquee sponsors={MediaSponsors} />
+            </div>
+            <div className="md:hidden">
+              <MobileSponsorMarquee sponsors={MediaSponsors} />
             </div>
           </div>
         </div>
