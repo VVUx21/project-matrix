@@ -74,12 +74,17 @@ const FloatingChatbot: React.FC = () => {
             aria-label="Open chatbot"
           >
             <Image
-              src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759774983/Group_1430102937_xx44xp.svg"
-              alt="Ask me anything"
-              width={360}
-              height={160}
-              className="object-contain w-52 h-26 sm:w-56 sm:h-28 md:w-60 md:h-30 lg:w-64 lg:h-32"
-            />
+  src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759774983/Group_1430102937_xx44xp.svg"
+  alt="Ask me anything"
+  width={360}
+  height={160}
+  priority
+  unoptimized
+  className="object-contain w-52 h-26 sm:w-56 sm:h-28 md:w-60 md:h-30 lg:w-64 lg:h-32"
+  style={{ background: 'transparent', filter: 'none', display: 'block' }}
+/>
+
+
           </button>
         </div>
       )}

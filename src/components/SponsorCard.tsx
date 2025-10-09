@@ -27,7 +27,7 @@ function InfiniteScrollAnimationPage() {
         alt={sponsor.name}
         width={200}
         height={140}
-        className="w-[150px] h-[200px] md:w-[200px] md:h-[250px] xl:h-[275px] xl:w-[225px] 2xl:h-[300px] 2xl:w-[250px] mx-8 object-contain"
+        className="w-[150px] h-[200px] md:w-[200px] md:h-[250px] xl:h-[275px] xl:w-[225px] 2xl:h-[300px] 2xl:w-[250px] mx-2 object-contain"
       />
     </div>
   ))}
@@ -38,25 +38,27 @@ function InfiniteScrollAnimationPage() {
 
 function MobileSponsorGrid() {
   return (
-    <div className="grid grid-cols-2 gap-6 place-items-center max-w-md mx-auto">
-      {SponsorsImages.map((sponsor) => (
-        <div key={sponsor.id} className="flex justify-center">
-          <Image
-            src={sponsor.logo}
-            alt={sponsor.name}
-            width={150}
-            height={150}
-            className="w-[100px] h-[100px] md:w-[160px] md:h-[160px] xl:w-[200px] xl:h-[200px] object-contain"
-          />
-        </div>
-      ))}
+    <div className="relative w-full overflow-hidden top-0 md:top-0">
+<Marquee speed={35} gradient={false} autoFill>
+  {SponsorsImages.map((sponsor) => (
+    <div key={sponsor.id} className="p-0 m-0 flex-shrink-0 gap-5">
+      <Image
+        src={sponsor.logo}
+        alt={sponsor.name}
+        width={200}
+        height={140}
+        className="w-[150px] h-[200px] md:w-[200px] md:h-[250px] xl:h-[275px] xl:w-[225px] 2xl:h-[300px] 2xl:w-[250px] mx-2 object-contain"
+      />
+    </div>
+  ))}
+</Marquee>
     </div>
   );
 }
 
 export default function SponsorCard() {
   return (
-    <div className="relative min-h-screen w-full mb-10 overflow-hidden">
+    <div className="relative min-h-screen w-full overflow-hidden">
             <style dangerouslySetInnerHTML={{__html: `
         @keyframes bounce {
           0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -87,7 +89,7 @@ export default function SponsorCard() {
           >
             SPONSORS
           </h1>
-        <div className="h-[75vh] md:h-[70vh] w-[90vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[60px] md:rounded-[95px] p-8 md:p-12 border border-white/20 flex flex-col justify-center">
+        <div className="h-[45vh] sm:h-[52vh] md:h-[54vh] lg:h-[50vh] w-[90vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[60px] md:rounded-[95px] p-8 md:p-8 border border-white/20 flex flex-col justify-center">
           
           <div className=' xl:p-2 2xl:p-4'>
           <div className='hidden md:block'>
