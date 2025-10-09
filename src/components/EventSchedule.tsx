@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import LightRays from "./LightRays";
 import { useState } from "react";
 
 type DayKey = "day1" | "day2" | "day3";
@@ -34,14 +33,17 @@ export default function EventSchedule() {
 
   return (
     <div
+      style={{ background: "linear-gradient(0deg, #5000FF 0%, #000 100%)" }}
       className="
-        relative min-h-screen w-full overflow-hidden flex items-center justify-center
-        py-10 sm:py-12 lg:py-16
-      "
+    relative min-h-screen w-full overflow-hidden flex items-center justify-center
+    py-10 sm:py-12 lg:py-16
+  "
     >
       <style
         dangerouslySetInnerHTML={{
           __html: `
+
+
           @keyframes bounce {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-100px) rotate(0deg); }
@@ -83,31 +85,16 @@ export default function EventSchedule() {
       />
 
       <Image
-        src="/MERCH.png"
+        src="https://res.cloudinary.com/dtis6vqc5/image/upload/v1760046618/MERCH_yqovsb.svg"
         alt=""
         fill
         priority
-        className="absolute inset-0 -z-10 object-cover object-top pointer-events-none select-none"
+        className="absolute inset-0 z-10 object-cover object-top pointer-events-none select-none"
         style={{ objectPosition: "center top" }}
       />
 
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <LightRays
-          raysOrigin="top-center"
-          raysColor="#f6ea9d"
-          raysSpeed={1.8}
-          lightSpread={3.8}
-          rayLength={4}
-          followMouse={true}
-          mouseInfluence={0.05}
-          noiseAmount={0.05}
-          distortion={0.05}
-          className="custom-rays w-full h-full"
-        />
-      </div>
-
       <Image
-        src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png"
+        src="https://res.cloudinary.com/dtis6vqc5/image/upload/v1760044376/Group_1430102941_hbrvqf.svg"
         alt="rover"
         width={500}
         height={500}
