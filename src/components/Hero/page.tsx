@@ -177,19 +177,6 @@ const Hero: React.FC = () => {
               >
                 {textContent.buttonText}
               </motion.button>
-              <Link href={textContent.src}>
-                <motion.button
-                  className="absolute -bottom-0 left-7/19  xl:bottom-2/12 xl:left-14/35 sm:bottom-3/12 sm:left-9/22 lg:bottom-24 lg:left-13/40 px-6 sm:px-8 md:bottom-1/17 md:left-14/40 md:px-10 py-2 sm:py-3 md:py-4 rounded-xl md:rounded-2xl bg-[#24316990] text-white font-semibold text-base sm:text-xl md:text-2xl lg:text-3xl shadow-lg ring-1 ring-[#ffffff75] backdrop-blur-sm hover:bg-[#243169] cursor-pointer transition-all duration-300 z-30 hoverable"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                  initial="hidden"
-                  animate="visible"
-                  variants={buttonVariants}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {textContent.buttonText}
-                </motion.button>
-              </Link>
             </motion.div>
           </div>
         </div>
