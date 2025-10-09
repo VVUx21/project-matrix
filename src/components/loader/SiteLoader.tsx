@@ -11,6 +11,14 @@ export default function SiteLoader(): React.ReactElement | null {
 
   // Matrix rain effect
   useEffect(() => {
+  if (!isLoading) {
+    // global flag
+    (window as any).__LOADER_DONE__ = true;
+    // custom events (your EventSchedule listens for these)
+    window.dispatchEvent(new Event('app:ready'));
+    window.dispatchEvent(new Event('loader:done'));
+  }
+
     if (!isLoading) return;
 
     const canvas = canvasRef.current;
