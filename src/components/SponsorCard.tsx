@@ -56,7 +56,7 @@ function MobileSponsorGrid() {
 
 export default function SponsorCard() {
   return (
-    <div className="relative min-h-screen w-full mb-10 overflow-hidden">
+    <div className="relative min-h-screen w-full overflow-hidden">
             <style dangerouslySetInnerHTML={{__html: `
         @keyframes bounce {
           0%, 100% { transform: translateY(0) rotate(0deg); }
