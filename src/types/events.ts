@@ -5,4 +5,5 @@ export interface Event {
     title: string;
     description: string;
     shortDescription: string;
+    rulebook: string;
 }

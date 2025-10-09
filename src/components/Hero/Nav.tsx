@@ -22,10 +22,10 @@ const Nav: React.FC = () => {
   return (
     <>
       {/* Navigation Bar */}
-      <div className="z-100 w-full fixed ">
-        <div className="flex  justify-center items-center pt-6 pb-4 md:pt-8 relative z-40">
+      <div className="z-100 w-full fixed">
+        <div className="flex justify-center items-center pt-6 pb-4 md:pt-8 relative z-40">
           <motion.section
-            className="bg-[#b5a1e02f] backdrop-blur-md w-[90%] max-w-[1200px] shadow-xl/30 h-[60px] md:h-[70px] min-[760px]:max-[800px]:h-[50px] min-[800px]:max-[1000px]:h-[50px] flex justify-between items-center rounded-[62px] px-4 md:px-8 min-[760px]:max-[800px]:px-4 min-[800px]:max-[1000px]:px-4 ring-1 ring-[#ffffff75]"
+            className="bg-[#b5a1e02f] w-[90%] backdrop-blur-sm max-w-[1200px] shadow-xl/30 h-[60px] md:h-[70px] min-[760px]:max-[800px]:h-[50px] min-[800px]:max-[1000px]:h-[50px] flex justify-between items-center rounded-[62px] px-4 md:px-8 min-[760px]:max-[800px]:px-4 min-[800px]:max-[1000px]:px-4 ring-1 ring-[#ffffff75]"
             initial="hidden"
             animate="visible"
             variants={heroVariants}
@@ -86,7 +86,7 @@ const Nav: React.FC = () => {
 
       {/* Mobile Menu Dropdown */}
       <motion.div
-        className="md:hidden fixed top-[90px] left-1/2 -translate-x-1/2 w-[90%] max-w-[600px] bg-[#b5a1e015] backdrop-blur-md rounded-2xl overflow-hidden z-100 ring-1 ring-[#ffffff75]"
+        className="md:hidden fixed top-[90px] left-1/2 -translate-x-1/2 w-[90%] max-w-[600px] bg-[#b5a1e015] backdrop-blur-md rounded-2xl overflow-hidden z-40 ring-1 ring-[#ffffff75]"
         initial="closed"
         animate={isMenuOpen ? "open" : "closed"}
         variants={menuVariants}
