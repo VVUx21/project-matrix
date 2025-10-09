@@ -59,7 +59,7 @@ const FloatingChatbot: React.FC = () => {
     <>
       {/* Floating Chat Button - only show when closed */}
       {!isOpen && (
-        <div className="fixed bottom-0 -right-16 sm:bottom-2 sm:-right-14 z-100">
+        <div className="fixed bottom-0  -right-16 sm:bottom-2 sm:-right-14 z-50">
           <button
             onClick={toggleChatbot}
             className="transition-all duration-300 transform hover:scale-110 focus:outline-none"
@@ -78,6 +78,7 @@ const FloatingChatbot: React.FC = () => {
               alt="Ask me anything"
               width={360}
               height={160}
+              id="chatbot"
               priority
               unoptimized
               className="object-contain w-52 h-26 sm:w-56 sm:h-28 md:w-60 md:h-30 lg:w-64 lg:h-32"
@@ -94,7 +95,7 @@ const FloatingChatbot: React.FC = () => {
       {/* Chat Window */}
       {isOpen && (
         <div
-          className="fixed bottom-20 sm:bottom-24 right-2 sm:right-6 w-[calc(100vw-16px)] sm:w-96 h-[70vh] sm:h-[500px] max-w-md z-80 flex flex-col backdrop-blur-lg"
+          className="fixed bottom-20 sm:bottom-24 right-2 sm:right-6 w-[calc(100vw-16px)] sm:w-96 h-[70vh] sm:h-[500px] max-w-md z-40 flex flex-col backdrop-blur-lg"
           style={{
             borderRadius: "24px",
             background: "rgba(255, 255, 255, 0.10)",

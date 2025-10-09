@@ -67,15 +67,11 @@ export default function SiteLoader(): React.ReactElement | null {
     const playAudio = async () => {
       if (audioRef.current) {
         try {
-          // Set volume and keep unmuted
           audioRef.current.volume = 0.3;
           audioRef.current.muted = false;
-
-          // Try to play with sound (unmuted)
           await audioRef.current.play();
           setAudioAllowed(true);
         } catch (error) {
-          // If autoplay fails, wait for user interaction
           console.log("Audio autoplay blocked, waiting for user interaction");
           setAudioAllowed(false);
         }
@@ -98,13 +94,11 @@ export default function SiteLoader(): React.ReactElement | null {
       }
     };
 
-    // Listen for any user interaction
     const events = ["click", "touchstart", "keydown"];
     events.forEach((event) => {
       document.addEventListener(event, enableAudio, { once: true });
     });
 
-    // Track when page is actually loaded
     let pageLoaded = false;
     const startTime = Date.now();
     const minDisplayTime = 5000; // 5 seconds minimum
@@ -114,11 +108,20 @@ export default function SiteLoader(): React.ReactElement | null {
       const remainingTime = minDisplayTime - elapsedTime;
 
       if (pageLoaded && remainingTime <= 0) {
-        // Page loaded and minimum time elapsed
+        // Show main content
+        const mainContent = document.getElementById("main-content");
+        if (mainContent) {
+          mainContent.classList.add("loaded");
+        }
         setIsLoading(false);
       } else if (pageLoaded && remainingTime > 0) {
-        // Page loaded but need to wait for minimum time
-        setTimeout(() => setIsLoading(false), remainingTime);
+        setTimeout(() => {
+          const mainContent = document.getElementById("main-content");
+          if (mainContent) {
+            mainContent.classList.add("loaded");
+          }
+          setIsLoading(false);
+        }, remainingTime);
       }
     };
 
@@ -127,19 +130,20 @@ export default function SiteLoader(): React.ReactElement | null {
       checkAndHideLoader();
     };
 
-    // Listen for page load
     if (document.readyState === "complete") {
-      // Page already loaded
       pageLoaded = true;
       checkAndHideLoader();
     } else {
       window.addEventListener("load", onLoad);
     }
 
-    // Absolute maximum timeout (in case page never fully loads)
     const maxTimeout = setTimeout(() => {
+      const mainContent = document.getElementById("main-content");
+      if (mainContent) {
+        mainContent.classList.add("loaded");
+      }
       setIsLoading(false);
-    }, 10000); // 10 seconds max
+    }, 10000);
 
     return () => {
       window.removeEventListener("load", onLoad);
@@ -206,7 +210,7 @@ export default function SiteLoader(): React.ReactElement | null {
         {/* Logo */}
         <div className="mb-8 animate-float">
           <Image
-            src="/logo.jpg"
+            src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759864879/84804cac10b34f19c1c99da62ccd3a3f768bae20_1_qdrrgu.png"
             alt="Logo"
             width={120}
             height={120}

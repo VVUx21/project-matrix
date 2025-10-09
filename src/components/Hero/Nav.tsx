@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import {
   heroVariants,
   menuVariants,
+  menuVariants,
   navItems,
   imageSources,
 } from "./Heroconfig";
@@ -24,8 +25,10 @@ const Nav: React.FC = () => {
       {/* Navigation Bar */}
       <div className="z-40 w-full fixed">
         <div className="flex justify-center items-center pt-6 pb-4 md:pt-8 relative z-30">
+      <div className="z-100 w-full fixed ">
+        <div className="flex  justify-center items-center pt-6 pb-4 md:pt-8 relative z-40">
           <motion.section
-            className="bg-[#b5a1e02f] w-[90%] max-w-[1200px] shadow-xl/30 h-[60px] md:h-[70px] min-[760px]:max-[800px]:h-[50px] min-[800px]:max-[1000px]:h-[50px] flex justify-between items-center rounded-[62px] px-4 md:px-8 min-[760px]:max-[800px]:px-4 min-[800px]:max-[1000px]:px-4 ring-1 ring-[#ffffff75]"
+            className="bg-[#b5a1e02f] w-[90%] backdrop-blur-sm max-w-[1200px] shadow-xl/30 h-[60px] md:h-[70px] min-[760px]:max-[800px]:h-[50px] min-[800px]:max-[1000px]:h-[50px] flex justify-between items-center rounded-[62px] px-4 md:px-8 min-[760px]:max-[800px]:px-4 min-[800px]:max-[1000px]:px-4 ring-1 ring-[#ffffff75]"
             initial="hidden"
             animate="visible"
             variants={heroVariants}
@@ -42,7 +45,7 @@ const Nav: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex justify-around items-center gap-8 min-[760px]:max-[800px]:gap-4 min-[800px]:max-[1000px]:gap-4 flex-1 px-8 min-[760px]:max-[800px]:px-4 min-[800px]:max-[1000px]:px-4">
+            <div className="hidden  md:flex justify-around items-center gap-8 min-[760px]:max-[800px]:gap-4 min-[800px]:max-[1000px]:gap-4 flex-1 px-8 min-[760px]:max-[800px]:px-4 min-[800px]:max-[1000px]:px-4">
               {navItems.map((item) => {
                 const isRegister = item.label === "Register";
                 const href = user && isRegister ? "/profile" : item.path;
@@ -56,6 +59,14 @@ const Nav: React.FC = () => {
                   >
                     {label}
                   </Link>
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  className="text-lg lg:text-xl min-[760px]:max-[800px]:text-sm font-semibold min-[800px]:max-[1000px]:text-sm text-[#ffffff] hover:text-purple-300 transition-all duration-300 transform hover:scale-110 hoverable"
+                  style={{ fontFamily: "Space Grotesk" }}
+                >
+                  {label}
+                </Link>
                 );
               })}
             </div>
@@ -89,6 +100,7 @@ const Nav: React.FC = () => {
       {/* Mobile Menu Dropdown */}
       <motion.div
         className="md:hidden fixed top-[90px] left-1/2 -translate-x-1/2 w-[90%] max-w-[600px] bg-[#b5a1e015] backdrop-blur-md rounded-2xl overflow-hidden z-30 ring-1 ring-[#ffffff75]"
+        className="md:hidden fixed top-[90px] left-1/2 -translate-x-1/2 w-[90%] max-w-[600px] bg-[#b5a1e015] backdrop-blur-md rounded-2xl overflow-hidden z-100 ring-1 ring-[#ffffff75]"
         initial="closed"
         animate={isMenuOpen ? "open" : "closed"}
         variants={menuVariants}
