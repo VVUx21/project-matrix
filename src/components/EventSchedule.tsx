@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use client';
 import Image from 'next/image';
 import LightRays from './LightRays';
@@ -12,11 +13,17 @@ type EventItem = {
   venue: string;
   description: string;
 };
+=======
+"use client";
+import Image from "next/image";
+import { useState } from "react";
+>>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
 
-type DayKey = 'day1' | 'day2' | 'day3';
+type DayKey = "day1" | "day2" | "day3";
 
 const DATA: Record<DayKey, EventItem[]> = {
   day1: [
+<<<<<<< HEAD
     { time: '5:00 PM – 8:00 PM', title: 'Shake it off', venue: 'LA – 204', description: '' },
     { time: '10:00 PM – 2:00 AM', title: 'Stellar Night', venue: 'EE Building', description: '' },
     { time: '3:45 PM – 4:30 PM', title: 'Drone Exhibition', venue: 'B.B.A.', description: '' },
@@ -29,9 +36,17 @@ const DATA: Record<DayKey, EventItem[]> = {
     { time: 'After 3:00 PM', title: 'ELECTRIFIED', venue: 'S.T.S.', description: '' },
     { time: '6:00 PM – 7:45 PM', title: 'EUPHONY LIVE', venue: 'D.T.S.', description: '' },
     { time: '8:00 PM – 10:00 PM', title: 'DRILL N BASS LIVE', venue: 'D.T.S.', description: '' },
+=======
+    { time: "TIME", title: "EVENT 1" },
+    { time: "TIME", title: "EVENT 2" },
+    { time: "TIME", title: "EVENT 3" },
+    { time: "TIME", title: "EVENT 4" },
+    { time: "TIME", title: "EVENT 5" },
+>>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
   ],
 
   day2: [
+<<<<<<< HEAD
     { time: '9:00 AM – 2:00 PM',  title: 'Campus Survival VR', venue: 'LA – 114', description: '' },
     { time: '9:00 AM – 11:30 AM', title: 'Sci Saviour',         venue: 'LA – 214', description: '' },
     { time: '9:00 AM – 11:00 AM', title: 'Mini Chassis Making', venue: 'LA – 201', description: '' },
@@ -78,9 +93,17 @@ const DATA: Record<DayKey, EventItem[]> = {
     { time: '7:00 PM – 7:20 PM',  title: 'MAVERICKS',           venue: 'D.T.S.',   description: '' },
     { time: '7:30 PM – 8:00 PM',  title: 'SYNERGY',             venue: 'D.T.S.',   description: '' },
     { time: '8:00 PM – 10:00 PM', title: 'LASER SHOW',          venue: 'D.T.S.',   description: '' },
+=======
+    { time: "TIME", title: "EVENT 6" },
+    { time: "TIME", title: "EVENT 7" },
+    { time: "TIME", title: "EVENT 8" },
+    { time: "TIME", title: "EVENT 9" },
+    { time: "TIME", title: "EVENT 10" },
+>>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
   ],
 
   day3: [
+<<<<<<< HEAD
     { time: '2:00 PM – 5:00 PM',  title: 'Intelligent Trader 10.0', venue: 'LA – 114', description: '' },
     { time: '10:00 AM – 12:00 NOON', title: 'Business Pictionary', venue: 'LA – 114', description: '' },
     { time: 'ALL DAY',            title: 'Campus Survival VR',  venue: 'LA – 204', description: '' },
@@ -125,6 +148,13 @@ const DATA: Record<DayKey, EventItem[]> = {
     { time: '4:00 PM Onwards',    title: 'Car Show',            venue: 'S.T.S.', description: '' },
     { time: '6:00 PM – 7:30 PM',  title: 'HEARTBEATS',          venue: 'D.T.S.', description: '' },
     { time: '8:00 PM – 10:00 PM', title: 'Beatdrop Fiesta with NISCHIT', venue: 'D.T.S.', description: '' },
+=======
+    { time: "TIME", title: "EVENT 11" },
+    { time: "TIME", title: "EVENT 12" },
+    { time: "TIME", title: "EVENT 13" },
+    { time: "TIME", title: "EVENT 14" },
+    { time: "TIME", title: "EVENT 15" },
+>>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
   ],
 };
 
@@ -245,6 +275,7 @@ function EventCarousel({
 
 /* ----------------------------- Page ----------------------------- */
 export default function EventSchedule() {
+<<<<<<< HEAD
   const [day, setDay] = useState<DayKey>('day1');
   const [open, setOpen] = useState<{ day: DayKey; index: number } | null>(null);
 
@@ -287,17 +318,23 @@ export default function EventSchedule() {
     open && DATA[open.day] && DATA[open.day][open.index]
       ? DATA[open.day][open.index]
       : null;
+=======
+  const [day, setDay] = useState<DayKey>("day1");
+>>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
 
   return (
     <div
+      style={{ background: "linear-gradient(0deg, #5000FF 0%, #000 100%)" }}
       className="
-        relative min-h-screen w-full overflow-hidden flex items-center justify-center
-        py-10 sm:py-12 lg:py-16
-      "
+    relative min-h-screen w-full overflow-hidden flex items-center justify-center
+    py-10 sm:py-12 lg:py-16
+  "
     >
       <style
         dangerouslySetInnerHTML={{
           __html: `
+
+
           @keyframes bounce {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-100px) rotate(0deg); }
@@ -351,14 +388,15 @@ export default function EventSchedule() {
 
       {/* Background */}
       <Image
-        src="/MERCH.png"
+        src="https://res.cloudinary.com/dtis6vqc5/image/upload/v1760046618/MERCH_yqovsb.svg"
         alt=""
         fill
         priority
-        className="absolute inset-0 -z-10 object-cover object-top pointer-events-none select-none"
-        style={{ objectPosition: 'center top' }}
+        className="absolute inset-0 z-10 object-cover object-top pointer-events-none select-none"
+        style={{ objectPosition: "center top" }}
       />
 
+<<<<<<< HEAD
       {/* Rays */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <LightRays
@@ -376,17 +414,26 @@ export default function EventSchedule() {
       </div>
 
       {/* Rover / Illustration */}
+=======
+>>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
       <Image
-        src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png"
+        src="https://res.cloudinary.com/dtis6vqc5/image/upload/v1760044376/Group_1430102941_hbrvqf.svg"
         alt="rover"
         width={500}
         height={500}
         priority
         className="
+<<<<<<< HEAD
           pointer-events-none select-none absolute right-[15vw] bottom-[2vh] z-20  
           md:w-[25vw] lg:w-[25vw] xl:w-[30vw] max-w-[300px] h-auto object-contain jellyfish-bounce 
           max-[768px]:hidden
         "
+=======
+pointer-events-none select-none absolute right-[15vw] bottom-[2vh] z-20  
+ md:w-[25vw] lg:w-[25vw] xl:w-[30vw] max-w-[300px] h-auto object-contain jellyfish-bounce 
+max-[768px]:hidden
+"
+>>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
       />
 
       {/* Main card */}
@@ -397,6 +444,7 @@ export default function EventSchedule() {
           max-w-[950px] min-[2560px]:max-w-[1100px] min-[3840px]:max-w-[1300px]
         "
       >
+<<<<<<< HEAD
           <h2 className={`
         ${neue.className}
         text-center uppercase font-bold neon-heading
@@ -404,6 +452,17 @@ export default function EventSchedule() {
         2xl:text-6xl min-[1920px]:text-7xl min-[2560px]:text-8xl min-[3840px]:text-9xl
         leading-tight tracking-[0.08em]
       `}>
+=======
+        <h2
+          className="
+            text-center uppercase font-bold neon-heading
+            text-2xl
+            sm:text-4xl md:text-5xl lg:text-5xl
+            2xl:text-7xl min-[1920px]:text-7xl min-[2560px]:text-8xl min-[3840px]:text-9xl
+            leading-tight tracking-[0.08em]
+          "
+        >
+>>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
           Events Schedule
         </h2>
 
@@ -430,11 +489,13 @@ export default function EventSchedule() {
             role="tablist"
             aria-label="Select day"
           >
-            {([
-              ['day1', 'DAY-1'],
-              ['day2', 'DAY-2'],
-              ['day3', 'DAY-3'],
-            ] as const).map(([key, label]) => {
+            {(
+              [
+                ["day1", "DAY-1"],
+                ["day2", "DAY-2"],
+                ["day3", "DAY-3"],
+              ] as const
+            ).map(([key, label]) => {
               const active = day === (key as DayKey);
               return (
                 <button
@@ -442,6 +503,7 @@ export default function EventSchedule() {
                   role="tab"
                   aria-selected={active}
                   onClick={() => setDay(key as DayKey)}
+<<<<<<< HEAD
   className={`
     ${spaceGrotesk.className}  // Add this
     rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-sm
@@ -453,6 +515,22 @@ export default function EventSchedule() {
     }
   `}
 >
+=======
+                  className={`
+                    rounded-full
+                    px-3 sm:px-4
+                    py-1.5
+                    text-xs sm:text-sm
+                    font-semibold tracking-wider
+                    transition-all duration-200
+                    ${
+                      active
+                        ? "text-cyan-200 bg-cyan-500/10 ring-1 ring-cyan-400/50 shadow-[0_0_18px_rgba(6,182,212,0.35)]"
+                        : "text-cyan-300/70 hover:text-cyan-200 hover:bg-white/5"
+                    }
+                  `}
+                >
+>>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
                   {label}
                 </button>
               );
