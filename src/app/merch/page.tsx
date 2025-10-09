@@ -35,12 +35,12 @@ export default function Merch() {
   return (
     <>
       <section
-        className={`relative h-[1000px] w-full bg-gradient-to-b from-[#5000FF] to-[#000002] flex flex-col items-center justify-center overflow-hidden text-white ${altFont.variable} ${neue.className}`}
+        className={`relative mb-1 h-[1100px] w-full bg-gradient-to-b from-[#5000FF] to-[#000002] flex flex-col items-center justify-center overflow-hidden text-white ${altFont.variable} ${neue.className}`}
       >
       
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/MERCCCH.png"
+            src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1760028619/MERCCCH_dginvf.png"
             alt="Background"
             fill
             className="object-cover md:object-cover object-center w-full h-full pointer-events-none select-none"
