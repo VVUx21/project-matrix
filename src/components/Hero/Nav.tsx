@@ -44,9 +44,7 @@ const Nav: React.FC = () => {
             {/* Desktop Navigation */}
             <div className="hidden  md:flex justify-around items-center gap-8 min-[760px]:max-[800px]:gap-4 min-[800px]:max-[1000px]:gap-4 flex-1 px-8 min-[760px]:max-[800px]:px-4 min-[800px]:max-[1000px]:px-4">
               {navItems.map((item) => {
-                const isRegister = item.label === "Register";
-                const href = user && isRegister ? "/profile" : item.path;
-                const label = user && isRegister ? "My Profile" : item.label;
+                const label = user ? "My Profile" : item.label;
                 return (
                   <Link
                     key={item.path}
@@ -100,13 +98,11 @@ const Nav: React.FC = () => {
         {/* Changed from "hidden md:flex" to "flex flex-col" */}
         <div className="flex flex-col items-center gap-6 py-6 px-4">
           {navItems.map((item) => {
-            const isRegister = item.label === "Register";
-            const href = user && isRegister ? "/profile" : item.path;
-            const label = user && isRegister ? "My Profile" : item.label;
+            const label = user ? "My Profile" : item.label;
             return (
               <Link
                 key={item.path}
-                href={href}
+                href={item.path}
                 onClick={toggleMenu}
                 className="text-lg text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-110 hoverable w-full text-center"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}

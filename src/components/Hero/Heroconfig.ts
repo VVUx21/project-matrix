@@ -117,13 +117,7 @@ export const navItems = [
     path: "/#footer",
     class:
       "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
-  },
-  {
-    label: "Register",
-    path: "/signinl",
-    class:
-      "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
-  },
+  }
 ] as const;
 
 export const imageSources = {
