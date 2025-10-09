@@ -1,7 +1,9 @@
 "use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import { events } from "@/config/flagEvents/flagEvents";
 import { URL } from "@/config/flagEvents/flagEvents";
 import { neue, spaceGrotesk } from "@/fonts";
@@ -15,6 +17,39 @@ const FlagEvent = () => {
   const [direction, setDirection] = useState(0);
   const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Deep-link support
+  const searchParams = useSearchParams();
+  const initializedFromQueryRef = useRef(false);
+
+  useEffect(() => {
+    if (initializedFromQueryRef.current) return;
+    const q = searchParams.get("event");
+    if (!q) return;
+
+    // Try id match, then numeric index, then name (encoded)
+    let matchIndex = events.findIndex((e) => String(e.id) === q);
+    if (matchIndex === -1 && /^\d+$/.test(q)) {
+      const idx = parseInt(q, 10);
+      if (idx >= 0 && idx < events.length) matchIndex = idx;
+    }
+    if (matchIndex === -1) {
+      matchIndex = events.findIndex(
+        (e) =>
+          encodeURIComponent(e.name ?? "") === q ||
+          (e.name ?? "") === decodeURIComponent(q)
+      );
+    }
+
+    if (matchIndex !== -1) {
+      setCurrentSlide(matchIndex);
+      setIsAutoScrollPaused(true);
+      setTimeout(() => setIsAutoScrollPaused(false), 1500);
+      const el = document.getElementById("flagship-events");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      initializedFromQueryRef.current = true;
+    }
+  }, [searchParams]);
 
   const startAutoScroll = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
@@ -36,7 +71,7 @@ const FlagEvent = () => {
   useEffect(() => {
     startAutoScroll();
     return () => stopAutoScroll();
-  }, [isAutoScrollPaused]);
+  }, [isAutoScrollPaused]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleMouseEnter = () => setIsAutoScrollPaused(true);
   const handleMouseLeave = () => setIsAutoScrollPaused(false);
@@ -45,7 +80,6 @@ const FlagEvent = () => {
     stopAutoScroll();
     setDirection(1);
     setCurrentSlide((prev) => (prev + 1) % events.length);
-
     setTimeout(() => startAutoScroll(), 1000);
   };
 
@@ -53,7 +87,6 @@ const FlagEvent = () => {
     stopAutoScroll();
     setDirection(-1);
     setCurrentSlide((prev) => (prev - 1 + events.length) % events.length);
-
     setTimeout(() => startAutoScroll(), 1000);
   };
 
@@ -62,7 +95,6 @@ const FlagEvent = () => {
     stopAutoScroll();
     setDirection(index > currentSlide ? 1 : -1);
     setCurrentSlide(index);
-
     setTimeout(() => startAutoScroll(), 1000);
   };
 
@@ -151,8 +183,8 @@ const FlagEvent = () => {
   };
 
   return (
-    <div>
-      <div className="  relative overflow-hidden">
+    <div id="flagship-events">
+      <div className="relative overflow-hidden">
         <motion.div
           className="absolute -top-40 inset-0 z-0"
           animate={{ y: [0, -20, 0] }}
@@ -174,7 +206,7 @@ const FlagEvent = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h1
-            className={`text-white px-5 ${neue.className} font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9]  `}
+            className={`text-white px-5 ${neue.className} font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal text-shadow-[0_0_10px_#D9D9D9]`}
             whileHover={{
               scale: 1.05,
               textShadow: "0 0 20px #D9D9D9",
@@ -190,7 +222,11 @@ const FlagEvent = () => {
           {/* Desktop Layout - Arrows on sides */}
           <div className="hidden xl:flex items-center justify-center">
             {/* Left Arrow */}
-            <button onClick={prevSlide} className="absolute left-8 z-30">
+            <button
+              onClick={prevSlide}
+              className="absolute left-8 z-30"
+              aria-label="Previous slide"
+            >
               <Image
                 src={arrowButton.src}
                 alt={arrowButton.alt}
@@ -206,7 +242,7 @@ const FlagEvent = () => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              {getVisibleSlides().map((slide, index) => (
+              {getVisibleSlides().map((slide) => (
                 <motion.div
                   key={`${slide.id}-${slide.originalIndex}`}
                   className={`relative cursor-pointer flex flex-col items-center ${slide.isCenter ? "z-20" : "z-10"}`}
@@ -260,7 +296,11 @@ const FlagEvent = () => {
             </div>
 
             {/* Right Arrow */}
-            <button onClick={nextSlide} className="absolute right-8 z-30">
+            <button
+              onClick={nextSlide}
+              className="absolute right-8 z-30"
+              aria-label="Next slide"
+            >
               <Image
                 src={arrowButton.src}
                 alt={arrowButton.alt}
@@ -281,7 +321,7 @@ const FlagEvent = () => {
               onTouchStart={handleMouseEnter}
               onTouchEnd={handleMouseLeave}
             >
-              {getVisibleSlides().map((slide, index) => (
+              {getVisibleSlides().map((slide) => (
                 <motion.div
                   key={`${slide.id}-${slide.originalIndex}`}
                   className={`relative cursor-pointer flex flex-col items-center ${slide.isCenter ? "z-20" : "z-10"}`}
@@ -324,6 +364,7 @@ const FlagEvent = () => {
                       {slide.name}
                     </h3>
                   </motion.div>
+
                   {/* Event Card (image only) */}
                   <motion.div
                     className="w-[298px] h-[460px] sm:h-[500px] sm:w-[350px] flex flex-col  rounded-[44.402px] bg-[linear-gradient(155deg,rgba(125,249,255,0.5)_3.49%,rgba(98,42,227,0.5)_49.68%,rgba(125,249,255,0.5)_98.24%)]"

@@ -1,6 +1,6 @@
 import { Event } from "@/types/events";
 
-export const events: Event[] = [ 
+export const events: Event[] = [
   {
     id: 1,
     name: "Sunken Cipher",
@@ -67,8 +67,7 @@ export const events: Event[] = [
     image:
       "https://res.cloudinary.com/dsjxx976j/image/upload/v1759873698/Frame_4_Poster_-_Akash_Bhumij_cag0sb.png",
     title: "EVENT 5",
-    description:
-      "1 vs 1 PVP",
+    description: "1 vs 1 PVP",
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
     rulebook: "https://example.com/showdown-rulebook.pdf",
@@ -104,11 +103,11 @@ export const URL = {
   background: {
     src: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759427318/background_eu1okb.png",
     alt: "background",
-    width: 1920, 
+    width: 1920,
     height: 1080,
-  }, 
+  },
   fish: {
-    src: "https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png", 
+    src: "https://res.cloudinary.com/dtis6vqc5/image/upload/v1760044376/Group_1430102941_hbrvqf.svg",
     alt: "fish",
     width: 200,
     height: 200,
