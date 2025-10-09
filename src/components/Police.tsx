@@ -16,7 +16,7 @@ const RIGHT_LOGO =
 
 const Police: React.FC = () => {
   return (
-    <section className="relative w-full overflow-hidden min-h-[120vh] lg:min-h-[130vh]">
+    <section className="relative w-full overflow-hidden min-h-[80svh] lg:min-h-[130vh]">
       {/* Background image */}
       <Image
         src={BG_URL}
@@ -87,13 +87,17 @@ const Police: React.FC = () => {
           className={`mx-auto max-w-3xl text-center text-white/90 space-y-4 text-[15px] sm:text-base md:text-[17px] lg:text-lg ${spaceGrotesk.className}`}
         >
           <p>
-            A first-of-its-kind collaboration that blends innovation, creativity, and responsibility!
+            A first-of-its-kind collaboration that blends innovation,
+            creativity, and responsibility!
           </p>
           <p>
-            This initiative aims to encourage digital solutions for today’s society and evolving laws, while empowering youth to use technology for safer, smarter communities.
+            This initiative aims to encourage digital solutions for today’s
+            society and evolving laws, while empowering youth to use technology
+            for safer, smarter communities.
           </p>
           <p>
-            Together, SAC and Odisha Police are set to ignite innovation, inspire transformation, and strengthen safety—on campus and beyond.
+            Together, SAC and Odisha Police are set to ignite innovation,
+            inspire transformation, and strengthen safety—on campus and beyond.
           </p>
           <p>Stay tuned... something BIG is on the horizon!</p>
         </div>
