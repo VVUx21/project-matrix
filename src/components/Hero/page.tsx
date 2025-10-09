@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import LightRays from "./LightRays";
-
+import RegistrationForm from "./form";
 import {
   titleVariants,
   buttonVariants,
@@ -19,13 +19,23 @@ import {
 } from "./Heroconfig";
 
 const Hero: React.FC = () => {
+  const [formopen, setformopen] = useState(false);
+  
   useEffect(() => {
-    document.body.style.cursor = "none";
+    if (!formopen) {
+      document.body.style.cursor = "none";
+    } else {
+      document.body.style.cursor = "auto";
+    }
 
     return () => {
       document.body.style.cursor = "auto";
     };
-  }, []);
+  }, [formopen]);
+
+  const toggleForm = () => {
+    setformopen(!formopen);
+  };
 
   return (
     <div className="relative ">
@@ -162,6 +172,7 @@ const Hero: React.FC = () => {
                 variants={buttonVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={toggleForm}
               >
                 {textContent.buttonText}
               </motion.button>
@@ -305,6 +316,21 @@ const Hero: React.FC = () => {
           />
         </motion.div>
       </div>
+      {formopen && (
+        <div
+          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto
+        no-scrollbar p-4 sm:p-6 form-modal"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setformopen(false);
+            }
+          }}
+        >
+          <div className="min-h-screen py-6 flex items-center justify-center w-full pt-20 md:pt-24">
+            <RegistrationForm formope={formopen} setformope={setformopen} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

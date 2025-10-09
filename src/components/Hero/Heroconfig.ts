@@ -124,7 +124,6 @@ export const navItems = [
     class:
       "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
   },
-  
 ] as const;
 
 export const imageSources = {
@@ -146,7 +145,7 @@ export const imageSources = {
 // Text content
 export const textContent = {
   number: "25",
-  buttonText: "Brochure",
+  buttonText: "Register",
   heroTextLines: [
     "Dive into the ",
     "Marine Matrix",

@@ -1,0 +1,32 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGO_URI")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model user {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  firstName String 
+  lastName  String
+  college String
+  rollNumber String
+  phoneNumber String @unique
+  whatsappNumber String @unique
+  gender String
+  idcardurl String
+  foodPreference String
+  email    String  
+  transaction transactions? 
+}
+
+model transactions {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  paymentauthor  user  @relation( fields: [Userid],references: [id])
+  Userid String  @db.ObjectId @unique
+  transaction_id String @unique 
+  paymentscreenshoturl String 
+  hasPaid Boolean @default(false) 
+}
