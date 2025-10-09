@@ -26,13 +26,13 @@ export default function Merch() {
       items: [
         {
           img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760036659/tshirt-removebg-preview_gs8uzl.png",
-          title: "T-shirt 1",
+          title: "T shirt 1",
           desc: "Comfortable and minimal tee for tech lovers.",
           price: "₹xyz",
         },
         {
           img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760036659/tshirt-removebg-preview_gs8uzl.png",
-          title: "T-shirt 2",
+          title: "T shirt 2",
           desc: "Binary print tee for the ultimate coder.",
           price: "₹xyz",
         },
@@ -50,7 +50,7 @@ export default function Merch() {
         {
           img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760036842/hoodie-removebg-preview_sh6gxb.png",
           title: "INNO Hoodie 2",
-          desc: "Sleek design with urban tech aesthetics.",
+          desc: "Sleek design with urban tech style.",
           price: "₹xyz",
         },
       ],
@@ -61,7 +61,7 @@ export default function Merch() {
         {
           img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760036825/zipper-removebg-preview_gh0xpp.png",
           title: " Zipper 1",
-          desc: "Zip through your day with INNO style.",
+          desc: "Zip through ur day with INNO style.",
           price: "₹xyz",
         },
         {
@@ -135,16 +135,16 @@ export default function Merch() {
           className="object-cover opacity-65 pointer-events-none select-none rounded-[25px]"
         />
 
-        {/* ===== Category Buttons ===== */}
+{/* ===== Category Buttons ===== */}
 <div className="relative z-30 flex justify-center mb-6">
   <div
-    className="flex mt-3 items-center justify-start sm:justify-between w-[90%] sm:w-[70%] gap-2 sm:gap-3 px-3 sm:px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 shadow-inner overflow-x-auto scrollbar-hide"
+    className="flex mt-3 items-center justify-around w-full max-w-[95%] gap-2 px-2 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 shadow-inner overflow-x-auto scrollbar-hide"
   >
     {merchGroups.map((group, index) => (
       <button
         key={group.name}
         onClick={() => handleGroupChange(index)}
-        className={`whitespace-nowrap px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm md:text-base font-medium transition-all duration-300 ${
+        className={`flex-shrink-0 whitespace-nowrap px-2 sm:px-5 py-1 rounded-full text-sm sm:text-base font-medium transition-all duration-300 h-[70px]${
           currentGroup === index
             ? "bg-[#5A55C8] border text-[#7DF9FF] shadow-[0_0_6px_#7DF9FF]"
             : "text-white/70 hover:text-[#7DF9FF] hover:bg-[#2218dc]"
@@ -161,7 +161,7 @@ export default function Merch() {
         {/* ===== Carousel Section ===== */}
         <div className=" relative z-30 flex flex-col md:flex-row items-center justify-evenly gap-10">
           {/* === Product Image === */}
-          <div className="ml-8 mb-5 flex justify-center w-full md:w-1/2 relative overflow-hidden h-[300px]">
+          <div className="md:ml-15 sm:ml-2 mb-5 flex justify-center w-full md:w-1/2 relative overflow-hidden h-[360px]">
             <div
               key={item.img}
               className={`absolute transition-all duration-700 ease-in-out ${
@@ -170,12 +170,12 @@ export default function Merch() {
                   : "animate-slideInLeft"
               } w-full flex justify-center`}
             >
-              <div className="mt-8 w-[350px] h-[240px] bg-white/10 rounded-2xl flex items-center justify-center border border-white/20 backdrop-blur-sm">
+              <div className="mt-8 w-[410px] h-[290px] bg-white/10 rounded-2xl flex items-center justify-center border border-white/20 backdrop-blur-sm">
                 <Image
                   src={item.img}
                   alt={item.title}
-                  width={340}
-                  height={290}
+                  width={420}
+                  height={300}
                   className="object-contain opacity-90"
                 />
               </div>
@@ -204,7 +204,7 @@ export default function Merch() {
             <p className="text-base md:text-lg mb-8 text-gray-300">
               Price: {item.price}
             </p>
-            <button className="px-8 py-3 rounded-md border bg-[#5000FF] border-[#7DF9FF] text-[#7DF9FF] text-base font-semibold tracking-widest hover:bg-[#2b65ba] hover:text-white transition-all duration-300 shadow-[0_0_10px_#7DF9FF] cursor-pointer"
+            <button className="px-8 py-3 rounded-md border bg-[#5000FF] border-[#7DF9FF] text-[#7DF9FF] text-base font-semibold tracking-widest hover:bg-[#2b65ba] hover:text-white transition-all duration-300  cursor-pointer"
             onClick={() => window.open('https://forms.gle/uYGyn49PwmZw2XFY6', '_blank')}
             >
               BUY NOW
