@@ -221,7 +221,7 @@ const FloatingChatbot: React.FC = () => {
 
       {/* Bottom Close Button - centered below chat window */}
       {isOpen && (
-        <div className="fixed bottom-4 sm:bottom-6 right-2 sm:right-6 w-[calc(100vw-16px)] sm:w-96 max-w-md flex justify-center z-50">
+        <div className="fixed bottom-4 sm:bottom-6 right-2 sm:right-6 w-[calc(100vw-16px)] sm:w-96 max-w-md flex justify-center z-90">
           <div className="relative">
             {/* Partial circle border overlay */}
             <div
@@ -248,7 +248,7 @@ const FloatingChatbot: React.FC = () => {
 
             <button
               onClick={toggleChatbot}
-              className="p-2.5 sm:p-3 rounded-full transition-all duration-300 focus:outline-none backdrop-blur-lg hover:scale-110 z-50 relative"
+              className="p-2.5 sm:p-3 rounded-full transition-all duration-300 focus:outline-none backdrop-blur-lg hover:scale-110 z-90 relative"
               style={{
                 background: "rgba(0, 0, 0, 0.4)",
                 color: "#7DF9FF",

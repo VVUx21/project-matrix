@@ -7,7 +7,10 @@ import { neue } from "@/fonts";
 
 const Statistics = () => {
   return (
-    <div className="min-h-[71svh] w-full bg-gradient-to-b from-[#000000] to-[#5000FF] relative overflow-hidden flex items-center justify-center  px-4 sm:px-6">
+    <div
+      style={{ background: "linear-gradient(0deg, #000 0%, #5000FF 100%" }}
+      className="min-h-[71svh] w-full  relative overflow-hidden flex items-center justify-center  px-4 sm:px-6"
+    >
       <div className="absolute top-20 sm:top-32 left-4 sm:left-8 w-16 sm:w-24 h-16 sm:h-24 bg-purple-600/30 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 sm:bottom-32 left-8 sm:left-16 w-20 sm:w-32 h-20 sm:h-32 bg-blue-600/20 rounded-full blur-3xl"></div>
 
@@ -41,7 +44,7 @@ const Statistics = () => {
         }}
       >
         <Image
-          src="https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png"
+          src="https://res.cloudinary.com/dtis6vqc5/image/upload/v1760044376/Group_1430102941_hbrvqf.svg"
           alt="Jellyfish decoration"
           width={100}
           height={100}

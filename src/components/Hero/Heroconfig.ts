@@ -83,8 +83,8 @@ export const menuVariants: Variants = {
 
 export const navItems = [
   {
-    label: "About Us",
-    path: "/#about-us",
+    label: "Home",
+    path: "/#hero",
     class:
       "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
   },
@@ -124,7 +124,6 @@ export const navItems = [
     class:
       "text-lg lg:text-xl text-[#ffffff] font-bold hover:text-gray-200 transition-colors hoverable",
   },
-  
 ] as const;
 
 export const imageSources = {
@@ -138,7 +137,7 @@ export const imageSources = {
     "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759215011/g15_v9xi5g.svg",
   star: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759518518/star_wczwuo.svg",
   floatingFish:
-    "https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png",
+    "https://res.cloudinary.com/dtis6vqc5/image/upload/v1760044376/Group_1430102941_hbrvqf.svg",
   bubble:
     "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759327035/bubble_wvbvgh.svg",
 };
@@ -146,13 +145,14 @@ export const imageSources = {
 // Text content
 export const textContent = {
   number: "25",
-  buttonText: "Brochure",
+  buttonText: "Register",
   heroTextLines: [
     "Dive into the ",
     "Marine Matrix",
     "Where Oceans Meet ",
     "Innovation",
   ],
+  src: "/register",
 };
 
 export const lightRaysConfig = {
