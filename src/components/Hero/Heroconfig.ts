@@ -83,8 +83,8 @@ export const menuVariants: Variants = {
 
 export const navItems = [
   {
-    label: "About Us",
-    path: "/#about-us",
+    label: "Home",
+    path: "/#hero",
     class:
       "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
   },

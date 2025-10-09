@@ -27,8 +27,8 @@ export default function AboutUs() {
     dots2:
       "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759462230/dottt2_wq3igi.svg",
     fish: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759488567/fish_2_bgvurv.svg",
-    jellyfish:
-      "https://res.cloudinary.com/dtis6vqc5/image/upload/v1760044376/Group_1430102941_hbrvqf.svg",
+    robot:
+      "https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png",
   };
 
   const dotsPositions = [
@@ -185,8 +185,8 @@ export default function AboutUs() {
         <Image src={images.fish} alt="Fish" width={570} height={570} />
       </div>
       <Image
-        src={images.jellyfish}
-        alt="Jellyfish"
+        src={images.robot}
+        alt="Robot"
         width={400}
         height={400}
         priority
@@ -194,19 +194,19 @@ export default function AboutUs() {
     hidden sm:block
     pointer-events-none select-none absolute bottom-0 z-0
     jellyfish-bounce drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]
-    w-[200px] sm:w-[250px] md:w-[300px] h-auto left-[70vw] object-contain
+    w-[200px] sm:w-[250px] md:w-[300px] h-auto left-[75vw] object-contain
     opacity-60
   "
       />
 
-      <div className="flex justify-evenly gap-8 lg:gap-12 px-10 sm:px-14 md:px-12">
+      <div className="flex flex-col items-center px-10 sm:px-14 md:px-20 lg:px-32">
         <div
-          className={`hidden sm:flex flex-col ${spaceGrotesk.className} text-center max-w-[45%]`}
+          className={`flex flex-col ${spaceGrotesk.className} text-center w-full max-w-6xl`}
         >
           <div className=" font-space font-bold lg:text-[48px] text-3xl md:text-4xl leading-[61px] text-white pt-14 md:pt-10 text-center">
             NIT Rourkela
           </div>
-          <div className="text-justify flex flex-col z-40 items-center md:py-7 py-5 font-normal lg:text-lg text-sm  md:leading-[25px] lg:leading-[36px] text-white ">
+          <div className="text-center flex flex-col z-40 items-center md:py-7 py-5 font-normal lg:text-lg text-sm md:text-base md:leading-[25px] lg:leading-[36px] text-white ">
             NIT Rourkela is one of the country's premier national-level
             institutions for technical education funded by the government of
             India and is known for its strong emphasis on engineering, basic
@@ -225,13 +225,13 @@ export default function AboutUs() {
         </div>
 
         <div
-          className={`flex flex-col ${spaceGrotesk.className} sm:max-w-[45%]`}
+          className={`flex flex-col ${spaceGrotesk.className} text-center w-full max-w-6xl`}
         >
           <div className="font-space font-bold lg:text-5xl text-4xl leading-16 text-center text-white z-10 pt-10 sm:pt-14 md:pt-10">
             Innovision
           </div>
           <div className="relative pb-10">
-            <div className=" relative md:py-7 py-5  font-normal md:text-base lg:text-lg text-sm  lg:leading-[36px] md:leading-[25px] leading-[18px] text-justify text-white z-40">
+            <div className=" relative md:py-7 py-5  font-normal md:text-base lg:text-lg text-sm  lg:leading-[36px] md:leading-[25px] leading-[18px] text-center text-white z-40">
               Innovision, NIT Rourkela's annual techno-management fest and one
               of the largest fests in Eastern India, is a highly anticipated
               event scheduled from 8th to 10th November 2024, which aims to
