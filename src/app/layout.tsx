@@ -51,6 +51,7 @@ export default function RootLayout({
           <div className="hidden lg:block">
             <FluidGlass />
           </div>
+
           <FloatingChatbot />
         </AuthProvider>
       </body>
