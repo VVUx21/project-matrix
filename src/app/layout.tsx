@@ -33,6 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>{/* Hide content initially to prevent flash */}</head>
       <body
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} ${neueMetana.variable} ${neueMetanaSemi.variable} overflow-x-hidden antialiased`}
@@ -42,17 +43,18 @@ export default function RootLayout({
             <SiteLoader />
           </ClientOnly>
 
-          <Nav />
-          <Toaster position="top-right" />
-          {children}
-          <div id="footer">
-            <Footer />
+          <div id="main-content">
+            <Nav />
+            <Toaster position="top-right" />
+            {children}
+            <div id="footer">
+              <Footer />
+            </div>
+            <div className="hidden lg:block">
+              <FluidGlass />
+            </div>
+            <FloatingChatbot />
           </div>
-          <div className="hidden lg:block">
-            <FluidGlass />
-          </div>
-
-          <FloatingChatbot />
         </AuthProvider>
       </body>
     </html>
