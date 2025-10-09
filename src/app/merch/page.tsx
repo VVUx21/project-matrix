@@ -135,6 +135,62 @@ export default function Merch() {
           className="object-cover opacity-65 pointer-events-none select-none rounded-[25px]"
         />
 
+
+<div
+    className="absolute top-[-90px] left-[-130px] w-[240px] h-[240px] pointer-events-none select-none z-[999] hidden md:block"
+    style={{
+      animationName: 'floatSmooth',
+      animationDuration: '7s',
+      animationTimingFunction: 'ease-in-out',
+      animationIterationCount: 'infinite',
+    }}
+  >
+    <Image
+      src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759991106/WhatsApp_Image_2025-10-07_at_17.33.39_33ad8cde_1_fcx1j3.svg"
+      alt="Top Left Decoration"
+      fill
+      className="object-contain"
+    />
+  </div>
+
+  <div
+    className="absolute bottom-[-120px] right-[-90px] w-[240px] h-[240px] pointer-events-none select-none hidden md:block"
+    style={{
+      animationName: 'floatSmoothDelayed',
+      animationDuration: '7s',
+      animationTimingFunction: 'ease-in-out',
+      animationIterationCount: 'infinite',
+    }}
+  >
+    <Image
+      src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759991114/Group_1430102938_zixarr.svg"
+      alt="Bottom Right Decoration"
+      fill
+      className="object-contain"
+    />
+  </div>
+
+  
+  <style>{`
+    @keyframes floatSmooth {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-25px);
+      }
+    }
+
+    @keyframes floatSmoothDelayed {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-35px);
+      }
+    }
+  `}</style>
+
 {/* ===== Category Buttons ===== */}
 <div className="relative z-30 flex justify-center mb-6">
   <div
