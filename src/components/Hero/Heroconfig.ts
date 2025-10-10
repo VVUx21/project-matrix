@@ -95,7 +95,7 @@ export const navItems = [
       "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
   },
   {
-    label: "Sponsers",
+    label: "Sponsors",
     path: "/#sponsers",
     class:
       "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
@@ -114,7 +114,7 @@ export const navItems = [
   },
   {
     label: "Contact us",
-    path: "/#footer",
+    path: "#footer",
     class:
       "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
   }
