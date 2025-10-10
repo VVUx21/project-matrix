@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { neueMetana, neueMetanaSemi } from "@/fonts";
 import "./globals.css";
-import { AuthProvider } from "@/contexts/auth-context";
 import Nav from "@/components/Hero/Nav";
 import Footer from "@/components/Footer";
+import { ToastContainer } from "react-toastify";
 import FluidGlass from "@/components/Hero/FluidGlassCursor";
 import { FloatingChatbot } from "@/components/Chatbot";
-import { Toaster } from "react-hot-toast";
 import SiteLoader from "@/components/loader/SiteLoader";
 import ClientOnly from "../components/ClientOnly";
 
@@ -38,14 +37,13 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} ${neueMetana.variable} ${neueMetanaSemi.variable} overflow-x-hidden antialiased`}
       >
-        <AuthProvider>
           <ClientOnly>
             <SiteLoader />
           </ClientOnly>
 
           <div id="main-content">
             <Nav />
-            <Toaster position="top-right" />
+            <ToastContainer position="top-right" autoClose={5000} />
             {children}
             <div id="footer">
               <Footer />
@@ -55,7 +53,6 @@ export default function RootLayout({
             </div>
             <FloatingChatbot />
           </div>
-        </AuthProvider>
       </body>
     </html>
   );

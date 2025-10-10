@@ -84,7 +84,7 @@ const Police: React.FC = () => {
 
         {/* Body text */}
         <div
-          className={`mx-auto max-w-3xl text-center text-white/90 space-y-4 text-[15px] sm:text-base md:text-[17px] lg:text-lg ${spaceGrotesk.className}`}
+          className={`mx-auto text-center text-white/90 space-y-4 text-[15px] sm:text-base md:text-[17px] lg:text-xl ${spaceGrotesk.className}`}
         >
           <p>
             A first-of-its-kind collaboration that blends innovation,

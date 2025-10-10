@@ -15,10 +15,8 @@ export async function checktransactionid(transaction_id: string) {
 }
 
 export async function checkemail({
-  email,
-  phoneNumber,
-  whatsappNumber,
-}: {
+  email,phoneNumber,whatsappNumber
+}:{
   email: string;
   phoneNumber: string;
   whatsappNumber: string;

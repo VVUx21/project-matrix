@@ -4,7 +4,6 @@ import localFont from "next/font/local";
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-// === Local Fonts ===
 const neue = localFont({
   src: "../../fonts/NeueMetana-Bold.otf",
   variable: "--font-neue",

@@ -6,7 +6,6 @@ import Statistics from "@/components/Stastics";
 import SponsorCard from "@/components/SponsorCard";
 import EventSchedule from "@/components/EventSchedule";
 import Police from "@/components/Police";
-import Payment from "@/components/Payment/Payment";
 import Semicon from "@/components/Semicon/Semicon";
 function Home() {
   return (
