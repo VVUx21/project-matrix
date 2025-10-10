@@ -9,12 +9,10 @@ import {
   navItems,
   imageSources,
 } from "./Heroconfig";
-import { useAuth } from "@/contexts/auth-context";
 
 const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user } = useAuth();
-
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -22,8 +20,8 @@ const Nav: React.FC = () => {
   return (
     <>
       {/* Navigation Bar */}
-      <div className="z-100 w-full fixed">
-        <div className="flex justify-center items-center pt-6 pb-4 md:pt-8 relative z-40">
+      <div className="z-50 w-full fixed">
+        <div className="flex justify-center items-center pt-6 pb-4 md:pt-8">
           <motion.section
             className="bg-[#b5a1e02f] w-[90%] backdrop-blur-sm max-w-[1200px] shadow-xl/30 h-[60px] md:h-[70px] min-[760px]:max-[800px]:h-[50px] min-[800px]:max-[1000px]:h-[50px] flex justify-between items-center rounded-[62px] px-4 md:px-8 min-[760px]:max-[800px]:px-4 min-[800px]:max-[1000px]:px-4 ring-1 ring-[#ffffff75]"
             initial="hidden"
@@ -44,7 +42,7 @@ const Nav: React.FC = () => {
             {/* Desktop Navigation */}
             <div className="hidden  md:flex justify-around items-center gap-8 min-[760px]:max-[800px]:gap-4 min-[800px]:max-[1000px]:gap-4 flex-1 px-8 min-[760px]:max-[800px]:px-4 min-[800px]:max-[1000px]:px-4">
               {navItems.map((item) => {
-                const label = user ? "My Profile" : item.label;
+                const label = item.label;
                 return (
                   <Link
                     key={item.path}
@@ -98,7 +96,7 @@ const Nav: React.FC = () => {
         {/* Changed from "hidden md:flex" to "flex flex-col" */}
         <div className="flex flex-col items-center gap-6 py-6 px-4">
           {navItems.map((item) => {
-            const label = user ? "My Profile" : item.label;
+            const label = item.label;
             return (
               <Link
                 key={item.path}

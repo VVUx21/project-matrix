@@ -1,13 +1,9 @@
 "use client";
-import {
-  checkemail,
-  checktransactionid,
-  createUserAndTransaction,
-} from "@/lib/severactions";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Image from "next/image";
 import axios from "axios";
+import { checktransactionid, checkemail, createUserAndTransaction } from "@/lib/serveractions";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react"; // Add this import for the new cross icon
 import {
@@ -64,7 +60,6 @@ const RegistrationForm = ({
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    // Validate email
     if (name === "email") {
       if (!validateEmail(value)) {
         setErrors((prev) => ({
@@ -124,6 +119,7 @@ const RegistrationForm = ({
       const res = await checktransactionid(formData.transaction_id);
       if (res) {
         toast.error("Transaction ID already exists. Please try again!");
+        console.log("Transaction ID exists");
         setLoading(false);
         return;
       }
@@ -209,7 +205,7 @@ const RegistrationForm = ({
 
   return (
     <motion.div
-      className="w-[90%] bg-custom-gradient backdrop-blur-20 text-white relative z-110 rounded-2xl overflow-hidden form-modal"
+      className="w-[90%] bg-custom-gradient backdrop-blur-20 text-white relative z-11000 rounded-2xl overflow-hidden form-modal slide-down"
       initial={{ opacity: 0, scale: 0.9, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
