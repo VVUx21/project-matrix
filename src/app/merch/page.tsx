@@ -135,43 +135,41 @@ export default function Merch() {
           className="object-cover opacity-65 pointer-events-none select-none rounded-[25px]"
         />
 
+        <div
+          className="absolute top-[-90px] left-[-130px] w-[240px] h-[240px] pointer-events-none select-none z-[999] hidden md:block"
+          style={{
+            animationName: "floatSmooth",
+            animationDuration: "7s",
+            animationTimingFunction: "ease-in-out",
+            animationIterationCount: "infinite",
+          }}
+        >
+          <Image
+            src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759991106/WhatsApp_Image_2025-10-07_at_17.33.39_33ad8cde_1_fcx1j3.svg"
+            alt="Top Left Decoration"
+            fill
+            className="object-contain"
+          />
+        </div>
 
-<div
-    className="absolute top-[-90px] left-[-130px] w-[240px] h-[240px] pointer-events-none select-none z-[999] hidden md:block"
-    style={{
-      animationName: 'floatSmooth',
-      animationDuration: '7s',
-      animationTimingFunction: 'ease-in-out',
-      animationIterationCount: 'infinite',
-    }}
-  >
-    <Image
-      src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759991106/WhatsApp_Image_2025-10-07_at_17.33.39_33ad8cde_1_fcx1j3.svg"
-      alt="Top Left Decoration"
-      fill
-      className="object-contain"
-    />
-  </div>
+        <div
+          className="absolute bottom-[-120px] right-[-90px] w-[240px] h-[240px] pointer-events-none select-none hidden md:block"
+          style={{
+            animationName: "floatSmoothDelayed",
+            animationDuration: "7s",
+            animationTimingFunction: "ease-in-out",
+            animationIterationCount: "infinite",
+          }}
+        >
+          <Image
+            src="https://res.cloudinary.com/dtis6vqc5/image/upload/v1760044376/Group_1430102941_hbrvqf.svg"
+            alt="Bottom Right Decoration"
+            fill
+            className="object-contain"
+          />
+        </div>
 
-  <div
-    className="absolute bottom-[-120px] right-[-90px] w-[240px] h-[240px] pointer-events-none select-none hidden md:block"
-    style={{
-      animationName: 'floatSmoothDelayed',
-      animationDuration: '7s',
-      animationTimingFunction: 'ease-in-out',
-      animationIterationCount: 'infinite',
-    }}
-  >
-    <Image
-      src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759991114/Group_1430102938_zixarr.svg"
-      alt="Bottom Right Decoration"
-      fill
-      className="object-contain"
-    />
-  </div>
-
-  
-  <style>{`
+        <style>{`
     @keyframes floatSmooth {
       0%, 100% {
         transform: translateY(0) rotate(0deg);
@@ -191,28 +189,24 @@ export default function Merch() {
     }
   `}</style>
 
-{/* ===== Category Buttons ===== */}
-<div className="relative z-30 flex justify-center mb-6">
-  <div
-    className="flex mt-3 items-center justify-around w-full max-w-[95%] gap-2 px-2 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 shadow-inner overflow-x-auto scrollbar-hide"
-  >
-    {merchGroups.map((group, index) => (
-      <button
-        key={group.name}
-        onClick={() => handleGroupChange(index)}
-        className={`flex-shrink-0 whitespace-nowrap px-2 sm:px-5 py-1 rounded-full text-sm sm:text-base font-medium transition-all duration-300 h-[70px]${
-          currentGroup === index
-            ? "bg-[#5A55C8] border text-[#7DF9FF] shadow-[0_0_6px_#7DF9FF]"
-            : "text-white/70 hover:text-[#7DF9FF] hover:bg-[#2218dc]"
-        }`}
-      >
-        {group.name}
-      </button>
-    ))}
-  </div>
-</div>
-
-
+        {/* ===== Category Buttons ===== */}
+        <div className="relative z-30 flex justify-center mb-6">
+          <div className="flex mt-3 items-center justify-around w-full max-w-[95%] gap-2 px-2 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 shadow-inner overflow-x-auto scrollbar-hide">
+            {merchGroups.map((group, index) => (
+              <button
+                key={group.name}
+                onClick={() => handleGroupChange(index)}
+                className={`flex-shrink-0 whitespace-nowrap px-2 sm:px-5 py-1 rounded-full text-sm sm:text-base font-medium transition-all duration-300 h-[70px]${
+                  currentGroup === index
+                    ? "bg-[#5A55C8] border text-[#7DF9FF] shadow-[0_0_6px_#7DF9FF]"
+                    : "text-white/70 hover:text-[#7DF9FF] hover:bg-[#2218dc]"
+                }`}
+              >
+                {group.name}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* ===== Carousel Section ===== */}
         <div className=" relative z-30 flex flex-col md:flex-row items-center justify-evenly gap-10">
@@ -260,8 +254,11 @@ export default function Merch() {
             <p className="text-base md:text-lg mb-8 text-gray-300">
               Price: {item.price}
             </p>
-            <button className="px-8 py-3 rounded-md border bg-[#5000FF] border-[#7DF9FF] text-[#7DF9FF] text-base font-semibold tracking-widest hover:bg-[#2b65ba] hover:text-white transition-all duration-300  cursor-pointer"
-            onClick={() => window.open('https://forms.gle/uYGyn49PwmZw2XFY6', '_blank')}
+            <button
+              className="px-8 py-3 rounded-md border bg-[#5000FF] border-[#7DF9FF] text-[#7DF9FF] text-base font-semibold tracking-widest hover:bg-[#2b65ba] hover:text-white transition-all duration-300  cursor-pointer"
+              onClick={() =>
+                window.open("https://forms.gle/uYGyn49PwmZw2XFY6", "_blank")
+              }
             >
               BUY NOW
             </button>

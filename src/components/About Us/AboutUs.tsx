@@ -28,7 +28,7 @@ export default function AboutUs() {
       "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759462230/dottt2_wq3igi.svg",
     fish: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759488567/fish_2_bgvurv.svg",
     robot:
-      "https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png",
+      "https://res.cloudinary.com/dtis6vqc5/image/upload/v1760044376/Group_1430102941_hbrvqf.svg",
   };
 
   const dotsPositions = [
