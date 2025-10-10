@@ -861,17 +861,14 @@ export default function EventSchedule() {
           max-w-[950px] min-[2560px]:max-w-[1100px] min-[3840px]:max-w-[1300px]
         "
       >
-        <h2
-          className={`
-        ${neue.className}
-        text-center uppercase font-bold neon-heading
-        text-2xl sm:text-3xl md:text-3xl lg:text-4xl
-        2xl:text-6xl min-[1920px]:text-7xl min-[2560px]:text-8xl min-[3840px]:text-9xl
-        leading-tight tracking-[0.08em]
-      `}
+        <h1
+          className={`text-4xl ${neue.className} sm:text-4xl md:text-7xl lg:text-7xl font-bold  text-white text-center mb-12 mt-12 md:mb-12 lg:mb-16 `}
+          style={{
+            textShadow: "0 0 30px rgba(255,255,255,0.7)",
+          }}
         >
-          Events Schedule
-        </h2>
+          EVENT SCHEDULE
+        </h1>
 
         <div
           className="
