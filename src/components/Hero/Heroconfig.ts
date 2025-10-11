@@ -96,7 +96,7 @@ export const navItems = [
   },
   {
     label: "Sponsors",
-    path: "/#sponsers",
+    path: "/#sponsors",
     class:
       "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
   },

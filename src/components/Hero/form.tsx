@@ -495,28 +495,7 @@ const RegistrationForm = ({
                 </SelectContent>
               </Select>
             </div>
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#7DF9FF]">
-                Food Preference <span style={{ color: "#7DF9FF" }}>*</span>
-              </label>
-              <Select
-                name="foodPreference"
-                onValueChange={(value) =>
-                  handleChange({
-                    target: { name: "foodPreference", value },
-                  } as any)
-                }
-                required
-              >
-                <SelectTrigger className="input-field">
-                  <SelectValue placeholder="Select Preference" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="veg">Vegetarian</SelectItem>
-                  <SelectItem value="non-veg">Non-Vegetarian</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+           
           </motion.div>
         </motion.div>
 
