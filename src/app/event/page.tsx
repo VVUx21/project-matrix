@@ -18,9 +18,7 @@ function page() {
       </div>
       <div className="min-h-screen bg-gradient-to-b from-[#4E00FB] to-[#020006] pt-[10vw] md:pt-[5vw]">
         <FunEvents />
-        <div id="gallery">
-          <ImageGallery />
-        </div>
+        <ImageGallery />
       </div>
     </>
   );

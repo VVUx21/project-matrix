@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Link from "next/link";
 
 const RegistrationForm = ({
   formope,
@@ -262,13 +263,15 @@ const RegistrationForm = ({
               animate={{ scale: 1 }}
               transition={{ delay: 0.6, duration: 0.3 }}
             >
-              <Image
-                src="https://res.cloudinary.com/dgtdkqfsx/image/upload/v1735632093/WhatsApp_Image_2024-12-31_at_12.08.39_8b8c32a8_znclgz.jpg"
-                alt="Scan QR Code"
-                width={200}
-                height={200}
-                className="w-32 h-32 object-cover border-2 border-[#5000FF]/50 rounded-lg"
-              />
+              <Link href="https://drive.google.com/file/d/1jbWFLgzQhqiSjwM5vTC2XS3G_Dk_M9b8/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                <Image
+                  src="https://res.cloudinary.com/dgtdkqfsx/image/upload/v1735632093/WhatsApp_Image_2024-12-31_at_12.08.39_8b8c32a8_znclgz.jpg"
+                  alt="Scan QR Code"
+                  width={200}
+                  height={200}
+                  className="w-32 h-32 object-cover border-2 border-[#5000FF]/50 rounded-lg"
+                />
+              </Link>
             </motion.div>
             <p className="text-sm mt-4 text-white/90 text-center">
               Scan the QR code above for payment. (Rs 1000 only per person)

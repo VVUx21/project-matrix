@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import LightRays from "./LightRays";
 import RegistrationForm from "./form";
-import Link from "next/link";
 import {
   titleVariants,
   buttonVariants,
@@ -318,8 +317,7 @@ const Hero: React.FC = () => {
       </div>
       {formopen && (
         <div
-          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto
-        no-scrollbar p-4 sm:p-6 "
+          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-scroll no-scrollbar p-4 sm:p-6 "
           onClick={(e) => {
             if (e.target === e.currentTarget) {
               setformopen(false);
