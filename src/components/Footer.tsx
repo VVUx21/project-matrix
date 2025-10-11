@@ -15,8 +15,7 @@ const neue = localFont({
 export default function Footer() {
   const quickLinks = [
     { name: "Gallery", href: "/event#gallery" },
-    { name: "Register", href: "/signinl" },
-    { name: "sponsers", href: "#sponsers" },
+    { name: "Sponsors", href: "#sponsers" },
     { name: "About us", href: "#about-us" },
     { name: "Events", href: "/event" },
     { name: "Merch", href: "/merch" },
@@ -48,7 +47,7 @@ export default function Footer() {
           <p
             className={`text-sm leading-relaxed ${spaceGrotesk.className} text-gray-200 mb-6 max-w-sm`}
           >
-            Innovision 2025, the largest techno-cultural fest of Eastern India
+            Innovision 2025, the largest techno-management fest of Eastern India
             organized by NIT Rourkela, is a celebration where technology,
             creativity, and culture converge. With the theme "Dive into the
             World of Water," this edition symbolizes depth, exploration, and
@@ -210,21 +209,17 @@ export default function Footer() {
                 className={`text-sm lg:text-base space-y-3 ${spaceGrotesk.className} text-gray-200 mb-8`}
               >
                 <p>
-                  <span className="font-semibold uppercase">NAME:</span> 987654321
+                  <span className="font-semibold uppercase">Nimai Charan Das:</span> 6372390825
                 </p>
-                <p>innonitr@gmail.com</p>
+                <Link href="mailto:innonitr@gmail.com" className="hover:text-purple-300 transition-all duration-200 hover:scale-110 transform inline-block">
+                  innonitr@gmail.com
+                </Link>
               </div>
 
               {/* Social Icons */}
               <div className="flex justify-center space-x-6 mt-6">
-                <Link href="#" target="_blank" aria-label="YouTube">
+                <Link href="https://youtube.com/@innovisionnitrourkelatech?si=DHtY0npr9gez6bMw" target="_blank" aria-label="YouTube">
                   <FaYoutube className="w-9 h-9 lg:w-10 lg:h-10 text-white hover:text-red-600 transform hover:scale-110 transition duration-200" />
-                </Link>
-
-                <Link href="#" target="_blank" aria-label="Facebook">
-                  <div className="w-9 h-9 lg:w-10 lg:h-10 bg-white rounded-full flex items-center justify-center transform hover:scale-110 transition duration-200">
-                    <FaFacebookF className="w-5 h-5 lg:w-6 lg:h-6 text-[#36207d] hover:text-blue-600" />
-                  </div>
                 </Link>
 
                 <Link

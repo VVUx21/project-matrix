@@ -33,14 +33,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>{/* Hide content initially to prevent flash */}</head>
-      <body
+        <body
         suppressHydrationWarning={true}
         className={`${geistSans.variable} ${geistMono.variable} ${neueMetana.variable} ${neueMetanaSemi.variable} overflow-x-hidden antialiased`}
-      >
+        >
           <ClientOnly>
             <SiteLoader />
           </ClientOnly>
-
           <div id="main-content">
             <Nav />
             <ToastContainer position="top-right" autoClose={5000} />
@@ -53,7 +52,7 @@ export default function RootLayout({
             </div>
             <FloatingChatbot />
           </div>
-      </body>
+        </body>
     </html>
   );
 }
