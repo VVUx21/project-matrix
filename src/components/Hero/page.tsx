@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import LightRays from "./LightRays";
 import RegistrationForm from "./form";
@@ -16,9 +17,12 @@ import {
   textContent,
   lightRaysConfig,
 } from "./Heroconfig";
+import { useAuth,UserButton} from "@clerk/nextjs";
 
 const Hero: React.FC = () => {
   const [formopen, setformopen] = useState(false);
+  const router = useRouter();
+  const { isLoaded, isSignedIn} = useAuth();
 
   useEffect(() => {
     if (!formopen) {
@@ -36,6 +40,13 @@ const Hero: React.FC = () => {
     setformopen(!formopen);
   };
 
+   const handleClick = () => {
+    if (isLoaded && isSignedIn) {
+      toggleForm?.();
+    } else {
+      router.push("/sign-in");
+    }
+  };
   return (
     <div className="relative ">
       {/* Fluid Glass Cursor */}
@@ -171,7 +182,7 @@ const Hero: React.FC = () => {
                 variants={buttonVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={toggleForm}
+                onClick={handleClick}
               >
                 {textContent.buttonText}
               </motion.button>
@@ -317,7 +328,7 @@ const Hero: React.FC = () => {
       </div>
       {formopen && (
         <div
-          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-scroll no-scrollbar p-4 sm:p-6 "
+          className="fixed inset-0 z-50 flex items-start justify-center bg-black/50 overflow-y-scroll no-scrollbar p-4 sm:p-6 "
           onClick={(e) => {
             if (e.target === e.currentTarget) {
               setformopen(false);

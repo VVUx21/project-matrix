@@ -33,7 +33,6 @@ const RegistrationForm = ({
     transaction_id: "",
     email: "",
     idCard: null as File | null,
-    foodPreference: "",
     paymentss: null as File | null,
   });
 
@@ -160,7 +159,6 @@ const RegistrationForm = ({
       formdata.append("gender", formData.gender);
       formdata.append("transaction_id", formData.transaction_id);
       formdata.append("idCard", formData.idCard);
-      formdata.append("foodPreference", formData.foodPreference);
       formdata.append("paymentss", formData.paymentss);
       formdata.append("email", formData.email);
 
@@ -440,7 +438,7 @@ const RegistrationForm = ({
           >
             <div className="space-y-2">
               <label className="block text-sm font-medium text-[#7DF9FF]">
-                ID Card <span style={{ color: "#7DF9FF" }}>*</span>
+                ID Card 
               </label>
               <motion.input
                 type="file"
@@ -454,7 +452,7 @@ const RegistrationForm = ({
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-medium text-[#7DF9FF]">
-                Payment Screenshot <span style={{ color: "#7DF9FF" }}>*</span>
+                Payment Screenshot 
               </label>
               <motion.input
                 type="file"
@@ -469,14 +467,14 @@ const RegistrationForm = ({
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            className="grid grid-cols-1"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3, duration: 0.4 }}
           >
-            <div className="space-y-2">
+            <div className="space-y-2 mx-auto w-1/2">
               <label className="block text-sm font-medium text-[#7DF9FF]">
-                Gender <span style={{ color: "#7DF9FF" }}>*</span>
+                Gender 
               </label>
               <Select
                 name="gender"

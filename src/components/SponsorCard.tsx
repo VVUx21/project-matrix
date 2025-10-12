@@ -107,7 +107,7 @@ function MobileSponsorMarquee({ sponsors }: { sponsors: typeof MainSponsors }) {
 
 export default function SponsorCard() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden">
+    <div id="sponsors" className="relative min-h-screen w-full overflow-hidden">
       <style
         dangerouslySetInnerHTML={{
           __html: `
