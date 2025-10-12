@@ -3,21 +3,13 @@ import Image from "next/image";
 import localFont from "next/font/local";
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import {
+  neueMetana, neueMetanaSemi, spaceGrotesk
+} from "../../../fonts/index";
 
-// === Local Fonts ===
-const neue = localFont({
-  src: "../../fonts/NeueMetana-Bold.otf",
-  variable: "--font-neue",
-  weight: "400",
-  style: "normal",
-});
-
-const altFont = localFont({
-  src: "../../fonts/SpaceGrotesk-Medium.ttf",
-  variable: "--font-alt",
-  weight: "400",
-  style: "normal",
-});
+const neue = neueMetana;
+const altFont = neueMetanaSemi;
+const spaceFont = spaceGrotesk;
 
 export default function Merch() {
   const merchGroups = [
@@ -25,16 +17,16 @@ export default function Merch() {
       name: "T-shirt",
       items: [
         {
-          img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760036659/tshirt-removebg-preview_gs8uzl.png",
-          title: "T shirt 1",
+          img: "https://res.cloudinary.com/dpzac6uao/image/upload/v1760250120/pink_t_bf4syj.png",
+          title: "Crimson Haze",
           desc: "Comfortable and minimal tee for tech lovers.",
-          price: "₹xyz",
+          price: "₹369",
         },
         {
-          img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760036659/tshirt-removebg-preview_gs8uzl.png",
-          title: "T shirt 2",
+          img: "https://res.cloudinary.com/dpzac6uao/image/upload/v1760250253/blue_t_ya2gah.png",
+          title: "Abyss Drift",
           desc: "Binary print tee for the ultimate coder.",
-          price: "₹xyz",
+          price: "₹369",
         },
       ],
     },
@@ -42,16 +34,16 @@ export default function Merch() {
       name: "Hoodie",
       items: [
         {
-          img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760036842/hoodie-removebg-preview_sh6gxb.png",
-          title: "INNO Hoodie 1",
+          img: "https://res.cloudinary.com/dpzac6uao/image/upload/v1760250025/pink_hoodie_ik3qld.png",
+          title: "Crimson Haze",
           desc: "Soft and warm hoodie .",
-          price: "₹xyz",
+          price: "₹659",
         },
         {
-          img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760036842/hoodie-removebg-preview_sh6gxb.png",
-          title: "INNO Hoodie 2",
+          img: "https://res.cloudinary.com/dpzac6uao/image/upload/v1760252160/blue_hoodie_ijm1v2.png",
+          title: "Abyss Drift",
           desc: "Sleek design with urban tech style.",
-          price: "₹xyz",
+          price: "₹659",
         },
       ],
     },
@@ -59,16 +51,16 @@ export default function Merch() {
       name: "Zipper",
       items: [
         {
-          img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760036825/zipper-removebg-preview_gh0xpp.png",
-          title: " Zipper 1",
-          desc: "Zip through ur day with INNO style.",
-          price: "₹xyz",
+          img: "https://res.cloudinary.com/dpzac6uao/image/upload/v1760249881/pink_zip_gisn8w.png",
+          title: " Crimson Haze",
+          desc: " Bold and built for comfort.",
+          price: "₹689",
         },
         {
-          img: "https://res.cloudinary.com/dbnnd43kl/image/upload/v1760036825/zipper-removebg-preview_gh0xpp.png",
-          title: " Zipper 2",
-          desc: "Bold, black, and built for comfort.",
-          price: "₹xyz",
+          img: "https://res.cloudinary.com/dpzac6uao/image/upload/v1760252056/blue_zip_of45j1.png",
+          title: "Abyss Drift",
+          desc: "Bold and built for comfort.",
+          price: "₹689",
         },
       ],
     },
@@ -135,28 +127,78 @@ export default function Merch() {
           className="object-cover opacity-65 pointer-events-none select-none rounded-[25px]"
         />
 
-{/* ===== Category Buttons ===== */}
-<div className="relative z-30 flex justify-center mb-6">
-  <div
-    className="flex mt-3 items-center justify-around w-full max-w-[95%] gap-2 px-2 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 shadow-inner overflow-x-auto scrollbar-hide"
-  >
-    {merchGroups.map((group, index) => (
-      <button
-        key={group.name}
-        onClick={() => handleGroupChange(index)}
-        className={`flex-shrink-0 whitespace-nowrap px-2 sm:px-5 py-1 rounded-full text-sm sm:text-base font-medium transition-all duration-300 h-[70px]${
-          currentGroup === index
-            ? "bg-[#5A55C8] border text-[#7DF9FF] shadow-[0_0_6px_#7DF9FF]"
-            : "text-white/70 hover:text-[#7DF9FF] hover:bg-[#2218dc]"
-        }`}
-      >
-        {group.name}
-      </button>
-    ))}
-  </div>
-</div>
+        <div
+          className="absolute top-[-90px] left-[-130px] w-[240px] h-[240px] pointer-events-none select-none z-[999] hidden md:block"
+          style={{
+            animationName: "floatSmooth",
+            animationDuration: "7s",
+            animationTimingFunction: "ease-in-out",
+            animationIterationCount: "infinite",
+          }}
+        >
+          <Image
+            src="https://res.cloudinary.com/dpidvvdgr/image/upload/v1759991106/WhatsApp_Image_2025-10-07_at_17.33.39_33ad8cde_1_fcx1j3.svg"
+            alt="Top Left Decoration"
+            fill
+            className="object-contain"
+          />
+        </div>
 
+        <div
+          className="absolute bottom-[-120px] right-[-90px] w-[240px] h-[240px] pointer-events-none select-none hidden md:block"
+          style={{
+            animationName: "floatSmoothDelayed",
+            animationDuration: "7s",
+            animationTimingFunction: "ease-in-out",
+            animationIterationCount: "infinite",
+          }}
+        >
+          <Image
+            src="https://res.cloudinary.com/dtis6vqc5/image/upload/v1760044376/Group_1430102941_hbrvqf.svg"
+            alt="Bottom Right Decoration"
+            fill
+            className="object-contain"
+          />
+        </div>
 
+        <style>{`
+    @keyframes floatSmooth {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-25px);
+      }
+    }
+
+    @keyframes floatSmoothDelayed {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-35px);
+      }
+    }
+  `}</style>
+
+        {/* ===== Category Buttons ===== */}
+        <div className="relative z-30 flex justify-center mb-6">
+          <div className="flex mt-3 items-center justify-around w-full max-w-[95%] gap-2 px-2 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 shadow-inner overflow-x-auto scrollbar-hide">
+            {merchGroups.map((group, index) => (
+              <button
+                key={group.name}
+                onClick={() => handleGroupChange(index)}
+                className={`flex-shrink-0 whitespace-nowrap px-2 sm:px-5 py-1 rounded-full text-sm sm:text-base font-medium transition-all duration-300 h-[70px]${
+                  currentGroup === index
+                    ? "bg-[#5A55C8] border text-[#7DF9FF] shadow-[0_0_6px_#7DF9FF]"
+                    : "text-white/70 hover:text-[#7DF9FF] hover:bg-[#2218dc]"
+                }`}
+              >
+                {group.name}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* ===== Carousel Section ===== */}
         <div className=" relative z-30 flex flex-col md:flex-row items-center justify-evenly gap-10">
@@ -204,8 +246,11 @@ export default function Merch() {
             <p className="text-base md:text-lg mb-8 text-gray-300">
               Price: {item.price}
             </p>
-            <button className="px-8 py-3 rounded-md border bg-[#5000FF] border-[#7DF9FF] text-[#7DF9FF] text-base font-semibold tracking-widest hover:bg-[#2b65ba] hover:text-white transition-all duration-300  cursor-pointer"
-            onClick={() => window.open('https://forms.gle/uYGyn49PwmZw2XFY6', '_blank')}
+            <button
+              className="px-8 py-3 rounded-md border bg-[#5000FF] border-[#7DF9FF] text-[#7DF9FF] text-base font-semibold tracking-widest hover:bg-[#2b65ba] hover:text-white transition-all duration-300  cursor-pointer"
+              onClick={() =>
+                window.open("https://forms.gle/uYGyn49PwmZw2XFY6", "_blank")
+              }
             >
               BUY NOW
             </button>

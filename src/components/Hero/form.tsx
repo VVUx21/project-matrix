@@ -1,13 +1,9 @@
 "use client";
-import {
-  checkemail,
-  checktransactionid,
-  createUserAndTransaction,
-} from "@/lib/severactions";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Image from "next/image";
 import axios from "axios";
+import { checktransactionid, checkemail, createUserAndTransaction } from "@/lib/serveractions";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react"; // Add this import for the new cross icon
 import {
@@ -17,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Link from "next/link";
 
 const RegistrationForm = ({
   formope,
@@ -36,7 +33,6 @@ const RegistrationForm = ({
     transaction_id: "",
     email: "",
     idCard: null as File | null,
-    foodPreference: "",
     paymentss: null as File | null,
   });
 
@@ -64,7 +60,6 @@ const RegistrationForm = ({
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    // Validate email
     if (name === "email") {
       if (!validateEmail(value)) {
         setErrors((prev) => ({
@@ -124,6 +119,7 @@ const RegistrationForm = ({
       const res = await checktransactionid(formData.transaction_id);
       if (res) {
         toast.error("Transaction ID already exists. Please try again!");
+        console.log("Transaction ID exists");
         setLoading(false);
         return;
       }
@@ -163,7 +159,6 @@ const RegistrationForm = ({
       formdata.append("gender", formData.gender);
       formdata.append("transaction_id", formData.transaction_id);
       formdata.append("idCard", formData.idCard);
-      formdata.append("foodPreference", formData.foodPreference);
       formdata.append("paymentss", formData.paymentss);
       formdata.append("email", formData.email);
 
@@ -209,7 +204,7 @@ const RegistrationForm = ({
 
   return (
     <motion.div
-      className="w-[90%] bg-custom-gradient backdrop-blur-20 text-white relative z-110 rounded-2xl overflow-hidden form-modal"
+      className="w-[90%] bg-custom-gradient backdrop-blur-20 text-white relative z-11000 rounded-2xl overflow-hidden form-modal slide-down"
       initial={{ opacity: 0, scale: 0.9, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -266,13 +261,15 @@ const RegistrationForm = ({
               animate={{ scale: 1 }}
               transition={{ delay: 0.6, duration: 0.3 }}
             >
-              <Image
-                src="https://res.cloudinary.com/dgtdkqfsx/image/upload/v1735632093/WhatsApp_Image_2024-12-31_at_12.08.39_8b8c32a8_znclgz.jpg"
-                alt="Scan QR Code"
-                width={200}
-                height={200}
-                className="w-32 h-32 object-cover border-2 border-[#5000FF]/50 rounded-lg"
-              />
+              <Link href="https://drive.google.com/file/d/1jbWFLgzQhqiSjwM5vTC2XS3G_Dk_M9b8/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                <Image
+                  src="https://res.cloudinary.com/dgtdkqfsx/image/upload/v1735632093/WhatsApp_Image_2024-12-31_at_12.08.39_8b8c32a8_znclgz.jpg"
+                  alt="Scan QR Code"
+                  width={200}
+                  height={200}
+                  className="w-32 h-32 object-cover border-2 border-[#5000FF]/50 rounded-lg"
+                />
+              </Link>
             </motion.div>
             <p className="text-sm mt-4 text-white/90 text-center">
               Scan the QR code above for payment. (Rs 1000 only per person)
@@ -441,7 +438,7 @@ const RegistrationForm = ({
           >
             <div className="space-y-2">
               <label className="block text-sm font-medium text-[#7DF9FF]">
-                ID Card <span style={{ color: "#7DF9FF" }}>*</span>
+                ID Card 
               </label>
               <motion.input
                 type="file"
@@ -455,7 +452,7 @@ const RegistrationForm = ({
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-medium text-[#7DF9FF]">
-                Payment Screenshot <span style={{ color: "#7DF9FF" }}>*</span>
+                Payment Screenshot 
               </label>
               <motion.input
                 type="file"
@@ -470,14 +467,14 @@ const RegistrationForm = ({
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-4"
+            className="grid grid-cols-1"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3, duration: 0.4 }}
           >
-            <div className="space-y-2">
+            <div className="space-y-2 mx-auto w-1/2">
               <label className="block text-sm font-medium text-[#7DF9FF]">
-                Gender <span style={{ color: "#7DF9FF" }}>*</span>
+                Gender 
               </label>
               <Select
                 name="gender"
@@ -496,28 +493,7 @@ const RegistrationForm = ({
                 </SelectContent>
               </Select>
             </div>
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-[#7DF9FF]">
-                Food Preference <span style={{ color: "#7DF9FF" }}>*</span>
-              </label>
-              <Select
-                name="foodPreference"
-                onValueChange={(value) =>
-                  handleChange({
-                    target: { name: "foodPreference", value },
-                  } as any)
-                }
-                required
-              >
-                <SelectTrigger className="input-field">
-                  <SelectValue placeholder="Select Preference" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="veg">Vegetarian</SelectItem>
-                  <SelectItem value="non-veg">Non-Vegetarian</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+           
           </motion.div>
         </motion.div>
 

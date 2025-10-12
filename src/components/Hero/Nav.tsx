@@ -9,21 +9,19 @@ import {
   navItems,
   imageSources,
 } from "./Heroconfig";
-import { useAuth } from "@/contexts/auth-context";
+import { useAuth,UserButton} from "@clerk/nextjs";
 
 const Nav: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user } = useAuth();
-
+  const { isLoaded, isSignedIn } = useAuth();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
   return (
     <>
       {/* Navigation Bar */}
-      <div className="z-100 w-full fixed">
-        <div className="flex justify-center items-center pt-6 pb-4 md:pt-8 relative z-40">
+      <div className="z-50 w-full fixed">
+        <div className="flex justify-center items-center pt-6 pb-4 md:pt-8">
           <motion.section
             className="bg-[#b5a1e02f] w-[90%] backdrop-blur-sm max-w-[1200px] shadow-xl/30 h-[60px] md:h-[70px] min-[760px]:max-[800px]:h-[50px] min-[800px]:max-[1000px]:h-[50px] flex justify-between items-center rounded-[62px] px-4 md:px-8 min-[760px]:max-[800px]:px-4 min-[800px]:max-[1000px]:px-4 ring-1 ring-[#ffffff75]"
             initial="hidden"
@@ -42,22 +40,37 @@ const Nav: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden  md:flex justify-around items-center gap-8 min-[760px]:max-[800px]:gap-4 min-[800px]:max-[1000px]:gap-4 flex-1 px-8 min-[760px]:max-[800px]:px-4 min-[800px]:max-[1000px]:px-4">
-              {navItems.map((item) => {
-                const isRegister = item.label === "Register";
-                const href = user && isRegister ? "/profile" : item.path;
-                const label = user && isRegister ? "My Profile" : item.label;
-                return (
+            <div className="hidden md:flex justify-around items-center gap-8 min-[760px]:max-[800px]:gap-4 min-[800px]:max-[1000px]:gap-4 flex-1 px-8 min-[760px]:max-[800px]:px-4 min-[800px]:max-[1000px]:px-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  className="text-lg lg:text-xl min-[760px]:max-[800px]:text-sm min-[800px]:max-[1000px]:text-sm text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-110 hoverable"
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <div>
+                {isLoaded && isSignedIn ? (
+                  <UserButton
+                    appearance={{
+                      elements: {
+                        avatarBox:
+                          "w-10 h-10 rounded-full border border-white/40 hover:scale-110 transition-all cursor-pointer",
+                        },
+                      }}
+                    />
+                  ) : (
                   <Link
-                    key={item.path}
-                    href={item.path}
+                    href="/sign-in"
                     className="text-lg lg:text-xl min-[760px]:max-[800px]:text-sm min-[800px]:max-[1000px]:text-sm text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-110 hoverable"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                   >
-                    {label}
+                    Sign In
                   </Link>
-                );
-              })}
+                )}
+              </div>
             </div>
 
             {/* Hamburger Menu for Mobile */}
@@ -87,36 +100,53 @@ const Nav: React.FC = () => {
       </div>
 
       {/* Mobile Menu Dropdown */}
-      <motion.div
-        className="md:hidden fixed top-[90px] left-1/2 -translate-x-1/2 w-[90%] max-w-[600px] bg-[#b5a1e015] backdrop-blur-md rounded-2xl overflow-hidden z-40 ring-1 ring-[#ffffff75]"
-        initial="closed"
-        animate={isMenuOpen ? "open" : "closed"}
-        variants={menuVariants}
-        style={{
-          pointerEvents: isMenuOpen ? "auto" : "none",
-          visibility: isMenuOpen ? "visible" : "hidden",
-        }}
-      >
-        {/* Changed from "hidden md:flex" to "flex flex-col" */}
-        <div className="flex flex-col items-center gap-6 py-6 px-4">
-          {navItems.map((item) => {
-            const isRegister = item.label === "Register";
-            const href = user && isRegister ? "/profile" : item.path;
-            const label = user && isRegister ? "My Profile" : item.label;
-            return (
-              <Link
-                key={item.path}
-                href={href}
-                onClick={toggleMenu}
-                className="text-lg text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-110 hoverable w-full text-center"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                {label}
-              </Link>
-            );
-          })}
+     <motion.div
+      className="md:hidden fixed top-[90px] left-1/2 -translate-x-1/2 w-[90%] max-w-[600px] bg-[#b5a1e015] backdrop-blur-md rounded-2xl overflow-hidden z-40 ring-1 ring-[#ffffff75]"
+      initial="closed"
+      animate={isMenuOpen ? "open" : "closed"}
+      variants={menuVariants}
+      style={{
+        pointerEvents: isMenuOpen ? "auto" : "none",
+        visibility: isMenuOpen ? "visible" : "hidden",
+      }}
+    >
+      <div className="flex flex-col items-center gap-6 py-6 px-4">
+        {/* ✅ Navigation Links */}
+        {navItems.map((item) => (
+          <Link
+            key={item.path}
+            href={item.path}
+            onClick={toggleMenu}
+            className="text-lg text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-110 hoverable w-full text-center"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            {item.label}
+          </Link>
+        ))}
+
+        {/* ✅ UserButton or Sign Up Button */}
+        <div className="mt-4">
+          {isSignedIn ? (
+            <UserButton
+              appearance={{
+                elements: {
+                  avatarBox:
+                    "w-12 h-12 rounded-full border border-white/40 hover:scale-110 transition-all cursor-pointer",
+                },
+              }}
+            />
+          ) : (
+            <Link
+              href="/sign-up"
+              onClick={toggleMenu}
+              className="bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-purple-200 transition-all duration-300"
+            >
+              Sign Up
+            </Link>
+          )}
         </div>
-      </motion.div>
+      </div>
+    </motion.div>
     </>
   );
 };

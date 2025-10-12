@@ -53,8 +53,8 @@ export async function POST(req: NextRequest) {
     ]);
 
     const [idCardResult, paymentResult] = await Promise.all([
-      uploadFile(idCardBuffer, "vriddhhi", `id card_${transaction_id}`), //change the foldername accordingly..
-      uploadFile(paymentBuffer, "vriddhhi", `payment ss_${transaction_id}`),
+      uploadFile(idCardBuffer, "Innovision", `id card_${transaction_id}`), //change the foldername accordingly..
+      uploadFile(paymentBuffer, "Innovision", `payment ss_${transaction_id}`),
     ]);
 
     if (!idCardResult || !paymentResult) {
@@ -76,7 +76,6 @@ export async function POST(req: NextRequest) {
       whatsappNumber: formdata.get("whatsappNumber")?.toString() || "",
       gender: formdata.get("gender")?.toString() || "",
       idcardurl: idCardResult.secure_url || "",
-      foodPreference: formdata.get("foodPreference")?.toString() || "",
       email: formdata.get("email")?.toString() || "",
     };
 

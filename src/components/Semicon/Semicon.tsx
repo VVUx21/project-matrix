@@ -4,23 +4,11 @@ import React from "react";
 import Image from "next/image";
 import { neue, spaceGrotesk } from "@/fonts";
 
-const BG_IMAGE_URL = "https://res.cloudinary.com/dhkfjehat/image/upload/v1760045250/polis_4x_ndfluv.png";
 const POSTER_URL = "https://res.cloudinary.com/dhkfjehat/image/upload/v1760044177/f8c79c8fa74c05116f758c60e44d6fd3b3c3a8b1_g8iglv.png";
 
 const Semicon: React.FC = () => {
   return (
     <section className="relative w-full overflow-hidden min-h-[120vh] xl:min-h-[130vh]">
-      {/* Background image */}
-      <Image
-        src={BG_IMAGE_URL}
-        fill
-        priority
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none select-none object-cover object-center"
-        style={{ zIndex: 10 }}
-      />
-
       <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 xl:px-10 py-16 sm:py-20 xl:py-28">
         <h1
           className={`text-center text-4xl sm:text-7xl xl:text-7xl 2xl:text-7xl leading-tight tracking-tight drop-shadow text-white mb-10 xl:mb-16 ${neue.className}`}

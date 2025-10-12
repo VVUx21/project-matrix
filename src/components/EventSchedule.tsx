@@ -1,164 +1,11 @@
-<<<<<<< HEAD
-'use client';
-import Image from 'next/image';
-import LightRays from './LightRays';
-import { useEffect, useState } from 'react';
-import { neue } from '@/fonts' 
-import { spaceGrotesk } from '@/fonts';
- 
-
-type EventItem = {
-  time: string;
-  title: string;
-  venue: string;
-  description: string;
-};
-=======
 "use client";
 import Image from "next/image";
-import { useState } from "react";
->>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
+import LightRays from "./LightRays";
+import { useEffect, useState } from "react";
+import { neue } from "@/fonts";
+import { spaceGrotesk } from "@/fonts";
+import { DayKey,DATA,EventItem } from "../config/EventSchedule/data";
 
-type DayKey = "day1" | "day2" | "day3";
-
-const DATA: Record<DayKey, EventItem[]> = {
-  day1: [
-<<<<<<< HEAD
-    { time: '5:00 PM – 8:00 PM', title: 'Shake it off', venue: 'LA – 204', description: '' },
-    { time: '10:00 PM – 2:00 AM', title: 'Stellar Night', venue: 'EE Building', description: '' },
-    { time: '3:45 PM – 4:30 PM', title: 'Drone Exhibition', venue: 'B.B.A.', description: '' },
-    { time: '3:00 PM – 7:00 PM', title: 'Robo Sumo War', venue: 'Basketball Court', description: '' },
-    { time: '4:00 PM – 6:30 PM', title: 'Imagine AI', venue: 'LA – 214', description: '' },
-    { time: '4:00 PM – 5:30 PM', title: 'PSI-PHI', venue: 'LA – 104', description: '' },
-    { time: '3:00 PM – 5:00 PM', title: 'Hoop Frenzy', venue: 'S.T.S.', description: '' },
-    { time: 'After 3:00 PM', title: 'Origami Rush', venue: 'S.T.S.', description: '' },
-    { time: 'After 3:00 PM', title: 'Speed Surge', venue: 'S.T.S.', description: '' },
-    { time: 'After 3:00 PM', title: 'ELECTRIFIED', venue: 'S.T.S.', description: '' },
-    { time: '6:00 PM – 7:45 PM', title: 'EUPHONY LIVE', venue: 'D.T.S.', description: '' },
-    { time: '8:00 PM – 10:00 PM', title: 'DRILL N BASS LIVE', venue: 'D.T.S.', description: '' },
-=======
-    { time: "TIME", title: "EVENT 1" },
-    { time: "TIME", title: "EVENT 2" },
-    { time: "TIME", title: "EVENT 3" },
-    { time: "TIME", title: "EVENT 4" },
-    { time: "TIME", title: "EVENT 5" },
->>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
-  ],
-
-  day2: [
-<<<<<<< HEAD
-    { time: '9:00 AM – 2:00 PM',  title: 'Campus Survival VR', venue: 'LA – 114', description: '' },
-    { time: '9:00 AM – 11:30 AM', title: 'Sci Saviour',         venue: 'LA – 214', description: '' },
-    { time: '9:00 AM – 11:00 AM', title: 'Mini Chassis Making', venue: 'LA – 201', description: '' },
-    { time: '9:00 AM – 6:00 PM',  title: 'DEATH RACE',          venue: 'S.A.C.',   description: '' },
-    { time: '9:00 AM – 12:00 NOON', title: 'TURBOGEN-X',        venue: 'LA – 117', description: '' },
-    { time: '9:30 AM – 1:00 PM',  title: 'Prompt Engineering',  venue: 'LA – 101', description: '' },
-    { time: '9:30 AM – 12:30 PM', title: 'Simulating Solutions (R-1)', venue: 'LA – 104', description: '' },
-    { time: '10:00 AM – 12:00 NOON', title: 'Fish Eye',         venue: 'LA – 217', description: '' },
-    { time: '10:00 AM – 1:00 PM', title: 'Virtual Racing Simulator', venue: 'LA – 204', description: '' },
-    { time: '11:00 AM',           title: 'HRITHIK MEHLAWAT',    venue: 'B.B.A.',   description: '' },
-    { time: '1:00 PM – 3:00 PM',  title: 'Brainboxed 2.0',      venue: 'LA – 104', description: '' },
-    { time: '1:00 PM – 4:00 PM',  title: '3D Printing Workshop', venue: 'P.P.A.',  description: '' },
-
-    { time: '1:30 PM – 4:30 PM',  title: 'ElectroQuest',        venue: 'LA – 101', description: '' },
-    { time: '1:30 PM – 3:00 PM',  title: 'Roadies Food Saga 2.0', venue: 'LA – 201', description: '' },
-    { time: '2:00 PM – 6:00 PM',  title: 'Meteor Madness',      venue: 'LA – 204', description: '' },
-    { time: '2:00 PM – 5:00 PM',  title: 'Aeroprix',            venue: 'S.T.S.',   description: '' },
-    { time: '2:00 PM – 3:30 PM',  title: 'MateriaXplore',       venue: 'LA – 217', description: '' },
-    { time: '2:30 PM',            title: 'RIYA UPRETI',         venue: 'B.B.A.',   description: '' },
-    { time: '3:00 PM – 5:00 PM',  title: 'OMEGA',               venue: 'LA Lawns', description: '' },
-    { time: '3:30 PM – 5:30 PM',  title: 'Simulating Solutions (R-2)', venue: 'LA – 104', description: '' },
-    { time: '4:00 PM – 6:00 PM',  title: "NITR'S GOT LATENT",   venue: 'LA – 201', description: '' },
-    { time: '5:00 PM – 6:00 PM',  title: 'MateriaTech Quest',   venue: 'LA – 217', description: '' },
-    { time: '3:00 PM – 7:00 PM',  title: 'Robo Sumo War',       venue: 'Basketball Court', description: '' },
-
-    { time: '3:30 PM',            title: 'BHANU PATHAK',        venue: 'B.B.A.',   description: '' },
-    { time: '10:00 PM – 2:00 AM', title: 'Stellar Night',       venue: 'EE Building', description: '' },
-    { time: 'ALL DAY',            title: 'MAZEHUNT',            venue: 'L.A. Cycle Parking', description: '' },
-    { time: 'Till 3:00 PM',       title: 'ROTAOLYMPICS',        venue: 'G.D.B. / B.B. Court', description: '' },
-    { time: '3:00 PM – 6:00 PM',  title: 'The Amazing Race',    venue: 'S.T.S.',   description: '' },
-    { time: '11:00 AM – 4:00 PM', title: 'Escape Room 2.0',     venue: 'S.T.S.',   description: '' },
-    { time: '5:30 PM',            title: 'RAJAT CHAUHAN',       venue: 'B.B.A.',   description: '' },
-    { time: '3:00 PM – 5:00 PM',  title: 'Hoop Frenzy',         venue: 'N.C.C. Ground', description: '' },
-    { time: 'ALL DAY',            title: 'Origami Rush',        venue: 'N.C.C. Ground', description: '' },
-    { time: 'ALL DAY',            title: 'Speed Surge',         venue: 'N.C.C. Ground', description: '' },
-    { time: '10:00 AM – 1:00 PM', title: 'Fun Fusion',          venue: 'LA – 101', description: '' },
-    { time: 'ALL DAY',            title: 'ELECTRIFIED',         venue: 'N.C.C. Ground', description: '' },
-
-    { time: '3:45 PM – 4:30 PM',  title: 'Drone Exhibition',    venue: 'B.B.A.',   description: '' },
-    { time: '12:00 NOON – 9:00 PM', title: 'IRIDESCENCE',       venue: 'R.M. Hall Lawns', description: '' },
-    { time: 'ALL DAY',            title: 'Radiance',            venue: 'R.M. Hall', description: '' },
-    { time: 'ALL DAY',            title: 'SRIJAN',              venue: 'R.M. Hall', description: '' },
-    { time: 'ALL DAY',            title: 'Little Science Yard', venue: 'CH Dept. Parking', description: '' },
-    { time: '7:00 PM – 7:20 PM',  title: 'MAVERICKS',           venue: 'D.T.S.',   description: '' },
-    { time: '7:30 PM – 8:00 PM',  title: 'SYNERGY',             venue: 'D.T.S.',   description: '' },
-    { time: '8:00 PM – 10:00 PM', title: 'LASER SHOW',          venue: 'D.T.S.',   description: '' },
-=======
-    { time: "TIME", title: "EVENT 6" },
-    { time: "TIME", title: "EVENT 7" },
-    { time: "TIME", title: "EVENT 8" },
-    { time: "TIME", title: "EVENT 9" },
-    { time: "TIME", title: "EVENT 10" },
->>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
-  ],
-
-  day3: [
-<<<<<<< HEAD
-    { time: '2:00 PM – 5:00 PM',  title: 'Intelligent Trader 10.0', venue: 'LA – 114', description: '' },
-    { time: '10:00 AM – 12:00 NOON', title: 'Business Pictionary', venue: 'LA – 114', description: '' },
-    { time: 'ALL DAY',            title: 'Campus Survival VR',  venue: 'LA – 204', description: '' },
-    { time: '9:00 AM – 11:00 AM', title: 'OPENCHASE',           venue: 'LA – 104', description: '' },
-    { time: '9:00 AM – 6:00 PM',  title: 'DEATHRACE',           venue: 'S.A.C.',   description: '' },
-    { time: '9:30 AM – 11:30 AM', title: 'Molecular Mania',     venue: 'LA – 117', description: '' },
-    { time: '10:00 AM – 12:00 NOON', title: 'MatriaXplore',     venue: 'LA – 201', description: '' },
-    { time: '10:00 AM – 6:30 PM', title: 'Imagine AI',          venue: 'LA – 004', description: '' },
-    { time: '10:00 AM – 12:00 NOON', title: 'IPL AUCTION (R-1)', venue: 'LA – 214, 317', description: '' },
-    { time: '10:30 AM – 1:00 PM', title: 'STRIVER',             venue: 'B.B.A.',   description: '' },
-    { time: '3:30 PM – 5:30 PM',  title: 'Shark Hunt',          venue: 'LA – 201', description: '' },
-    { time: '11:00 AM – 12:00 NOON', title: 'Beyond the Basics', venue: 'LA – 114', description: '' },
-
-    { time: '11:30 AM Onwards',   title: 'Era of Estates',      venue: 'LA – 104', description: '' },
-    { time: '11:00 AM – 2:00 PM', title: 'ElectroQuest',        venue: 'LA – 101', description: '' },
-    { time: '11:00 AM – 2:00 PM', title: 'Brainboxed 2.0',      venue: 'LA – 217', description: '' },
-    { time: '12:30 PM – 5:30 PM', title: 'IPL AUCTION (R-2)',   venue: 'LA – 317', description: '' },
-    { time: '1:00 PM – 3:00 PM',  title: 'Workshop – 1',        venue: 'P.P.A.',   description: '' },
-    { time: '1:00 PM – 3:00 PM',  title: "NITR'S GOT LATENT",   venue: 'LA – 201', description: '' },
-    { time: '3:30 PM – 5:00 PM',  title: 'Webclone Mania',      venue: 'LA – 214', description: '' },
-    { time: '2:00 PM – 5:00 PM',  title: 'JNANAGNI',            venue: 'LA – 217', description: '' },
-    { time: '4:00 PM – 5:30 PM',  title: 'HITEN LULLA',         venue: 'B.B.A.',   description: '' },
-    { time: '3:00 PM – 5:30 PM',  title: 'Brainy Escape',       venue: 'LA – 101, 104, 117', description: '' },
-    { time: '1:30 PM – 3:00 PM',  title: 'Simulating Solution', venue: 'CHEM Dept.', description: '' },
-    { time: 'After 3:00 PM',      title: 'HUSTLEMANIA',         venue: 'LA Lawns', description: '' },
-
-    { time: '3:30 PM – 5:30 PM',  title: 'DR. GAJENDRA PUROHIT', venue: 'B.B.A.', description: '' },
-    { time: '4:00 PM – 7:00 PM',  title: 'HoverMania',          venue: 'B.B. Court', description: '' },
-    { time: 'ALL DAY',            title: 'Maze Hunt',           venue: 'L.A. Cycle Parking', description: '' },
-    { time: '3:00 PM – 6:00 PM',  title: 'ROTAOLYMPICS',        venue: 'G.D.B. / B.B. Court', description: '' },
-    { time: '10:00 PM – 2:00 AM', title: 'IMPROMPTU',           venue: 'LA – 009', description: '' },
-    { time: '3:45 PM – 4:30 PM',  title: 'CYCLOTHON',           venue: 'Jagda Gate', description: '' },
-    { time: '3:00 PM – 7:00 PM',  title: 'LEO Slow Cycling',    venue: 'S.T.S.', description: '' },
-    { time: '4:00 PM – 6:30 PM',  title: 'Hoop Frenzy',         venue: 'S.T.S.', description: '' },
-    { time: '4:00 PM – 5:30 PM',  title: 'Origami Rush',        venue: 'S.T.S.', description: '' },
-    { time: '3:00 PM – 5:00 PM',  title: 'Speed Surge',         venue: 'S.T.S.', description: '' },
-    { time: 'ALL DAY',            title: 'ELECTRIFIED',         venue: 'S.T.S.', description: '' },
-    { time: '3:00 PM Onwards',    title: 'RADIANCE',            venue: 'R.M. Hall', description: '' },
-
-    { time: '3:00 PM Onwards',    title: 'SRIJAN',              venue: 'R.M. Hall', description: '' },
-    { time: '12:00 NOON – 9:00 PM', title: 'IRIDESCENCE',       venue: 'R.M. Hall Lawns', description: '' },
-    { time: '4:00 PM Onwards',    title: 'Car Show',            venue: 'S.T.S.', description: '' },
-    { time: '6:00 PM – 7:30 PM',  title: 'HEARTBEATS',          venue: 'D.T.S.', description: '' },
-    { time: '8:00 PM – 10:00 PM', title: 'Beatdrop Fiesta with NISCHIT', venue: 'D.T.S.', description: '' },
-=======
-    { time: "TIME", title: "EVENT 11" },
-    { time: "TIME", title: "EVENT 12" },
-    { time: "TIME", title: "EVENT 13" },
-    { time: "TIME", title: "EVENT 14" },
-    { time: "TIME", title: "EVENT 15" },
->>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
-  ],
-};
-
-/* ------------------------- Carousel helper ------------------------- */
 function EventCarousel({
   day,
   events,
@@ -224,26 +71,27 @@ function EventCarousel({
                 aria-haspopup="dialog"
               >
                 <span
-  className={`
-    ${spaceGrotesk.className}  // Add this
-    inline-flex items-center justify-center
-    text-[10px] sm:text-xs font-extrabold tracking-wider
-    px-2.5 sm:px-3 py-1.5 rounded-full
-    bg-gradient-to-b from-[#4a2c92]/70 to-[#1c0f47]/90
-    text-white
-    shadow-[inset_0_0_2px_rgba(255,255,255,0.25),0_0_8px_rgba(124,58,237,0.25)]
-    border border-[#7c3aed]/30
-    backdrop-blur-[6px]
-    transition-all duration-300
-  `}
->
+                  className={`
+                    ${spaceGrotesk.className}  // Add this
+                    inline-flex items-center justify-center
+                    text-[10px] sm:text-xs font-extrabold tracking-wider
+                    px-2.5 sm:px-3 py-1.5 rounded-full
+                    bg-gradient-to-b from-[#4a2c92]/70 to-[#1c0f47]/90
+                    text-white
+                    shadow-[inset_0_0_2px_rgba(255,255,255,0.25),0_0_8px_rgba(124,58,237,0.25)]
+                    border border-[#7c3aed]/30
+                    backdrop-blur-[6px]
+                    transition-all duration-300
+                  `}
+                >
                   {ev.time}
                 </span>
-                <div   className={`
-    ${spaceGrotesk.className}  // Add this
-    text-sm sm:text-lg md:text-xl font-semibold tracking-wide text-white/90
-  `}
->
+                <div
+                  className={`
+                    ${spaceGrotesk.className}  // Add this
+                    text-sm sm:text-lg md:text-xl font-semibold tracking-wide text-white/90
+                  `}
+                >
                   {ev.title}
                 </div>
               </button>
@@ -259,9 +107,11 @@ function EventCarousel({
             key={i}
             className={`
               mx-1 w-2.5 h-2.5 rounded-full transition-all duration-300
-              ${i === index
-                ? 'bg-white scale-110 shadow-[0_0_8px_rgba(6,182,212,0.8)]'
-                : 'bg-cyan-700/40'}
+              ${
+                i === index
+                  ? "bg-white scale-110 shadow-[0_0_8px_rgba(6,182,212,0.8)]"
+                  : "bg-cyan-700/40"
+              }
             `}
           />
         ))}
@@ -272,11 +122,8 @@ function EventCarousel({
   );
 }
 
-
-/* ----------------------------- Page ----------------------------- */
 export default function EventSchedule() {
-<<<<<<< HEAD
-  const [day, setDay] = useState<DayKey>('day1');
+  const [day, setDay] = useState<DayKey>("day1");
   const [open, setOpen] = useState<{ day: DayKey; index: number } | null>(null);
 
   // === NEW: control when the carousel is allowed to run (after loader) ===
@@ -286,18 +133,18 @@ export default function EventSchedule() {
     const start = () => setCarouselActive(true);
 
     // If your loader sets a global flag, respect it
-    if (typeof window !== 'undefined' && (window as any).__LOADER_DONE__) {
+    if (typeof window !== "undefined" && (window as any).__LOADER_DONE__) {
       start();
     }
 
     // Or dispatch a custom event when loader hides:
     // window.dispatchEvent(new Event('app:ready'))  OR  new Event('loader:done')
-    window.addEventListener('app:ready', start as EventListener);
-    window.addEventListener('loader:done', start as EventListener);
+    window.addEventListener("app:ready", start as EventListener);
+    window.addEventListener("loader:done", start as EventListener);
 
     return () => {
-      window.removeEventListener('app:ready', start as EventListener);
-      window.removeEventListener('loader:done', start as EventListener);
+      window.removeEventListener("app:ready", start as EventListener);
+      window.removeEventListener("loader:done", start as EventListener);
     };
   }, []);
 
@@ -307,10 +154,10 @@ export default function EventSchedule() {
   // Close on ESC
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(null);
+      if (e.key === "Escape") setOpen(null);
     };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   const currentList = DATA[day];
@@ -318,9 +165,6 @@ export default function EventSchedule() {
     open && DATA[open.day] && DATA[open.day][open.index]
       ? DATA[open.day][open.index]
       : null;
-=======
-  const [day, setDay] = useState<DayKey>("day1");
->>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
 
   return (
     <div
@@ -396,7 +240,6 @@ export default function EventSchedule() {
         style={{ objectPosition: "center top" }}
       />
 
-<<<<<<< HEAD
       {/* Rays */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <LightRays
@@ -414,8 +257,6 @@ export default function EventSchedule() {
       </div>
 
       {/* Rover / Illustration */}
-=======
->>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
       <Image
         src="https://res.cloudinary.com/dtis6vqc5/image/upload/v1760044376/Group_1430102941_hbrvqf.svg"
         alt="rover"
@@ -423,17 +264,10 @@ export default function EventSchedule() {
         height={500}
         priority
         className="
-<<<<<<< HEAD
           pointer-events-none select-none absolute right-[15vw] bottom-[2vh] z-20  
           md:w-[25vw] lg:w-[25vw] xl:w-[30vw] max-w-[300px] h-auto object-contain jellyfish-bounce 
           max-[768px]:hidden
         "
-=======
-pointer-events-none select-none absolute right-[15vw] bottom-[2vh] z-20  
- md:w-[25vw] lg:w-[25vw] xl:w-[30vw] max-w-[300px] h-auto object-contain jellyfish-bounce 
-max-[768px]:hidden
-"
->>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
       />
 
       {/* Main card */}
@@ -444,27 +278,14 @@ max-[768px]:hidden
           max-w-[950px] min-[2560px]:max-w-[1100px] min-[3840px]:max-w-[1300px]
         "
       >
-<<<<<<< HEAD
-          <h2 className={`
-        ${neue.className}
-        text-center uppercase font-bold neon-heading
-        text-2xl sm:text-3xl md:text-3xl lg:text-4xl
-        2xl:text-6xl min-[1920px]:text-7xl min-[2560px]:text-8xl min-[3840px]:text-9xl
-        leading-tight tracking-[0.08em]
-      `}>
-=======
-        <h2
-          className="
-            text-center uppercase font-bold neon-heading
-            text-2xl
-            sm:text-4xl md:text-5xl lg:text-5xl
-            2xl:text-7xl min-[1920px]:text-7xl min-[2560px]:text-8xl min-[3840px]:text-9xl
-            leading-tight tracking-[0.08em]
-          "
+        <h1
+          className={`text-4xl ${neue.className} sm:text-4xl md:text-7xl lg:text-7xl font-bold  text-white text-center mb-12 mt-12 md:mb-12 lg:mb-16 `}
+          style={{
+            textShadow: "0 0 30px rgba(255,255,255,0.7)",
+          }}
         >
->>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
-          Events Schedule
-        </h2>
+          EVENT SCHEDULE
+        </h1>
 
         <div
           className="
@@ -503,34 +324,16 @@ max-[768px]:hidden
                   role="tab"
                   aria-selected={active}
                   onClick={() => setDay(key as DayKey)}
-<<<<<<< HEAD
-  className={`
-    ${spaceGrotesk.className}  // Add this
-    rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-sm
-    font-bold tracking-wider transition-all duration-300
-    ${
-      active
-        ? 'text-cyan-100 bg-gradient-to-br from-[#3b0b78]/60 to-[#1b004b]/80 ring-1 ring-violet-400/60 shadow-[0_0_18px_rgba(139,92,246,0.45)]'
-        : 'text-cyan-300/80 bg-[#1a0b2e]/60 hover:bg-[#2b0d50]/70 hover:text-cyan-100 hover:shadow-[0_0_12px_rgba(139,92,246,0.25)]'
-    }
-  `}
->
-=======
                   className={`
-                    rounded-full
-                    px-3 sm:px-4
-                    py-1.5
-                    text-xs sm:text-sm
-                    font-semibold tracking-wider
-                    transition-all duration-200
-                    ${
-                      active
-                        ? "text-cyan-200 bg-cyan-500/10 ring-1 ring-cyan-400/50 shadow-[0_0_18px_rgba(6,182,212,0.35)]"
-                        : "text-cyan-300/70 hover:text-cyan-200 hover:bg-white/5"
-                    }
-                  `}
-                >
->>>>>>> ab7a0474d16f43d7d83ddb5350fc35b6f8d80312
+                  ${spaceGrotesk.className}  // Add this
+                  rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-sm
+                  font-bold tracking-wider transition-all duration-300
+                  ${
+                    active
+                      ? "text-cyan-100 bg-gradient-to-br from-[#3b0b78]/60 to-[#1b004b]/80 ring-1 ring-violet-400/60 shadow-[0_0_18px_rgba(139,92,246,0.45)]"
+                      : "text-cyan-300/80 bg-[#1a0b2e]/60 hover:bg-[#2b0d50]/70 hover:text-cyan-100 hover:shadow-[0_0_12px_rgba(139,92,246,0.25)]"
+                  }
+                `}>
                   {label}
                 </button>
               );

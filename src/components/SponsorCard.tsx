@@ -78,7 +78,7 @@ function SponsorMarquee({ sponsors }: { sponsors: typeof MainSponsors }) {
             alt={sponsor.name}
             width={200}
             height={140}
-            className="w-[80px] h-[100px] sm:w-[20px] md:w-[80px] lg:w-[100px] md:h-[250px] xl:h-[275px] xl:w-[100px] 2xl:h-[300px] 2xl:w-[250px] sm:4 md:mx-6 lg:mx-8 object-contain"
+            className="w-[9vw] h-[9vw] sm:4 md:mx-6 lg:mx-8 object-contain"
           />
         </div>
       ))}
@@ -95,8 +95,8 @@ function MobileSponsorMarquee({ sponsors }: { sponsors: typeof MainSponsors }) {
           <Image
             src={sponsor.logo}
             alt={sponsor.name}
-            width={200}
-            height={140}
+            width={0}
+            height={0}
             className="w-[100px] h-[60px] md:w-[200px] md:h-[250px] xl:h-[275px] xl:w-[225px] 2xl:h-[300px] 2xl:w-[250px] mx-2 object-contain"
           />
         </div>
@@ -107,7 +107,7 @@ function MobileSponsorMarquee({ sponsors }: { sponsors: typeof MainSponsors }) {
 
 export default function SponsorCard() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden">
+    <div id="sponsors" className="relative min-h-screen w-full overflow-hidden">
       <style
         dangerouslySetInnerHTML={{
           __html: `
@@ -142,7 +142,7 @@ export default function SponsorCard() {
         </h1>
 
         {/* **************************** Main Sponsors ********************************* */}
-        <div className="h-[12vh] sm:h-[14vh] md:h-[16vh] lg:h-[18vh] xl:h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-8 md:p-8 border my-4 border-white/20 flex flex-col justify-center">
+        <div className="h-[12vh] sm:h-[14vh] md:h-[16vh] lg:h-[18vh] xl:h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-[3vw] lg:px-[1vw] border my-4 border-white/20 flex flex-col justify-center">
           <div className=" xl:p-2 2xl:p-4">
             <div className="hidden md:block">
               <SponsorMarquee sponsors={MainSponsors} />
@@ -155,7 +155,7 @@ export default function SponsorCard() {
 
         {/* **************************** Food Sponsors ********************************* */}
         <div
-          className={` ${neue.className} text-white rounded-[60px] md:rounded-[95px] p-3 md:p-4 flex flex-col justify-center`}
+          className={` ${neue.className} text-white rounded-[60px] md:rounded-[95px] p-3 flex flex-col justify-center`}
           style={{
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
           }}
@@ -163,7 +163,7 @@ export default function SponsorCard() {
           FOOD SPONSORS
         </div>
 
-        <div className="h-[12vh] sm:h-[14vh] md:h-[16vh] lg:h-[18vh] xl:h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-8 md:p-8 border my-4 border-white/20 flex flex-col justify-center">
+        <div className="h-[12vh] sm:h-[14vh] md:h-[16vh] lg:h-[18vh] xl:h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-[3vw] lg:px-[1vw] border my-4 border-white/20 flex flex-col justify-center">
           <div className=" xl:p-2 2xl:p-4">
             <div className="hidden md:block">
               <SponsorMarquee sponsors={FoodSponsors} />
@@ -176,7 +176,7 @@ export default function SponsorCard() {
 
         {/* **************************** Media Sponsors ********************************* */}
         <div
-          className={`${neue.className} text-white  p-3 md:p-4 flex flex-col justify-center`}
+          className={`${neue.className} text-white  p-3 flex flex-col justify-center`}
           style={{
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
           }}
@@ -184,7 +184,7 @@ export default function SponsorCard() {
           MEDIA SPONSORS
         </div>
 
-        <div className="h-[12vh] sm:h-[14vh] md:h-[16vh] lg:h-[18vh] xl:h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-8 md:p-8 border my-4 border-white/20 flex flex-col justify-center">
+        <div className="h-[12vh] sm:h-[14vh] md:h-[16vh] lg:h-[18vh] xl:h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-[3vw] lg:px-[1vw] border my-4 border-white/20 flex flex-col justify-center">
           <div className=" xl:p-2 2xl:p-4">
             <div className="hidden md:block">
               <SponsorMarquee sponsors={MediaSponsors} />

@@ -28,7 +28,7 @@ export default function AboutUs() {
       "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759462230/dottt2_wq3igi.svg",
     fish: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759488567/fish_2_bgvurv.svg",
     robot:
-      "https://res.cloudinary.com/dbdkg7fik/image/upload/v1759857847/Group_1430102937_bgflay.png",
+      "https://res.cloudinary.com/dtis6vqc5/image/upload/v1760044376/Group_1430102941_hbrvqf.svg",
   };
 
   const dotsPositions = [
@@ -234,7 +234,7 @@ export default function AboutUs() {
             <div className=" relative md:py-7 py-5  font-normal md:text-base lg:text-lg text-sm  lg:leading-[36px] md:leading-[25px] leading-[18px] text-center text-white z-40">
               Innovision, NIT Rourkela's annual techno-management fest and one
               of the largest fests in Eastern India, is a highly anticipated
-              event scheduled from 8th to 10th November 2024, which aims to
+              event scheduled from 7th to 9th November 2024, which aims to
               captivate and engage science and technology enthusiasts throughout
               India. Join Innovision as we connect with the brightest minds in
               technology and innovation and spark creativity and collaboration,
