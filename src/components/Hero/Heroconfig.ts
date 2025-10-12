@@ -111,12 +111,6 @@ export const navItems = [
     path: "/event#gallery",
     class:
       "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
-  },
-  {
-    label: "Contact us",
-    path: "#footer",
-    class:
-      "text-lg lg:text-xl text-[#ffffff] font-light hover:text-gray-200 transition-colors hoverable",
   }
 ] as const;
 
@@ -136,7 +130,6 @@ export const imageSources = {
     "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759327035/bubble_wvbvgh.svg",
 };
 
-// Text content
 export const textContent = {
   number: "25",
   buttonText: "Register",
@@ -146,7 +139,7 @@ export const textContent = {
     "Where Oceans Meet ",
     "Innovation",
   ],
-  src: "/register",
+  src: "/sign-up",
 };
 
 export const lightRaysConfig = {

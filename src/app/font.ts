@@ -17,3 +17,4 @@ export const spirits = Inter({
   subsets: ['latin'],
   display: 'swap',
 });
+

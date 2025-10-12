@@ -3,20 +3,13 @@ import Image from "next/image";
 import localFont from "next/font/local";
 import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import {
+  neueMetana, neueMetanaSemi, spaceGrotesk
+} from "../../../fonts/index";
 
-const neue = localFont({
-  src: "../../fonts/NeueMetana-Bold.otf",
-  variable: "--font-neue",
-  weight: "400",
-  style: "normal",
-});
-
-const altFont = localFont({
-  src: "../../fonts/SpaceGrotesk-Medium.ttf",
-  variable: "--font-alt",
-  weight: "400",
-  style: "normal",
-});
+const neue = neueMetana;
+const altFont = neueMetanaSemi;
+const spaceFont = spaceGrotesk;
 
 export default function Merch() {
   const merchGroups = [

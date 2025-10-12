@@ -76,7 +76,6 @@ export async function POST(req: NextRequest) {
       whatsappNumber: formdata.get("whatsappNumber")?.toString() || "",
       gender: formdata.get("gender")?.toString() || "",
       idcardurl: idCardResult.secure_url || "",
-      foodPreference: formdata.get("foodPreference")?.toString() || "",
       email: formdata.get("email")?.toString() || "",
     };
 
