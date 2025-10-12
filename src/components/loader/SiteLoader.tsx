@@ -4,20 +4,31 @@ import Loader from "@/components/loader/SiteLoad";
 import Image from "next/image";
 
 export default function SiteLoader(): React.ReactElement | null {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => {
+    // Only show loader on first visit in this session AND only if document is not already loaded
+    if (typeof window !== "undefined") {
+      const hasLoaded = sessionStorage.getItem("__app_loaded__");
+      const isAlreadyLoaded = document.readyState === "complete";
+      // Don't show loader if page already loaded or if we've shown it before
+      return !hasLoaded && !isAlreadyLoaded;
+    }
+    return true;
+  });
   const [audioAllowed, setAudioAllowed] = useState(true);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   // Matrix rain effect
   useEffect(() => {
-  if (!isLoading) {
-    // global flag
-    (window as any).__LOADER_DONE__ = true;
-    // custom events (your EventSchedule listens for these)
-    window.dispatchEvent(new Event('app:ready'));
-    window.dispatchEvent(new Event('loader:done'));
-  }
+    if (!isLoading) {
+      // Mark as loaded in session storage
+      sessionStorage.setItem("__app_loaded__", "true");
+      // global flag
+      (window as any).__LOADER_DONE__ = true;
+      // custom events (your EventSchedule listens for these)
+      window.dispatchEvent(new Event("app:ready"));
+      window.dispatchEvent(new Event("loader:done"));
+    }
 
     if (!isLoading) return;
 
