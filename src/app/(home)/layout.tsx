@@ -6,7 +6,6 @@ import Nav from "@/components/Hero/Nav";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 import FluidGlass from "@/components/Hero/FluidGlassCursor";
-import { FloatingChatbot } from "@/components/Chatbot";
 import SiteLoader from "@/components/loader/SiteLoader";
 import ClientOnly from "../../components/ClientOnly";
 
@@ -50,7 +49,6 @@ export default function RootLayout({
             <div className="hidden lg:block">
               <FluidGlass />
             </div>
-            <FloatingChatbot />
           </div>
         </body>
     </html>
