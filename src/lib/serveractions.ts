@@ -54,7 +54,6 @@ export async function createUserAndTransaction(data: {
     whatsappNumber: string;
     gender: string;
     idcardurl: string;
-    foodPreference: string;
     email: string;
   };
   transaction: {
@@ -83,7 +82,6 @@ export async function createUserAndTransaction(data: {
         whatsappNumber: userdata.whatsappNumber,
         gender: userdata.gender,
         idcardurl: userdata.idcardurl,
-        foodPreference: userdata.foodPreference,
         email: userdata.email,
         transaction: {
           create: {
@@ -120,7 +118,6 @@ function validateUserAndTransactionData(userdata: any, transaction: any) {
     whatsappNumber: "WhatsApp Number",
     gender: "Gender",
     idcardurl: "ID Card URL",
-    foodPreference: "Food Preference",
     email: "Email",
   };
 
