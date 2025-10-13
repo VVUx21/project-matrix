@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { neueMetana, neueMetanaSemi } from "@/fonts";
 import "./globals.css";
 
+import ClientOnly from "@/components/ClientOnly";
+import SiteLoader from "@/components/loader/SiteLoader";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -136,6 +139,10 @@ export default function RootLayout({
           suppressHydrationWarning={true}
           className={`${geistSans.variable} ${geistMono.variable} ${neueMetana.variable} ${neueMetanaSemi.variable} overflow-x-hidden antialiased`}
         >
+          <ClientOnly>
+            <SiteLoader></SiteLoader>
+          </ClientOnly>
+          
           {children}
         </body>
       </html>

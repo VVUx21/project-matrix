@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { neue, spaceGrotesk } from "@/fonts";
-
+import OdishaPolics from "./ui/OdishaPolics";
 const BG_URL =
   "https://res.cloudinary.com/dbdkg7fik/image/upload/v1760043843/Group_1430102940_1_eunn2m.png";
 
@@ -12,7 +12,7 @@ const LEFT_LOGO =
 const CROSS_LOGO =
   "https://res.cloudinary.com/dmcnewoxd/image/upload/e_background_removal/f_png/v1760124201/istockphoto-1371799737-612x612_xyxs8s.jpg";
 const RIGHT_LOGO =
-  "https://res.cloudinary.com/dbdkg7fik/image/upload/v1760040700/toppng.com-irb-police-logo-4-by-edward-odisha-police-logo-free-download-884x1019_1_xlhony.png";
+  "https://res.cloudinary.com/dmcnewoxd/image/upload/v1760360808/orissa_police_logo-01_dxonu7.png";
 
 const Police: React.FC = () => {
   return (
@@ -101,6 +101,13 @@ const Police: React.FC = () => {
             inspire transformation, and strengthen safety—on campus and beyond.
           </p>
           <p>Stay tuned... something BIG is on the horizon!</p>
+            
+      <div className="my-4 font-bold text-3xl pt-6">
+        Cash price worth 2lakh
+      </div>
+
+        <OdishaPolics/>
+      
         </div>
 
         {/* CTAs */}

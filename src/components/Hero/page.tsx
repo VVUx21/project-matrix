@@ -24,6 +24,10 @@ const Hero: React.FC = () => {
   const router = useRouter();
   const { isLoaded, isSignedIn} = useAuth();
 
+  const showComingSoonAlert = () => {
+    alert("Coming Soon! 🚀");
+  };
+
   useEffect(() => {
     if (!formopen) {
       document.body.style.cursor = "none";
@@ -182,7 +186,7 @@ const Hero: React.FC = () => {
                 variants={buttonVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={handleClick}
+                onClick={showComingSoonAlert}
               >
                 {textContent.buttonText}
               </motion.button>

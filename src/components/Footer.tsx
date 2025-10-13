@@ -15,8 +15,8 @@ const neue = localFont({
 export default function Footer() {
   const quickLinks = [
     { name: "Gallery", href: "/event#gallery" },
-    { name: "Sponsors", href: "#sponsers" },
-    { name: "About us", href: "#about-us" },
+    { name: "Sponsors", href: "/#sponsers" },
+    { name: "About us", href: "/#about-us" },
     { name: "Events", href: "/event" },
     { name: "Merch", href: "/merch" },
   ];
@@ -98,7 +98,7 @@ export default function Footer() {
                 <p>
                   <span className="font-semibold uppercase">NAME:</span> 987654321
                 </p>
-                <p>innonitr@gmail.com</p>
+                <p>technicalsocietynitrkl@gmail.com</p>
               </div>
 
               {/* Social Icons */}
@@ -154,13 +154,12 @@ export default function Footer() {
               <p
                 className={`text-sm lg:text-base leading-snug ${spaceGrotesk.className} text-gray-200`}
               >
-                Innovision 2025, the largest techno-cultural fest of Eastern
-                India organized by NIT Rourkela, is a celebration where
-                technology, creativity, and culture converge. With the theme
-                "Dive into the World of Water," this edition symbolizes depth,
-                exploration, and limitless imagination. Through thrilling
-                events, workshops, and showcases, Innovision 2025 provides a
-                vibrant platform for students.
+                Innovision 2025, the largest techno-management fest of Eastern India
+            organized by NIT Rourkela, is a celebration where technology,
+            creativity, and culture converge. With the theme "Dive into the
+            World of Water," this edition symbolizes depth, exploration, and
+            limitless imagination. Through thrilling events, workshops, and
+            showcases, Innovision 2025 provides a vibrant platform for students.
               </p>
             </div>
 
@@ -211,8 +210,11 @@ export default function Footer() {
                 <p>
                   <span className="font-semibold uppercase">Nimai Charan Das:</span> 6372390825
                 </p>
-                <Link href="mailto:innonitr@gmail.com" className="hover:text-purple-300 transition-all duration-200 hover:scale-110 transform inline-block">
-                  innonitr@gmail.com
+                <p>
+                  <span className="font-semibold uppercase">Subhasmita Prusty:</span>7077962125
+                </p>
+                <Link href="mailto:technicalsocietynitrkl@gmail.com" className="hover:text-purple-300 transition-all duration-200 hover:scale-110 transform inline-block">
+                  technicalsocietynitrkl@gmail.com
                 </Link>
               </div>
 
