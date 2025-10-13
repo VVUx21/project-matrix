@@ -272,7 +272,7 @@ const RegistrationForm = ({
               </Link>
             </motion.div>
             <p className="text-sm mt-4 text-white/90 text-center">
-              Scan the QR code above for payment. (Rs 1000 only per person)
+              Scan the QR code above for payment of ₹999(for registration,accommodation, event participation,access to attend workshop and to some fun event)
             </p>
             <p
               className="text-sm mt-2 font-semibold"
