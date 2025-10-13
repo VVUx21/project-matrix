@@ -27,7 +27,7 @@ export const events: Event[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus. Phasellus lorem ipsum in vehicula consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis nulla leo consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper. Sed elit mauris phasellus lorem ipsum dolor sit. Mauris tristique massa molestie metus lorem ipsum consectetur. Vestibulum lorem dolor sed purus faucibus mauris erat sed non. Phasellus justo mauris lorem ipsum dolor consectetur.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
- rulebook: "https://example.com/showdown-rulebook.pdf", },
+ rulebook: "https://drive.google.com/open?id=18y_Xapj6WQRWnxIaQJnY-xijJwe9kRzv", },
   {
     id: 4,
     name: "The Alloy Auction",
@@ -36,7 +36,7 @@ export const events: Event[] = [
     description:
       "The Alloy Auction is a unique competition that combines problem-solving with the thrill of bidding. Teams will be given engineering challenges and must select the most suitable material from the auction pool using their limited budget. Correct material choices earn points, while smart bidding and strategy decide who builds the most valuable portfolio. This event tests technical knowledge, resource management, and decision-making skills under pressure.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
- rulebook: "https://example.com/showdown-rulebook.pdf", },
+ rulebook: "https://drive.google.com/open?id=1IxUm4dOiJMdwIjUyiC_4v8CXhQeW-IXLxcoPKK1gbVk", },
   {
     id: 5,
     name: "IPL Auction",
@@ -45,7 +45,7 @@ export const events: Event[] = [
     description:
       "Rules & Regulations:-  Round 1 – Quiz There will be 20 questions in total. 5 questions will be marked with a ★ (star) and carry bonus brownie points. In case of a tie, the correctness of ★ star-marked questions will decide the winner. Use of any electronic device will lead to immediate disqualification.   Round 2 – IPL Auction The auctioneer starts with a player’s base price. Franchises raise paddle/signal to bid. If no bid above base price → player goes unsold (may return later). If multiple bids, it continues till only one team remains. The final bid becomes the signing amount once the hammer goes down. Each team must stay within a ₹120 crore purse. Squad size should be 18–25 players, with a maximum of 8 overseas players. All decisions of the auctioneer are final and binding",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
- rulebook: "https://example.com/showdown-rulebook.pdf", },
+ rulebook: "https://drive.google.com/open?id=1zGi-rBKLgNGtfzp3IEB9NVLe5X1V4aBfeTerrj_9AVY", },
   {
     id: 6,
     name: "Artificial Web",
@@ -69,7 +69,7 @@ export const events: Event[] = [
     title: "Virtual Racing Simulator Competiton",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae neque sed nulla facilisis auctor.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
- rulebook: "https://example.com/showdown-rulebook.pdf", },
+ rulebook: "https://drive.google.com/open?id=1sgRbZTzO6rBetlPO12y-9XpQV9osn-xVhxiLvoyokmw", },
   {
     id: 9,
     name: "In-verse",
@@ -101,7 +101,7 @@ export const events: Event[] = [
     title: "Spark a thon",
     description: "Participants will work on designing and developing a system using Arduino and sensors. The system should demonstrate the ability to monitor water quality conditions, with data being displayed in real time and implement ML models to identify fish and coral types. This hackathon is divided into multiple rounds, with the final round involving a hardware implementation.● Original Work: All designs and code must be original. Pre-written libraries can be used, but should be credited.  ● Component Usage: Teams must use the provided components in Round 3.  ● Deadline: All submissions for each round must be made by the deadline.  ● Code Submission: Teams must submit their Arduino code along with their project in the final round.  ● Prototype Safety: Teams are responsible for ensuring their system is safe to operate.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  rulebook: "https://example.com/showdown-rulebook.pdf",},
+  rulebook: "https://drive.google.com/open?id=1zxJk7imALlQrpDvVOQMPNd7bQWajoBaj",},
   {
     id: 13,
     name: "Hydronaut",
@@ -141,7 +141,7 @@ export const events: Event[] = [
     title: "Shake it off",
     description: "Shake It Off is a technical event where teams construct model structures using popsicle sticks, paper clay, and a thermocol base. The models will be evaluated on structural stability, load-bearing capacity, and earthquake resistance. The event emphasizes practical application of civil engineering concepts in design and construction, with the most efficient and resilient structure declared the winner.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  rulebook: "https://example.com/showdown-rulebook.pdf",},
+  rulebook: "https://drive.google.com/open?id=1JqZISui5ZiPmedZSs5B_jYu4CgFYWdcEdfWvtrFlK6c",},
   {
     id: 18,
     name: "Frame it out",
@@ -157,7 +157,7 @@ export const events: Event[] = [
     title: "Roadies Food Saga 3.0",
     description: "A unique, fun-filled competition designed to test teamwork, food knowledge, and sensory skills. The event combines precision, memory, and taste recognition through three exciting rounds. Round 1 : The cookie challenge, Round 2: Trivia round ; Round 3: Blind fold testRules & Regulations:  1. Round 1 is a knockout round; teams that fail here cannot continue.   2. Only one participant per team plays in Round 1.   3. All team members may participate in Rounds 2 and 3.   4. Teams must answer quiz questions within the allotted time.   5. Blindfolds must be worn properly throughout Round 3.   6. No external help, gadgets, or internet resources are allowed.   7. Misconduct or violation of rules may lead to disqualification.   8. In case of a tie, a Spaghetti Round will be held:  Each team receives 3 spaghetti sticks.  To win, the team must successfully break at least one stick into exactly two parts.     Resources Allowed / Not Allowed:  Allowed: Only the materials provided by the organizers.  Not Allowed: Mobile phones, reference materials, or any external gadgets.    ---  Scoring System:  Round 2 (Trivia): 1 point per correct answer (maximum 10 points).  Round 3 (Blindfold Challenge): 1 point per correctly identified food item.  Final Score: Sum of Round 2 and Round 3 points.  The team with the highest total score will be declared the winner.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
- rulebook: "https://example.com/showdown-rulebook.pdf", },
+ rulebook: "https://drive.google.com/open?id=1isZEzCzInV1h52f1_Qtrjk-MKWoswJBv", },
   {
     id: 20,
     name: "INTELLIGENT TRADER 11.0",
@@ -165,7 +165,7 @@ export const events: Event[] = [
     title: "INTELLIGENT TRADER 11.0",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae neque sed nulla facilisis auctor.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
- rulebook: "https://example.com/showdown-rulebook.pdf", },
+ rulebook: "https://drive.google.com/open?id=1ZVAqAo4a4ATYLubTsYKHtfD9CAATVp7B", },
   {
     id: 21,
     name: "Chaupal",
@@ -181,7 +181,7 @@ rulebook: "https://example.com/showdown-rulebook.pdf",  },
     title: "Missin CEO",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae neque sed nulla facilisis auctor.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  rulebook: "https://example.com/showdown-rulebook.pdf",},
+  rulebook: "https://drive.google.com/open?id=1oq4CwCVRsyeDrhruZ7BpOJlie8qe8vBj",},
   {
     id: 23,
     name: "Weird bazar",
@@ -214,7 +214,7 @@ rulebook: "https://example.com/showdown-rulebook.pdf",  },
     title: "Car Show",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae neque sed nulla facilisis auctor.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
- rulebook: "https://example.com/showdown-rulebook.pdf", },
+ rulebook: "https://drive.google.com/open?id=18mcC_AiWpQM-kARmcbPj9-7swnZR77tj", },
   {
     id: 27,
     name: "Ceramsrin Quiz",
@@ -222,7 +222,7 @@ rulebook: "https://example.com/showdown-rulebook.pdf",  },
     title: "Ceramsrin Quiz",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae neque sed nulla facilisis auctor.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
- rulebook: "https://example.com/showdown-rulebook.pdf", },
+ rulebook: "https://drive.google.com/open?id=1jPbVZ2HXAXc-wZFRtQ2z9DMxqGiwlvbs", },
   {
     id: 28,
     name: "Sci Biz Tech quiz",
@@ -230,7 +230,7 @@ rulebook: "https://example.com/showdown-rulebook.pdf",  },
     title: "Sci Biz Tech quiz",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae neque sed nulla facilisis auctor.",
     shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
- rulebook: "https://example.com/showdown-rulebook.pdf", },
+ rulebook: "https://drive.google.com/open?id=1664sjNvNpF8fyiJeBS9oZffaVv3kcLiw", },
   {
     id: 29, 
     name: "Stellar Challenge",

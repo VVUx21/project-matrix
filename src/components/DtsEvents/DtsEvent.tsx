@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { SwiperSlide } from "swiper/react";
-import { URL, events } from "@/config/mainEvents/mainEvents";
+import { URL, events } from "@/config/DtsEvent/DtsEvent";
 import { neue, spaceGrotesk } from "@/fonts";
 import RulebookButton from "@/components/ui/RulebookButton";
 import { SwiperCarousel } from "@/components/Carousel/Carousel";
@@ -241,7 +241,7 @@ const FlagEvent = () => {
               transition: { duration: 0.3 },
             }}
           >
-            MAIN EVENTS
+            DTS EVENTS
           </motion.h1>
         </motion.div>
 
