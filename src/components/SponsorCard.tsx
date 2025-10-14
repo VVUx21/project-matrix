@@ -120,7 +120,7 @@ export default function SponsorCard() {
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
           }}
         >
-          SPONSORS
+          PAST SPONSORS
         </h1>
 
         {/* **************************** Main Sponsors ********************************* */}
