@@ -10,572 +10,430 @@ export type DayKey = "day1" | "day2" | "day3";
 export const DATA: Record<DayKey, EventItem[]> = {
   day1: [
     {
+      time: "4:00 PM – 6:00 PM",
+      title: "Psi-phi",
+      venue: "LA – 104",
+      description: "",
+    },
+    {
       time: "5:00 PM – 8:00 PM",
       title: "Shake it off",
-      venue: "LA – 204",
+      venue: "LA204",
       description: "",
     },
     {
-      time: "10:00 PM – 2:00 AM",
+      time: "6PM Onwards",
+      title: "SHOWDOWN",
+      venue: "DTS",
+      description: "",
+    },
+    {
+      time: "10:00 PM – 3:00 AM",
       title: "Stellar Night",
-      venue: "EE Building",
-      description: "",
-    },
-    {
-      time: "3:45 PM – 4:30 PM",
-      title: "Drone Exhibition",
-      venue: "B.B.A.",
+      venue: "Electrical building Rooftop",
       description: "",
     },
     {
       time: "3:00 PM – 7:00 PM",
       title: "Robo Sumo War",
-      venue: "Basketball Court",
+      venue: "SAC Stair",
       description: "",
     },
     {
-      time: "4:00 PM – 6:30 PM",
-      title: "Imagine AI",
-      venue: "LA – 214",
-      description: "",
-    },
-    {
-      time: "4:00 PM – 5:30 PM",
-      title: "PSI-PHI",
+      time: "3:00 PM – 7:00 PM",
+      title: "Death Race",
       venue: "LA – 104",
       description: "",
     },
-    {
-      time: "3:00 PM – 5:00 PM",
-      title: "Hoop Frenzy",
-      venue: "S.T.S.",
-      description: "",
-    },
-    {
-      time: "After 3:00 PM",
-      title: "Origami Rush",
-      venue: "S.T.S.",
-      description: "",
-    },
-    {
-      time: "After 3:00 PM",
-      title: "Speed Surge",
-      venue: "S.T.S.",
-      description: "",
-    },
-    {
-      time: "After 3:00 PM",
-      title: "ELECTRIFIED",
-      venue: "S.T.S.",
-      description: "",
-    },
-    {
-      time: "6:00 PM – 7:45 PM",
-      title: "EUPHONY LIVE",
-      venue: "D.T.S.",
-      description: "",
-    },
-    {
-      time: "8:00 PM – 10:00 PM",
-      title: "DRILL N BASS LIVE",
-      venue: "D.T.S.",
-      description: "",
-    },
+     
+    
   ],
 
   day2: [
     {
-      time: "9:00 AM – 2:00 PM",
-      title: "Campus Survival VR",
-      venue: "LA – 114",
+      time: "Football - 9 am onwards",
+      title: "Rotaomlypics ",
+      venue: "Handball court",
+      description: "",
+    },
+      {
+      time: "Cricket - 8 am onwards",
+      title: "Rotaomlypics ",
+      venue: "Basketball practice (box cricket)",
       description: "",
     },
     {
-      time: "9:00 AM – 11:30 AM",
-      title: "Sci Saviour",
-      venue: "LA – 214",
+      time: "Badminton - 9 pm Onwards",
+      title: "Rotaomlympics",
+      venue: "Badminton GDB badminton court",
       description: "",
     },
     {
-      time: "9:00 AM – 11:00 AM",
-      title: "Mini Chassis Making",
-      venue: "LA – 201",
-      description: "",
-    },
-    {
-      time: "9:00 AM – 6:00 PM",
-      title: "DEATH RACE",
-      venue: "S.A.C.",
-      description: "",
-    },
-    {
-      time: "9:00 AM – 12:00 NOON",
-      title: "TURBOGEN-X",
-      venue: "LA – 117",
-      description: "",
-    },
-    {
-      time: "9:30 AM – 1:00 PM",
-      title: "Prompt Engineering",
-      venue: "LA – 101",
-      description: "",
-    },
-    {
-      time: "9:30 AM – 12:30 PM",
-      title: "Simulating Solutions (R-1)",
-      venue: "LA – 104",
-      description: "",
-    },
-    {
-      time: "10:00 AM – 12:00 NOON",
-      title: "Fish Eye",
-      venue: "LA – 217",
-      description: "",
-    },
-    {
-      time: "10:00 AM – 1:00 PM",
-      title: "Virtual Racing Simulator",
-      venue: "LA – 204",
-      description: "",
-    },
-    {
-      time: "11:00 AM",
-      title: "HRITHIK MEHLAWAT",
-      venue: "B.B.A.",
-      description: "",
-    },
-    {
-      time: "1:00 PM – 3:00 PM",
-      title: "Brainboxed 2.0",
-      venue: "LA – 104",
-      description: "",
-    },
-    {
-      time: "1:00 PM – 4:00 PM",
-      title: "3D Printing Workshop",
-      venue: "P.P.A.",
+      time: "Tug of War - 2 pm onwards",
+      title: "Rotaomlympics",
+      venue: "SSB Hall Front",
       description: "",
     },
 
     {
-      time: "1:30 PM – 4:30 PM",
-      title: "ElectroQuest",
-      venue: "LA – 101",
+      time: "8 am - 6 pm",
+      title: "Little Science Yard",
+      venue: "Chemical Department Parking",
       description: "",
     },
     {
-      time: "1:30 PM – 3:00 PM",
-      title: "Roadies Food Saga 2.0",
-      venue: "LA – 201",
+
+      time: "9-12pm",
+      title: "INTELLIGENT TRADER 11.0",
+      venue: "LA-114",
+      description: "",
+    },
+    
+    {
+
+      time: "9-12pm",
+      title: "AQUA LABYRINTH",
+      venue: "LA 217",
       description: "",
     },
     {
-      time: "2:00 PM – 6:00 PM",
-      title: "Meteor Madness",
-      venue: "LA – 204",
+
+      time: "9AM -12PM",
+      title: "WS2",
+      venue: "LA 101",
       description: "",
     },
     {
-      time: "2:00 PM – 5:00 PM",
-      title: "Aeroprix",
-      venue: "S.T.S.",
+
+      time: "1-4PM",
+      title: "Roadies",
+      venue: "LA317",
       description: "",
     },
     {
-      time: "2:00 PM – 3:30 PM",
-      title: "MateriaXplore",
-      venue: "LA – 217",
-      description: "",
-    },
-    { time: "2:30 PM", title: "RIYA UPRETI", venue: "B.B.A.", description: "" },
-    {
-      time: "3:00 PM – 5:00 PM",
-      title: "OMEGA",
-      venue: "LA Lawns",
+
+      time: "9am -12 pm",
+      title: "omega",
+      venue: "LA lawn , LA 004. LA009",
       description: "",
     },
     {
-      time: "3:30 PM – 5:30 PM",
-      title: "Simulating Solutions (R-2)",
-      venue: "LA – 104",
+
+      time: "10-12 pm",
+      title: "virtual trading",
+      venue: "LA 104",
       description: "",
     },
     {
-      time: "4:00 PM – 6:00 PM",
-      title: "NITR'S GOT LATENT",
-      venue: "LA – 201",
+
+      time: "10 - 2pm",
+      title: "WS1",
+      venue: "PPA",
       description: "",
     },
     {
-      time: "5:00 PM – 6:00 PM",
-      title: "MateriaTech Quest",
-      venue: "LA – 217",
+
+      time: "10 am - 3pm",
+      title: "Ipl Auction",
+      venue: "Round 1 -LA 104 , Round 2 - LA 310",
       description: "",
     },
     {
-      time: "3:00 PM – 7:00 PM",
-      title: "Robo Sumo War",
+
+      time: "11am - 6pm",
+      title: "Sunken Cipher",
+      venue: "LA204(Footfall-600)",
+      description: "",
+    },
+    {
+
+      time: "1-7pm",
+      title: "Robo sumo",
       venue: "Basketball Court",
       description: "",
     },
+    {
 
-    {
-      time: "3:30 PM",
-      title: "BHANU PATHAK",
-      venue: "B.B.A.",
+      time: "1-5 pm",
+      title: "Webclone mania",
+      venue: "LA 014",
       description: "",
     },
     {
-      time: "10:00 PM – 2:00 AM",
-      title: "Stellar Night",
-      venue: "EE Building",
-      description: "",
-    },
-    {
-      time: "ALL DAY",
-      title: "MAZEHUNT",
-      venue: "L.A. Cycle Parking",
-      description: "",
-    },
-    {
-      time: "Till 3:00 PM",
-      title: "ROTAOLYMPICS",
-      venue: "G.D.B. / B.B. Court",
-      description: "",
-    },
-    {
-      time: "3:00 PM – 6:00 PM",
-      title: "The Amazing Race",
-      venue: "S.T.S.",
-      description: "",
-    },
-    {
-      time: "11:00 AM – 4:00 PM",
-      title: "Escape Room 2.0",
-      venue: "S.T.S.",
-      description: "",
-    },
-    {
-      time: "5:30 PM",
-      title: "RAJAT CHAUHAN",
-      venue: "B.B.A.",
-      description: "",
-    },
-    {
-      time: "3:00 PM – 5:00 PM",
-      title: "Hoop Frenzy",
-      venue: "N.C.C. Ground",
-      description: "",
-    },
-    {
-      time: "ALL DAY",
-      title: "Origami Rush",
-      venue: "N.C.C. Ground",
-      description: "",
-    },
-    {
-      time: "ALL DAY",
-      title: "Speed Surge",
-      venue: "N.C.C. Ground",
-      description: "",
-    },
-    {
-      time: "10:00 AM – 1:00 PM",
-      title: "Fun Fusion",
-      venue: "LA – 101",
-      description: "",
-    },
-    {
-      time: "ALL DAY",
-      title: "ELECTRIFIED",
-      venue: "N.C.C. Ground",
-      description: "",
-    },
 
-    {
-      time: "3:45 PM – 4:30 PM",
-      title: "Drone Exhibition",
-      venue: "B.B.A.",
+      time: "1 pm - 6pm",
+      title: "Aeroprix",
+      venue: "STS",
+      description: "",
+    },
+{
+
+      time: "1 pm - 6pm",
+      title: "Case Carnival",
+      venue: "LA 104",
       description: "",
     },
     {
-      time: "12:00 NOON – 9:00 PM",
-      title: "IRIDESCENCE",
-      venue: "R.M. Hall Lawns",
-      description: "",
-    },
-    { time: "ALL DAY", title: "Radiance", venue: "R.M. Hall", description: "" },
-    { time: "ALL DAY", title: "SRIJAN", venue: "R.M. Hall", description: "" },
-    {
-      time: "ALL DAY",
-      title: "Little Science Yard",
-      venue: "CH Dept. Parking",
+
+      time: "1 :30 pm- 4:30 pm",
+      title: "Satquest",
+      venue: "LA 009",
       description: "",
     },
     {
-      time: "7:00 PM – 7:20 PM",
-      title: "MAVERICKS",
-      venue: "D.T.S.",
+
+      time: "1 pm - 5pm",
+      title: "In-verse",
+      venue: "LA 004",
       description: "",
     },
     {
-      time: "7:30 PM – 8:00 PM",
-      title: "SYNERGY",
-      venue: "D.T.S.",
+
+      time: "1.30pm-4.30pm",
+      title: "Spark-a-thon",
+      venue: "",
       description: "",
     },
     {
-      time: "8:00 PM – 10:00 PM",
-      title: "LASER SHOW",
-      venue: "D.T.S.",
+
+      time: "2-6pm",
+      title: "inspire",
+      venue: "LA 101",
       description: "",
     },
+    {
+
+      time: "2 pm - 5pm",
+      title: "Virtual racing simulator",
+      venue: "LA 201",
+      description: "",
+    },
+    {
+
+      time: "2 pm - 3 pm",
+      title: "GL 1",
+      venue: "BBA",
+      description: "",
+    },
+    {
+
+      time: "3 pm - 4 pm",
+      title: "GL 2",
+      venue: "BBA",
+      description: "",
+    },
+    {
+
+      time: "5 pm - 6 pm",
+      title: "GL 3",
+      venue: "BBA",
+      description: "",
+    },
+       
+    {
+
+      time: "3 pm - 5pm",
+      title: "Design Dash",
+      venue: "LA 117+LA LAWNS",
+      description: "",
+    }, 
+      {
+
+      time: "2 pm - 5pm",
+      title: "Missin CEO (Grapevine Business Club )",
+      venue: "LA 217  + LA lawns for treasure hunt",
+      description: "",
+    },  
+     {
+
+      time: "5 pm - 6 pm",
+      title: "Introduction to GPU(GTA)",
+      venue: "Guest lecture (PPA)",
+      description: "",
+    },
+    {
+
+      time: "10 pm - 2 am",
+      title: "Stellar night",
+      venue: "Electric building Rooftop",
+      description: "",
+    },
+    {
+
+      time: "Full day",
+      title: "Death Race",
+      venue: "SAC stairs",
+      description: "",
+    },
+    {
+
+      time: "Full day",
+      title: "Velocity vortex",
+      venue: "Sts Cricket Nets",
+      description: "",
+    },
+    {
+
+      time: "Full day",
+      title: "Mazehunt",
+      venue: "LA cycle stand",
+      description: "",
+    },
+    {
+
+      time: "Full day",
+      title: "Reef Rumble: Call of the Deep",
+      venue: "LA 214",
+      description: "",
+    },
+     
+    
+    
+    
+     
   ],
 
   day3: [
     {
-      time: "2:00 PM – 5:00 PM",
-      title: "Intelligent Trader 10.0",
-      venue: "LA – 114",
+      time: "Football - 9 am onwards",
+      title: "Rotaomlypics ",
+      venue: "Handball court",
+      description: "",
+    },
+      {
+      time: "Cricket - 8 am onwards",
+      title: "Rotaomlypics ",
+      venue: "Basketball practice (box cricket)",
       description: "",
     },
     {
-      time: "10:00 AM – 12:00 NOON",
-      title: "Business Pictionary",
-      venue: "LA – 114",
+      time: "Badminton - 9 pm Onwards",
+      title: "Rotaomlympics",
+      venue: "Badminton GDB badminton court",
       description: "",
     },
     {
-      time: "ALL DAY",
-      title: "Campus Survival VR",
-      venue: "LA – 204",
+      time: "Tug of War - 2 pm onwards",
+      title: "Rotaomlympics",
+      venue: "SSB Hall Front",
+      description: "",
+    },
+     
+    {
+      time: "8:00 AM – 12:00 PM",
+      title: "Matrix Mystery Mania",
+      venue: "HB front ground",
       description: "",
     },
     {
-      time: "9:00 AM – 11:00 AM",
-      title: "OPENCHASE",
+      time: "9-12pm",
+      title: "Flag in the blue",
+      venue: "LA101 ",
+      description: "",
+    },
+    {
+      time: "9-12am",
+      title: "Hydronaut",
+      venue: "LA204 SAC garden",
+      description: "",
+    },
+    {
+      time: "11-12 AM",
+      title: "GL 4",
+      venue: "BBA",
+      description: "",
+    },
+    {
+      time: "9-12pm",
+      title: "AQUA LABYRINTH",
+      venue: "LA 217",
+      description: "",
+    },
+    {
+      time: "2-5pm",
+      title: "Sci biz tech quiz",
+      venue: "LA 201",
+      description: "",
+    },
+    {
+      time: "10:00 PM – 3:00 PM",
+      title: "Spark-a-thon",
       venue: "LA – 104",
       description: "",
     },
     {
-      time: "9:00 AM – 6:00 PM",
-      title: "DEATHRACE",
-      venue: "S.A.C.",
+      time: "10 am - 12pm",
+      title: "Ceramarin Quiz",
+      venue: "LA – 009",
+      description: "",
+    },
+
+    {
+      time: "11 AM- 4 PM",
+      title: "Prompt Abyss",
+      venue: "LA 114(medium room)",
       description: "",
     },
     {
-      time: "9:30 AM – 11:30 AM",
-      title: "Molecular Mania",
+      time: "2:00 PM – 3:00 PM",
+      title: "GL 5",
+      venue: "BBA",
+      description: "",
+    },
+    {
+      time: "3:00 PM – 4:00 PM",
+      title: "GL -6",
+      venue: "BBA",
+      description: "",
+    },
+    {
+      time: "4:00 PM – 5:00 PM",
+      title: "GL 7",
+      venue: "BBA",
+      description: "",
+    },
+    {
+      time: "1:30 PM – 5:00 PM",
+      title: "Hustlemania",
+      venue: "LA Lawn",
+      description: "",
+    },
+    {
+      time: "2:00 PM – 6:00 PM",
+      title: "WS3",
+      venue: "PPA",
+      description: "",
+    },
+    {
+      time: "2:00 PM – 5:00 PM",
+      title: "Alloy Auction",
       venue: "LA – 117",
       description: "",
     },
     {
-      time: "10:00 AM – 12:00 NOON",
-      title: "MatriaXplore",
-      venue: "LA – 201",
+      time: "3:00 PM – 6:00 PM",
+      title: "Hovermania",
+      venue: "Basketball Court",
       description: "",
     },
     {
-      time: "10:00 AM – 6:30 PM",
-      title: "Imagine AI",
-      venue: "LA – 004",
+      time: "All day",
+      title: "Car show",
+      venue: "STS",
       description: "",
     },
     {
-      time: "10:00 AM – 12:00 NOON",
-      title: "IPL AUCTION (R-1)",
-      venue: "LA – 214, 317",
-      description: "",
-    },
-    {
-      time: "10:30 AM – 1:00 PM",
-      title: "STRIVER",
-      venue: "B.B.A.",
-      description: "",
-    },
-    {
-      time: "3:30 PM – 5:30 PM",
-      title: "Shark Hunt",
-      venue: "LA – 201",
-      description: "",
-    },
-    {
-      time: "11:00 AM – 12:00 NOON",
-      title: "Beyond the Basics",
-      venue: "LA – 114",
-      description: "",
-    },
-
-    {
-      time: "11:30 AM Onwards",
-      title: "Era of Estates",
-      venue: "LA – 104",
-      description: "",
-    },
-    {
-      time: "11:00 AM – 2:00 PM",
-      title: "ElectroQuest",
-      venue: "LA – 101",
-      description: "",
-    },
-    {
-      time: "11:00 AM – 2:00 PM",
-      title: "Brainboxed 2.0",
-      venue: "LA – 217",
-      description: "",
-    },
-    {
-      time: "12:30 PM – 5:30 PM",
-      title: "IPL AUCTION (R-2)",
-      venue: "LA – 317",
-      description: "",
-    },
-    {
-      time: "1:00 PM – 3:00 PM",
-      title: "Workshop – 1",
-      venue: "P.P.A.",
-      description: "",
-    },
-    {
-      time: "1:00 PM – 3:00 PM",
-      title: "NITR'S GOT LATENT",
-      venue: "LA – 201",
-      description: "",
-    },
-    {
-      time: "3:30 PM – 5:00 PM",
-      title: "Webclone Mania",
+      time: "Full day",
+      title: "Reef Rumble: Call of the Deep",
       venue: "LA – 214",
       description: "",
     },
     {
-      time: "2:00 PM – 5:00 PM",
-      title: "JNANAGNI",
-      venue: "LA – 217",
+      time: "Full day",
+      title: "Mazehunt",
+      venue: "LA Cycle stand",
       description: "",
     },
-    {
-      time: "4:00 PM – 5:30 PM",
-      title: "HITEN LULLA",
-      venue: "B.B.A.",
-      description: "",
-    },
-    {
-      time: "3:00 PM – 5:30 PM",
-      title: "Brainy Escape",
-      venue: "LA – 101, 104, 117",
-      description: "",
-    },
-    {
-      time: "1:30 PM – 3:00 PM",
-      title: "Simulating Solution",
-      venue: "CHEM Dept.",
-      description: "",
-    },
-    {
-      time: "After 3:00 PM",
-      title: "HUSTLEMANIA",
-      venue: "LA Lawns",
-      description: "",
-    },
-
-    {
-      time: "3:30 PM – 5:30 PM",
-      title: "DR. GAJENDRA PUROHIT",
-      venue: "B.B.A.",
-      description: "",
-    },
-    {
-      time: "4:00 PM – 7:00 PM",
-      title: "HoverMania",
-      venue: "B.B. Court",
-      description: "",
-    },
-    {
-      time: "ALL DAY",
-      title: "Maze Hunt",
-      venue: "L.A. Cycle Parking",
-      description: "",
-    },
-    {
-      time: "3:00 PM – 6:00 PM",
-      title: "ROTAOLYMPICS",
-      venue: "G.D.B. / B.B. Court",
-      description: "",
-    },
-    {
-      time: "10:00 PM – 2:00 AM",
-      title: "IMPROMPTU",
-      venue: "LA – 009",
-      description: "",
-    },
-    {
-      time: "3:45 PM – 4:30 PM",
-      title: "CYCLOTHON",
-      venue: "Jagda Gate",
-      description: "",
-    },
-    {
-      time: "3:00 PM – 7:00 PM",
-      title: "LEO Slow Cycling",
-      venue: "S.T.S.",
-      description: "",
-    },
-    {
-      time: "4:00 PM – 6:30 PM",
-      title: "Hoop Frenzy",
-      venue: "S.T.S.",
-      description: "",
-    },
-    {
-      time: "4:00 PM – 5:30 PM",
-      title: "Origami Rush",
-      venue: "S.T.S.",
-      description: "",
-    },
-    {
-      time: "3:00 PM – 5:00 PM",
-      title: "Speed Surge",
-      venue: "S.T.S.",
-      description: "",
-    },
-    { time: "ALL DAY", title: "ELECTRIFIED", venue: "S.T.S.", description: "" },
-    {
-      time: "3:00 PM Onwards",
-      title: "RADIANCE",
-      venue: "R.M. Hall",
-      description: "",
-    },
-
-    {
-      time: "3:00 PM Onwards",
-      title: "SRIJAN",
-      venue: "R.M. Hall",
-      description: "",
-    },
-    {
-      time: "12:00 NOON – 9:00 PM",
-      title: "IRIDESCENCE",
-      venue: "R.M. Hall Lawns",
-      description: "",
-    },
-    {
-      time: "4:00 PM Onwards",
-      title: "Car Show",
-      venue: "S.T.S.",
-      description: "",
-    },
-    {
-      time: "6:00 PM – 7:30 PM",
-      title: "HEARTBEATS",
-      venue: "D.T.S.",
-      description: "",
-    },
-    {
-      time: "8:00 PM – 10:00 PM",
-      title: "Beatdrop Fiesta with NISCHIT",
-      venue: "D.T.S.",
-      description: "",
-    },
+     
   ],
 };

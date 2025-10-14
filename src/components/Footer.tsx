@@ -39,7 +39,7 @@ export default function Footer() {
         borderRadius: "50px 50px 0 0",
       }}
     >
-      <div className="w-full max-w-[1512px] mx-auto px-6 sm:px-10 py-4 lg:py-2 lg:pt-8 pb-0 text-white">
+      <div className="w-full max-w-[1512px] mx-auto px-2 sm:px-10 py-4 lg:py-2 lg:pt-8 pb-0 text-white">
         {/* Mobile Layout */}
         <div className="lg:hidden flex flex-col items-center text-center">
           {/* Title and Description */}
@@ -70,10 +70,10 @@ export default function Footer() {
           </div>
 
           {/* Two Column Section */}
-          <div className="grid grid-cols-2 gap-8 w-full max-w-md mb-10">
+          <div className="flex gap-2  justify-center w-full max-w-md mb-10">
             {/* Quick Links */}
             <div className="text-center">
-              <h3 className="text-lg uppercase font-bold mb-4">Quick Links</h3>
+              <h3 className="text-sm uppercase font-bold mb-4">Quick Links</h3>
               <ul
                 className={`space-y-2 text-sm ${spaceGrotesk.className} font-mono`}
               >
@@ -91,12 +91,15 @@ export default function Footer() {
             </div>
             {/* Contact Us */}
             <div className="text-center">
-              <h3 className="text-lg uppercase font-bold mb-4">Contact Us</h3>
+              <h3 className="text-sm uppercase font-bold mb-4">Contact Us</h3>
               <div
                 className={`text-sm space-y-2 ${spaceGrotesk.className} text-gray-200`}
               >
                 <p>
-                  <span className="font-semibold uppercase">NAME:</span> 987654321
+                  <span className="font-semibold uppercase">Nimai Charan Das:6372390825</span> 
+                </p>
+                <p>
+                  <span className="font-semibold uppercase">Subhasmita Prusty:7077962125</span> 
                 </p>
                 <p>technicalsocietynitrkl@gmail.com</p>
               </div>
@@ -134,9 +137,9 @@ export default function Footer() {
           />
 
           {/* Footer Text */}
-          <p className="text-sm text-gray-300 mb-0 py-3 leading-none">
+          <p className="text-sm text-gray-300 mb-0 py-3 leading-normal ">
             Made with ❤️ by Team{" "}
-            <span className="font-bold text-white">{"</WEBWIZ>"}</span>
+            <span className="font-bold text-white">{"Innovision X Webwiz"}</span>
           </p>
         </div>
 

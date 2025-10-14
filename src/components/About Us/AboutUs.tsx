@@ -210,8 +210,8 @@ export default function AboutUs() {
             NIT Rourkela is one of the country's premier national-level
             institutions for technical education funded by the government of
             India and is known for its strong emphasis on engineering, basic
-            sciences, and technology. Ranked 19th overall in engineering and 3rd
-            among the National Institutes of Technology in the 2024 NIRF
+            sciences, and technology. Ranked 13th overall in engineering and 
+            among the National Institutes of Technology in the 2025 NIRF
             Rankings, NITR has earned a reputation for academic excellence. The
             institute supports a robust educational environment with 390 faculty
             members and a student population 8,000, housed on the largest campus
@@ -234,7 +234,7 @@ export default function AboutUs() {
             <div className=" relative md:py-7 py-5  font-normal md:text-base lg:text-lg text-sm  lg:leading-[36px] md:leading-[25px] leading-[18px] text-center text-white z-40">
               Innovision, NIT Rourkela's annual techno-management fest and one
               of the largest fests in Eastern India, is a highly anticipated
-              event scheduled from 7th to 9th November 2024, which aims to
+              event scheduled from 7th to 9th November 2025, which aims to
               captivate and engage science and technology enthusiasts throughout
               India. Join Innovision as we connect with the brightest minds in
               technology and innovation and spark creativity and collaboration,
