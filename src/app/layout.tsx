@@ -2,7 +2,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Geist, Geist_Mono } from "next/font/google";
 import { neueMetana, neueMetanaSemi } from "@/fonts";
 import "./globals.css";
-
+import { ReactLenis } from "../../provider/Lenisprovider";
 import ClientOnly from "@/components/ClientOnly";
 import SiteLoader from "@/components/loader/SiteLoader";
 
@@ -134,6 +134,7 @@ export default function RootLayout({
         },
       }}
     >
+      <ReactLenis root>
       <html lang="en">
         <body
           suppressHydrationWarning={true}
@@ -146,6 +147,7 @@ export default function RootLayout({
           {children}
         </body>
       </html>
-    </ClerkProvider>
+    </ReactLenis>
+  </ClerkProvider>
   );
 }
