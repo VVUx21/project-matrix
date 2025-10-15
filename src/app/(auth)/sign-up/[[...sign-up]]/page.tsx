@@ -9,7 +9,6 @@ export default function Page() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "100vh",
         width: "100%",
         backgroundImage: `url('${BG_URL}')`,
         backgroundSize: "cover",
