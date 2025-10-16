@@ -138,7 +138,7 @@ export default function Footer() {
 
           {/* Footer Text */}
           <p className="text-sm text-gray-300 mb-0 py-3 leading-normal ">
-            Made with ❤️ by Team{" "}
+            Team{" "}
             <span className="font-bold text-white">{"Innovision X Webwiz"}</span>
           </p>
         </div>
@@ -240,9 +240,9 @@ export default function Footer() {
 
           {/* Footer Bottom Text - Full Width Center */}
           <div className="text-center pt-10 pb-2">
-            <p className="text-sm lg:text-base text-gray-300 mb-0 leading-none">
-              Made with ❤️ by Team{" "}
-              <span className="font-bold text-white">{"</WEBWIZ>"}</span>
+            <p className="text-sm text-gray-300 mb-0 py-3 leading-normal ">
+              Team{" "}
+              <span className="font-bold text-white">{"Innovision X Webwiz"}</span>
             </p>
           </div>
         </div>
