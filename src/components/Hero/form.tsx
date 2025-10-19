@@ -42,6 +42,7 @@ const RegistrationForm = ({
     phoneNumber: "",
     whatsappNumber: "",
     referralCode: "",
+    college: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -59,6 +60,40 @@ const RegistrationForm = ({
   const validateReferralCode = (code: string) => {
     // Only check that the referral code is exactly 6 digits
     return code.length === 6 ;
+  };
+
+    const validateCollege = (college: string) => {
+    const forbiddenColleges = [
+      // SOA
+      "SOA",
+      "SIKSHA 'O' ANUSANDHAN",
+      "SIKSHA O ANUSANDHAN",
+      "SIKSHA ANUSANDHAN",
+      "SIKSHAOANUSANDHAN",
+      "S O A",
+      "SIKSHA 'O' ANUSANDHAN UNIVERSITY",
+      
+      // ITER
+      "ITER",
+      "INSTITUTE OF TECHNICAL EDUCATION AND RESEARCH",
+      "INSTITUTE OF TECHNICAL EDUCATION & RESEARCH",
+      "INSTITUTE TECH EDUCATION RESEARCH",
+      "I T E R",
+      
+      // OUTR
+      "OUTR",
+      "ODISHA UNIVERSITY OF TECHNOLOGY AND RESEARCH",
+      "ODISHA UNIVERSITY OF TECHNOLOGY AND RESEARCH ",
+      "ODISHA UNIVERSITY OF TECHNOLOGY & RESEARCH",
+      "ODISHA TECH UNIVERSITY",
+      "O T U R"
+    ];
+
+    const input = college.toUpperCase().replace(/\s+/g, ' ').trim();
+
+    return !forbiddenColleges.some((name) =>
+      input.includes(name.replace(/\s+/g, ' ').toUpperCase())
+    );
   };
 
   const handleChange = (
@@ -98,6 +133,17 @@ const RegistrationForm = ({
         }));
       } else {
         setErrors((prev) => ({ ...prev, referralCode: "" }));
+      }
+    }
+
+    if (name === "college") {
+      if (!validateCollege(value)) {
+        setErrors((prev) => ({
+          ...prev,
+          college: "Students from SOA, ITER, or OUTR are not allowed.",
+        }));
+      } else {
+        setErrors((prev) => ({ ...prev, college: "" }));
       }
     }
   };
