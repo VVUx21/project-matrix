@@ -25,16 +25,16 @@ const Hero: React.FC = () => {
   const router = useRouter();
   const { isLoaded, isSignedIn} = useAuth();
 
-  const showComingSoonAlert = () => {
-    toast.info("Coming Soon! 🚀", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  };
+  // const showComingSoonAlert = () => {
+  //   toast.info("Coming Soon! 🚀", {
+  //     position: "top-right",
+  //     autoClose: 3000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //   });
+  // };
 
   useEffect(() => {
     if (!formopen) {
@@ -194,7 +194,7 @@ const Hero: React.FC = () => {
                 variants={buttonVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={showComingSoonAlert}
+                onClick={handleClick}
               >
                 {textContent.buttonText}
               </motion.button>

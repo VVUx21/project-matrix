@@ -17,10 +17,10 @@ export const events: Event[] = [
   {
     id: 2,
     name: "Aeroprix",
-    image: "/MACHLI.png",
+    image: "https://res.cloudinary.com/webwiznitr/image/upload/v1760822461/Inno2025/Aeroprix_-_Nirav_Sayanja_qvb27z.png",
     title: "EVENT 2",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus. Phasellus lorem ipsum in vehicula consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis nulla leo consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper. Sed elit mauris phasellus lorem ipsum dolor sit. Mauris tristique massa molestie metus lorem ipsum consectetur. Vestibulum lorem dolor sed purus faucibus mauris erat sed non. Phasellus justo mauris lorem ipsum dolor consectetur.",
+      "Aeromodelling and RC plane Battle Competition",
     shortDescription:
       "Lorem ipsum dolor sit amet,  adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
     rulebook:
@@ -42,10 +42,10 @@ export const events: Event[] = [
   {
     id: 4,
     name: "Death Race",
-    image: "/MACHLI.png",
+    image: "https://res.cloudinary.com/webwiznitr/image/upload/v1760822545/Inno2025/Instagram_post_-_3_-_AMLAN_PRATEEK_PANDA_nrx2bp.png",
     title: "EVENT 4",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus. Phasellus lorem ipsum in vehicula consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis nulla leo consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper. Sed elit mauris phasellus lorem ipsum dolor sit. Mauris tristique massa molestie metus lorem ipsum consectetur. Vestibulum lorem dolor sed purus faucibus mauris erat sed non. Phasellus justo mauris lorem ipsum dolor consectetur.",
+      "A well designed track where bots compete to complete the track as soon as possible overcoming all the tasks and hurdles in the path",
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
     rulebook: "https://example.com/showdown-rulebook.pdf",
@@ -53,10 +53,10 @@ export const events: Event[] = [
   {
     id: 5,
     name: "Stellar Night",
-    image: "/MACHLI.png",
+    image: "https://res.cloudinary.com/webwiznitr/image/upload/v1760822620/Inno2025/Frame_207_-_Swati_hupyoa.png",
     title: "EVENT 5",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus. Phasellus lorem ipsum in vehicula consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis nulla leo consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper. Sed elit mauris phasellus lorem ipsum dolor sit. Mauris tristique massa molestie metus lorem ipsum consectetur. Vestibulum lorem dolor sed purus faucibus mauris erat sed non. Phasellus justo mauris lorem ipsum dolor consectetur.",
+      "Stellar Night, organized by Astro NITR under the SAC-Technical Society, is a distinguished astronomy-themed event that forms a key highlight of Innovision. The program offers attendees an engaging experience of celestial observation, featuring the Moon, Mars, Saturn, Jupiter, and its four Galilean moons, viewed through three telescopes—two CPC automated and one manual—arranged by the club.",
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
     rulebook:
@@ -64,7 +64,7 @@ export const events: Event[] = [
   },
   {
     id: 6,
-    name: "War Of machines",
+    name: "War Of Machines",
     image:
       "https://res.cloudinary.com/dsjxx976j/image/upload/v1759873698/Frame_4_Poster_-_Akash_Bhumij_cag0sb.png",
     title: "EVENT 5",
@@ -94,7 +94,7 @@ export const events: Event[] = [
       "https://res.cloudinary.com/dsjxx976j/image/upload/v1759873412/velocity_-_Pratyush_Prateek_Dash_navqap.png",
     title: "EVENT 5",
     description:
-      "* Competition Overview: Teams will compete by having their vehicle fly an obstacle course, aiming for the fastest lap time. The fastest team receives the most points. * Ready Time: Each team is allowed 5 minutes to prepare their vehicle before the start of the race. Physical intervention is disallowed once this ready time expires. * Payload Requirement (Optional for Points): * Vehicles must pick up a provided payload from their lane before entering the obstacle course. * The payload includes a ferromagnetic metal (steel) washer attached to the top. * After clearing the last obstacle, the vehicle must deposit the payload in the same staging area. * Payload pickup and delivery is non-mandatory but teams are awarded extra points for completing it.  Scoring and Advancement: * The final score is the total of the lap ranking score and the payload score. * The top teams with the highest scores will compete in an additional semi-final race. * The top 5 team scores after the semi-finals will participate in a final race.",
+      "Competition Overview: Teams will compete by having their vehicle fly an obstacle course, aiming for the fastest lap time. The fastest team receives the most points. Ready Time: Each team is allowed 5 minutes to prepare their vehicle before the start of the race. Physical intervention is disallowed once this ready time expires. Payload Requirement (Optional for Points): Vehicles must pick up a provided payload from their lane before entering the obstacle course. The payload includes a ferromagnetic metal (steel) washer attached to the top. After clearing the last obstacle, the vehicle must deposit the payload in the same staging area. Payload pickup and delivery is non-mandatory but teams are awarded extra points for completing it.  Scoring and Advancement: The final score is the total of the lap ranking score and the payload score. The top teams with the highest scores will compete in an additional semi-final race. The top 5 team scores after the semi-finals will participate in a final race.",
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
     rulebook:

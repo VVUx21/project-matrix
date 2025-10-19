@@ -134,7 +134,6 @@ export default function RootLayout({
         },
       }}
     >
-      <ReactLenis root>
       <html lang="en">
         <body
           suppressHydrationWarning={true}
@@ -143,11 +142,9 @@ export default function RootLayout({
           <ClientOnly>
             <SiteLoader></SiteLoader>
           </ClientOnly>
-          
           {children}
         </body>
       </html>
-    </ReactLenis>
   </ClerkProvider>
   );
 }

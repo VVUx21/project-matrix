@@ -24,7 +24,7 @@ export const DATA: Record<DayKey, EventItem[]> = {
     {
       time: "6PM Onwards",
       title: "SHOWDOWN",
-      venue: "DTS",
+      venue: "DTS Stage",
       description: "",
     },
     {
@@ -42,7 +42,7 @@ export const DATA: Record<DayKey, EventItem[]> = {
     {
       time: "3:00 PM – 7:00 PM",
       title: "Death Race",
-      venue: "LA – 104",
+      venue: "Sac stairs",
       description: "",
     },
      
@@ -106,7 +106,7 @@ export const DATA: Record<DayKey, EventItem[]> = {
     {
 
       time: "1-4PM",
-      title: "Roadies",
+      title: "Roadies Food Saga 3.0",
       venue: "LA317",
       description: "",
     },
@@ -142,7 +142,7 @@ export const DATA: Record<DayKey, EventItem[]> = {
 
       time: "11am - 6pm",
       title: "Sunken Cipher",
-      venue: "LA204(Footfall-600)",
+      venue: "LA204",
       description: "",
     },
     {
@@ -156,7 +156,7 @@ export const DATA: Record<DayKey, EventItem[]> = {
 
       time: "1-5 pm",
       title: "Webclone mania",
-      venue: "LA 014",
+      venue: "LA 1",
       description: "",
     },
     {
@@ -229,30 +229,25 @@ export const DATA: Record<DayKey, EventItem[]> = {
       venue: "BBA",
       description: "",
     },
-       
     {
-
       time: "3 pm - 5pm",
       title: "Design Dash",
-      venue: "LA 117+LA LAWNS",
+      venue: "LA 1+LA LAWNS",
       description: "",
     }, 
       {
-
       time: "2 pm - 5pm",
       title: "Missin CEO (Grapevine Business Club )",
       venue: "LA 217  + LA lawns for treasure hunt",
       description: "",
     },  
-     {
-
+    {
       time: "5 pm - 6 pm",
       title: "Introduction to GPU(GTA)",
       venue: "Guest lecture (PPA)",
       description: "",
     },
     {
-
       time: "10 pm - 2 am",
       title: "Stellar night",
       venue: "Electric building Rooftop",
@@ -286,11 +281,6 @@ export const DATA: Record<DayKey, EventItem[]> = {
       venue: "LA 214",
       description: "",
     },
-     
-    
-    
-    
-     
   ],
 
   day3: [
