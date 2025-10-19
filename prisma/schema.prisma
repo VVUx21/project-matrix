@@ -17,6 +17,7 @@ model user {
   whatsappNumber String @unique
   gender String
   idcardurl String
+  referralCode String
   email    String  
   transaction transactions? 
 }
