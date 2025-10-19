@@ -92,18 +92,32 @@ export default function Footer() {
             {/* Contact Us */}
             <div className="text-center">
               <h3 className="text-sm uppercase font-bold mb-4">Contact Us</h3>
-              <div
-                className={`text-sm space-y-2 ${spaceGrotesk.className} text-gray-200`}
-              >
-                <p>
-                  <span className="font-semibold uppercase">Nimai Charan Das:6372390825</span> 
-                </p>
-                <p>
-                  <span className="font-semibold uppercase">Subhasmita Prusty:7077962125</span> 
-                </p>
-                <p>technicalsocietynitrkl@gmail.com</p>
+              {/* Convenors Section */}
+              <div className="mb-4">
+                <h4 className="text-xs uppercase font-semibold mb-2">Convenors</h4>
+                <div className={`text-sm space-y-2 ${spaceGrotesk.className} text-gray-200`}>
+                  <p>
+                    <span className="font-semibold uppercase">Nimai Charan Das: 6372390825</span>
+                  </p>
+                </div>
               </div>
-
+              <div>
+                <h4 className="text-xs uppercase font-semibold mb-2">Help Desk</h4>
+                <div className={`text-sm space-y-2 ${spaceGrotesk.className} text-gray-200`}>
+                  <p>
+                    <span className="font-semibold uppercase">Partha Sarathi: 9437400250</span>
+                  </p>
+                  <p>
+                    <span className="font-semibold uppercase">Subhasmita Prusty: 7077962125</span>
+                  </p>
+                  <Link
+                    href="mailto:technicalsocietynitrkl@gmail.com"
+                    className="hover:text-purple-300 transition-all duration-200 hover:scale-110 transform inline-block"
+                  >
+                    technicalsocietynitrkl@gmail.com
+                  </Link>
+                </div>
+              </div>
               {/* Social Icons */}
               <div className="flex justify-center space-x-4 mt-6">
                 <Link href="#" target="_blank" aria-label="YouTube">
@@ -138,7 +152,7 @@ export default function Footer() {
 
           {/* Footer Text */}
           <p className="text-sm text-gray-300 mb-0 py-3 leading-normal ">
-            Made with ❤️ by Team{" "}
+            Team{" "}
             <span className="font-bold text-white">{"Innovision X Webwiz"}</span>
           </p>
         </div>
@@ -207,20 +221,28 @@ export default function Footer() {
               <h3 className="text-xl lg:text-2xl uppercase font-bold mb-6">
                 Contact Us
               </h3>
-              <div
-                className={`text-sm lg:text-base space-y-3 ${spaceGrotesk.className} text-gray-200 mb-8`}
-              >
+              <div className={`text-sm lg:text-base space-y-3 ${spaceGrotesk.className} text-gray-200 mb-8`}>
+                <h4 className="text-base lg:text-lg font-semibold uppercase mb-2">Convenor</h4>
                 <p>
                   <span className="font-semibold uppercase">Nimai Charan Das:</span> 6372390825
                 </p>
+              </div>
+              {/* Help Desk Section */}
+              <div className={`text-sm lg:text-base space-y-3 ${spaceGrotesk.className} text-gray-200 mb-6`}>
+                <h4 className="text-base lg:text-lg font-semibold uppercase mb-2">Help Desk</h4>
                 <p>
-                  <span className="font-semibold uppercase">Subhasmita Prusty:</span>7077962125
+                  <span className="font-semibold uppercase">Partha Sarathi:</span> 9437400250
                 </p>
-                <Link href="mailto:technicalsocietynitrkl@gmail.com" className="hover:text-purple-300 transition-all duration-200 hover:scale-110 transform inline-block">
+                <p>
+                  <span className="font-semibold uppercase">Subhasmita Prusty:</span> 7077962125
+                </p>
+                <Link
+                  href="mailto:technicalsocietynitrkl@gmail.com"
+                  className="hover:text-purple-300 transition-all duration-200 hover:scale-110 transform inline-block"
+                >
                   technicalsocietynitrkl@gmail.com
                 </Link>
               </div>
-
               {/* Social Icons */}
               <div className="flex justify-center space-x-6 mt-6">
                 <Link href="https://youtube.com/@innovisionnitrourkelatech?si=DHtY0npr9gez6bMw" target="_blank" aria-label="YouTube">
@@ -240,9 +262,9 @@ export default function Footer() {
 
           {/* Footer Bottom Text - Full Width Center */}
           <div className="text-center pt-10 pb-2">
-            <p className="text-sm lg:text-base text-gray-300 mb-0 leading-none">
-              Made with ❤️ by Team{" "}
-              <span className="font-bold text-white">{"</WEBWIZ>"}</span>
+            <p className="text-sm text-gray-300 mb-0 py-3 leading-normal ">
+              Team{" "}
+              <span className="font-bold text-white">{"Innovision X Webwiz"}</span>
             </p>
           </div>
         </div>

@@ -11,7 +11,6 @@ import { SwiperCarousel } from "@/components/Carousel/Carousel";
 
 const { background, fish } = URL;
 
-// Event Card Component (extracted for reusability)
 const EventCard = ({
   event,
   isActive,
@@ -69,16 +68,20 @@ const EventDetails = ({
           >
             {event.name}
           </h2>
-          <p
-            className={`text-white/90 text-justify ${spaceGrotesk.className} text-lg leading-relaxed`}
-          >
-            {event.description}
-          </p>
-          <Link href={event.rulebook}>
-            <div className="mt-8 flex justify-center">
-              <RulebookButton size="md" variant="primary" />
-            </div>
-          </Link>
+          {!event.description.includes('Lorem ipsum') && (
+            <p
+              className={`text-white/90 text-justify ${spaceGrotesk.className} text-lg leading-relaxed`}
+            >
+              {event.description}
+            </p>
+          )}
+          {!event.rulebook.includes('example.com') && (
+            <Link href={event.rulebook}>
+              <div className="mt-8 flex justify-center">
+                <RulebookButton size="md" variant="primary" />
+              </div>
+            </Link>
+          )}
         </div>
 
         <motion.div
