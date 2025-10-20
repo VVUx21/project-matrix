@@ -59,7 +59,7 @@ const RegistrationForm = ({
 
   const validateReferralCode = (code: string) => {
     // Only check that the referral code is exactly 6 digits
-    return code.length === 6 ;
+    return code.length === 6 || code === "";
   };
 
     const validateCollege = (college: string) => {
@@ -79,14 +79,6 @@ const RegistrationForm = ({
       "INSTITUTE OF TECHNICAL EDUCATION & RESEARCH",
       "INSTITUTE TECH EDUCATION RESEARCH",
       "I T E R",
-      
-      // OUTR
-      "OUTR",
-      "ODISHA UNIVERSITY OF TECHNOLOGY AND RESEARCH",
-      "ODISHA UNIVERSITY OF TECHNOLOGY AND RESEARCH ",
-      "ODISHA UNIVERSITY OF TECHNOLOGY & RESEARCH",
-      "ODISHA TECH UNIVERSITY",
-      "O T U R"
     ];
 
     const input = college.toUpperCase().replace(/\s+/g, ' ').trim();
@@ -113,6 +105,17 @@ const RegistrationForm = ({
       }
     }
 
+    if (name === "referralCode") {
+      if (!validateReferralCode(value)) {
+        setErrors((prev) => ({
+          ...prev,
+          referralCode: "Referral code must be exactly 6 characters",
+        }));
+      } else {
+        setErrors((prev) => ({ ...prev, referralCode: "" }));
+      }
+    }
+
     // Validate phone numbers
     if (name === "phoneNumber" || name === "whatsappNumber") {
       if (!validatePhoneNumber(value)) {
@@ -125,22 +128,11 @@ const RegistrationForm = ({
       }
     }
 
-    if (name === "referralCode") {
-      if (value && !validateReferralCode(value)) {
-        setErrors((prev) => ({
-          ...prev,
-          referralCode: "Referral code must be exactly 6 digits",
-        }));
-      } else {
-        setErrors((prev) => ({ ...prev, referralCode: "" }));
-      }
-    }
-
     if (name === "college") {
       if (!validateCollege(value)) {
         setErrors((prev) => ({
           ...prev,
-          college: "Students from SOA, ITER, or OUTR are not allowed.",
+          college: "Students from SOA, ITER are not allowed.",
         }));
       } else {
         setErrors((prev) => ({ ...prev, college: "" }));
@@ -176,12 +168,13 @@ const RegistrationForm = ({
       toast.error("Please enter a valid 10-digit WhatsApp number");
       return;
     }
+    if (!validateReferralCode(formData.referralCode)) {
+      toast.error("Referral code must be exactly 6 characters");
+      return;
+    }
 
-    if (
-      formData.referralCode &&
-      !validateReferralCode(formData.referralCode)
-    ) {
-      toast.error("Referral code must be exactly 6 digits");
+    if (!validateCollege(formData.college)) {
+      toast.error("Students from SOA, ITER are not allowed.");
       return;
     }
 
@@ -214,9 +207,27 @@ const RegistrationForm = ({
         setLoading(false);
         return;
       }
+      // Validate ID card file type (must be JPG or PNG)
+      if (formData.idCard) {
+        const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
+        if (!allowedTypes.includes(formData.idCard.type.toLowerCase())) {
+          toast.error("ID Card must be a JPG or PNG image.");
+          setLoading(false);
+          return;
+        }
+      }
+      // Validate payment screenshot file type (must be JPG or PNG)
+      if (formData.paymentss) {
+        const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
+        if (!allowedTypes.includes(formData.paymentss.type.toLowerCase())) {
+          toast.error("Payment Screenshot must be a JPG or PNG image.");
+          setLoading(false);
+          return;
+        }
+      }
 
-      if (formData.idCard.size > 10 * 1024 * 1024) {
-        toast.error("File size should not exceed 10MB!");
+      if (formData.idCard.size > 5 * 1024 * 1024) {
+        toast.error("File size should not exceed 5MB!");
         setLoading(false);
         return;
       }
@@ -514,7 +525,7 @@ const RegistrationForm = ({
           >
             <div className="space-y-2">
               <label className="block text-sm font-medium text-[#7DF9FF]">
-                ID Card 
+                ID Card (Must be JPG or PNG file and max size 5MB)
               </label>
               <motion.input
                 type="file"
@@ -528,7 +539,7 @@ const RegistrationForm = ({
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-medium text-[#7DF9FF]">
-                Payment Screenshot 
+                Payment Screenshot (Must be JPG or PNG file)
               </label>
               <motion.input
                 type="file"
@@ -571,7 +582,7 @@ const RegistrationForm = ({
             </div>
             <div className="space-y-2 mx-auto w-full">
                 <label className="block text-sm font-medium text-[#7DF9FF]">
-                  Referral Code
+                  Referral Code (If u have a 6 digit code or leave blank)
                 </label>
                 <motion.input
                   type={"text"}
@@ -579,7 +590,6 @@ const RegistrationForm = ({
                   placeholder={`Your Referral Code`}
                   className="input-field"
                   onChange={handleChange}
-                  required
                   whileFocus={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 />
