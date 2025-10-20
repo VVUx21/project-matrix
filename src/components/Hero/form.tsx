@@ -79,14 +79,6 @@ const RegistrationForm = ({
       "INSTITUTE OF TECHNICAL EDUCATION & RESEARCH",
       "INSTITUTE TECH EDUCATION RESEARCH",
       "I T E R",
-      
-      // OUTR
-      "OUTR",
-      "ODISHA UNIVERSITY OF TECHNOLOGY AND RESEARCH",
-      "ODISHA UNIVERSITY OF TECHNOLOGY AND RESEARCH ",
-      "ODISHA UNIVERSITY OF TECHNOLOGY & RESEARCH",
-      "ODISHA TECH UNIVERSITY",
-      "O T U R"
     ];
 
     const input = college.toUpperCase().replace(/\s+/g, ' ').trim();
@@ -140,7 +132,7 @@ const RegistrationForm = ({
       if (!validateCollege(value)) {
         setErrors((prev) => ({
           ...prev,
-          college: "Students from SOA, ITER, or OUTR are not allowed.",
+          college: "Students from SOA, ITER are not allowed.",
         }));
       } else {
         setErrors((prev) => ({ ...prev, college: "" }));
