@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "res.cloudinary.com",
       },
-
       {
         protocol: "https",
         hostname: "sacnitrkl.blr1.cdn.digitaloceanspaces.com",
