@@ -18,12 +18,12 @@ import {
   textContent,
   lightRaysConfig,
 } from "./Heroconfig";
-import { useAuth,UserButton} from "@clerk/nextjs";
+import { useAuth, UserButton } from "@clerk/nextjs";
 
 const Hero: React.FC = () => {
   const [formopen, setformopen] = useState(false);
   const router = useRouter();
-  const { isLoaded, isSignedIn} = useAuth();
+  const { isLoaded, isSignedIn } = useAuth();
 
   // const showComingSoonAlert = () => {
   //   toast.info("Coming Soon! 🚀", {
@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
     setformopen(!formopen);
   };
 
-   const handleClick = () => {
+  const handleClick = () => {
     if (isLoaded && isSignedIn) {
       toggleForm?.();
     } else {
@@ -164,7 +164,7 @@ const Hero: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Hero Image and Brochure Button Container */}
+          {/* Hero Image and Register Button Container */}
           <div className="relative w-full h-full my-7 py-12 flex flex-col items-center mt-[10px] sm:mt-[-100px] md:mt-[-190px] lg:mt-[-244px] xl:mt-[-260px]">
             <motion.div
               initial="hidden"
