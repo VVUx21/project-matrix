@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 import LightRays from "./LightRays";
 import RegistrationForm from "./form";
 import {
@@ -23,6 +24,17 @@ const Hero: React.FC = () => {
   const [formopen, setformopen] = useState(false);
   const router = useRouter();
   const { isLoaded, isSignedIn} = useAuth();
+
+  // const showComingSoonAlert = () => {
+  //   toast.info("Coming Soon! 🚀", {
+  //     position: "top-right",
+  //     autoClose: 3000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //   });
+  // };
 
   useEffect(() => {
     if (!formopen) {

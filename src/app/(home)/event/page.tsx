@@ -8,15 +8,15 @@ import FunEvents from "@/components/FunEvent/FunEvent";
 function page() {
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-b from-[#4E00FB] to-[#020006] pt-[10vw] md:pt-[5vw]">
+      <div className="min-h-screen bg-gradient-to-b from-[#020006] to-[#4E00FB] pt-[10vw] md:pt-[5vw]">
         <MainEvent />
         <FlagEvent />
       </div>
-      <div className="min-h-screen bg-gradient-to-b from-[#020006] to-[#4E00FB] pt-[10vw] md:pt-[5vw]">
-        <GuestLec />
+      <div className="min-h-screen bg-gradient-to-b from-[#4E00FB] to-[#020006] pt-[10vw] md:pt-[5vw]">
+        {/* <GuestLec /> */}
         <DtsEvents />
       </div>
-      <div className="min-h-screen bg-gradient-to-b from-[#4E00FB] to-[#020006] pt-[10vw] md:pt-[5vw]">
+      <div className="min-h-screen bg-gradient-to-b from-[#020006] to-[#020006] pt-[10vw] md:pt-[5vw]">
         <FunEvents />
         <ImageGallery />
       </div>

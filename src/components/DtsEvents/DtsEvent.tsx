@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { SwiperSlide } from "swiper/react";
-import { URL, events } from "@/config/mainEvents/mainEvents";
+import { URL, events } from "@/config/DtsEvent/DtsEvent";
 import { neue, spaceGrotesk } from "@/fonts";
 import RulebookButton from "@/components/ui/RulebookButton";
 import { SwiperCarousel } from "@/components/Carousel/Carousel";
@@ -69,16 +69,20 @@ const EventDetails = ({
           >
             {event.name}
           </h2>
-          <p
-            className={`text-white/90 text-justify ${spaceGrotesk.className} text-lg leading-relaxed`}
-          >
-            {event.description}
-          </p>
-          <Link href={event.rulebook}>
-            <div className="mt-8 flex justify-center">
-              <RulebookButton size="md" variant="primary" />
-            </div>
-          </Link>
+          {!event.description.includes('Lorem ipsum') && (
+            <p
+              className={`text-white/90 text-justify ${spaceGrotesk.className} text-lg leading-relaxed`}
+            >
+              {event.description}
+            </p>
+          )}
+          {!event.rulebook.includes('example.com') && (
+            <Link href={event.rulebook}>
+              <div className="mt-8 flex justify-center">
+                <RulebookButton size="md" variant="primary" />
+              </div>
+            </Link>
+          )}
         </div>
 
         <motion.div
@@ -114,16 +118,20 @@ const EventDetails = ({
           >
             {event.name}
           </h2>
-          <p
-            className={`text-white/90 text-justify ${spaceGrotesk.className} text-base leading-relaxed`}
-          >
-            {event.shortDescription}
-          </p>
-          <Link href={event.rulebook}>
-            <div className="mt-8 flex justify-center">
-              <RulebookButton size="md" variant="primary" />
-            </div>
-          </Link>
+        {!event.description.includes('Lorem ipsum') && (
+            <p
+              className={`text-white/90 text-justify ${spaceGrotesk.className} text-lg leading-relaxed`}
+            >
+              {event.description}
+            </p>
+          )}
+          {!event.rulebook.includes('example.com') && (
+            <Link href={event.rulebook}>
+              <div className="mt-8 flex justify-center">
+                <RulebookButton size="md" variant="primary" />
+              </div>
+            </Link>
+          )}
         </div>
 
         <motion.div
@@ -176,15 +184,20 @@ const EventDetails = ({
             {event.name}
           </h2>
 
-          <p
-            className={`text-white/80 ${spaceGrotesk.className} text-sm leading-relaxed line-clamp-4`}
-          >
-            {event.description}
-          </p>
-
-          <Link href={event.rulebook}>
-            <RulebookButton size="sm" variant="primary" />
-          </Link>
+          {!event.description.includes('Lorem ipsum') && (
+            <p
+              className={`text-white/90 text-justify ${spaceGrotesk.className} text-lg leading-relaxed`}
+            >
+              {event.description}
+            </p>
+          )}
+          {!event.rulebook.includes('example.com') && (
+            <Link href={event.rulebook}>
+              <div className="mt-8 flex justify-center">
+                <RulebookButton size="md" variant="primary" />
+              </div>
+            </Link>
+          )}
         </div>
       </motion.div>
     </div>
@@ -241,7 +254,7 @@ const FlagEvent = () => {
               transition: { duration: 0.3 },
             }}
           >
-            MAIN EVENTS
+            DTS EVENTS
           </motion.h1>
         </motion.div>
 

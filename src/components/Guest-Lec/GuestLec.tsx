@@ -4,14 +4,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { SwiperSlide } from "swiper/react";
-import { URL, events } from "@/config/mainEvents/mainEvents";
+import { URL, events } from "@/config/guestLec/guestLec";
 import { neue, spaceGrotesk } from "@/fonts";
 import RulebookButton from "@/components/ui/RulebookButton";
 import { SwiperCarousel } from "@/components/Carousel/Carousel";
 
 const { background, fish } = URL;
 
-// Event Card Component (extracted for reusability)
 const EventCard = ({
   event,
   isActive,
@@ -44,7 +43,7 @@ const EventCard = ({
 );
 
 // Event Details Component (extracted for reusability)
-type EventType = typeof events[number];
+type EventType = (typeof events)[number];
 
 const EventDetails = ({
   event,
@@ -69,16 +68,20 @@ const EventDetails = ({
           >
             {event.name}
           </h2>
-          <p
-            className={`text-white/90 text-justify ${spaceGrotesk.className} text-lg leading-relaxed`}
-          >
-            {event.description}
-          </p>
-          <Link href={event.rulebook}>
-            <div className="mt-8 flex justify-center">
-              <RulebookButton size="md" variant="primary" />
-            </div>
-          </Link>
+          {!event.description.includes('Lorem ipsum') && (
+            <p
+              className={`text-white/90 text-justify ${spaceGrotesk.className} text-lg leading-relaxed`}
+            >
+              {event.description}
+            </p>
+          )}
+          {!event.rulebook.includes('example.com') && (
+            <Link href={event.rulebook}>
+              <div className="mt-8 flex justify-center">
+                <RulebookButton size="md" variant="primary" />
+              </div>
+            </Link>
+          )}
         </div>
 
         <motion.div
@@ -241,7 +244,7 @@ const FlagEvent = () => {
               transition: { duration: 0.3 },
             }}
           >
-            MAIN EVENTS
+            GUEST LECTURES
           </motion.h1>
         </motion.div>
 
@@ -259,10 +262,13 @@ const FlagEvent = () => {
 
       {/* Event Details Section - Replaces DescriptionCarousel */}
       <div className="relative overflow-visible pt-2 pb-24">
-        <EventDetails event={events[currentIndex]} currentIndex={currentIndex} />
+        <EventDetails
+          event={events[currentIndex]}
+          currentIndex={currentIndex}
+        />
 
         {/* Floating Fish Animation */}
-        <div className="absolute top-[500px] sm:top-[20px] lg:top-[30px] left-0 sm:-left-6 lg:-left-10 w-[55vw] sm:w-[260px] lg:w-[200px] h-[35vh] sm:h-[340px] lg:h-[360px] z-0 pointer-events-none">
+        {/* <div className="absolute top-[500px] sm:top-[20px] lg:top-[30px] left-0 sm:-left-6 lg:-left-10 w-[55vw] sm:w-[260px] lg:w-[200px] h-[35vh] sm:h-[340px] lg:h-[360px] z-0 pointer-events-none">
           <motion.div
             className="absolute left-[2vw] sm:left-[1vw] lg:left-[1.5vw] bottom-0 w-[60vw] sm:w-[40vw] lg:w-[25vw] h-[40vh] sm:h-[50vh] lg:h-[55vh]"
             animate={{ y: [0, -30, 0], rotate: [0, 2, 0] }}
@@ -276,7 +282,7 @@ const FlagEvent = () => {
               className="w-full h-full object-contain opacity-40"
             />
           </motion.div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

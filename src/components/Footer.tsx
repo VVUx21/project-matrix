@@ -15,8 +15,8 @@ const neue = localFont({
 export default function Footer() {
   const quickLinks = [
     { name: "Gallery", href: "/event#gallery" },
-    { name: "Sponsors", href: "#sponsers" },
-    { name: "About us", href: "#about-us" },
+    { name: "Sponsors", href: "/#sponsers" },
+    { name: "About us", href: "/#about-us" },
     { name: "Events", href: "/event" },
     { name: "Merch", href: "/merch" },
   ];
@@ -39,7 +39,7 @@ export default function Footer() {
         borderRadius: "50px 50px 0 0",
       }}
     >
-      <div className="w-full max-w-[1512px] mx-auto px-6 sm:px-10 py-4 lg:py-2 lg:pt-8 pb-0 text-white">
+      <div className="w-full max-w-[1512px] mx-auto px-2 sm:px-10 py-4 lg:py-2 lg:pt-8 pb-0 text-white">
         {/* Mobile Layout */}
         <div className="lg:hidden flex flex-col items-center text-center">
           {/* Title and Description */}
@@ -70,10 +70,10 @@ export default function Footer() {
           </div>
 
           {/* Two Column Section */}
-          <div className="grid grid-cols-2 gap-8 w-full max-w-md mb-10">
+          <div className="flex gap-2  justify-center w-full max-w-md mb-10">
             {/* Quick Links */}
             <div className="text-center">
-              <h3 className="text-lg uppercase font-bold mb-4">Quick Links</h3>
+              <h3 className="text-sm uppercase font-bold mb-4">Quick Links</h3>
               <ul
                 className={`space-y-2 text-sm ${spaceGrotesk.className} font-mono`}
               >
@@ -91,16 +91,33 @@ export default function Footer() {
             </div>
             {/* Contact Us */}
             <div className="text-center">
-              <h3 className="text-lg uppercase font-bold mb-4">Contact Us</h3>
-              <div
-                className={`text-sm space-y-2 ${spaceGrotesk.className} text-gray-200`}
-              >
-                <p>
-                  <span className="font-semibold uppercase">NAME:</span> 987654321
-                </p>
-                <p>innonitr@gmail.com</p>
+              <h3 className="text-sm uppercase font-bold mb-4">Contact Us</h3>
+              {/* Convenors Section */}
+              <div className="mb-4">
+                <h4 className="text-xs uppercase font-semibold mb-2">Convenors</h4>
+                <div className={`text-sm space-y-2 ${spaceGrotesk.className} text-gray-200`}>
+                  <p>
+                    <span className="font-semibold uppercase">Nimai Charan Das: 6372390825</span>
+                  </p>
+                </div>
               </div>
-
+              <div>
+                <h4 className="text-xs uppercase font-semibold mb-2">Help Desk</h4>
+                <div className={`text-sm space-y-2 ${spaceGrotesk.className} text-gray-200`}>
+                  <p>
+                    <span className="font-semibold uppercase">Partha Sarathi: 9437400250</span>
+                  </p>
+                  <p>
+                    <span className="font-semibold uppercase">Subhasmita Prusty: 7077962125</span>
+                  </p>
+                  <Link
+                    href="mailto:technicalsocietynitrkl@gmail.com"
+                    className="hover:text-purple-300 transition-all duration-200 hover:scale-110 transform inline-block"
+                  >
+                    technicalsocietynitrkl@gmail.com
+                  </Link>
+                </div>
+              </div>
               {/* Social Icons */}
               <div className="flex justify-center space-x-4 mt-6">
                 <Link href="#" target="_blank" aria-label="YouTube">
@@ -134,9 +151,9 @@ export default function Footer() {
           />
 
           {/* Footer Text */}
-          <p className="text-sm text-gray-300 mb-0 py-3 leading-none">
-            Made with ❤️ by Team{" "}
-            <span className="font-bold text-white">{"</WEBWIZ>"}</span>
+          <p className="text-sm text-gray-300 mb-0 py-3 leading-normal ">
+            Team{" "}
+            <span className="font-bold text-white">{"Innovision X Webwiz"}</span>
           </p>
         </div>
 
@@ -154,13 +171,12 @@ export default function Footer() {
               <p
                 className={`text-sm lg:text-base leading-snug ${spaceGrotesk.className} text-gray-200`}
               >
-                Innovision 2025, the largest techno-cultural fest of Eastern
-                India organized by NIT Rourkela, is a celebration where
-                technology, creativity, and culture converge. With the theme
-                "Dive into the World of Water," this edition symbolizes depth,
-                exploration, and limitless imagination. Through thrilling
-                events, workshops, and showcases, Innovision 2025 provides a
-                vibrant platform for students.
+                Innovision 2025, the largest techno-management fest of Eastern India
+            organized by NIT Rourkela, is a celebration where technology,
+            creativity, and culture converge. With the theme "Dive into the
+            World of Water," this edition symbolizes depth, exploration, and
+            limitless imagination. Through thrilling events, workshops, and
+            showcases, Innovision 2025 provides a vibrant platform for students.
               </p>
             </div>
 
@@ -205,17 +221,28 @@ export default function Footer() {
               <h3 className="text-xl lg:text-2xl uppercase font-bold mb-6">
                 Contact Us
               </h3>
-              <div
-                className={`text-sm lg:text-base space-y-3 ${spaceGrotesk.className} text-gray-200 mb-8`}
-              >
+              <div className={`text-sm lg:text-base space-y-3 ${spaceGrotesk.className} text-gray-200 mb-8`}>
+                <h4 className="text-base lg:text-lg font-semibold uppercase mb-2">Convenor</h4>
                 <p>
                   <span className="font-semibold uppercase">Nimai Charan Das:</span> 6372390825
                 </p>
-                <Link href="mailto:innonitr@gmail.com" className="hover:text-purple-300 transition-all duration-200 hover:scale-110 transform inline-block">
-                  innonitr@gmail.com
+              </div>
+              {/* Help Desk Section */}
+              <div className={`text-sm lg:text-base space-y-3 ${spaceGrotesk.className} text-gray-200 mb-6`}>
+                <h4 className="text-base lg:text-lg font-semibold uppercase mb-2">Help Desk</h4>
+                <p>
+                  <span className="font-semibold uppercase">Partha Sarathi:</span> 9437400250
+                </p>
+                <p>
+                  <span className="font-semibold uppercase">Subhasmita Prusty:</span> 7077962125
+                </p>
+                <Link
+                  href="mailto:technicalsocietynitrkl@gmail.com"
+                  className="hover:text-purple-300 transition-all duration-200 hover:scale-110 transform inline-block"
+                >
+                  technicalsocietynitrkl@gmail.com
                 </Link>
               </div>
-
               {/* Social Icons */}
               <div className="flex justify-center space-x-6 mt-6">
                 <Link href="https://youtube.com/@innovisionnitrourkelatech?si=DHtY0npr9gez6bMw" target="_blank" aria-label="YouTube">
@@ -235,9 +262,9 @@ export default function Footer() {
 
           {/* Footer Bottom Text - Full Width Center */}
           <div className="text-center pt-10 pb-2">
-            <p className="text-sm lg:text-base text-gray-300 mb-0 leading-none">
-              Made with ❤️ by Team{" "}
-              <span className="font-bold text-white">{"</WEBWIZ>"}</span>
+            <p className="text-sm text-gray-300 mb-0 py-3 leading-normal ">
+              Team{" "}
+              <span className="font-bold text-white">{"Innovision X Webwiz"}</span>
             </p>
           </div>
         </div>

@@ -77,6 +77,7 @@ export async function POST(req: NextRequest) {
       gender: formdata.get("gender")?.toString() || "",
       idcardurl: idCardResult.secure_url || "",
       email: formdata.get("email")?.toString() || "",
+      referralCode: formdata.get("referralCode")?.toString() || "",
     };
 
     return NextResponse.json(

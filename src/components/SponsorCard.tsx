@@ -14,16 +14,11 @@ const MainSponsors = [
   },
   {
     id: 1,
-    name: "Rourkela Shines",
-    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425657/rourkela-shines_ysazes.svg",
+    name: "Red Bull",
+    logo: "https://res.cloudinary.com/dmcnewoxd/image/upload/v1760361203/hd-red-bull-energy-logo-png-701751694778707w00dbzhxd1_zkijbv.png",
   },
   {
     id: 2,
-    name: "Odisha Gov",
-    logo: "https://res.cloudinary.com/dhkfjehat/image/upload/v1760037805/odisha-gov-light_vkyu4b.png",
-  },
-  {
-    id: 3,
     name: "Accenture",
     logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759488708/accenture-logo_wz2xb9.svg",
   },
@@ -34,18 +29,9 @@ const FoodSponsors = [
   {
     id: 0,
     name: "image 5",
-    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425926/image_5_ffwu3w.svg",
+    logo: "https://res.cloudinary.com/dmcnewoxd/image/upload/v1760361277/coming-soon-banner-with-grunge-brush-stroke-vector-illustration_275806-2107_phurtq.avif",
   },
-  {
-    id: 1,
-    name: "image 6",
-    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425922/image_6_hsyu3u.svg",
-  },
-  {
-    id: 2,
-    name: "Adobe",
-    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425650/adobe-logo_1_tmplew.svg",
-  },
+
 ];
 
 // Media Sponsors
@@ -55,15 +41,11 @@ const MediaSponsors = [
     name: "Rourkela Shines",
     logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425657/rourkela-shines_ysazes.svg",
   },
+  
   {
     id: 1,
-    name: "Accenture",
-    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759488708/accenture-logo_wz2xb9.svg",
-  },
-  {
-    id: 2,
     name: "Odisha Gov",
-    logo: "https://res.cloudinary.com/dhkfjehat/image/upload/v1760037805/odisha-gov-light_vkyu4b.png",
+    logo: "https://res.cloudinary.com/dmcnewoxd/image/upload/e_background_removal/f_png/v1760361377/images_1_rb7jvz.jpg",
   },
 ];
 
@@ -138,7 +120,7 @@ export default function SponsorCard() {
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
           }}
         >
-          SPONSORS
+          PAST SPONSORS
         </h1>
 
         {/* **************************** Main Sponsors ********************************* */}

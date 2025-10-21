@@ -55,6 +55,7 @@ export async function createUserAndTransaction(data: {
     gender: string;
     idcardurl: string;
     email: string;
+    referralCode: string;
   };
   transaction: {
     transaction_id: string;

@@ -453,6 +453,9 @@ const Statistics = () => {
               </div>
             ))}
           </div>
+          <strong className="block mt-2 text-red-500 font-bold text-xl">
+            Note: Students from SOA, ITER are not allowed.
+          </strong>
         </div>
       </div>
 

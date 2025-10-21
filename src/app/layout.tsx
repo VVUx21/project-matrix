@@ -1,6 +1,21 @@
-import {
-  ClerkProvider,
-} from '@clerk/nextjs'
+import { ClerkProvider } from "@clerk/nextjs";
+import { Geist, Geist_Mono } from "next/font/google";
+import { neueMetana, neueMetanaSemi } from "@/fonts";
+import "./globals.css";
+import { ReactLenis } from "../../provider/Lenisprovider";
+import ClientOnly from "@/components/ClientOnly";
+import SiteLoader from "@/components/loader/SiteLoader";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
 const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 export default function RootLayout({
   children,
@@ -8,8 +23,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider publishableKey={publishableKey}
-        appearance={{
+    <ClerkProvider
+      publishableKey={publishableKey}
+      appearance={{
         variables: {
           colorPrimary: "#00d4ff",
           colorBackground: "#0f172a",
@@ -118,11 +134,17 @@ export default function RootLayout({
         },
       }}
     >
-    <html lang="en">
-            <body>
-                {children}
-            </body>
-        </html>
-    </ClerkProvider>
+      <html lang="en">
+        <body
+          suppressHydrationWarning={true}
+          className={`${geistSans.variable} ${geistMono.variable} ${neueMetana.variable} ${neueMetanaSemi.variable} overflow-x-hidden antialiased`}
+        >
+          <ClientOnly>
+            <SiteLoader></SiteLoader>
+          </ClientOnly>
+          {children}
+        </body>
+      </html>
+  </ClerkProvider>
   );
 }
