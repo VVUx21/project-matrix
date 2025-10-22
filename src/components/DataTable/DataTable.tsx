@@ -50,7 +50,7 @@ export function DataTable<T>({ data, columns }: DataTableProps<T>) {
           onChange={(e) => table.setPageSize(Number(e.target.value))}
           className="px-4 py-2 rounded-lg bg-[#24316990] backdrop-blur-sm text-[#7DF9FF] border border-[#7DF9FF]/20 ring-1 ring-[#ffffff75] focus:outline-none focus:border-[#7DF9FF] focus:ring-[#7DF9FF]/50 transition-all cursor-pointer"
         >
-          {[20, 50, 100].map((pageSize) => (
+          {[10, 25, 50].map((pageSize) => (
             <option key={pageSize} value={pageSize} className="bg-[#243169]">
               Show {pageSize}
             </option>
