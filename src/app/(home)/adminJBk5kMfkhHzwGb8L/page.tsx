@@ -208,15 +208,6 @@ export default function Page() {
     document.body.removeChild(link);
   };
 
-  // Show loading state
-  // if (loading) {
-  //   return (
-  //     <div className="min-h-screen bg-[#040d17] flex items-center justify-center">
-  //       <div className="text-[#acffff] text-xl">Loading data...</div>
-  //     </div>
-  //   );
-  // }
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#5000FF] to-[#000002] p-4 md:p-6 font-inter!">
       <div className="max-w-[1400px] mx-auto mt-24 md:mt-28 rounded-3xl shadow-xl/30 bg-[#b5a1e02f] backdrop-blur-sm border border-[#5000FF]/20 ring-1 ring-[#ffffff75]">
