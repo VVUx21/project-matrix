@@ -246,6 +246,8 @@ const RegistrationForm = ({
       formdata.append("paymentss", formData.paymentss);
       formdata.append("email", formData.email);
 
+      console.log(formData);
+
       try {
         const response = await axios.post("/api/registeruser", formdata, {
           headers: {

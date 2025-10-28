@@ -84,6 +84,7 @@ export async function createUserAndTransaction(data: {
         gender: userdata.gender,
         idcardurl: userdata.idcardurl,
         email: userdata.email,
+        referralCode: userdata.referralCode,
         transaction: {
           create: {
             transaction_id: transaction.transaction_id ?? "",
