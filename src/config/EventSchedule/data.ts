@@ -28,7 +28,7 @@ export const DATA: Record<DayKey, EventItem[]> = {
       description: "",
     },
     {
-      time: "10:00 PM – 3:00 AM",
+      time: "09:00 PM – 2:00 AM",
       title: "Stellar Night",
       venue: "Electrical building Rooftop",
       description: "",
@@ -36,7 +36,7 @@ export const DATA: Record<DayKey, EventItem[]> = {
     {
       time: "3:00 PM – 7:00 PM",
       title: "Robo Sumo War",
-      venue: "SAC Stair",
+      venue: "Basketball court",
       description: "",
     },
     {
@@ -98,6 +98,13 @@ export const DATA: Record<DayKey, EventItem[]> = {
     },
     {
 
+      time: "9-12pm",
+      title: "Flag in the Blue",
+      venue: "LA 114 , LA 401",
+      description: "",
+    },
+    {
+
       time: "9AM -12PM",
       title: "WS2",
       venue: "LA 101",
@@ -114,7 +121,7 @@ export const DATA: Record<DayKey, EventItem[]> = {
 
       time: "9am -12 pm",
       title: "omega",
-      venue: "LA lawn , LA 004. LA009",
+      venue: "LA lawn , LA 004 , LA009",
       description: "",
     },
     {

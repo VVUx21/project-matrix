@@ -9,8 +9,8 @@ function page() {
   return (
     <>
       <div className="min-h-screen bg-gradient-to-b from-[#020006] to-[#4E00FB] pt-[10vw] md:pt-[5vw]">
-        <MainEvent />
         <FlagEvent />
+        <MainEvent />
       </div>
       <div className="min-h-screen bg-gradient-to-b from-[#4E00FB] to-[#020006] pt-[10vw] md:pt-[5vw]">
         {/* <GuestLec /> */}
