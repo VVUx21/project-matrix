@@ -164,7 +164,7 @@ export const events: Event[] = [
       "A well designed platform where bots compete and show their strength of the bot by having a face on collision between the bots",
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    rulebook: "https://example.com/showdown-rulebook.pdf",
+    rulebook: "https://drive.google.com/open?id=1Q0JtliJ1YggYevh0A_z9L-0bco5LQfUr",
   },
   {
     id: 17,
@@ -306,10 +306,21 @@ export const events: Event[] = [
     image: "https://res.cloudinary.com/webwiznitr/image/upload/v1760821648/Inno2025/MATRIX_MANIA_1_-_baibhav_dash_page-0001_uvtmxg.jpg",
     title: "Matrix Mystery Mania",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae neque sed nulla facilisis auctor.",
+      "Lorem ipsum dolor   amet, consectetur adipiscing elit. Integer vitae neque sed nulla facilisis auctor.",
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
     rulebook: "https://drive.google.com/file/d/17MTDBwKGf1EkxtjLEZEOkYXjONLD19Oh/view",
+  },
+  {
+    id: 32,
+    name: "Flag in the Blue",
+    image: "https://res.cloudinary.com/dlrhikaak/image/upload/v1761656992/c2bd6c55-5f51-4f97-8174-0ce3bf5dd613_lnkk9a.jpg",
+    title: "Flag in the Blue",
+    description:
+             "Players individually explore an underwater scene on a web-based game to find a hidden flag. Each set has three 60-second rounds with different targets. Players click on various underwater objects to reveal hints that guide them to the correct object containing the flag.",
+    shortDescription:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    rulebook: "https://drive.google.com/open?id=1YM5wVtxW0W_McXvi1p9NZGzbqQ8fW8tv",
   },
 ];
 

@@ -48,7 +48,7 @@ export const events: Event[] = [
       "A well designed track where bots compete to complete the track as soon as possible overcoming all the tasks and hurdles in the path",
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
-    rulebook: "https://example.com/showdown-rulebook.pdf",
+    rulebook: "https://drive.google.com/open?id=1Ny4n4nCv8K6w943JZQ3NpcBaC0sYHFnx",
   },
   {
     id: 5,
@@ -72,7 +72,7 @@ export const events: Event[] = [
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
     rulebook:
-      "https://drive.google.com/open?id=1o9uMGHC0zRmgkAfGKpzwN1F6vctvS6WE",
+      "https://drive.google.com/open?id=1OE7cQlz3ALCiuxN6cTZSs3n-J7hiSmSX",
   },
   {
     id: 7,
@@ -94,7 +94,7 @@ export const events: Event[] = [
       "https://res.cloudinary.com/dsjxx976j/image/upload/v1759873412/velocity_-_Pratyush_Prateek_Dash_navqap.png",
     title: "EVENT 5",
     description:
-      "Competition Overview: Teams will compete by having their vehicle fly an obstacle course, aiming for the fastest lap time. The fastest team receives the most points. Ready Time: Each team is allowed 5 minutes to prepare their vehicle before the start of the race. Physical intervention is disallowed once this ready time expires. Payload Requirement (Optional for Points): Vehicles must pick up a provided payload from their lane before entering the obstacle course. The payload includes a ferromagnetic metal (steel) washer attached to the top. After clearing the last obstacle, the vehicle must deposit the payload in the same staging area. Payload pickup and delivery is non-mandatory but teams are awarded extra points for completing it.  Scoring and Advancement: The final score is the total of the lap ranking score and the payload score. The top teams with the highest scores will compete in an additional semi-final race. The top 5 team scores after the semi-finals will participate in a final race.",
+      " The Velocity Vortex competition challenges teams to race flying vehicles through an obstacle course, with the primary goal of achieving the fastest lap time. Teams get a brief 5-minute preparation period before the race starts, and once that time is up, no physical intervention with the vehicle is allowed. For a chance at extra points, vehicles can optionally pick up a provided ferromagnetic (steel) washer payload before the course and deliver it to the staging area afterward. The final score is calculated from the vehicle's lap ranking combined with any earned payload points. The teams with the highest overall scores will advance to a semi-final round, and the top five of those teams will then compete in the final race." ,
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
     rulebook:
