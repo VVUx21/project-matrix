@@ -231,7 +231,7 @@ export default function Footer() {
               <div className={`text-sm lg:text-base space-y-3 ${spaceGrotesk.className} text-gray-200 mb-6`}>
                 <h4 className="text-base lg:text-lg font-semibold uppercase mb-2">Help Desk</h4>
                 <p>
-                  <span className="font-semibold uppercase">Amarjyoti:</span> 9692757625
+                  <span className="font-semibold uppercase">Amarjyoti:</span> 9692757652
                 </p>
                 <p>
                   <span className="font-semibold uppercase">Subhasmita Prusty:</span> 7077962125
