@@ -206,10 +206,6 @@ body {
     display: none;
   }
 }
-/* globals.css */
-* {
-  cursor: none !important;
-}
 
 /* Show normal cursor on inputs/links for usability */
 input,
@@ -367,7 +363,7 @@ a,
 }
 
 * {
-  scroll-behavior: auto;
+  scroll-behavior: smooth !important;
 }
 .no-scrollbar::-webkit-scrollbar {
   display: none;

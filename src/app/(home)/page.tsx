@@ -6,20 +6,20 @@ import SponsorCard from "@/components/SponsorCard";
 import EventSchedule from "@/components/EventSchedule";
 import Police from "@/components/Police";
 import Semicon from "@/components/Semicon/Semicon";
+import KtmRoadSafety from "@/components/ktmroadsafety";
 function Home() {
   return (
     <div>
       <div id="hero">
         <Hero />
       </div>
-      {/* <ReactLenis> */}
         <AboutUs />
         <Police />
         <Semicon />
+        <KtmRoadSafety />
         <EventSchedule />
         <Statistics />
         <SponsorCard />
-      {/* </ReactLenis>   */}
     </div>
   );
 }

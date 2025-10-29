@@ -71,6 +71,7 @@ const RegistrationForm = ({
       "SIKSHA ANUSANDHAN",
       "SIKSHAOANUSANDHAN",
       "S O A",
+      " S . O . A",
       "SIKSHA 'O' ANUSANDHAN UNIVERSITY",
       
       // ITER
@@ -183,8 +184,8 @@ const RegistrationForm = ({
     try {
       const res = await checktransactionid(formData.transaction_id);
       if (res) {
-        toast.error("Transaction ID already exists. Please try again!");
-        console.log("Transaction ID exists");
+        toast.error("Transaction ID already exists. You have already registered.");
+        //console.log("Transaction ID exists");
         setLoading(false);
         return;
       }
@@ -196,7 +197,7 @@ const RegistrationForm = ({
       });
       if (respons) {
         toast.error(
-          "Email or phoneNumber or whatsappNumber already exists. Please try again!"
+          "Email or phoneNumber or whatsappNumber already exists. You have already registered."
         );
         setLoading(false);
         return;
