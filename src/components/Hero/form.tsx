@@ -543,7 +543,7 @@ const RegistrationForm = ({
           >
             <div className="space-y-2 mx-auto w-full">
               <label className="block text-sm font-medium text-[#7DF9FF]">
-                Gender (Female registrations are closed — accommodation capacity is full.)
+                Gender
               </label>
               <Select
                 name="gender"
@@ -557,6 +557,7 @@ const RegistrationForm = ({
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="male">Male</SelectItem>
+                  <SelectItem value="female">Female</SelectItem>
                 </SelectContent>
               </Select>
             </div>
