@@ -57,11 +57,6 @@ const RegistrationForm = ({
     return phoneRegex.test(number);
   };
 
-  const validateReferralCode = (code: string) => {
-    // Only check that the referral code is exactly 6 digits
-    return code.length === 6 || code === "";
-  };
-
     const validateCollege = (college: string) => {
     const forbiddenColleges = [
       // SOA
@@ -103,17 +98,6 @@ const RegistrationForm = ({
         }));
       } else {
         setErrors((prev) => ({ ...prev, email: "" }));
-      }
-    }
-
-    if (name === "referralCode") {
-      if (!validateReferralCode(value)) {
-        setErrors((prev) => ({
-          ...prev,
-          referralCode: "Referral code must be exactly 6 characters",
-        }));
-      } else {
-        setErrors((prev) => ({ ...prev, referralCode: "" }));
       }
     }
 
@@ -169,11 +153,7 @@ const RegistrationForm = ({
       toast.error("Please enter a valid 10-digit WhatsApp number");
       return;
     }
-    if (!validateReferralCode(formData.referralCode)) {
-      toast.error("Referral code must be exactly 6 characters");
-      return;
-    }
-
+    
     if (!validateCollege(formData.college)) {
       toast.error("Students from SOA, ITER are not allowed.");
       return;
