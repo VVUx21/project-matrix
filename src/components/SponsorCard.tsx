@@ -35,6 +35,16 @@ const MediaSponsors = [
     name: "Kanak News",
     logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1761766425/WhatsApp_Image_2025-10-29_at_21.18.06_42679066_rvhckc.jpg",
   },
+  {
+    id: 1,
+    name: "Rourkela Shines",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1761920474/ROURKELA_SHINES_LOGO-03_ioznud.png",
+  },
+  {
+    id: 2,
+    name: "Odisha Shines",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1761920492/odisha_speupo.png",
+  },
 ];
 
 function StaticSponsorGrid({ sponsors }: { sponsors: typeof MainSponsors }) {

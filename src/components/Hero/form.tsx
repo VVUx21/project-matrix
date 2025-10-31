@@ -187,7 +187,7 @@ const RegistrationForm = ({
         setLoading(false);
         return;
       }
-      // Validate ID card file type (must be JPG or PNG)
+
       if (formData.idCard) {
         const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
         if (!allowedTypes.includes(formData.idCard.type.toLowerCase())) {
@@ -557,7 +557,6 @@ const RegistrationForm = ({
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="male">Male</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
                 </SelectContent>
               </Select>
             </div>
