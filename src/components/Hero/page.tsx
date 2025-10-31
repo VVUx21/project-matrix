@@ -25,6 +25,24 @@ const Hero: React.FC = () => {
   const router = useRouter();
   const { isLoaded, isSignedIn } = useAuth();
 
+  useEffect(() => {
+    const id = "female-registrations-closed";
+    if (!toast.isActive(id)) {
+      toast.error(
+        "Female registrations are closed — accommodation capacity is full. Any submission made by selecting a different category or option will be considered INVALID and will NOT be accepted, even if payment has been completed. Please do not register under alternate gender.",
+        {
+          toastId: id,
+          position: "top-center",
+          autoClose: false, // stays until dismissed
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          theme: "colored",
+        }
+      );
+    }
+  }, []);
+
   const toggleForm = () => {
     setformopen(!formopen);
   };
