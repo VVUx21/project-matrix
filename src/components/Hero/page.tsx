@@ -25,28 +25,23 @@ const Hero: React.FC = () => {
   const router = useRouter();
   const { isLoaded, isSignedIn } = useAuth();
 
-  // const showComingSoonAlert = () => {
-  //   toast.info("Coming Soon! 🚀", {
-  //     position: "top-right",
-  //     autoClose: 3000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //   });
-  // };
-
   useEffect(() => {
-    if (!formopen) {
-      document.body.style.cursor = "none";
-    } else {
-      document.body.style.cursor = "auto";
+    const id = "female-registrations-closed";
+    if (!toast.isActive(id)) {
+      toast.error(
+        "Female registrations are closed — accommodation capacity is full.",
+        {
+          toastId: id,
+          position: "top-center",
+          autoClose: false, // stays until dismissed
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          theme: "colored",
+        }
+      );
     }
-
-    return () => {
-      document.body.style.cursor = "auto";
-    };
-  }, [formopen]);
+  }, []);
 
   const toggleForm = () => {
     setformopen(!formopen);
