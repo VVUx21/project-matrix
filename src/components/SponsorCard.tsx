@@ -1,11 +1,8 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import localfont from "next/font/local";
-import Marquee from "react-fast-marquee";
 import { neue } from "@/fonts";
 
-// Main Sponsors
 const MainSponsors = [
   {
     id: 0,
@@ -24,66 +21,47 @@ const MainSponsors = [
   },
 ];
 
-// Food Sponsors
 const FoodSponsors = [
   {
     id: 0,
     name: "image 5",
     logo: "https://res.cloudinary.com/dmcnewoxd/image/upload/v1760361277/coming-soon-banner-with-grunge-brush-stroke-vector-illustration_275806-2107_phurtq.avif",
   },
-
 ];
 
-// Media Sponsors
 const MediaSponsors = [
   {
     id: 0,
-    name: "Rourkela Shines",
-    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425657/rourkela-shines_ysazes.svg",
+    name: "Kanak News",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1761766425/WhatsApp_Image_2025-10-29_at_21.18.06_42679066_rvhckc.jpg",
   },
-  
   {
     id: 1,
-    name: "Odisha Gov",
-    logo: "https://res.cloudinary.com/dmcnewoxd/image/upload/e_background_removal/f_png/v1760361377/images_1_rb7jvz.jpg",
+    name: "Rourkela Shines",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1761920474/ROURKELA_SHINES_LOGO-03_ioznud.png",
+  },
+  {
+    id: 2,
+    name: "Odisha Shines",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1761920492/odisha_speupo.png",
   },
 ];
 
-// Reusable marquee component for desktop
-function SponsorMarquee({ sponsors }: { sponsors: typeof MainSponsors }) {
+function StaticSponsorGrid({ sponsors }: { sponsors: typeof MainSponsors }) {
   return (
-    <Marquee speed={35} gradient={false} autoFill>
+    <div className="flex justify-center items-center gap-6 md:gap-8 lg:gap-12 flex-wrap">
       {sponsors.map((sponsor) => (
-        <div key={sponsor.id} className="p-0 m-0 flex-shrink-0 gap-5">
+        <div key={sponsor.id} className="flex-shrink-0">
           <Image
             src={sponsor.logo}
             alt={sponsor.name}
             width={200}
             height={140}
-            className="w-[9vw] h-[9vw] sm:4 md:mx-6 lg:mx-8 object-contain"
+            className="w-[100px] h-[60px] md:w-[150px] md:h-[100px] lg:w-[180px] lg:h-[120px] object-contain"
           />
         </div>
       ))}
-    </Marquee>
-  );
-}
-
-// Reusable marquee component for mobile
-function MobileSponsorMarquee({ sponsors }: { sponsors: typeof MainSponsors }) {
-  return (
-    <Marquee speed={35} gradient={false} autoFill>
-      {sponsors.map((sponsor) => (
-        <div key={sponsor.id} className="p-0 m-0 flex-shrink-0 gap-5">
-          <Image
-            src={sponsor.logo}
-            alt={sponsor.name}
-            width={0}
-            height={0}
-            className="w-[100px] h-[60px] md:w-[200px] md:h-[250px] xl:h-[275px] xl:w-[225px] 2xl:h-[300px] 2xl:w-[250px] mx-2 object-contain"
-          />
-        </div>
-      ))}
-    </Marquee>
+    </div>
   );
 }
 
@@ -120,62 +98,53 @@ export default function SponsorCard() {
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
           }}
         >
-          PAST SPONSORS
+          SPONSORS
         </h1>
 
         {/* **************************** Main Sponsors ********************************* */}
-        <div className="h-[12vh] sm:h-[14vh] md:h-[16vh] lg:h-[18vh] xl:h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-[3vw] lg:px-[1vw] border my-4 border-white/20 flex flex-col justify-center">
-          <div className=" xl:p-2 2xl:p-4">
-            <div className="hidden md:block">
-              <SponsorMarquee sponsors={MainSponsors} />
-            </div>
-            <div className="md:hidden">
-              <MobileSponsorMarquee sponsors={MainSponsors} />
-            </div>
-          </div>
+        {/* <div className="min-h-[12vh] sm:min-h-[14vh] md:min-h-[16vh] lg:min-h-[18vh] xl:min-h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-6 lg:p-8 border my-4 border-white/20 flex flex-col justify-center">
+          <StaticSponsorGrid sponsors={MainSponsors} />
+        </div> */}
+        <div
+          className={`${neue.className} text-white p-3 flex flex-col justify-center`}
+          style={{
+            textShadow: "0 0 30px rgba(255,255,255,0.7)",
+          }}
+        >
+          PAST SPONSORS
+        </div>
+
+        <div className="min-h-[12vh] sm:min-h-[14vh] md:min-h-[16vh] lg:min-h-[18vh] xl:min-h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-6 lg:p-8 border my-4 border-white/20 flex flex-col justify-center">
+          <StaticSponsorGrid sponsors={MainSponsors} />
         </div>
 
         {/* **************************** Food Sponsors ********************************* */}
         <div
-          className={` ${neue.className} text-white rounded-[60px] md:rounded-[95px] p-3 flex flex-col justify-center`}
+          className={`${neue.className} text-white p-3 flex flex-col justify-center`}
           style={{
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
           }}
         >
-          FOOD SPONSORS
+          MEDIA PARTNERS
         </div>
 
-        <div className="h-[12vh] sm:h-[14vh] md:h-[16vh] lg:h-[18vh] xl:h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-[3vw] lg:px-[1vw] border my-4 border-white/20 flex flex-col justify-center">
-          <div className=" xl:p-2 2xl:p-4">
-            <div className="hidden md:block">
-              <SponsorMarquee sponsors={FoodSponsors} />
-            </div>
-            <div className="md:hidden">
-              <MobileSponsorMarquee sponsors={FoodSponsors} />
-            </div>
-          </div>
+        <div className="min-h-[12vh] sm:min-h-[14vh] md:min-h-[16vh] lg:min-h-[18vh] xl:min-h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-6 lg:p-8 border my-4 border-white/20 flex flex-col justify-center">
+          <StaticSponsorGrid sponsors={MediaSponsors} />
         </div>
 
-        {/* **************************** Media Sponsors ********************************* */}
         <div
-          className={`${neue.className} text-white  p-3 flex flex-col justify-center`}
+          className={`${neue.className} text-white rounded-[60px] md:rounded-[95px] p-3 flex flex-col justify-center`}
           style={{
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
           }}
         >
-          MEDIA SPONSORS
+          FOOD PARTNERS
         </div>
 
-        <div className="h-[12vh] sm:h-[14vh] md:h-[16vh] lg:h-[18vh] xl:h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-[3vw] lg:px-[1vw] border my-4 border-white/20 flex flex-col justify-center">
-          <div className=" xl:p-2 2xl:p-4">
-            <div className="hidden md:block">
-              <SponsorMarquee sponsors={MediaSponsors} />
-            </div>
-            <div className="md:hidden">
-              <MobileSponsorMarquee sponsors={MediaSponsors} />
-            </div>
-          </div>
+        <div className="min-h-[12vh] sm:min-h-[14vh] md:min-h-[16vh] lg:min-h-[18vh] xl:min-h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-6 lg:p-8 border my-4 border-white/20 flex flex-col justify-center">
+          <StaticSponsorGrid sponsors={FoodSponsors} />
         </div>
+
       </div>
 
       <Image
@@ -185,10 +154,10 @@ export default function SponsorCard() {
         height={400}
         priority
         className="pointer-events-none hidden md:block select-none absolute
-           left-[0vw] md:left-[2vw] lg:left-[1.5vw]
-           bottom-0 z-20 
-           w-[15vw] md:w-[18vw] h-auto max-h-[50vh]
-           jellyfish-bounce opacity-60 object-contain"
+          left-[0vw] md:left-[2vw] lg:left-[1.5vw]
+          bottom-0 z-20 
+          w-[15vw] md:w-[18vw] h-auto max-h-[50vh]
+          jellyfish-bounce opacity-60 object-contain"
       />
     </div>
   );

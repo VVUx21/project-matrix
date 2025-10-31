@@ -25,29 +25,6 @@ const Hero: React.FC = () => {
   const router = useRouter();
   const { isLoaded, isSignedIn } = useAuth();
 
-  // const showComingSoonAlert = () => {
-  //   toast.info("Coming Soon! 🚀", {
-  //     position: "top-right",
-  //     autoClose: 3000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //   });
-  // };
-
-  useEffect(() => {
-    if (!formopen) {
-      document.body.style.cursor = "none";
-    } else {
-      document.body.style.cursor = "auto";
-    }
-
-    return () => {
-      document.body.style.cursor = "auto";
-    };
-  }, [formopen]);
-
   const toggleForm = () => {
     setformopen(!formopen);
   };

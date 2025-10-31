@@ -98,7 +98,7 @@ export const events: Event[] = [
     shortDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id elit mi, accumsan ut mauris justo mollis, imperdiet elit semper non arcu. Fusce dina ut fermentum libero. Phasellus in vehicula commodo vel ipsum et phasellus.",
     rulebook:
-      "https://drive.google.com/open?id=1OE7cQlz3ALCiuxN6cTZSs3n-J7hiSmSX",
+      "https://drive.google.com/file/d/1a7G-tFBTaOC1anVEH4kG7TYuzfcaN5Tj/view?usp=sharing",
   },
 ];
 

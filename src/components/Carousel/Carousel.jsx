@@ -38,6 +38,20 @@ export const SwiperCarousel = ({
     }
   };
 
+  // Pause autoplay on hover
+  const handleMouseEnter = () => {
+    if (swiperRef.current?.swiper?.autoplay) {
+      swiperRef.current.swiper.autoplay.stop();
+    }
+  };
+
+  // Resume autoplay on mouse leave
+  const handleMouseLeave = () => {
+    if (swiperRef.current?.swiper?.autoplay) {
+      swiperRef.current.swiper.autoplay.start();
+    }
+  };
+
   useEffect(() => {
     if (scope.current) {
       const xOffset = -currentIndex * slideWidth;
@@ -51,7 +65,10 @@ export const SwiperCarousel = ({
 
   return (
     <Wrapper>
-      <ScreenViewContainer>
+      <ScreenViewContainer 
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <LeftArrowButton
           onClick={handlePrev}
           style={{ position: 'absolute', left: '10px', top: '50%', zIndex: 10 }}

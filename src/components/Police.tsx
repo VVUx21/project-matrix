@@ -61,21 +61,19 @@ const Police: React.FC = () => {
 
           {/* Cross smaller */}
          <div className="relative h-10 sm:h-12 md:h-14 lg:h-16 aspect-square">
-  <Image
-    src={CROSS_LOGO}
-    alt="Cross"
-    fill
-    sizes="(max-width: 640px) 40px, (max-width: 768px) 48px, (max-width: 1024px) 56px, 64px"
-    className="object-contain"
-  />
-</div>
-
-
-          {/* Right logo bigger */}
-          <div className="relative h-28 sm:h-32 md:h-40 lg:h-48 xl:h-52 aspect-square">
-            <Image
-              src={RIGHT_LOGO}
-              alt="Odisha Police Logo"
+          <Image
+            src={CROSS_LOGO}
+            alt="Cross"
+            fill
+            sizes="(max-width: 640px) 40px, (max-width: 768px) 48px, (max-width: 1024px) 56px, 64px"
+            className="object-contain"
+          />
+        </div>
+      {/* Right logo bigger */}
+      <div className="relative h-28 sm:h-32 md:h-40 lg:h-48 xl:h-52 aspect-square">
+        <Image
+          src={RIGHT_LOGO}
+          alt="Odisha Police Logo"
               fill
               sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, (max-width: 1024px) 160px, (max-width: 1280px) 192px, 208px"
               className="object-contain"
@@ -103,15 +101,13 @@ const Police: React.FC = () => {
           <p>Stay tuned... something BIG is on the horizon!</p>
             
       <div className="my-4 font-bold text-3xl pt-6">
-        Cash price worth 2lakh
+        Cash prize worth 2 lakhs
       </div>
 
         <OdishaPolics/>
       
         </div>
 
-        {/* CTAs */}
-      
       </div>
     </section>
   );

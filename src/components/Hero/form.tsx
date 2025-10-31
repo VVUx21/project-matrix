@@ -57,11 +57,6 @@ const RegistrationForm = ({
     return phoneRegex.test(number);
   };
 
-  const validateReferralCode = (code: string) => {
-    // Only check that the referral code is exactly 6 digits
-    return code.length === 6 || code === "";
-  };
-
     const validateCollege = (college: string) => {
     const forbiddenColleges = [
       // SOA
@@ -71,6 +66,7 @@ const RegistrationForm = ({
       "SIKSHA ANUSANDHAN",
       "SIKSHAOANUSANDHAN",
       "S O A",
+      " S . O . A",
       "SIKSHA 'O' ANUSANDHAN UNIVERSITY",
       
       // ITER
@@ -104,18 +100,6 @@ const RegistrationForm = ({
         setErrors((prev) => ({ ...prev, email: "" }));
       }
     }
-
-    if (name === "referralCode") {
-      if (!validateReferralCode(value)) {
-        setErrors((prev) => ({
-          ...prev,
-          referralCode: "Referral code must be exactly 6 characters",
-        }));
-      } else {
-        setErrors((prev) => ({ ...prev, referralCode: "" }));
-      }
-    }
-
     // Validate phone numbers
     if (name === "phoneNumber" || name === "whatsappNumber") {
       if (!validatePhoneNumber(value)) {
@@ -168,11 +152,7 @@ const RegistrationForm = ({
       toast.error("Please enter a valid 10-digit WhatsApp number");
       return;
     }
-    if (!validateReferralCode(formData.referralCode)) {
-      toast.error("Referral code must be exactly 6 characters");
-      return;
-    }
-
+    
     if (!validateCollege(formData.college)) {
       toast.error("Students from SOA, ITER are not allowed.");
       return;
@@ -183,8 +163,8 @@ const RegistrationForm = ({
     try {
       const res = await checktransactionid(formData.transaction_id);
       if (res) {
-        toast.error("Transaction ID already exists. Please try again!");
-        console.log("Transaction ID exists");
+        toast.error("Transaction ID already exists. You have already registered.");
+        //console.log("Transaction ID exists");
         setLoading(false);
         return;
       }
@@ -196,7 +176,7 @@ const RegistrationForm = ({
       });
       if (respons) {
         toast.error(
-          "Email or phoneNumber or whatsappNumber already exists. Please try again!"
+          "Email or phoneNumber or whatsappNumber already exists. You have already registered."
         );
         setLoading(false);
         return;
@@ -207,7 +187,7 @@ const RegistrationForm = ({
         setLoading(false);
         return;
       }
-      // Validate ID card file type (must be JPG or PNG)
+
       if (formData.idCard) {
         const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
         if (!allowedTypes.includes(formData.idCard.type.toLowerCase())) {
@@ -563,7 +543,7 @@ const RegistrationForm = ({
           >
             <div className="space-y-2 mx-auto w-full">
               <label className="block text-sm font-medium text-[#7DF9FF]">
-                Gender 
+                Gender
               </label>
               <Select
                 name="gender"
@@ -578,7 +558,6 @@ const RegistrationForm = ({
                 <SelectContent>
                   <SelectItem value="male">Male</SelectItem>
                   <SelectItem value="female">Female</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
                 </SelectContent>
               </Select>
             </div>
