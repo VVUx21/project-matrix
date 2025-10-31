@@ -100,7 +100,6 @@ const RegistrationForm = ({
         setErrors((prev) => ({ ...prev, email: "" }));
       }
     }
-
     // Validate phone numbers
     if (name === "phoneNumber" || name === "whatsappNumber") {
       if (!validatePhoneNumber(value)) {
@@ -544,7 +543,7 @@ const RegistrationForm = ({
           >
             <div className="space-y-2 mx-auto w-full">
               <label className="block text-sm font-medium text-[#7DF9FF]">
-                Gender 
+                Gender (Female registrations are closed — accommodation capacity is full.)
               </label>
               <Select
                 name="gender"
