@@ -557,7 +557,6 @@ const RegistrationForm = ({
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="male">Male</SelectItem>
-                  <SelectItem value="female">Female</SelectItem>
                 </SelectContent>
               </Select>
             </div>
