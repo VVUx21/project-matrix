@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
@@ -24,14 +24,15 @@ const Hero: React.FC = () => {
   const [formopen, setformopen] = useState(false);
   const router = useRouter();
   const { isLoaded, isSignedIn } = useAuth();
+  
+  // const toggleForm = () => {
+  //   setformopen(!formopen);
+  // }
 
-  const toggleForm = () => {
-    setformopen(!formopen);
-  }
   const handleClick = () => {
     if (isLoaded && isSignedIn) {
-      // toast.info('Registrations for this event are now closed.', { autoClose: 5000 });
-      toggleForm();
+      toast.info('Registrations for this event are now closed.', { autoClose: 5000 });
+      //toggleForm();
     } else {
       router.push("/sign-in");
     }
