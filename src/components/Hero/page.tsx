@@ -25,28 +25,13 @@ const Hero: React.FC = () => {
   const router = useRouter();
   const { isLoaded, isSignedIn } = useAuth();
 
-  useEffect(() => {
-    const id = "Registrations-closed";
-    if (!toast.isActive(id)) {
-      toast.error(
-        "Registrations for this event are now closed.",
-        {
-          toastId: id,
-          position: "top-center",
-          autoClose: false, // stays until dismissed
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: false,
-          theme: "colored",
-        }
-      );
-    }
-  }, []);
-
+  const toggleForm = () => {
+    setformopen(!formopen);
+  }
   const handleClick = () => {
     if (isLoaded && isSignedIn) {
-      toast.info('Registrations for this event are now closed.', { autoClose: 5000 });
-      // Close the form if it's open
+      // toast.info('Registrations for this event are now closed.', { autoClose: 5000 });
+      toggleForm();
     } else {
       router.push("/sign-in");
     }
