@@ -26,10 +26,10 @@ const Hero: React.FC = () => {
   const { isLoaded, isSignedIn } = useAuth();
 
   useEffect(() => {
-    const id = "female-registrations-closed";
+    const id = "Registrations-closed";
     if (!toast.isActive(id)) {
       toast.error(
-        "Female registrations are closed — accommodation capacity is full. Any submission made by selecting a different category or option will be considered INVALID and will NOT be accepted, even if payment has been completed. Please do not register under alternate gender.",
+        "Registrations for this event are now closed.",
         {
           toastId: id,
           position: "top-center",
@@ -43,13 +43,10 @@ const Hero: React.FC = () => {
     }
   }, []);
 
-  const toggleForm = () => {
-    setformopen(!formopen);
-  };
-
   const handleClick = () => {
     if (isLoaded && isSignedIn) {
-      toggleForm?.();
+      toast.info('Registrations for this event are now closed.', { autoClose: 5000 });
+      // Close the form if it's open
     } else {
       router.push("/sign-in");
     }
