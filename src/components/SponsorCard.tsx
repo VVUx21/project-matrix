@@ -32,10 +32,45 @@ const MainSponsors = [
 
 const FoodSponsors = [
   {
-    id: 0,
-    name: "image 5",
-    logo: "https://res.cloudinary.com/dmcnewoxd/image/upload/v1760361277/coming-soon-banner-with-grunge-brush-stroke-vector-illustration_275806-2107_phurtq.avif",
+    id: 1,
+    name: "Food 1",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546659/WhatsApp_Image_2025-11-07_at_13.51.51_f2b48fcf_lkexlz.jpg",
   },
+  {
+    id: 2,
+    name: "Food 2",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546640/WhatsApp_Image_2025-11-07_at_13.51.52_368c4b1d_l3nknd.jpg",
+  },
+  {
+    id: 3,
+    name: "Food 3",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546615/Chefs_Dairy_Board_civil_rr_ijlyil.jpg",
+  },
+  {
+    id: 4,
+    name: "Food 4",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546531/LT6_New_Banner4_isjerf.jpg",
+  },
+  {
+    id: 5,
+    name: "Food 5",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546482/Color_Logo_kplnjw.png",
+  },
+  {
+    id: 6,
+    name: "Food 6",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546457/WhatsApp_Image_2025-11-07_at_13.51.55_e0f845a3_mycbuq.jpg",
+  },
+  {
+    id: 7,
+    name: "Food 7",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546430/WhatsApp_Image_2025-11-07_at_13.51.55_673385a6_ht6xpj.jpg",
+  },
+  {
+    id: 8,
+    name: "Food 8",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546421/WhatsApp_Image_2025-11-07_at_13.51.56_ce34bc7e_spreew.jpg",
+  }
 ];
 
 const MediaSponsors = [
