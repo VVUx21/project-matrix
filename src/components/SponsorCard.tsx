@@ -6,27 +6,71 @@ import { neue } from "@/fonts";
 const MainSponsors = [
   {
     id: 0,
-    name: "Adobe",
-    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759425650/adobe-logo_1_tmplew.svg",
+    name: "Niladri Newtown",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762410313/Niladri_Newtown-LOGO_cinkku.png",
+    label: "INFRASTRUCTURE PARTNER"
   },
   {
     id: 1,
-    name: "Red Bull",
-    logo: "https://res.cloudinary.com/dmcnewoxd/image/upload/v1760361203/hd-red-bull-energy-logo-png-701751694778707w00dbzhxd1_zkijbv.png",
+    name: "SBI",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762410315/SBI_new_logo_gek09p.png",
+    label: "BANKING PARTNER"
   },
   {
     id: 2,
-    name: "Accenture",
-    logo: "https://res.cloudinary.com/dpidvvdgr/image/upload/v1759488708/accenture-logo_wz2xb9.svg",
+    name: "HAIER",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762410357/Untitled_design_21_cxkvjp.png",
+    label: "COOLING & HOME APPLIANCES PARTNER"
   },
+  {
+    id: 3,
+    name: "KTM",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762410301/KTM-logo_n0z21z.png",
+    label: "PERFORMANCE PARTNER"
+  }
 ];
 
 const FoodSponsors = [
   {
-    id: 0,
-    name: "image 5",
-    logo: "https://res.cloudinary.com/dmcnewoxd/image/upload/v1760361277/coming-soon-banner-with-grunge-brush-stroke-vector-illustration_275806-2107_phurtq.avif",
+    id: 1,
+    name: "Food 1",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546659/WhatsApp_Image_2025-11-07_at_13.51.51_f2b48fcf_lkexlz.jpg",
   },
+  {
+    id: 2,
+    name: "Food 2",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546640/WhatsApp_Image_2025-11-07_at_13.51.52_368c4b1d_l3nknd.jpg",
+  },
+  {
+    id: 3,
+    name: "Food 3",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546615/Chefs_Dairy_Board_civil_rr_ijlyil.jpg",
+  },
+  {
+    id: 4,
+    name: "Food 4",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546531/LT6_New_Banner4_isjerf.jpg",
+  },
+  {
+    id: 5,
+    name: "Food 5",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546482/Color_Logo_kplnjw.png",
+  },
+  {
+    id: 6,
+    name: "Food 6",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546457/WhatsApp_Image_2025-11-07_at_13.51.55_e0f845a3_mycbuq.jpg",
+  },
+  {
+    id: 7,
+    name: "Food 7",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546430/WhatsApp_Image_2025-11-07_at_13.51.55_673385a6_ht6xpj.jpg",
+  },
+  {
+    id: 8,
+    name: "Food 8",
+    logo: "https://res.cloudinary.com/dgtdkqfsx/image/upload/v1762546421/WhatsApp_Image_2025-11-07_at_13.51.56_ce34bc7e_spreew.jpg",
+  }
 ];
 
 const MediaSponsors = [
@@ -49,16 +93,67 @@ const MediaSponsors = [
 
 function StaticSponsorGrid({ sponsors }: { sponsors: typeof MainSponsors }) {
   return (
+    <div className="flex justify-center items-center gap-8 md:gap-10 lg:gap-16 flex-wrap">
+      {sponsors.map((sponsor) => (
+        <div key={sponsor.id} className="flex flex-col items-center gap-3">
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 md:p-5 lg:p-6 shadow-lg">
+            <Image
+              src={sponsor.logo}
+              alt={sponsor.name}
+              width={200}
+              height={140}
+              className="w-[100px] h-[60px] md:w-[150px] md:h-[100px] lg:w-[180px] lg:h-[120px] object-contain"
+            />
+          </div>
+          {sponsor.label && (
+            <p className={`${neue.className} text-white text-xs md:text-sm lg:text-base text-center font-semibold tracking-wide`}
+              style={{
+                textShadow: "0 0 20px rgba(255,255,255,0.5)",
+              }}
+            >
+              {sponsor.label}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function MediaSponsorGrid({ sponsors }: { sponsors: typeof MediaSponsors }) {
+  return (
     <div className="flex justify-center items-center gap-6 md:gap-8 lg:gap-12 flex-wrap">
       {sponsors.map((sponsor) => (
         <div key={sponsor.id} className="flex-shrink-0">
-          <Image
-            src={sponsor.logo}
-            alt={sponsor.name}
-            width={200}
-            height={140}
-            className="w-[100px] h-[60px] md:w-[150px] md:h-[100px] lg:w-[180px] lg:h-[120px] object-contain"
-          />
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 md:p-5 shadow-lg">
+            <Image
+              src={sponsor.logo}
+              alt={sponsor.name}
+              width={200}
+              height={140}
+              className="w-[100px] h-[60px] md:w-[150px] md:h-[100px] lg:w-[180px] lg:h-[120px] object-contain"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function FoodSponsorGrid({ sponsors }: { sponsors: typeof FoodSponsors }) {
+  return (
+    <div className="flex justify-center items-center gap-6 md:gap-8 lg:gap-12 flex-wrap">
+      {sponsors.map((sponsor) => (
+        <div key={sponsor.id} className="flex-shrink-0">
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 md:p-5 shadow-lg">
+            <Image
+              src={sponsor.logo}
+              alt={sponsor.name}
+              width={200}
+              height={140}
+              className="w-[100px] h-[60px] md:w-[150px] md:h-[100px] lg:w-[180px] lg:h-[120px] object-contain"
+            />
+          </div>
         </div>
       ))}
     </div>
@@ -102,25 +197,22 @@ export default function SponsorCard() {
         </h1>
 
         {/* **************************** Main Sponsors ********************************* */}
-        {/* <div className="min-h-[12vh] sm:min-h-[14vh] md:min-h-[16vh] lg:min-h-[18vh] xl:min-h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-6 lg:p-8 border my-4 border-white/20 flex flex-col justify-center">
-          <StaticSponsorGrid sponsors={MainSponsors} />
-        </div> */}
         <div
-          className={`${neue.className} text-white p-3 flex flex-col justify-center`}
+          className={`${neue.className} text-white text-xl md:text-2xl lg:text-3xl p-3 flex flex-col justify-center font-semibold`}
           style={{
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
           }}
         >
-          PAST SPONSORS
+          OUR SPONSORS
         </div>
 
-        <div className="min-h-[12vh] sm:min-h-[14vh] md:min-h-[16vh] lg:min-h-[18vh] xl:min-h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-6 lg:p-8 border my-4 border-white/20 flex flex-col justify-center">
+        <div className="min-h-[12vh] sm:min-h-[14vh] md:min-h-[20vh] lg:min-h-[24vh] xl:min-h-[28vh] w-[90vw] md:w-[85vw] lg:w-[75vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[15px] p-8 lg:p-10 border my-4 border-white/20 flex flex-col justify-center">
           <StaticSponsorGrid sponsors={MainSponsors} />
         </div>
 
-        {/* **************************** Food Sponsors ********************************* */}
+        {/* **************************** Media Partners ********************************* */}
         <div
-          className={`${neue.className} text-white p-3 flex flex-col justify-center`}
+          className={`${neue.className} text-white text-xl md:text-2xl lg:text-3xl p-3 flex flex-col justify-center font-semibold`}
           style={{
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
           }}
@@ -128,12 +220,13 @@ export default function SponsorCard() {
           MEDIA PARTNERS
         </div>
 
-        <div className="min-h-[12vh] sm:min-h-[14vh] md:min-h-[16vh] lg:min-h-[18vh] xl:min-h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-6 lg:p-8 border my-4 border-white/20 flex flex-col justify-center">
-          <StaticSponsorGrid sponsors={MediaSponsors} />
+        <div className="min-h-[12vh] sm:min-h-[14vh] md:min-h-[16vh] lg:min-h-[18vh] xl:min-h-[20vh] w-[90vw] md:w-[85vw] lg:w-[75vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[15px] p-6 lg:p-8 border my-4 border-white/20 flex flex-col justify-center">
+          <MediaSponsorGrid sponsors={MediaSponsors} />
         </div>
 
+        {/* **************************** Food Partners ********************************* */}
         <div
-          className={`${neue.className} text-white rounded-[60px] md:rounded-[95px] p-3 flex flex-col justify-center`}
+          className={`${neue.className} text-white text-xl md:text-2xl lg:text-3xl rounded-[60px] md:rounded-[95px] p-3 flex flex-col justify-center font-semibold`}
           style={{
             textShadow: "0 0 30px rgba(255,255,255,0.7)",
           }}
@@ -141,8 +234,8 @@ export default function SponsorCard() {
           FOOD PARTNERS
         </div>
 
-        <div className="min-h-[12vh] sm:min-h-[14vh] md:min-h-[16vh] lg:min-h-[18vh] xl:min-h-[20vh] w-[80vw] md:w-[75vw] lg:w-[65vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[10px] p-6 lg:p-8 border my-4 border-white/20 flex flex-col justify-center">
-          <StaticSponsorGrid sponsors={FoodSponsors} />
+        <div className="min-h-[12vh] sm:min-h-[14vh] md:min-h-[16vh] lg:min-h-[18vh] xl:min-h-[20vh] w-[90vw] md:w-[85vw] lg:w-[75vw] bg-white/5 backdrop-blur-xs rounded-[10px] md:rounded-[15px] p-6 lg:p-8 border my-4 border-white/20 flex flex-col justify-center">
+          <FoodSponsorGrid sponsors={FoodSponsors} />
         </div>
 
       </div>
